@@ -49,7 +49,7 @@ export default function BeautyServices() {
     <>
       <Navbar />
 
-      <main className="pt-32 pb-24 bg-[#FCFAF7] min-h-screen text-[#181816] font-sans">
+      <main className="pt-32 pb-24 bg-[#FFFFFF] min-h-screen text-[#181816] font-sans">
         
         {/* Title Wrap */}
         <div className="max-w-7xl mx-auto px-6 md:px-12 mb-12">
@@ -69,7 +69,7 @@ export default function BeautyServices() {
                 className="flex flex-col bg-white text-[#181816] shadow-premium hover:shadow-premium-hover border border-[#ECE8E1] overflow-hidden transition-all duration-500 rounded-none"
               >
                 {/* Thumbnail Wrap */}
-                <Link href={serv.learnLink} className="h-[300px] relative w-full overflow-hidden bg-[#FCFAF7] block border-b border-[#ECE8E1]">
+                <Link href={serv.learnLink} className="h-[300px] relative w-full overflow-hidden bg-[#FFFFFF] block border-b border-[#ECE8E1]">
                   <Image
                     src={serv.img}
                     alt={serv.title}
@@ -98,13 +98,13 @@ export default function BeautyServices() {
                   <div className="flex flex-wrap items-center justify-center gap-4 pt-2 w-full">
                     <Link
                       href={serv.learnLink}
-                      className="border border-[#5A6655]/45 text-[#5A6655] font-bold text-[10px] tracking-[0.2em] uppercase px-6 py-3 hover:bg-[#5A6655] hover:text-white transition-all duration-300 min-w-[140px] text-center rounded-none"
+                      className="border border-[#E5A99E]/45 text-[#E5A99E] font-bold text-[10px] tracking-[0.2em] uppercase px-6 py-3 hover:bg-[#E5A99E] hover:text-white transition-all duration-300 min-w-[140px] text-center rounded-none"
                     >
                       Learn More
                     </Link>
                     <a
                       href={serv.bookLink}
-                      className="bg-[#5A6655] border border-[#5A6655] text-white font-bold text-[10px] tracking-[0.2em] uppercase px-6 py-3 hover:bg-[#C6A86B] hover:border-[#C6A86B] transition-all duration-300 min-w-[140px] text-center rounded-none"
+                      className="bg-[#111111] border border-[#111111] text-white font-bold text-[10px] tracking-[0.2em] uppercase px-6 py-3 hover:bg-[#E5A99E] hover:border-[#E5A99E] transition-all duration-300 min-w-[140px] text-center rounded-none"
                     >
                       Book Now
                     </a>

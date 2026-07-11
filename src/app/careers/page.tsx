@@ -12,7 +12,7 @@ export default function CareersPage() {
     <>
       <Navbar />
 
-      <main className="pt-32 pb-24 bg-[#FCFAF7] min-h-screen text-[#181816] font-sans">
+      <main className="pt-32 pb-24 bg-[#FFFFFF] min-h-screen text-[#181816] font-sans">
         
         {/* Title Section */}
         <div className="max-w-7xl mx-auto px-6 md:px-12 mb-16 text-center space-y-4">
@@ -30,7 +30,7 @@ export default function CareersPage() {
 
         {/* Career Inquiry Form Section */}
         <div className="max-w-3xl mx-auto px-6">
-          <div className="bg-white border border-[#ECE8E1] p-8 md:p-12 rounded-none space-y-6 shadow-premium">
+          <div className="bg-gradient-to-br from-white via-[#FDF8F6]/30 to-[#FAF0ED]/20 border border-[#ECE8E1] p-8 md:p-12 rounded-none space-y-6 shadow-premium">
             <div>
               <h3 className="font-serif text-2xl text-[#181816] font-semibold uppercase tracking-wider">
                 Apply to Join the Team
@@ -59,7 +59,7 @@ export default function CareersPage() {
                 className="grid grid-cols-1 sm:grid-cols-2 gap-6"
               >
                 <div className="flex flex-col space-y-2">
-                  <label className="font-sans text-[10px] tracking-widest text-[#5A6655] uppercase font-semibold">
+                  <label className="font-sans text-[10px] tracking-widest text-[#111111]/70 uppercase font-semibold">
                     First Name
                   </label>
                   <input
@@ -69,7 +69,7 @@ export default function CareersPage() {
                   />
                 </div>
                 <div className="flex flex-col space-y-2">
-                  <label className="font-sans text-[10px] tracking-widest text-[#5A6655] uppercase font-semibold">
+                  <label className="font-sans text-[10px] tracking-widest text-[#111111]/70 uppercase font-semibold">
                     Last Name
                   </label>
                   <input
@@ -79,7 +79,7 @@ export default function CareersPage() {
                   />
                 </div>
                 <div className="flex flex-col space-y-2">
-                  <label className="font-sans text-[10px] tracking-widest text-[#5A6655] uppercase font-semibold">
+                  <label className="font-sans text-[10px] tracking-widest text-[#111111]/70 uppercase font-semibold">
                     Contact Email
                   </label>
                   <input
@@ -89,7 +89,7 @@ export default function CareersPage() {
                   />
                 </div>
                 <div className="flex flex-col space-y-2">
-                  <label className="font-sans text-[10px] tracking-widest text-[#5A6655] uppercase font-semibold">
+                  <label className="font-sans text-[10px] tracking-widest text-[#111111]/70 uppercase font-semibold">
                     Desired Role / Specialism
                   </label>
                   <input
@@ -100,7 +100,7 @@ export default function CareersPage() {
                   />
                 </div>
                 <div className="flex flex-col space-y-2 sm:col-span-2">
-                  <label className="font-sans text-[10px] tracking-widest text-[#5A6655] uppercase font-semibold">
+                  <label className="font-sans text-[10px] tracking-widest text-[#111111]/70 uppercase font-semibold">
                     Years of Industry Experience
                   </label>
                   <input
@@ -110,7 +110,7 @@ export default function CareersPage() {
                   />
                 </div>
                 <div className="flex flex-col space-y-2 sm:col-span-2">
-                  <label className="font-sans text-[10px] tracking-widest text-[#5A6655] uppercase font-semibold">
+                  <label className="font-sans text-[10px] tracking-widest text-[#111111]/70 uppercase font-semibold">
                     Covering Note / Message
                   </label>
                   <textarea
@@ -124,7 +124,7 @@ export default function CareersPage() {
                 <div className="sm:col-span-2 pt-2">
                   <button
                     type="submit"
-                    className="w-full bg-[#5A6655] text-white font-semibold text-xs tracking-[0.25em] uppercase py-4 rounded-none hover:bg-[#C6A86B] transition-all duration-300 cursor-pointer"
+                    className="w-full bg-[#111111] text-white font-semibold text-xs tracking-[0.25em] uppercase py-4 rounded-none hover:bg-[#E5A99E] transition-all duration-300 cursor-pointer"
                   >
                     Submit Inquiry
                   </button>

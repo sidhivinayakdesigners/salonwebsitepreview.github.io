@@ -57,7 +57,7 @@ export default function BlowerPage() {
     <>
       <Navbar />
 
-      <main className="pt-32 pb-24 bg-[#FCFAF7] min-h-screen text-[#181816] font-sans">
+      <main className="pt-32 pb-24 bg-[#FFFFFF] min-h-screen text-[#181816] font-sans">
         
         {/* Title Block */}
         <div className="max-w-4xl mx-auto px-6 text-center mb-16 space-y-4">
@@ -107,7 +107,7 @@ export default function BlowerPage() {
                 </div>
                 <button
                   onClick={() => alert("Coming soon!")}
-                  className="bg-[#5A6655] text-white font-semibold text-[10px] tracking-[0.2em] uppercase px-5 py-2.5 rounded-none hover:bg-[#C6A86B] transition-colors cursor-pointer"
+                  className="bg-[#111111] text-white font-semibold text-[10px] tracking-[0.2em] uppercase px-5 py-2.5 rounded-none hover:bg-[#E5A99E] transition-colors cursor-pointer"
                 >
                   Read More
                 </button>

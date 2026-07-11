@@ -20,7 +20,7 @@ export default function ContactPage() {
     <>
       <Navbar />
 
-      <main className="pt-32 pb-24 bg-[#FCFAF7] min-h-screen text-[#181816] font-sans">
+      <main className="pt-32 pb-24 bg-[#FFFFFF] min-h-screen text-[#181816] font-sans">
         
         {/* Title Block */}
         <div className="max-w-4xl mx-auto px-6 text-center mb-16 space-y-4">
@@ -37,7 +37,7 @@ export default function ContactPage() {
         <div className="max-w-6xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 mb-20 items-stretch">
           
           {/* Left Column: Form */}
-          <div className="lg:col-span-7 bg-white p-8 md:p-12 border border-[#ECE8E1] shadow-premium rounded-none flex flex-col justify-between">
+          <div className="lg:col-span-7 bg-gradient-to-br from-white via-[#FDF8F6]/30 to-[#FAF0ED]/20 p-8 md:p-12 border border-[#ECE8E1] shadow-premium rounded-none flex flex-col justify-between">
             <div className="mb-8">
               <h2 className="font-serif text-2xl font-semibold uppercase tracking-wider text-[#181816]">
                 Send a Message
@@ -64,7 +64,7 @@ export default function ContactPage() {
                 className="space-y-6"
               >
                 <div className="flex flex-col space-y-1.5">
-                  <label className="text-[10px] tracking-widest uppercase font-bold text-[#5A6655]">
+                  <label className="text-[10px] tracking-widest uppercase font-bold text-[#111111]/70">
                     Name
                   </label>
                   <input
@@ -75,7 +75,7 @@ export default function ContactPage() {
                 </div>
 
                 <div className="flex flex-col space-y-1.5">
-                  <label className="text-[10px] tracking-widest uppercase font-bold text-[#5A6655]">
+                  <label className="text-[10px] tracking-widest uppercase font-bold text-[#111111]/70">
                     Email
                   </label>
                   <input
@@ -86,7 +86,7 @@ export default function ContactPage() {
                 </div>
 
                 <div className="flex flex-col space-y-1.5">
-                  <label className="text-[10px] tracking-widest uppercase font-bold text-[#5A6655]">
+                  <label className="text-[10px] tracking-widest uppercase font-bold text-[#111111]/70">
                     Mobile
                   </label>
                   <input
@@ -96,7 +96,7 @@ export default function ContactPage() {
                 </div>
 
                 <div className="flex flex-col space-y-1.5">
-                  <label className="text-[10px] tracking-widest uppercase font-bold text-[#5A6655]">
+                  <label className="text-[10px] tracking-widest uppercase font-bold text-[#111111]/70">
                     Message
                   </label>
                   <textarea
@@ -108,7 +108,7 @@ export default function ContactPage() {
 
                 <button
                   type="submit"
-                  className="w-full bg-[#5A6655] text-white font-semibold text-xs tracking-[0.25em] uppercase py-4 rounded-none hover:bg-[#C6A86B] transition-colors cursor-pointer"
+                  className="w-full bg-[#111111] text-white font-semibold text-xs tracking-[0.25em] uppercase py-4 rounded-none hover:bg-[#E5A99E] transition-colors cursor-pointer"
                 >
                   Send
                 </button>
@@ -117,7 +117,7 @@ export default function ContactPage() {
           </div>
 
           {/* Right Column: Contact Details Card */}
-          <div className="lg:col-span-5 bg-white border border-[#ECE8E1] p-8 md:p-12 shadow-premium rounded-none flex flex-col justify-between">
+          <div className="lg:col-span-5 bg-gradient-to-br from-white via-[#FDF8F6]/30 to-[#FAF0ED]/20 border border-[#ECE8E1] p-8 md:p-12 shadow-premium rounded-none flex flex-col justify-between">
             <div className="space-y-6">
               <h2 className="font-serif text-2xl font-semibold uppercase tracking-wider text-[#181816]">
                 Contact Details
@@ -126,7 +126,7 @@ export default function ContactPage() {
 
               <ul className="space-y-6 font-sans text-sm tracking-wider">
                 <li>
-                  <span className="text-[10px] tracking-widest uppercase text-[#5A6655] font-bold block mb-1">
+                  <span className="text-[10px] tracking-widest uppercase text-[#E5A99E] font-bold block mb-1">
                     Call Us
                   </span>
                   <a href="tel:02077360430" className="hover:text-[#C6A86B] text-[#181816] font-semibold transition-colors">
@@ -135,7 +135,7 @@ export default function ContactPage() {
                 </li>
 
                 <li>
-                  <span className="text-[10px] tracking-widest uppercase text-[#5A6655] font-bold block mb-1">
+                  <span className="text-[10px] tracking-widest uppercase text-[#E5A99E] font-bold block mb-1">
                     Enquiries & Marketing
                   </span>
                   <a href="mailto:info@blushandblowlondon.com" className="hover:text-[#C6A86B] text-[#181816] font-semibold transition-colors">
@@ -144,7 +144,7 @@ export default function ContactPage() {
                 </li>
 
                 <li>
-                  <span className="text-[10px] tracking-widest uppercase text-[#5A6655] font-bold block mb-1">
+                  <span className="text-[10px] tracking-widest uppercase text-[#E5A99E] font-bold block mb-1">
                     Press & PR
                   </span>
                   <a href="mailto:mel@melissalloydpr.com" className="hover:text-[#C6A86B] text-[#181816] font-semibold transition-colors">
@@ -156,7 +156,7 @@ export default function ContactPage() {
 
             {/* Quick Action Grid */}
             <div className="pt-8 border-t border-[#ECE8E1] space-y-4">
-              <span className="text-[10px] tracking-widest uppercase text-[#5A6655] font-bold block">
+              <span className="text-[10px] tracking-widest uppercase text-[#111111]/70 font-bold block">
                 Quick Booking
               </span>
               <div className="grid grid-cols-2 gap-3 text-[10px] font-bold tracking-widest uppercase text-center">
@@ -170,7 +170,7 @@ export default function ContactPage() {
                 <Link
                   href="https://www.fresha.com/providers/blush-blow-w9xnf8li?pId=9954&dppub=true"
                   target="_blank"
-                  className="bg-[#5A6655] text-white py-3 rounded-none hover:bg-[#C6A86B] transition-colors cursor-pointer"
+                  className="bg-[#111111] text-white py-3 rounded-none hover:bg-[#E5A99E] transition-colors cursor-pointer"
                 >
                   Book Online
                 </Link>
@@ -207,7 +207,7 @@ export default function ContactPage() {
                       key={index}
                       className="border-b border-[#ECE8E1] last:border-b-0"
                     >
-                      <td className="py-3 font-semibold uppercase text-xs text-[#5A6655]">
+                      <td className="py-3 font-semibold uppercase text-xs text-[#E5A99E]">
                         {row.day}
                       </td>
                       <td className="py-3 text-right font-light text-[#666666]">
@@ -243,7 +243,7 @@ export default function ContactPage() {
             <div className="pt-4">
               <a
                 href="mailto:info@blushandblowlondon.com"
-                className="inline-block bg-[#5A6655] text-white font-semibold text-xs tracking-[0.25em] uppercase px-10 py-4.5 rounded-none hover:bg-[#C6A86B] transition-colors cursor-pointer"
+                className="inline-block bg-[#111111] text-white font-semibold text-xs tracking-[0.25em] uppercase px-10 py-4.5 rounded-none hover:bg-[#E5A99E] transition-colors cursor-pointer"
               >
                 Get In Touch
               </a>

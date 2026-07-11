@@ -31,7 +31,7 @@ export default function BridalServices() {
     <>
       <Navbar />
 
-      <main className="pt-32 pb-24 bg-[#FCFAF7] min-h-screen text-[#181816] font-sans">
+      <main className="pt-32 pb-24 bg-[#FFFFFF] min-h-screen text-[#181816] font-sans">
         
         {/* Title Wrap */}
         <div className="max-w-7xl mx-auto px-6 md:px-12 mb-12">
@@ -51,7 +51,7 @@ export default function BridalServices() {
                 className="flex flex-col bg-white text-[#181816] shadow-premium hover:shadow-premium-hover border border-[#ECE8E1] overflow-hidden transition-all duration-500 rounded-none"
               >
                 {/* Thumbnail Wrap */}
-                <Link href={serv.learnLink} className="h-[300px] relative w-full overflow-hidden bg-[#FCFAF7] block border-b border-[#ECE8E1]">
+                <Link href={serv.learnLink} className="h-[300px] relative w-full overflow-hidden bg-[#FFFFFF] block border-b border-[#ECE8E1]">
                   <Image
                     src={serv.img}
                     alt={serv.title}
@@ -80,13 +80,13 @@ export default function BridalServices() {
                   <div className="flex flex-wrap items-center justify-center gap-4 pt-2 w-full">
                     <Link
                       href={serv.learnLink}
-                      className="border border-[#5A6655]/45 text-[#5A6655] font-bold text-[10px] tracking-[0.2em] uppercase px-6 py-3 hover:bg-[#5A6655] hover:text-white transition-all duration-300 min-w-[140px] text-center rounded-none"
+                      className="border border-[#E5A99E]/45 text-[#E5A99E] font-bold text-[10px] tracking-[0.2em] uppercase px-6 py-3 hover:bg-[#E5A99E] hover:text-white transition-all duration-300 min-w-[140px] text-center rounded-none"
                     >
                       Learn More
                     </Link>
                     <a
                       href={serv.bookLink}
-                      className="bg-[#5A6655] border border-[#5A6655] text-white font-bold text-[10px] tracking-[0.2em] uppercase px-6 py-3 hover:bg-[#C6A86B] hover:border-[#C6A86B] transition-all duration-300 min-w-[140px] text-center rounded-none"
+                      className="bg-[#111111] border border-[#111111] text-white font-bold text-[10px] tracking-[0.2em] uppercase px-6 py-3 hover:bg-[#E5A99E] hover:border-[#E5A99E] transition-all duration-300 min-w-[140px] text-center rounded-none"
                     >
                       Book Now
                     </a>
@@ -99,7 +99,7 @@ export default function BridalServices() {
 
         {/* Bridal Inquiry Form Section */}
         <div className="max-w-4xl mx-auto px-6 md:px-12">
-          <div className="bg-white border border-[#ECE8E1] p-8 md:p-12 rounded-none space-y-6 shadow-premium">
+          <div className="bg-gradient-to-br from-white via-[#FDF8F6]/30 to-[#FAF0ED]/20 border border-[#ECE8E1] p-8 md:p-12 rounded-none space-y-6 shadow-premium">
             <div>
               <h3 className="font-serif text-2xl text-[#181816] font-semibold uppercase tracking-wider">
                 Bridal Consultation Request
@@ -128,7 +128,7 @@ export default function BridalServices() {
                 className="grid grid-cols-1 sm:grid-cols-2 gap-6"
               >
                 <div className="flex flex-col space-y-2">
-                  <label className="font-sans text-[10px] tracking-widest text-[#5A6655] uppercase font-semibold">
+                  <label className="font-sans text-[10px] tracking-widest text-[#111111]/70 uppercase font-semibold">
                     Your Name
                   </label>
                   <input
@@ -138,7 +138,7 @@ export default function BridalServices() {
                   />
                 </div>
                 <div className="flex flex-col space-y-2">
-                  <label className="font-sans text-[10px] tracking-widest text-[#5A6655] uppercase font-semibold">
+                  <label className="font-sans text-[10px] tracking-widest text-[#111111]/70 uppercase font-semibold">
                     Wedding Date
                   </label>
                   <input
@@ -148,7 +148,7 @@ export default function BridalServices() {
                   />
                 </div>
                 <div className="flex flex-col space-y-2">
-                  <label className="font-sans text-[10px] tracking-widest text-[#5A6655] uppercase font-semibold">
+                  <label className="font-sans text-[10px] tracking-widest text-[#111111]/70 uppercase font-semibold">
                     Wedding Location / Venue
                   </label>
                   <input
@@ -158,7 +158,7 @@ export default function BridalServices() {
                   />
                 </div>
                 <div className="flex flex-col space-y-2">
-                  <label className="font-sans text-[10px] tracking-widest text-[#5A6655] uppercase font-semibold">
+                  <label className="font-sans text-[10px] tracking-widest text-[#111111]/70 uppercase font-semibold">
                     Bridal Party Size (Hair/Makeup)
                   </label>
                   <input
@@ -169,7 +169,7 @@ export default function BridalServices() {
                   />
                 </div>
                 <div className="flex flex-col space-y-2 sm:col-span-2">
-                  <label className="font-sans text-[10px] tracking-widest text-[#5A6655] uppercase font-semibold">
+                  <label className="font-sans text-[10px] tracking-widest text-[#111111]/70 uppercase font-semibold">
                     Contact Email
                   </label>
                   <input
@@ -179,7 +179,7 @@ export default function BridalServices() {
                   />
                 </div>
                 <div className="flex flex-col space-y-2 sm:col-span-2">
-                  <label className="font-sans text-[10px] tracking-widest text-[#5A6655] uppercase font-semibold">
+                  <label className="font-sans text-[10px] tracking-widest text-[#111111]/70 uppercase font-semibold">
                     Additional Requirements
                   </label>
                   <textarea
@@ -192,7 +192,7 @@ export default function BridalServices() {
                 <div className="sm:col-span-2 pt-2">
                   <button
                     type="submit"
-                    className="w-full bg-[#5A6655] text-white font-semibold text-xs tracking-[0.25em] uppercase py-4 rounded-none hover:bg-[#C6A86B] transition-all duration-300 cursor-pointer"
+                    className="w-full bg-[#111111] text-white font-semibold text-xs tracking-[0.25em] uppercase py-4 rounded-none hover:bg-[#E5A99E] transition-all duration-300 cursor-pointer"
                   >
                     Submit Consultation Request
                   </button>

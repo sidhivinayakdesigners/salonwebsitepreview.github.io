@@ -128,7 +128,7 @@ export default function FAQsPage() {
     <>
       <Navbar />
 
-      <main className="pt-32 pb-24 bg-[#FCFAF7] min-h-screen text-[#181816] font-sans">
+      <main className="pt-32 pb-24 bg-[#FFFFFF] min-h-screen text-[#181816] font-sans">
         
         {/* Title */}
         <div className="max-w-4xl mx-auto px-6 text-center mb-16 space-y-4">
@@ -166,7 +166,7 @@ export default function FAQsPage() {
                       transition={{ duration: 0.3 }}
                       className="border-t border-[#ECE8E1]"
                     >
-                      <p className="px-8 py-5 font-sans text-xs leading-relaxed tracking-wider text-[#666666] bg-[#FCFAF7]/40">
+                      <p className="px-8 py-5 font-sans text-xs leading-relaxed tracking-wider text-[#666666] bg-[#FDF8F6]/40">
                         {faq.a}
                       </p>
                     </motion.div>

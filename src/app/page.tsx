@@ -124,7 +124,7 @@ export default function Home() {
             initial={{ opacity: 1 }}
             exit={{ opacity: 0, y: -80 }}
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-            className="fixed inset-0 bg-[#5A6655] z-[9999] flex flex-col items-center justify-center select-none overflow-hidden"
+            className="fixed inset-0 bg-[#E5A99E] z-[9999] flex flex-col items-center justify-center select-none overflow-hidden"
           >
             <div className="flex flex-col items-center space-y-6">
               <motion.div 
@@ -161,7 +161,7 @@ export default function Home() {
                 initial={{ opacity: 0, letterSpacing: "0.2em" }}
                 animate={{ opacity: 1, letterSpacing: "0.5em" }}
                 transition={{ duration: 1.5, delay: 0.8, ease: "easeOut" }}
-                className="flex items-center w-full justify-center text-[#FCFAF7]/80"
+                className="flex items-center w-full justify-center text-white/80"
               >
                 <span className="text-[10px] sm:text-xs tracking-[0.5em] uppercase font-sans font-light">
                   LONDON
@@ -173,7 +173,7 @@ export default function Home() {
               initial={{ scaleX: 0 }}
               animate={{ scaleX: 1 }}
               transition={{ duration: 1.8, delay: 0.3, ease: "easeInOut" }}
-              className="absolute bottom-16 left-12 right-12 h-[0.5px] bg-[#FCFAF7]/30 origin-left"
+              className="absolute bottom-16 left-12 right-12 h-[0.5px] bg-white/30 origin-left"
             />
           </motion.div>
         )}
@@ -181,10 +181,10 @@ export default function Home() {
 
       <Navbar />
 
-      <main className="overflow-hidden bg-[#FCFAF7] text-[#181816]">
+      <main className="overflow-hidden bg-[#FFFFFF] text-[#181816]">
         
         {/* 1. HERO/BANNER SECTION */}
-        <section className="relative pt-24 pb-12 lg:min-h-screen lg:flex lg:items-center lg:pt-32 lg:pb-16 bg-[#FCFAF7]">
+        <section className="relative pt-24 pb-12 lg:min-h-screen lg:flex lg:items-center lg:pt-32 lg:pb-16 bg-[#FFFFFF]">
           <div className="max-w-7xl mx-auto px-6 md:px-12 w-full grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
             
             {/* Left Column: Wording and Vertical stacked large buttons */}
@@ -252,7 +252,7 @@ export default function Home() {
                   >
                     <Link
                       href={`/${lbl.toLowerCase()}`}
-                      className="w-full block bg-white/60 text-[#181816] font-serif text-sm tracking-[0.25em] uppercase py-4 text-center rounded hover:bg-[#5A6655] hover:text-white hover:border-[#5A6655] transition-all duration-300 shadow-sm border border-[#ECE8E1]"
+                      className="w-full block bg-white/60 text-[#181816] font-serif text-sm tracking-[0.25em] uppercase py-4 text-center hover:bg-[#E5A99E] hover:text-white hover:border-[#E5A99E] transition-all duration-300 shadow-sm border border-[#ECE8E1] rounded-none"
                     >
                       {lbl}
                     </Link>
@@ -268,8 +268,8 @@ export default function Home() {
               transition={{ duration: 1.2, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
               className="lg:col-span-6 relative h-[320px] sm:h-[400px] lg:h-[500px] w-full flex items-center justify-center order-1 lg:order-none"
             >
-              <div className="w-[92%] h-[92%] overflow-hidden border border-[#C6A86B] p-2 bg-[#FCFAF7] relative shadow-xl">
-                <div className="w-full h-full relative overflow-hidden border border-[#5A6655]/20">
+              <div className="w-[92%] h-[92%] overflow-hidden border border-[#C6A86B] p-2 bg-[#FFFFFF] relative shadow-xl">
+                <div className="w-full h-full relative overflow-hidden border border-[#E5A99E]/20">
                   <motion.div
                     initial={{ scale: 1.15 }}
                     animate={{ scale: 1.0 }}
@@ -293,7 +293,7 @@ export default function Home() {
         </section>
 
         {/* 2. CONCERN SECTION */}
-        <section className="py-20 lg:py-28 bg-gradient-to-b from-[#FCFAF7] to-[#FAF6EE] border-t border-[#ECE8E1] overflow-hidden">
+        <section className="py-20 lg:py-28 bg-gradient-to-b from-[#FFFFFF] to-[#FDF8F6] border-t border-[#ECE8E1] overflow-hidden">
           <motion.div 
             initial="hidden"
             whileInView="visible"
@@ -309,7 +309,7 @@ export default function Home() {
           >
             {/* Elegant Double Frame Border */}
             <div className="border border-[#C6A86B]/40 p-2 md:p-3 rounded-none shadow-premium bg-white">
-              <div className="border border-[#5A6655]/25 p-8 md:p-12 lg:p-16 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center">
+              <div className="border border-[#E5A99E]/30 p-8 md:p-12 lg:p-16 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center">
                 
                 {/* Left: Image */}
                 <motion.div 
@@ -349,7 +349,7 @@ export default function Home() {
                   >
                     <Link
                       href="https://www.fresha.com/providers/blush-blow-w9xnf8li?pId=9954&dppub=true"
-                      className="border border-[#5A6655] text-[#5A6655] font-semibold text-xs tracking-[0.25em] uppercase px-12 py-4.5 rounded-none hover:bg-[#5A6655] hover:text-white transition-all duration-300 block text-center min-w-[200px] cursor-pointer"
+                      className="border border-[#E5A99E] text-[#E5A99E] font-semibold text-xs tracking-[0.25em] uppercase px-12 py-4.5 rounded-none hover:bg-[#E5A99E] hover:text-white transition-all duration-300 block text-center min-w-[200px] cursor-pointer"
                     >
                       Book Now
                     </Link>
@@ -361,7 +361,7 @@ export default function Home() {
         </section>
 
         {/* 3. HAIR SERVICES SECTION */}
-        <section className="py-16 lg:py-24 bg-[#FCFAF7] border-t border-[#ECE8E1]">
+        <section className="py-16 lg:py-24 bg-[#FFFFFF] border-t border-[#ECE8E1]">
           <div className="max-w-7xl mx-auto px-6 md:px-12">
             
             <div className="text-center max-w-2xl mx-auto mb-10 lg:mb-16 space-y-4">
@@ -440,7 +440,7 @@ export default function Home() {
               >
                 <Link
                   href="/hair"
-                  className="inline-block border border-[#5A6655]/40 text-[#5A6655] font-semibold text-xs tracking-[0.25em] uppercase px-8 py-4 rounded-none hover:bg-[#5A6655] hover:text-white transition-all duration-300"
+                  className="inline-block border border-[#E5A99E]/40 text-[#E5A99E] font-semibold text-xs tracking-[0.25em] uppercase px-8 py-4 rounded-none hover:bg-[#E5A99E] hover:text-white transition-all duration-300"
                 >
                   More Hair Services
                 </Link>
@@ -451,7 +451,7 @@ export default function Home() {
         </section>
 
         {/* 4. NAILS SERVICES SECTION */}
-        <section className="py-16 lg:py-24 bg-[#FCFAF7] border-t border-[#ECE8E1]">
+        <section className="py-16 lg:py-24 bg-[#FDF8F6] border-t border-[#ECE8E1]">
           <div className="max-w-7xl mx-auto px-6 md:px-12">
             
             <div className="text-center max-w-2xl mx-auto mb-10 lg:mb-16 space-y-4">
@@ -491,7 +491,7 @@ export default function Home() {
                   whileHover={{ y: -6 }}
                   className="group bg-white border border-[#ECE8E1] overflow-hidden shadow-premium hover:shadow-premium-hover transition-all duration-500 flex flex-col cursor-pointer rounded-none relative"
                 >
-                  <div className="p-4 bg-[#FCFAF7] border-b border-[#ECE8E1] text-center text-[10px] tracking-[0.25em] text-[#5A6655] font-semibold uppercase group-hover:bg-[#ECE8E1]/40 transition-colors">
+                  <div className="p-4 bg-[#FDF8F6] border-b border-[#ECE8E1] text-center text-[10px] tracking-[0.25em] text-[#E5A99E] font-semibold uppercase group-hover:bg-[#ECE8E1]/40 transition-colors">
                     {col.label}
                   </div>
                   <div className="h-72 relative overflow-hidden">
@@ -529,7 +529,7 @@ export default function Home() {
               >
                 <Link
                   href="/nails"
-                  className="inline-block border border-[#5A6655]/40 text-[#5A6655] font-semibold text-xs tracking-[0.25em] uppercase px-8 py-4 rounded-none hover:bg-[#5A6655] hover:text-white transition-all duration-300 text-center min-w-[200px]"
+                  className="inline-block border border-[#E5A99E]/40 text-[#E5A99E] font-semibold text-xs tracking-[0.25em] uppercase px-8 py-4 rounded-none hover:bg-[#E5A99E] hover:text-white transition-all duration-300 text-center min-w-[200px]"
                 >
                   More Nails Services
                 </Link>
@@ -541,7 +541,7 @@ export default function Home() {
               >
                 <Link
                   href="https://www.fresha.com/providers/blush-blow-w9xnf8li?pId=9954&dppub=true"
-                  className="inline-block bg-[#5A6655] text-white font-semibold text-xs tracking-[0.25em] uppercase px-8 py-4 rounded-none hover:bg-[#C6A86B] transition-all duration-300 text-center min-w-[200px]"
+                  className="inline-block bg-[#111111] text-white font-semibold text-xs tracking-[0.25em] uppercase px-8 py-4 rounded-none hover:bg-[#E5A99E] transition-all duration-300 text-center min-w-[200px]"
                 >
                   Book Now
                 </Link>
@@ -552,7 +552,7 @@ export default function Home() {
         </section>
 
         {/* 5. BEAUTY SERVICES SECTION */}
-        <section className="py-16 lg:py-24 bg-[#FCFAF7] border-t border-[#ECE8E1]">
+        <section className="py-16 lg:py-24 bg-[#FFFFFF] border-t border-[#ECE8E1]">
           <div className="max-w-7xl mx-auto px-6 md:px-12">
             
             <div className="text-center max-w-2xl mx-auto mb-10 lg:mb-16 space-y-4">
@@ -605,7 +605,7 @@ export default function Home() {
                   </div>
                   <div className="p-6 text-center space-y-4 flex-grow flex flex-col justify-between">
                     <div className="space-y-1">
-                      <p className="text-[10px] tracking-widest text-[#5A6655]/60 font-semibold uppercase">
+                      <p className="text-[10px] tracking-widest text-[#E5A99E] font-semibold uppercase">
                         {serv.title}
                       </p>
                       <h3 className="font-serif text-lg text-[#181816] font-semibold uppercase tracking-wider group-hover:text-[#C6A86B] transition-colors">
@@ -634,7 +634,7 @@ export default function Home() {
               >
                 <Link
                   href="/beauty"
-                  className="inline-block border border-[#5A6655]/40 text-[#5A6655] font-semibold text-xs tracking-[0.25em] uppercase px-8 py-4 rounded-none hover:bg-[#5A6655] hover:text-white transition-all duration-300 text-center min-w-[220px]"
+                  className="inline-block border border-[#E5A99E]/40 text-[#E5A99E] font-semibold text-xs tracking-[0.25em] uppercase px-8 py-4 rounded-none hover:bg-[#E5A99E] hover:text-white transition-all duration-300 text-center min-w-[220px]"
                 >
                   See All Beauty Services
                 </Link>
@@ -646,7 +646,7 @@ export default function Home() {
               >
                 <Link
                   href="https://www.fresha.com/providers/blush-blow-w9xnf8li?pId=9954&dppub=true"
-                  className="inline-block bg-[#5A6655] text-white font-semibold text-xs tracking-[0.25em] uppercase px-8 py-4 rounded-none hover:bg-[#C6A86B] transition-all duration-300 text-center min-w-[200px]"
+                  className="inline-block bg-[#111111] text-white font-semibold text-xs tracking-[0.25em] uppercase px-8 py-4 rounded-none hover:bg-[#E5A99E] transition-all duration-300 text-center min-w-[200px]"
                 >
                   Book Now
                 </Link>
@@ -657,7 +657,7 @@ export default function Home() {
         </section>
 
         {/* 6. TEAM SECTION */}
-        <section id="team" className="py-16 lg:py-24 bg-[#151915] text-white">
+        <section id="team" className="py-16 lg:py-24 bg-[#111111] text-white">
           <div className="max-w-7xl mx-auto px-6 md:px-12">
             
             <div className="text-center max-w-2xl mx-auto mb-10 lg:mb-16 space-y-4">
@@ -704,7 +704,7 @@ export default function Home() {
                   </div>
                   <div className="p-6 text-center space-y-2">
                     <h3 className="font-serif text-lg font-semibold uppercase tracking-wider text-[#181816]">{memb.name}</h3>
-                    <p className="font-sans text-[9px] tracking-widest text-[#5A6655] uppercase font-bold">
+                    <p className="font-sans text-[9px] tracking-widest text-[#E5A99E] uppercase font-bold">
                       {memb.role}
                     </p>
                   </div>
@@ -718,7 +718,7 @@ export default function Home() {
         </section>
 
         {/* 7. BRIDAL SERVICES SECTION */}
-        <section className="py-16 lg:py-24 bg-[#FCFAF7] border-t border-[#ECE8E1]">
+        <section className="py-16 lg:py-24 bg-[#FDF8F6] border-t border-[#ECE8E1]">
           <div className="max-w-7xl mx-auto px-6 md:px-12">
             
             <div className="text-center max-w-2xl mx-auto mb-10 lg:mb-16 space-y-4">
@@ -761,7 +761,7 @@ export default function Home() {
                   whileHover={{ y: -6 }}
                   className="group bg-white border border-[#ECE8E1] overflow-hidden shadow-premium hover:shadow-premium-hover transition-all duration-500 flex flex-col cursor-pointer rounded-none relative"
                 >
-                  <div className="p-4 bg-[#FCFAF7] border-b border-[#ECE8E1] text-center text-[10px] tracking-[0.25em] text-[#5A6655] font-semibold uppercase group-hover:bg-[#ECE8E1]/40 transition-colors">
+                  <div className="p-4 bg-[#FFFFFF] border-b border-[#ECE8E1] text-center text-[10px] tracking-[0.25em] text-[#E5A99E] font-semibold uppercase group-hover:bg-[#ECE8E1]/40 transition-colors">
                     {b.label}
                   </div>
                   <div className="h-72 relative overflow-hidden">
@@ -799,7 +799,7 @@ export default function Home() {
               >
                 <Link
                   href="/bridal"
-                  className="inline-block border border-[#5A6655]/40 text-[#5A6655] font-semibold text-xs tracking-[0.25em] uppercase px-8 py-4 rounded-none hover:bg-[#5A6655] hover:text-white transition-all duration-300 text-center min-w-[200px]"
+                  className="inline-block border border-[#E5A99E]/40 text-[#E5A99E] font-semibold text-xs tracking-[0.25em] uppercase px-8 py-4 rounded-none hover:bg-[#E5A99E] hover:text-white transition-all duration-300 text-center min-w-[200px]"
                 >
                   More Bridal Services
                 </Link>
@@ -811,7 +811,7 @@ export default function Home() {
               >
                 <Link
                   href="https://www.fresha.com/providers/blush-blow-w9xnf8li?pId=9954&dppub=true"
-                  className="inline-block bg-[#5A6655] text-white font-semibold text-xs tracking-[0.25em] uppercase px-8 py-4 rounded-none hover:bg-[#C6A86B] transition-all duration-300 text-center min-w-[200px]"
+                  className="inline-block bg-[#111111] text-white font-semibold text-xs tracking-[0.25em] uppercase px-8 py-4 rounded-none hover:bg-[#E5A99E] transition-all duration-300 text-center min-w-[200px]"
                 >
                   Book Now
                 </Link>
@@ -819,8 +819,9 @@ export default function Home() {
             </div>
           </div>
         </section>
+
         {/* 10. TESTIMONIALS SECTION */}
-        <section className="py-16 lg:py-24 bg-[#FCFAF7] border-t border-[#ECE8E1]">
+        <section className="py-16 lg:py-24 bg-[#FFFFFF] border-t border-[#ECE8E1]">
           <div className="max-w-5xl mx-auto px-6 text-center space-y-8">
             
             <div className="space-y-4">
@@ -877,7 +878,7 @@ export default function Home() {
         </section>
 
         {/* 13. FAQ ACCORDION SECTION */}
-        <section id="faq" className="py-16 lg:py-24 bg-[#FCFAF7] border-t border-[#ECE8E1]">
+        <section id="faq" className="py-16 lg:py-24 bg-[#FDF8F6] border-t border-[#ECE8E1]">
           <div className="max-w-3xl mx-auto px-6">
             
             <div className="text-center mb-10 lg:mb-16 space-y-4">
@@ -918,7 +919,7 @@ export default function Home() {
                           transition={{ duration: 0.3 }}
                           className="border-t border-[#ECE8E1]"
                         >
-                          <p className="px-5 py-4 sm:px-8 sm:py-6 font-sans text-xs leading-relaxed tracking-wider text-[#666666] bg-[#FCFAF7]/40">
+                          <p className="px-5 py-4 sm:px-8 sm:py-6 font-sans text-xs leading-relaxed tracking-wider text-[#666666] bg-[#FDF8F6]/40">
                             {faq.a}
                           </p>
                         </motion.div>
@@ -933,11 +934,11 @@ export default function Home() {
         </section>
 
         {/* 14. CONTACT & HOURS */}
-        <section id="contact" className="py-16 lg:py-24 bg-[#FCFAF7] border-t border-[#ECE8E1]">
+        <section id="contact" className="py-16 lg:py-24 bg-[#FFFFFF] border-t border-[#ECE8E1]">
           <div className="max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16">
             
             {/* Form */}
-            <div className="lg:col-span-7 space-y-8 bg-gradient-to-br from-white via-[#FCFAF7]/30 to-[#FAF6EE]/20 p-8 md:p-12 border border-[#ECE8E1] shadow-premium rounded-none">
+            <div className="lg:col-span-7 space-y-8 bg-gradient-to-br from-white via-[#FDF8F6]/30 to-[#FAF0ED]/20 p-8 md:p-12 border border-[#ECE8E1] shadow-premium rounded-none">
               <div>
                 <h2 className="font-serif text-3xl text-[#181816] font-semibold uppercase tracking-wider">
                   Get In Touch
@@ -966,7 +967,7 @@ export default function Home() {
                   className="grid grid-cols-1 sm:grid-cols-2 gap-6"
                 >
                   <div className="flex flex-col space-y-2 relative">
-                    <label className="font-sans text-[10px] tracking-widest text-[#5A6655] uppercase font-semibold">
+                    <label className="font-sans text-[10px] tracking-widest text-[#111111]/70 uppercase font-semibold">
                       Full Name
                     </label>
                     <div className="relative">
@@ -986,7 +987,7 @@ export default function Home() {
                     </div>
                   </div>
                   <div className="flex flex-col space-y-2 relative">
-                    <label className="font-sans text-[10px] tracking-widest text-[#5A6655] uppercase font-semibold">
+                    <label className="font-sans text-[10px] tracking-widest text-[#111111]/70 uppercase font-semibold">
                       Phone Number
                     </label>
                     <div className="relative">
@@ -1006,7 +1007,7 @@ export default function Home() {
                     </div>
                   </div>
                   <div className="flex flex-col space-y-2 sm:col-span-2 relative">
-                    <label className="font-sans text-[10px] tracking-widest text-[#5A6655] uppercase font-semibold">
+                    <label className="font-sans text-[10px] tracking-widest text-[#111111]/70 uppercase font-semibold">
                       Email Address
                     </label>
                     <div className="relative">
@@ -1026,7 +1027,7 @@ export default function Home() {
                     </div>
                   </div>
                   <div className="flex flex-col space-y-2 sm:col-span-2 relative">
-                    <label className="font-sans text-[10px] tracking-widest text-[#5A6655] uppercase font-semibold">
+                    <label className="font-sans text-[10px] tracking-widest text-[#111111]/70 uppercase font-semibold">
                       Message
                     </label>
                     <div className="relative">
@@ -1052,7 +1053,7 @@ export default function Home() {
                       whileHover={{ scale: 1.02, y: -1 }}
                       whileTap={{ scale: 0.98 }}
                       transition={{ type: "spring", stiffness: 400, damping: 20 }}
-                      className="w-full bg-[#5A6655] text-white font-semibold text-xs tracking-[0.25em] uppercase py-4 hover:bg-[#C6A86B] transition-all duration-300 cursor-pointer rounded-none"
+                      className="w-full bg-[#111111] text-white font-semibold text-xs tracking-[0.25em] uppercase py-4 hover:bg-[#E5A99E] transition-all duration-300 cursor-pointer rounded-none"
                     >
                       Submit Request
                     </motion.button>
@@ -1096,7 +1097,7 @@ export default function Home() {
                 <div className="pt-2">
                   <Link
                     href="https://wa.me/447979782832"
-                    className="w-full flex items-center justify-center space-x-2 border border-green-500 text-green-600 hover:bg-green-500 hover:text-white transition-colors py-3.5 rounded text-xs uppercase font-bold tracking-widest"
+                    className="w-full flex items-center justify-center space-x-2 border border-green-500 text-green-600 hover:bg-green-500 hover:text-white transition-colors py-3.5 rounded-none text-xs uppercase font-bold tracking-widest"
                   >
                     <MessageCircle size={16} />
                     <span>WhatsApp Frontdesk</span>
@@ -1126,7 +1127,7 @@ export default function Home() {
       </main>
 
       {/* Floating Availability bar (Sticky bottom) */}
-      <div className="fixed bottom-0 left-0 right-0 bg-[#5A6655] border-t border-[#ECE8E1]/10 z-40 text-white py-3 px-4 md:py-4.5 md:px-6 flex items-center justify-between shadow-lg">
+      <div className="fixed bottom-0 left-0 right-0 bg-[#111111] border-t border-[#ECE8E1]/10 z-40 text-white py-3 px-4 md:py-4.5 md:px-6 flex items-center justify-between shadow-lg">
         <div className="hidden md:flex items-center space-x-3.5">
           <span className="w-2.5 h-2.5 rounded-full bg-[#C6A86B] animate-pulse shrink-0" />
           <p className="font-serif text-sm font-semibold tracking-wide leading-snug">
@@ -1140,13 +1141,13 @@ export default function Home() {
           <div className="flex items-center space-x-3 w-full md:w-auto justify-center">
             <Link
               href="https://www.fresha.com/providers/blush-blow-w9xnf8li?pId=9954&dppub=true"
-              className="bg-transparent border border-white/30 text-white font-semibold text-[10px] tracking-[0.2em] uppercase px-4 py-2.5 rounded hover:bg-white/10 transition-colors text-center flex-1 md:flex-none whitespace-nowrap"
+              className="bg-transparent border border-white/30 text-white font-semibold text-[10px] tracking-[0.2em] uppercase px-4 py-2.5 rounded-none hover:bg-white/10 transition-colors text-center flex-1 md:flex-none whitespace-nowrap"
             >
               Check Availability
             </Link>
             <Link
               href="https://www.fresha.com/providers/blush-blow-w9xnf8li?pId=9954&dppub=true"
-              className="bg-[#FCFAF7] text-[#5A6655] border border-[#FCFAF7] font-semibold text-[10px] tracking-[0.2em] uppercase px-4 py-2.5 rounded hover:bg-white transition-all duration-300 block text-center flex-1 md:flex-none whitespace-nowrap"
+              className="bg-[#E5A99E] text-white border border-[#E5A99E] font-semibold text-[10px] tracking-[0.2em] uppercase px-4 py-2.5 rounded-none hover:bg-[#C6A86B] hover:border-[#C6A86B] transition-all duration-300 block text-center flex-1 md:flex-none whitespace-nowrap"
             >
               Book Now
             </Link>
@@ -1158,7 +1159,7 @@ export default function Home() {
       <div className="fixed bottom-32 left-0 z-40 hidden md:block">
         <Link
           href="https://www.fresha.com/providers/blush-blow-w9xnf8li?pId=9954&dppub=true"
-          className="bg-[#5A6655] text-[#FCFAF7] font-serif text-[11px] tracking-[0.2em] uppercase px-4 py-3 border border-white/20 border-l-0 rounded-r shadow-lg block select-none hover:bg-[#C6A86B] transition-colors"
+          className="bg-[#111111] text-white font-serif text-[11px] tracking-[0.2em] uppercase px-4 py-3 border border-white/20 border-l-0 rounded-r shadow-lg block select-none hover:bg-[#E5A99E] transition-colors rounded-none"
         >
           Check Availability
         </Link>

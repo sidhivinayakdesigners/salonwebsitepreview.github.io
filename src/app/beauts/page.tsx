@@ -29,7 +29,7 @@ export default function BeautsPage() {
     <>
       <Navbar />
 
-      <main className="pt-32 pb-24 bg-[#FCFAF7] min-h-screen text-[#181816] font-sans">
+      <main className="pt-32 pb-24 bg-[#FFFFFF] min-h-screen text-[#181816] font-sans">
         
         {/* Title Block */}
         <div className="max-w-4xl mx-auto px-6 text-center mb-16 space-y-4">
@@ -61,7 +61,7 @@ export default function BeautsPage() {
                 
                 {/* Micro-hover overlay */}
                 <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
-                  <span className="text-[9px] tracking-widest text-[#FCFAF7] font-bold uppercase bg-[#5A6655] px-4 py-2.5 rounded-none shadow-md">
+                  <span className="text-[9px] tracking-widest text-white font-bold uppercase bg-[#E5A99E] px-4 py-2.5 rounded-none shadow-md">
                     View
                   </span>
                 </div>

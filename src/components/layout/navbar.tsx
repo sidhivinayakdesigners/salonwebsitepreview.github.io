@@ -26,7 +26,7 @@ export const Navbar = () => {
         initial={{ y: -80, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-        className="fixed top-0 left-0 w-full z-50 bg-[#FCFAF7]/90 backdrop-blur-md text-[#5A6655] border-b border-[#ECE8E1] shadow-sm select-none h-20"
+        className="fixed top-0 left-0 w-full z-50 bg-[#FFFFFF]/90 backdrop-blur-md text-[#111111] border-b border-[#ECE8E1] shadow-sm select-none h-20"
       >
         {/* Scallop Divider at the bottom of the header */}
         <div className="absolute bottom-[-10px] left-0 w-full h-[10px] header-scallop z-25 opacity-30" />
@@ -37,7 +37,7 @@ export const Navbar = () => {
           <div className="flex items-center lg:hidden">
             <button
               onClick={toggleMobileMenu}
-              className="text-[#5A6655] hover:text-[#C6A86B] transition-colors focus:outline-none p-1 cursor-pointer"
+              className="text-[#111111] hover:text-[#C6A86B] transition-colors focus:outline-none p-1 cursor-pointer"
               aria-label="Toggle mobile menu"
             >
               {isMobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
@@ -60,7 +60,7 @@ export const Navbar = () => {
                     }
                   }
                 }}
-                className="font-serif text-sm sm:text-base md:text-xl tracking-[0.15em] sm:tracking-[0.22em] text-[#5A6655] group-hover:text-[#C6A86B] transition-colors uppercase font-bold whitespace-nowrap"
+                className="font-serif text-sm sm:text-base md:text-xl tracking-[0.15em] sm:tracking-[0.22em] text-[#111111] group-hover:text-[#C6A86B] transition-colors uppercase font-bold whitespace-nowrap"
               >
                 {"BLUSH + BLOW".split("").map((char, idx) => (
                   <motion.span
@@ -81,11 +81,11 @@ export const Navbar = () => {
                 transition={{ duration: 0.8, delay: 1.2, ease: "easeOut" }}
                 className="flex items-center w-full justify-center space-x-1.5 mt-0.5"
               >
-                <div className="h-[0.5px] bg-[#5A6655]/20 flex-grow" />
+                <div className="h-[0.5px] bg-[#111111]/15 flex-grow" />
                 <span className="text-[6px] sm:text-[7px] tracking-[0.25em] sm:tracking-[0.35em] text-[#C6A86B] uppercase font-sans font-medium">
                   LONDON
                 </span>
-                <div className="h-[0.5px] bg-[#5A6655]/20 flex-grow" />
+                <div className="h-[0.5px] bg-[#111111]/15 flex-grow" />
               </motion.div>
             </Link>
           </div>
@@ -95,7 +95,7 @@ export const Navbar = () => {
             <Link
               href="/"
               className={`px-4 flex items-center h-full border-r border-[#ECE8E1] transition-colors hover:text-[#C6A86B] relative ${
-                pathname === "/" ? "text-[#C6A86B]" : "text-[#5A6655]"
+                pathname === "/" ? "text-[#C6A86B]" : "text-[#111111]"
               }`}
             >
               <span>Home</span>
@@ -112,7 +112,7 @@ export const Navbar = () => {
             >
               <button 
                 className={`px-4 flex items-center h-full hover:text-[#C6A86B] transition-colors focus:outline-none space-x-1 cursor-pointer ${
-                  pathname.startsWith("/team-members") || pathname.startsWith("/careers") ? "text-[#C6A86B]" : "text-[#5A6655]"
+                  pathname.startsWith("/team-members") || pathname.startsWith("/careers") ? "text-[#C6A86B]" : "text-[#111111]"
                 }`}
               >
                 <span>About +</span>
@@ -128,7 +128,7 @@ export const Navbar = () => {
                     animate={{ opacity: 1, y: 0, scale: 1 }}
                     exit={{ opacity: 0, y: 12, scale: 0.95 }}
                     transition={{ type: "spring", stiffness: 420, damping: 28 }}
-                    className="absolute left-0 w-44 bg-[#FCFAF7] border border-[#ECE8E1] rounded shadow-lg py-2 z-50 text-[#5A6655] origin-top"
+                    className="absolute left-0 w-44 bg-[#FFFFFF] border border-[#ECE8E1] rounded shadow-lg py-2 z-50 text-[#111111] origin-top"
                   >
                     {[
                       { href: "/team-members", label: "Team Members" },
@@ -141,7 +141,7 @@ export const Navbar = () => {
                       >
                         <Link
                           href={item.href}
-                          className="block px-5 py-2 hover:bg-[#FAF8F6] text-[9px] tracking-widest font-bold text-[#5A6655] hover:text-[#C6A86B] transition-colors"
+                          className="block px-5 py-2 hover:bg-[#FDF8F6] text-[9px] tracking-widest font-bold text-[#111111] hover:text-[#C6A86B] transition-colors"
                         >
                           {item.label}
                         </Link>
@@ -160,7 +160,7 @@ export const Navbar = () => {
             >
               <button 
                 className={`px-4 flex items-center h-full hover:text-[#C6A86B] transition-colors focus:outline-none space-x-1 cursor-pointer ${
-                  ["/hair", "/nails", "/beauty", "/bridal"].includes(pathname) ? "text-[#C6A86B]" : "text-[#5A6655]"
+                  ["/hair", "/nails", "/beauty", "/bridal"].includes(pathname) ? "text-[#C6A86B]" : "text-[#111111]"
                 }`}
               >
                 <span>Services +</span>
@@ -176,7 +176,7 @@ export const Navbar = () => {
                     animate={{ opacity: 1, y: 0, scale: 1 }}
                     exit={{ opacity: 0, y: 12, scale: 0.95 }}
                     transition={{ type: "spring", stiffness: 420, damping: 28 }}
-                    className="absolute left-0 w-44 bg-[#FCFAF7] border border-[#ECE8E1] rounded shadow-lg py-2 z-50 text-[#5A6655] origin-top"
+                    className="absolute left-0 w-44 bg-[#FFFFFF] border border-[#ECE8E1] rounded shadow-lg py-2 z-50 text-[#111111] origin-top"
                   >
                     {[
                       { href: "/hair", label: "Hair" },
@@ -191,7 +191,7 @@ export const Navbar = () => {
                       >
                         <Link
                           href={item.href}
-                          className="block px-5 py-2 hover:bg-[#FAF8F6] text-[9px] tracking-widest font-bold text-[#5A6655] hover:text-[#C6A86B] transition-colors"
+                          className="block px-5 py-2 hover:bg-[#FDF8F6] text-[9px] tracking-widest font-bold text-[#111111] hover:text-[#C6A86B] transition-colors"
                         >
                           {item.label}
                         </Link>
@@ -205,7 +205,7 @@ export const Navbar = () => {
             <Link
               href="/beauts"
               className={`px-4 flex items-center h-full border-r border-[#ECE8E1] hover:text-[#C6A86B] relative transition-colors ${
-                pathname === "/beauts" ? "text-[#C6A86B]" : "text-[#5A6655]"
+                pathname === "/beauts" ? "text-[#C6A86B]" : "text-[#111111]"
               }`}
             >
               <span>Beauts</span>
@@ -217,7 +217,7 @@ export const Navbar = () => {
             <Link
               href="/blower"
               className={`px-4 flex items-center h-full border-r border-[#ECE8E1] hover:text-[#C6A86B] relative transition-colors ${
-                pathname === "/blower" ? "text-[#C6A86B]" : "text-[#5A6655]"
+                pathname === "/blower" ? "text-[#C6A86B]" : "text-[#111111]"
               }`}
             >
               <span>The Blower</span>
@@ -229,7 +229,7 @@ export const Navbar = () => {
             <Link
               href="/faqs"
               className={`px-4 flex items-center h-full border-r border-[#ECE8E1] hover:text-[#C6A86B] relative transition-colors ${
-                pathname === "/faqs" ? "text-[#C6A86B]" : "text-[#5A6655]"
+                pathname === "/faqs" ? "text-[#C6A86B]" : "text-[#111111]"
               }`}
             >
               <span>Faq's</span>
@@ -241,7 +241,7 @@ export const Navbar = () => {
             <Link
               href="/contact"
               className={`px-4 flex items-center h-full hover:text-[#C6A86B] relative transition-colors ${
-                pathname === "/contact" ? "text-[#C6A86B]" : "text-[#5A6655]"
+                pathname === "/contact" ? "text-[#C6A86B]" : "text-[#111111]"
               }`}
             >
               <span>Contact</span>
@@ -251,11 +251,11 @@ export const Navbar = () => {
             </Link>
           </nav>
 
-          {/* Right Side: Primary Sage Book Now Button */}
+          {/* Right Side: Primary Blush Pink Book Now Button */}
           <div className="z-10">
             <Link
               href="https://www.fresha.com/providers/blush-blow-w9xnf8li?pId=9954&dppub=true"
-              className="bg-[#5A6655] text-white font-semibold text-[8px] sm:text-[10px] tracking-[0.25em] uppercase px-3 py-2 sm:px-5 sm:py-2.5 rounded shadow-sm hover:bg-[#C6A86B] transition-all duration-300 block text-center whitespace-nowrap"
+              className="bg-[#E5A99E] text-white font-semibold text-[8px] sm:text-[10px] tracking-[0.25em] uppercase px-3 py-2 sm:px-5 sm:py-2.5 rounded-none shadow-sm hover:bg-[#111111] transition-all duration-300 block text-center whitespace-nowrap"
             >
               Book Now
             </Link>
@@ -282,13 +282,13 @@ export const Navbar = () => {
               animate={{ x: 0 }}
               exit={{ x: "-100%" }}
               transition={{ type: "spring", stiffness: 350, damping: 30 }}
-              className="fixed top-0 left-0 w-72 h-full bg-[#FCFAF7] text-[#5A6655] border-r border-[#ECE8E1] z-50 p-6 flex flex-col justify-between shadow-2xl lg:hidden overflow-y-auto"
+              className="fixed top-0 left-0 w-72 h-full bg-[#FFFFFF] text-[#111111] border-r border-[#ECE8E1] z-50 p-6 flex flex-col justify-between shadow-2xl lg:hidden overflow-y-auto"
             >
               <div className="space-y-8">
                 {/* Logo & Close */}
                 <div className="flex items-center justify-between pb-4 border-b border-[#ECE8E1]">
                   <div className="flex flex-col items-center">
-                    <span className="font-serif text-lg tracking-[0.2em] font-bold text-[#5A6655]">
+                    <span className="font-serif text-lg tracking-[0.2em] font-bold text-[#111111]">
                       BLUSH + BLOW
                     </span>
                     <span className="text-[7px] tracking-[0.35em] text-[#C6A86B] font-medium">
@@ -297,26 +297,26 @@ export const Navbar = () => {
                   </div>
                   <button
                     onClick={toggleMobileMenu}
-                    className="text-[#5A6655] hover:text-[#C6A86B]"
+                    className="text-[#111111] hover:text-[#C6A86B]"
                   >
                     <X size={20} />
                   </button>
                 </div>
 
                 {/* Nav Links */}
-                <nav className="flex flex-col space-y-4 font-sans text-xs tracking-widest uppercase font-bold text-[#5A6655]">
+                <nav className="flex flex-col space-y-4 font-sans text-xs tracking-widest uppercase font-bold text-[#111111]">
                   <Link href="/" onClick={toggleMobileMenu} className="hover:text-[#C6A86B] transition-colors">
                     Home
                   </Link>
                   <div className="space-y-2">
-                    <span className="text-[#5A6655]/50 text-[10px] tracking-widest uppercase">About</span>
+                    <span className="text-[#111111]/50 text-[10px] tracking-widest uppercase">About</span>
                     <div className="pl-4 flex flex-col space-y-2">
                       <Link href="/team-members" onClick={toggleMobileMenu} className="hover:text-[#C6A86B] transition-colors">Team Members</Link>
                       <Link href="/careers" onClick={toggleMobileMenu} className="hover:text-[#C6A86B] transition-colors">Careers</Link>
                     </div>
                   </div>
                   <div className="space-y-2">
-                    <span className="text-[#5A6655]/50 text-[10px] tracking-widest uppercase">Services</span>
+                    <span className="text-[#111111]/50 text-[10px] tracking-widest uppercase">Services</span>
                     <div className="pl-4 flex flex-col space-y-2">
                       <Link href="/hair" onClick={toggleMobileMenu} className="hover:text-[#C6A86B] transition-colors">Hair</Link>
                       <Link href="/nails" onClick={toggleMobileMenu} className="hover:text-[#C6A86B] transition-colors">Nails</Link>
@@ -343,11 +343,11 @@ export const Navbar = () => {
               <div className="pt-6 border-t border-[#ECE8E1] text-center space-y-4">
                 <Link
                   href="https://www.fresha.com/providers/blush-blow-w9xnf8li?pId=9954&dppub=true"
-                  className="bg-[#5A6655] text-white font-semibold text-[10px] tracking-[0.25em] uppercase py-3.5 rounded w-full block shadow-sm hover:bg-[#C6A86B] transition-colors"
+                  className="bg-[#E5A99E] text-white font-semibold text-[10px] tracking-[0.25em] uppercase py-3.5 rounded-none w-full block shadow-sm hover:bg-[#111111] transition-colors"
                 >
                   Book Appointment
                 </Link>
-                <p className="text-[8px] text-[#5A6655]/70 tracking-wider">
+                <p className="text-[8px] text-[#111111]/70 tracking-wider">
                   197 New Kings Rd, SW6 4SR • 020 7736 0430
                 </p>
               </div>

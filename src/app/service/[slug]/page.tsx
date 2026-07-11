@@ -592,13 +592,13 @@ export default async function ServiceDetail({ params }: PageProps) {
     <>
       <Navbar />
 
-      <main className="pt-32 pb-24 bg-[#FCFAF7] min-h-screen text-[#181816] font-sans">
+      <main className="pt-32 pb-24 bg-[#FFFFFF] min-h-screen text-[#181816] font-sans">
         
         {/* Back Link */}
         <div className="max-w-7xl mx-auto px-6 md:px-12 mb-8">
           <Link
             href={backUrl}
-            className="inline-flex items-center space-x-2 text-xs tracking-widest uppercase font-bold text-[#5A6655] hover:text-[#C6A86B] transition-colors"
+            className="inline-flex items-center space-x-2 text-xs tracking-widest uppercase font-bold text-[#E5A99E] hover:text-[#111111] transition-colors"
           >
             <ArrowLeft size={14} />
             <span>Back to Services</span>
@@ -620,7 +620,7 @@ export default async function ServiceDetail({ params }: PageProps) {
           <div className="bg-white text-[#181816] grid grid-cols-1 md:grid-cols-2 shadow-premium border border-[#ECE8E1] rounded-none">
             
             {/* Left Column: Image */}
-            <div className="h-[300px] md:h-auto min-h-[350px] relative w-full overflow-hidden bg-[#FCFAF7] border-r border-[#ECE8E1]">
+            <div className="h-[300px] md:h-auto min-h-[350px] relative w-full overflow-hidden bg-[#FFFFFF] border-r border-[#ECE8E1]">
               <Image
                 src={data.image}
                 alt={data.title}
@@ -635,7 +635,7 @@ export default async function ServiceDetail({ params }: PageProps) {
             <div className="p-8 md:p-12 flex-col justify-between flex-grow flex">
               
               {/* Highlight Price Box */}
-              <div className="bg-[#FCFAF7] text-[#181816] border-y border-[#ECE8E1] py-8 text-center font-bold text-xl md:text-2xl uppercase tracking-wider select-none mb-6">
+              <div className="bg-[#FDF8F6] text-[#181816] border-y border-[#ECE8E1] py-8 text-center font-bold text-xl md:text-2xl uppercase tracking-wider select-none mb-6">
                 Price: {data.priceTag}
               </div>
 
@@ -651,7 +651,7 @@ export default async function ServiceDetail({ params }: PageProps) {
                         {item.price}
                       </span>
                       {item.note && (
-                        <span className="text-[10px] text-[#5A6655]/70 tracking-widest uppercase font-sans">
+                        <span className="text-[10px] text-[#E5A99E] tracking-widest uppercase font-sans">
                           {item.note}
                         </span>
                       )}
@@ -666,7 +666,7 @@ export default async function ServiceDetail({ params }: PageProps) {
                   href="https://www.fresha.com/providers/blush-blow-w9xnf8li?pId=9954&dppub=true"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full bg-[#5A6655] text-white font-bold text-xs tracking-[0.25em] uppercase py-4 rounded-none hover:bg-[#C6A86B] hover:text-white transition-all duration-300 text-center shadow-sm block cursor-pointer"
+                  className="w-full bg-[#111111] text-white font-bold text-xs tracking-[0.25em] uppercase py-4 rounded-none hover:bg-[#E5A99E] hover:text-white transition-all duration-300 text-center shadow-sm block cursor-pointer"
                 >
                   Book Now
                 </a>
@@ -678,7 +678,7 @@ export default async function ServiceDetail({ params }: PageProps) {
         </section>
 
         {/* 13. FAQ ACCORDION SECTION */}
-        <section className="py-24 bg-[#FCFAF7] border-t border-[#ECE8E1]">
+        <section className="py-24 bg-[#FDF8F6] border-t border-[#ECE8E1]">
           <div className="max-w-4xl mx-auto px-6">
             
             <div className="text-center mb-16 space-y-4">
@@ -699,7 +699,7 @@ export default async function ServiceDetail({ params }: PageProps) {
                     <span className="text-[#C6A86B] font-sans text-xl group-open:hidden">+</span>
                     <span className="text-[#C6A86B] font-sans text-xl hidden group-open:inline">−</span>
                   </summary>
-                  <div className="px-6 pb-5 text-xs sm:text-sm text-[#666666] leading-relaxed tracking-wider font-sans border-t border-[#ECE8E1] pt-4 bg-[#FCFAF7]/40">
+                  <div className="px-6 pb-5 text-xs sm:text-sm text-[#666666] leading-relaxed tracking-wider font-sans border-t border-[#ECE8E1] pt-4 bg-[#FFFFFF]/45">
                     {faq.a}
                   </div>
                 </details>

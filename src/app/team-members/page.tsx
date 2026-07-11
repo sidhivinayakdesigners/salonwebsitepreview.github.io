@@ -85,7 +85,7 @@ export default function TeamMembers() {
     <>
       <Navbar />
 
-      <main className="pt-32 pb-24 bg-[#FCFAF7] min-h-screen text-[#181816] font-sans overflow-x-hidden">
+      <main className="pt-32 pb-24 bg-[#FFFFFF] min-h-screen text-[#181816] font-sans overflow-x-hidden">
         
         {/* Title Section */}
         <div className="max-w-7xl mx-auto px-6 md:px-12 mb-28 text-center space-y-4">
@@ -108,7 +108,7 @@ export default function TeamMembers() {
                 <div
                   className={`w-full rounded-none md:h-[280px] flex flex-col ${
                     isOdd ? "md:flex-row" : "md:flex-row-reverse"
-                  } overflow-visible shadow-premium border border-[#ECE8E1] bg-white text-[#181816] hover:shadow-premium-hover transition-all duration-300`}
+                  } overflow-visible shadow-premium border border-[#ECE8E1] bg-gradient-to-br from-white via-[#FDF8F6]/20 to-white text-[#181816] hover:shadow-premium-hover transition-all duration-300`}
                 >
                   
                   {/* Photo Section (Absolute Overlapping on Desktop, block on Mobile) */}
