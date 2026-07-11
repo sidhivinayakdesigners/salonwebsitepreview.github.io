@@ -148,7 +148,7 @@ export const Navbar = () => {
             </div>
 
             <Link
-              href="/#team"
+              href="/beauts"
               className="px-4 flex items-center h-full border-r border-white/10 hover:bg-[#677461] transition-colors"
             >
               Beauts
@@ -249,7 +249,7 @@ export const Navbar = () => {
                       <Link href="/bridal" onClick={toggleMobileMenu} className="hover:text-white/80">Bridal</Link>
                     </div>
                   </div>
-                  <Link href="/#team" onClick={toggleMobileMenu} className="hover:text-white/80">
+                  <Link href="/beauts" onClick={toggleMobileMenu} className="hover:text-white/80">
                     Beauts
                   </Link>
                   <Link href="/blower" onClick={toggleMobileMenu} className="hover:text-white/80">
