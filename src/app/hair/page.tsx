@@ -3,53 +3,51 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Check, Calendar } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 
-const hairServices = [
+const hairServicesGrid = [
   {
-    category: "Blow Dries",
-    description: "Wash, scalp massage, and our signature blow dry styling.",
-    items: [
-      { name: "Short Hair Blow Dry", price: "£49", detail: "Chin length or shorter" },
-      { name: "Medium Hair Blow Dry", price: "£54", detail: "Shoulder length" },
-      { name: "Long & Thick Hair Blow Dry", price: "£58", detail: "Past shoulder length" },
-      { name: "Extra Long/Thick or with Extensions", price: "£63", detail: "Extra time allocated" },
-    ],
+    title: "Colour",
+    img: "/images/haircolour.avif",
+    desc: "The Regrowth Permanent Color service targets root touch-ups, seamlessly blending new hair growth with your existing color. Ideal for maintaining...",
+    learnLink: "/service/colour",
+    bookLink: "https://www.fresha.com/providers/blush-blow-w9xnf8li?pId=9954&dppub=true",
   },
   {
-    category: "Cuts & Styling",
-    description: "Precision haircuts and styling with our senior stylists.",
-    items: [
-      { name: "Cut & Blow Dry (Stylist)", price: "£83", detail: "Bespoke styling" },
-      { name: "Cut & Blow Dry (Senior Stylist)", price: "£95", detail: "Master precision cut" },
-      { name: "Rough Dry (Add-on)", price: "£20", detail: "Available with technical services only" },
-      { name: "Children's Haircut (Under 12)", price: "£25", detail: "Dry trim" },
-    ],
+    title: "Blow Dry",
+    img: "/images/hairblowdry.jpg",
+    desc: "Experience the ultimate blow dry with our color experts, who bring a unique blend of artistry and technique to every...",
+    learnLink: "/service/blow-dry-blush-blow-london",
+    bookLink: "https://www.fresha.com/providers/blush-blow-w9xnf8li?pId=9954&dppub=true",
   },
   {
-    category: "Treatments",
-    description: "Repair, hydrate, and smooth your locks with our premium formulas.",
-    items: [
-      { name: "Olaplex Standalone Treatment", price: "£45", detail: "Bond building repair" },
-      { name: "Kerasilk Keratin Treatment - Short", price: "£200", detail: "Long-lasting smooth hair (up to 5 months)" },
-      { name: "Kerasilk Keratin Treatment - Medium", price: "£250", detail: "Frizz-free styling control" },
-      { name: "Kerasilk Keratin Treatment - Long/Thick", price: "£300", detail: "Intense smoothing and repair" },
-      { name: "Halo Treatment", price: "£150", detail: "Instant gloss and luxury hydration boost" },
-    ],
+    title: "Cut and Style",
+    img: "/images/haircutanddry.webp",
+    desc: "Cut and Style offers personalized haircuts and styling services tailored to enhance your natural beauty. Our expert stylists use the...",
+    learnLink: "/service/cut-and-style",
+    bookLink: "https://www.fresha.com/providers/blush-blow-w9xnf8li?pId=9954&dppub=true",
   },
   {
-    category: "Technical & Colour",
-    description: "Custom colouring using premium, gentle hair formulations.",
-    items: [
-      { name: "Permanent Root Touch-up", price: "£75", detail: "Up to 2cm regrowth" },
-      { name: "Full Head Permanent Tint", price: "£95", detail: "Even, rich all-over color" },
-      { name: "Half Head Foil Highlights", price: "£145", detail: "Dimension and lift" },
-      { name: "Full Head Foil Highlights", price: "£195", detail: "All-over premium brightening" },
-      { name: "Bespoke Balayage / Hand-Paint", price: "£210", detail: "Soft, seamless sun-kissed gradients" },
-    ],
+    title: "Treatments",
+    img: "/images/hairtreatment.jpg",
+    desc: "Hair treatments are specialized services designed to nourish, repair, and revitalize hair. These treatments target issues like dryness, damage, frizz,...",
+    learnLink: "/service/hair-treatments",
+    bookLink: "https://www.fresha.com/providers/blush-blow-w9xnf8li?pId=9954&dppub=true",
+  },
+  {
+    title: "Extensions",
+    img: "/images/Hair_Extensions.webp",
+    desc: "Extensions are a versatile way to enhance the length, volume, and style of your hair, offering a natural, fuller look...",
+    learnLink: "/service/hair-extensions",
+    bookLink: "https://www.fresha.com/providers/blush-blow-w9xnf8li?pId=9954&dppub=true",
+  },
+  {
+    title: "Styling – Blow Dries",
+    img: "/images/styling_blow_dries.jpg",
+    desc: "Dry Styling is a quick and efficient hairstyling technique that enhances your look without the need for a full wash...",
+    learnLink: "/service/styling-blow-dries",
+    bookLink: "https://www.fresha.com/providers/blush-blow-w9xnf8li?pId=9954&dppub=true",
   },
 ];
 
@@ -58,122 +56,72 @@ export default function HairServices() {
     <>
       <Navbar />
 
-      <main className="pt-20 bg-[#eae5db] min-h-screen text-[#788672]">
-        {/* Banner Section */}
-        <section className="relative h-[360px] w-full flex items-center justify-center bg-[#222222]">
-          <Image
-            src="/images/hair.png"
-            alt="Editorial London Hair Salon Styling"
-            fill
-            sizes="100vw"
-            className="object-cover opacity-45"
-            priority
-          />
-          <div className="relative text-center max-w-3xl mx-auto px-6 z-10 space-y-4">
-            <span className="text-[#C6A86B] text-xs font-semibold tracking-[0.3em] uppercase">
-              BLUSH + BLOW HAIR
-            </span>
-            <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl text-white font-semibold uppercase tracking-wider">
-              Hair Styling & Colour
+      <main className="pt-32 pb-24 bg-[#eae5db] min-h-screen text-[#788672] font-sans">
+        
+        {/* Title Wrap */}
+        <div className="max-w-7xl mx-auto px-6 md:px-12 mb-12">
+          <div className="text-center md:text-left border-b border-[#dcd7cc] pb-6">
+            <h1 className="font-serif text-5xl md:text-6xl text-[#788672] font-semibold tracking-wider uppercase">
+              Hair
             </h1>
-            <div className="h-[1px] w-20 bg-[#C6A86B] mx-auto mt-4" />
           </div>
-        </section>
+        </div>
 
-        {/* Pricing & Info Section */}
-        <section className="py-24 max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 lg:grid-cols-12 gap-16">
-          
-          {/* Left Details */}
-          <div className="lg:col-span-4 lg:sticky lg:top-32 h-fit space-y-8">
-            <div className="space-y-4">
-              <h2 className="font-serif text-3xl text-[#788672] font-semibold leading-snug uppercase tracking-wider">
-                Bespoke Hair Designs
-              </h2>
-              <p className="font-sans text-[10px] text-[#C6A86B] tracking-widest uppercase font-bold">
-                WEST LONDON STYLING RETREAT
-              </p>
-            </div>
-            
-            <p className="font-sans text-xs md:text-sm text-[#788672]/80 leading-relaxed tracking-wider">
-              From our famous London blow dries to customized balayage blends, our senior artists formulate custom styling and colouring routines to match your unique look.
-            </p>
+        {/* Treatment Boxes Grid */}
+        <div className="max-w-7xl mx-auto px-6 md:px-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
+            {hairServicesGrid.map((serv, index) => (
+              <div
+                key={index}
+                className="flex flex-col bg-[#788672] text-[#fcfaf7] shadow-md border border-[#788672]/20 overflow-hidden"
+              >
+                {/* Thumbnail Wrap */}
+                <Link href={serv.learnLink} className="h-[300px] relative w-full overflow-hidden bg-[#677461] block">
+                  <Image
+                    src={serv.img}
+                    alt={serv.title}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    className="object-cover hover:scale-102 transition-transform duration-700"
+                    priority={index < 2}
+                  />
+                </Link>
 
-            <div className="bg-[#cbd1c9]/35 border border-[#dcd7cc] p-6 rounded-xl space-y-4">
-              <p className="font-serif text-base text-[#788672] font-semibold uppercase tracking-wider">
-                Important Information
-              </p>
-              <ul className="space-y-3 text-xs text-[#788672]/85 leading-relaxed font-sans tracking-wide">
-                <li className="flex items-start space-x-2">
-                  <Check size={14} className="text-[#788672] shrink-0 mt-0.5" />
-                  <span>Skin Patch test required 48 hours prior to any new technical/colour service.</span>
-                </li>
-                <li className="flex items-start space-x-2">
-                  <Check size={14} className="text-[#788672] shrink-0 mt-0.5" />
-                  <span>All technical services exclude cut and blow dry unless specified.</span>
-                </li>
-                <li className="flex items-start space-x-2">
-                  <Check size={14} className="text-[#788672] shrink-0 mt-0.5" />
-                  <span>Cancellation within 24 hours will incur a 50% service charge.</span>
-                </li>
-              </ul>
-            </div>
+                {/* Content Wrap */}
+                <div className="p-8 md:p-12 flex-grow flex flex-col justify-between items-center text-center space-y-6">
+                  <div className="space-y-4 w-full">
+                    <Link href={serv.learnLink} className="hover:text-[#C6A86B] transition-colors block">
+                      <h2 className="font-serif text-2xl md:text-3xl font-semibold tracking-[0.05em] uppercase text-white">
+                        {serv.title}
+                      </h2>
+                    </Link>
+                    <hr className="border-t border-white/20 w-full" />
+                    <p className="font-sans text-xs md:text-sm leading-relaxed tracking-wider text-white/90 min-h-[60px] flex items-center justify-center">
+                      {serv.desc}
+                    </p>
+                  </div>
 
-            <Link
-              href="https://www.fresha.com/providers/blush-blow-w9xnf8li?pId=9954&dppub=true"
-              className="w-full bg-[#788672] text-[#fcfaf7] font-semibold text-xs tracking-[0.25em] uppercase py-4 rounded hover:bg-[#677461] transition-all duration-300 shadow block text-center"
-            >
-              Book Stylist Now
-            </Link>
-          </div>
-
-          {/* Right Price list */}
-          <div className="lg:col-span-8 space-y-16">
-            {hairServices.map((cat) => (
-              <div key={cat.category} className="space-y-6">
-                <div className="border-b border-[#dcd7cc] pb-4">
-                  <h3 className="font-serif text-2xl text-[#788672] font-semibold uppercase tracking-wider">
-                    {cat.category}
-                  </h3>
-                  <p className="font-sans text-xs text-[#788672]/80 tracking-wider mt-1">
-                    {cat.description}
-                  </p>
-                </div>
-
-                <div className="divide-y divide-[#dcd7cc]/60">
-                  {cat.items.map((item) => (
-                    <div
-                      key={item.name}
-                      className="py-5 flex flex-col sm:flex-row sm:items-center justify-between gap-2 group hover:bg-[#cbd1c9]/35 px-2 rounded-xl transition-all duration-300"
+                  {/* Buttons Wrap */}
+                  <div className="flex flex-wrap items-center justify-center gap-4 pt-2 w-full">
+                    <Link
+                      href={serv.learnLink}
+                      className="border border-white text-white font-bold text-xs tracking-[0.2em] uppercase px-6 py-3 hover:bg-white hover:text-[#788672] transition-all duration-300 min-w-[140px] text-center"
                     >
-                      <div className="space-y-1">
-                        <p className="font-sans text-sm font-semibold text-[#788672] group-hover:text-[#C6A86B] transition-colors">
-                          {item.name}
-                        </p>
-                        <p className="font-sans text-xs text-[#788672]/80 tracking-wide">
-                          {item.detail}
-                        </p>
-                      </div>
-                      <div className="flex items-center space-x-6">
-                        <span className="font-serif text-lg font-medium text-[#788672]">
-                          {item.price}
-                        </span>
-                        <a
-                          href="https://www.fresha.com/providers/blush-blow-w9xnf8li?pId=9954&dppub=true"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="font-sans text-[10px] font-bold tracking-[0.2em] text-[#C6A86B] hover:text-[#788672] uppercase border-b border-[#C6A86B]/30 hover:border-[#788672] pb-0.5"
-                        >
-                          Book
-                        </a>
-                      </div>
-                    </div>
-                  ))}
+                      Learn More
+                    </Link>
+                    <a
+                      href={serv.bookLink}
+                      className="bg-[#eae5db] border border-[#eae5db] text-[#788672] font-bold text-xs tracking-[0.2em] uppercase px-6 py-3 hover:bg-white hover:text-[#788672] hover:border-white transition-all duration-300 min-w-[140px]"
+                    >
+                      Book Now
+                    </a>
+                  </div>
                 </div>
               </div>
             ))}
           </div>
+        </div>
 
-        </section>
       </main>
 
       <Footer />

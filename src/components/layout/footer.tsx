@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import Link from "next/link";
 import { Instagram, Facebook, Phone, MessageCircle } from "lucide-react";
@@ -69,16 +71,13 @@ export const Footer = () => {
             <Link href="/" className="hover:text-[#C6A86B] luxury-transition">
               Home
             </Link>
-            <Link href="/#about" className="hover:text-[#C6A86B] luxury-transition">
-              Story
+            <Link href="/team-members" className="hover:text-[#C6A86B] luxury-transition">
+              Team Members
             </Link>
-            <Link href="/#team" className="hover:text-[#C6A86B] luxury-transition">
-              Team
+            <Link href="/careers" className="hover:text-[#C6A86B] luxury-transition">
+              Careers
             </Link>
-            <Link href="/#gallery" className="hover:text-[#C6A86B] luxury-transition">
-              Salon Lookbook
-            </Link>
-            <Link href="/#contact" className="hover:text-[#C6A86B] luxury-transition">
+            <Link href="/contact" className="hover:text-[#C6A86B] luxury-transition">
               Contact & Hours
             </Link>
           </nav>
@@ -98,9 +97,6 @@ export const Footer = () => {
             </Link>
             <Link href="/beauty" className="hover:text-[#C6A86B] luxury-transition">
               Brows, Makeup & Massage
-            </Link>
-            <Link href="/skin" className="hover:text-[#C6A86B] luxury-transition">
-              Skin Studio Aesthetics
             </Link>
             <Link href="/bridal" className="hover:text-[#C6A86B] luxury-transition">
               Bridal Hair & Makeup

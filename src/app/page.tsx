@@ -15,7 +15,6 @@ import {
   MessageCircle,
   CheckCircle,
 } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 
@@ -71,27 +70,27 @@ const faqsList = [
   },
 ];
 
-// Team List (scraped)
+// Team List mapping (rendered horizontally in lookbook carousel)
 const teamMembersList = [
-  { name: "Bridget", role: "FOUNDER", image: "/images/bridal.png" },
-  { name: "Annie", role: "RECEPTIONIST", image: "/images/beauty.png" },
-  { name: "Morgan", role: "BEAUTY & LASER THERAPIST", image: "/images/skin.png" },
-  { name: "Bee", role: "NAIL TECHNICIAN", image: "/images/nails.png" },
-  { name: "Cristina", role: "NAIL TECHNICIAN & MAKEUP ARTIST", image: "/images/hair.png" },
-  { name: "Freya", role: "BEAUTY THERAPIST & MAKEUP ARTIST", image: "/images/hero.png" },
-  { name: "Hema", role: "BEAUTY THERAPIST", image: "/images/beauty.png" },
-  { name: "Kate", role: "OPERATIONS", image: "/images/skin.png" },
-  { name: "Lamiaa", role: "BEAUTY THERAPIST & COLOURIST", image: "/images/hair.png" },
-  { name: "Migle", role: "COLOURIST", image: "/images/bridal.png" },
-  { name: "Rozina", role: "COLOURIST", image: "/images/hero.png" },
-  { name: "Sara Eddi", role: "COLOURIST", image: "/images/beauty.png" },
+  { name: "Bridget", role: "FOUNDER", image: "/images/team/bridget.png" },
+  { name: "Annie", role: "RECEPTIONIST", image: "/images/team/annie.webp" },
+  { name: "Morgan", role: "BEAUTY & LASER THERAPIST", image: "/images/team/morgan.webp" },
+  { name: "Bee", role: "NAIL TECHNICIAN", image: "/images/team/bee.webp" },
+  { name: "Cristina", role: "NAIL TECHNICIAN & MAKEUP ARTIST", image: "/images/team/cristina.webp" },
+  { name: "Freya", role: "BEAUTY THERAPIST & MAKEUP ARTIST", image: "/images/team/freya.webp" },
+  { name: "Hema", role: "BEAUTY THERAPIST", image: "/images/team/hema.webp" },
+  { name: "Kate", role: "OPERATIONS", image: "/images/team/kate.webp" },
+  { name: "Lamiaa", role: "BEAUTY THERAPIST & COLOURIST", image: "/images/team/lamiaa.png" },
+  { name: "Migle", role: "COLOURIST", image: "/images/team/migle.webp" },
+  { name: "Rozina", role: "COLOURIST", image: "/images/team/rozina.webp" },
+  { name: "Sara Eddi", role: "COLOURIST", image: "/images/team/sara.webp" },
 ];
 
 const initialGallery = [
-  "/images/hero.png",
-  "/images/hair.png",
-  "/images/nails.png",
-  "/images/skin.png",
+  "/images/salon_1.webp",
+  "/images/salon_2.webp",
+  "/images/salon_14.webp",
+  "/images/salon_4.webp",
 ];
 
 export default function Home() {
@@ -138,7 +137,7 @@ export default function Home() {
                 transition={{ duration: 0.8, delay: 0.4 }}
                 className="flex flex-col space-y-4 max-w-sm w-full"
               >
-                {["Hair", "Nails", "Beauty", "Bridal", "Skin"].map((lbl) => (
+                {["Hair", "Nails", "Beauty", "Bridal"].map((lbl) => (
                   <Link
                     key={lbl}
                     href={`/${lbl.toLowerCase()}`}
@@ -154,8 +153,8 @@ export default function Home() {
             <div className="lg:col-span-6 relative h-[500px] w-full flex items-center justify-center">
               <div className="w-[92%] h-[92%] overflow-hidden border-[8px] border-[#788672] relative shadow-lg">
                 <Image
-                  src="/images/hero.png"
-                  alt="Blush and Blow Salon SW6 Front"
+                  src="/images/homepage_hero_main.webp"
+                  alt="Adding Colour To Your Life"
                   fill
                   sizes="(max-width: 768px) 100vw, 50vw"
                   className="object-cover"
@@ -173,7 +172,7 @@ export default function Home() {
             {/* Left: Image */}
             <div className="lg:col-span-6 relative h-[500px] w-full max-w-md mx-auto">
               <Image
-                src="/images/concern.webp"
+                src="/images/color_life_concern.webp"
                 alt="Show your true colours"
                 fill
                 sizes="(max-width: 768px) 100vw, 55vw"
@@ -213,10 +212,10 @@ export default function Home() {
             {/* Grid of 4 Cards */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
               {[
-                { title: "Colour", img: "/images/hair.png" },
-                { title: "Treatments", img: "/images/skin.png" },
-                { title: "Extensions", img: "/images/nails.png" },
-                { title: "Styling - Blow Dries", img: "/images/hero.png" },
+                { title: "Colour", img: "/images/haircolour.avif" },
+                { title: "Treatments", img: "/images/hairtreatment.jpg" },
+                { title: "Extensions", img: "/images/Hair_Extensions.webp" },
+                { title: "Styling - Blow Dries", img: "/images/styling_blow_dries.jpg" },
               ].map((serv, index) => (
                 <div
                   key={index}
@@ -273,8 +272,8 @@ export default function Home() {
             {/* Hands & Feet Split Columns */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
               {[
-                { label: "Nails Hands", title: "Hands", img: "/images/nails.png" },
-                { label: "Nails Feet", title: "Feet", img: "/images/beauty.png" },
+                { label: "Nails Hands", title: "Hands", img: "/images/homepage_manicure.jpg", slug: "/nails" },
+                { label: "Nails Feet", title: "Feet", img: "/images/homepage_pedicure.jpg", slug: "/nails" },
               ].map((col, index) => (
                 <div
                   key={index}
@@ -297,7 +296,7 @@ export default function Home() {
                       {col.title}
                     </h3>
                     <Link
-                      href="/nails"
+                      href={col.slug}
                       className="text-[10px] tracking-widest font-bold text-[#788672]/70 uppercase flex items-center justify-center space-x-1 hover:text-[#788672] transition-colors"
                     >
                       <span>Explore</span>
@@ -340,10 +339,10 @@ export default function Home() {
             {/* Grid of 4 Cards */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
               {[
-                { title: "Brows + Threading", img: "/images/beauty.png" },
-                { title: "Spray Tan", img: "/images/skin.png" },
-                { title: "Make Up", img: "/images/bridal.png" },
-                { title: "Massage", img: "/images/hero.png" },
+                { title: "Brows + Threading", img: "/images/beauty_brows.jpg", slug: "/service/brows-threading" },
+                { title: "Spray Tan", img: "/images/beauty_tan.webp", slug: "/service/spray-tan" },
+                { title: "Make Up", img: "/images/beauty_makeup.jpg", slug: "/service/makeup" },
+                { title: "Massage", img: "/images/beauty_massage.webp", slug: "/service/massage" },
               ].map((serv, index) => (
                 <div
                   key={index}
@@ -368,7 +367,7 @@ export default function Home() {
                       </h3>
                     </div>
                     <Link
-                      href="/beauty"
+                      href={serv.slug}
                       className="text-[10px] tracking-widest font-bold text-[#788672]/70 uppercase flex items-center justify-center space-x-1 hover:text-[#788672] transition-colors pt-2"
                     >
                       <span>Explore</span>
@@ -414,13 +413,13 @@ export default function Home() {
                   key={idx}
                   className="flex-shrink-0 w-72 bg-[#eae5db] text-[#788672] overflow-hidden shadow border border-[#dcd7cc]"
                 >
-                  <div className="h-80 relative overflow-hidden border-b border-[#dcd7cc]">
+                  <div className="h-80 relative overflow-hidden border-b border-[#dcd7cc] bg-[#677461]">
                     <Image
                       src={memb.image}
                       alt={memb.name}
                       fill
                       sizes="280px"
-                      className="object-cover"
+                      className="object-cover object-bottom"
                     />
                   </div>
                   <div className="p-6 text-center space-y-2">
@@ -453,8 +452,8 @@ export default function Home() {
             {/* Split layout for Bridal */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
               {[
-                { label: "Bridal hair", title: "Bridal hair", img: "/images/bridal.png" },
-                { label: "Bridal Makeup", title: "Bridal Makeup", img: "/images/beauty.png" },
+                { label: "Bridal hair", title: "Bridal hair", img: "/images/bridal_hair.jpg", slug: "/service/bridal-hair" },
+                { label: "Bridal Makeup", title: "Bridal Makeup", img: "/images/bridal_makeup.jpg", slug: "/service/bridal-makeup" },
               ].map((b, index) => (
                 <div
                   key={index}
@@ -477,7 +476,7 @@ export default function Home() {
                       {b.title}
                     </h3>
                     <Link
-                      href="/bridal"
+                      href={b.slug}
                       className="text-[10px] tracking-widest font-bold text-[#788672]/70 uppercase flex items-center justify-center space-x-1 hover:text-[#788672] transition-colors"
                     >
                       <span>Explore</span>
@@ -506,113 +505,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* 8. SALON LOOKBOOK GALLERY SECTION */}
-        <section id="gallery" className="py-24 bg-[#eae5db] border-t border-[#dcd7cc]">
-          <div className="max-w-7xl mx-auto px-6 md:px-12">
-            
-            <div className="text-center max-w-2xl mx-auto mb-16 space-y-4">
-              <h2 className="font-serif text-3xl md:text-4xl text-[#788672] font-semibold uppercase tracking-wider">
-                Salon
-              </h2>
-              <div className="h-[1px] w-16 bg-[#788672]/30 mx-auto mt-4" />
-            </div>
 
-            {/* Grid display with exact label structure */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-              {[
-                { label: "Voucher", img: "/images/hero.png" },
-                { label: "Cotton Towel", img: "/images/hair.png" },
-                { label: "Voucher", img: "/images/nails.png" },
-                { label: "Clinic", img: "/images/skin.png" },
-              ].map((col, idx) => (
-                <div key={idx} className="bg-[#eae5db] border border-[#dcd7cc] overflow-hidden shadow flex flex-col">
-                  <div className="h-56 relative overflow-hidden">
-                    <Image src={col.img} alt={col.label} fill className="object-cover" />
-                  </div>
-                  <div className="p-4 text-center font-sans text-[10px] tracking-widest text-[#788672] uppercase font-bold border-t border-[#dcd7cc]">
-                    {col.label}
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            <div className="text-center mt-12 space-y-6">
-              <Link
-                href="https://www.fresha.com/providers/blush-blow-w9xnf8li?pId=9954&dppub=true"
-                className="inline-block bg-[#788672] text-[#fcfaf7] font-semibold text-xs tracking-[0.25em] uppercase px-8 py-4 rounded hover:bg-[#677461] transition-all duration-300 text-center min-w-[200px]"
-              >
-                Book Now
-              </Link>
-            </div>
-
-          </div>
-        </section>
-
-        {/* 9. SKIN SERVICES SECTION */}
-        <section className="py-24 bg-[#eae5db] border-t border-[#dcd7cc]">
-          <div className="max-w-7xl mx-auto px-6 md:px-12">
-            
-            <div className="text-center max-w-2xl mx-auto mb-16 space-y-4">
-              <h2 className="font-serif text-3xl md:text-4xl text-[#788672] font-semibold uppercase tracking-wider">
-                Skin Services
-              </h2>
-              <div className="h-[1px] w-16 bg-[#788672]/30 mx-auto mt-4" />
-            </div>
-
-            {/* 3 Columns Grid for Skin Studio */}
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
-              {[
-                { label: "Laser", img: "/images/skin.png" },
-                { label: "Skin", img: "/images/beauty.png" },
-                { label: "Aesthetics", img: "/images/hero.png" },
-              ].map((col, index) => (
-                <div
-                  key={index}
-                  className="group bg-[#eae5db] border border-[#dcd7cc] overflow-hidden shadow transition-all duration-300 flex flex-col text-center"
-                >
-                  <div className="p-5 bg-[#eae5db] flex flex-col justify-center border-b border-[#dcd7cc] select-none font-serif tracking-[0.2em] font-semibold">
-                    <span className="text-[10px] text-[#788672]">THE SKIN STUDIO</span>
-                    <span className="text-[7px] text-[#788672]/85 tracking-[0.4em] mt-0.5">LONDON</span>
-                  </div>
-                  <div className="h-60 relative overflow-hidden border-b border-[#dcd7cc]">
-                    <Image
-                      src={col.img}
-                      alt={col.label}
-                      fill
-                      sizes="33vw"
-                      className="object-cover group-hover:scale-105 transition-transform duration-700"
-                    />
-                  </div>
-                  <div className="p-8 space-y-4">
-                    <span className="text-[10px] tracking-widest text-[#788672]/70 font-semibold uppercase block">
-                      {col.label}
-                    </span>
-                    <h3 className="font-serif text-lg text-[#788672] font-semibold uppercase tracking-wider">
-                      {col.label}
-                    </h3>
-                    <Link
-                      href="/skin"
-                      className="text-[10px] tracking-widest font-bold text-[#788672]/70 uppercase flex items-center justify-center space-x-1 hover:text-[#788672] transition-colors"
-                    >
-                      <span>Explore</span>
-                      <ArrowRight size={10} />
-                    </Link>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            <div className="text-center mt-16">
-              <Link
-                href="https://www.fresha.com/providers/blush-blow-w9xnf8li?pId=9954&dppub=true"
-                className="inline-block bg-[#788672] text-[#fcfaf7] font-semibold text-xs tracking-[0.25em] uppercase px-8 py-4 rounded hover:bg-[#677461] transition-all duration-300 text-center min-w-[200px]"
-              >
-                Book Now
-              </Link>
-            </div>
-
-          </div>
-        </section>
 
         {/* 10. TESTIMONIALS SECTION */}
         <section className="py-24 bg-[#eae5db] border-t border-[#dcd7cc]">
@@ -667,70 +560,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* 11. PRESS LOGO SLIDER */}
-        <section className="py-16 bg-[#c0c8b9] text-white text-center">
-          <div className="max-w-7xl mx-auto px-6 md:px-12 space-y-8">
-            <h2 className="font-serif text-3xl font-semibold text-[#788672] uppercase tracking-wider">Press</h2>
-            <div className="h-[1px] w-16 bg-[#788672]/30 mx-auto" />
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 items-center justify-center pt-4 opacity-85 font-serif tracking-[0.25em] text-xs text-[#788672] font-semibold">
-              <span>GRAZIA</span>
-              <span>TATLER</span>
-              <span>VOGUE</span>
-              <span>GLAMOUR</span>
-              <span>COSMOPOLITAN</span>
-              <span>DAILY MAIL</span>
-            </div>
-          </div>
-        </section>
 
-        {/* 12. INSTAGRAM SECTION */}
-        <section className="py-24 bg-[#eae5db] border-t border-[#dcd7cc]">
-          <div className="max-w-7xl mx-auto px-6 md:px-12">
-            
-            <div className="flex items-center justify-between mb-10">
-              <div className="flex items-center space-x-3 select-none">
-                <div className="w-12 h-12 rounded-full overflow-hidden border border-[#dcd7cc] relative">
-                  <Image src="/images/beauty.png" alt="blushandblowlondon profile" fill className="object-cover" />
-                </div>
-                <h3 className="font-serif text-lg text-[#788672] font-semibold">blushandblowlondon</h3>
-              </div>
-            </div>
-
-            {/* Grid of Instagram posts */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-              {["insta-1", "insta-2", "insta-3", "insta-4"].map((itm, idx) => (
-                <a
-                  key={idx}
-                  href="https://www.instagram.com/blushandblowlondon/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group relative aspect-square overflow-hidden border border-[#dcd7cc] block"
-                >
-                  <Image
-                    src={initialGallery[idx]}
-                    alt="Instagram Post"
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-700"
-                  />
-                  <div className="absolute inset-0 bg-[#788672]/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-center items-center text-white">
-                    <Instagram size={20} className="mb-2" />
-                    <span className="text-[10px] tracking-widest uppercase font-bold">View on Instagram</span>
-                  </div>
-                </a>
-              ))}
-            </div>
-
-            <div className="text-center mt-12">
-              <Link
-                href="https://www.instagram.com/blushandblowlondon/"
-                className="inline-block border border-[#788672]/30 text-[#788672] font-semibold text-xs tracking-[0.25em] uppercase px-8 py-4 rounded hover:bg-[#788672] hover:text-white transition-all duration-300 text-center min-w-[200px]"
-              >
-                Follow On Instagram
-              </Link>
-            </div>
-
-          </div>
-        </section>
 
         {/* 13. FAQ ACCORDION SECTION */}
         <section id="faq" className="py-24 bg-[#eae5db] border-t border-[#dcd7cc]">

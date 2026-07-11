@@ -83,22 +83,16 @@ export const Navbar = () => {
                     className="absolute left-0 w-44 bg-white border border-[#dcd7cc] rounded-lg shadow-lg py-2 z-50 text-[#788672]"
                   >
                     <Link
-                      href="/#about"
+                      href="/team-members"
                       className="block px-5 py-2 hover:bg-[#FAF8F6] text-[9px] tracking-widest font-bold"
                     >
-                      Story
+                      Team Members
                     </Link>
                     <Link
-                      href="/#team"
+                      href="/careers"
                       className="block px-5 py-2 hover:bg-[#FAF8F6] text-[9px] tracking-widest font-bold"
                     >
-                      Team
-                    </Link>
-                    <Link
-                      href="/#gallery"
-                      className="block px-5 py-2 hover:bg-[#FAF8F6] text-[9px] tracking-widest font-bold"
-                    >
-                      Salon
+                      Careers
                     </Link>
                   </motion.div>
                 )}
@@ -143,12 +137,6 @@ export const Navbar = () => {
                       Beauty
                     </Link>
                     <Link
-                      href="/skin"
-                      className="block px-5 py-2 hover:bg-[#FAF8F6] text-[9px] tracking-widest font-bold"
-                    >
-                      Skin
-                    </Link>
-                    <Link
                       href="/bridal"
                       className="block px-5 py-2 hover:bg-[#FAF8F6] text-[9px] tracking-widest font-bold"
                     >
@@ -167,31 +155,24 @@ export const Navbar = () => {
             </Link>
             
             <Link
-              href="/hair"
+              href="/blower"
               className="px-4 flex items-center h-full border-r border-white/10 hover:bg-[#677461] transition-colors"
             >
               The Blower
             </Link>
 
             <Link
-              href="/#faq"
+              href="/faqs"
               className="px-4 flex items-center h-full border-r border-white/10 hover:bg-[#677461] transition-colors"
             >
               Faq's
             </Link>
 
             <Link
-              href="/#contact"
-              className="px-4 flex items-center h-full border-r border-white/10 hover:bg-[#677461] transition-colors"
-            >
-              Contact
-            </Link>
-
-            <Link
-              href="/#contact"
+              href="/contact"
               className="px-4 flex items-center h-full hover:bg-[#677461] transition-colors"
             >
-              Refer A Friend
+              Contact
             </Link>
           </nav>
 
@@ -255,9 +236,8 @@ export const Navbar = () => {
                   <div className="space-y-2">
                     <span className="text-white/50 text-[10px]">About</span>
                     <div className="pl-4 flex flex-col space-y-2">
-                      <Link href="/#about" onClick={toggleMobileMenu} className="hover:text-white/80">Story</Link>
-                      <Link href="/#team" onClick={toggleMobileMenu} className="hover:text-white/80">Team</Link>
-                      <Link href="/#gallery" onClick={toggleMobileMenu} className="hover:text-white/80">Salon</Link>
+                      <Link href="/team-members" onClick={toggleMobileMenu} className="hover:text-white/80">Team Members</Link>
+                      <Link href="/careers" onClick={toggleMobileMenu} className="hover:text-white/80">Careers</Link>
                     </div>
                   </div>
                   <div className="space-y-2">
@@ -266,20 +246,19 @@ export const Navbar = () => {
                       <Link href="/hair" onClick={toggleMobileMenu} className="hover:text-white/80">Hair</Link>
                       <Link href="/nails" onClick={toggleMobileMenu} className="hover:text-white/80">Nails</Link>
                       <Link href="/beauty" onClick={toggleMobileMenu} className="hover:text-white/80">Beauty</Link>
-                      <Link href="/skin" onClick={toggleMobileMenu} className="hover:text-white/80">Skin</Link>
                       <Link href="/bridal" onClick={toggleMobileMenu} className="hover:text-white/80">Bridal</Link>
                     </div>
                   </div>
                   <Link href="/#team" onClick={toggleMobileMenu} className="hover:text-white/80">
                     Beauts
                   </Link>
-                  <Link href="/hair" onClick={toggleMobileMenu} className="hover:text-white/80">
+                  <Link href="/blower" onClick={toggleMobileMenu} className="hover:text-white/80">
                     The Blower
                   </Link>
-                  <Link href="/#faq" onClick={toggleMobileMenu} className="hover:text-white/80">
+                  <Link href="/faqs" onClick={toggleMobileMenu} className="hover:text-white/80">
                     Faq's
                   </Link>
-                  <Link href="/#contact" onClick={toggleMobileMenu} className="hover:text-white/80">
+                  <Link href="/contact" onClick={toggleMobileMenu} className="hover:text-white/80">
                     Contact
                   </Link>
                 </nav>
