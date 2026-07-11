@@ -183,17 +183,17 @@ export default function Home() {
 
       <main className="overflow-hidden text-[#181816]" style={{backgroundColor: '#e8e4d9'}}>
         {/* 1. HERO/BANNER SECTION */}
-        <section className="relative" style={{backgroundColor: '#e8e4d9', minHeight: '100vh'}}>
-          <div className="max-w-none w-full grid grid-cols-1 lg:grid-cols-[46%_54%] items-center" style={{minHeight: '100vh'}}>
+        <section style={{backgroundColor: '#e8e4d9', minHeight: '100vh', display: 'grid', gridTemplateColumns: '1fr', position: 'relative'}}>
+          {/* Desktop grid layout */}
+          <div className="hidden lg:grid" style={{gridTemplateColumns: '46% 54%', minHeight: '100vh'}}>
 
-            {/* Left Column — h1 + stacked category buttons */}
-            <div className="flex flex-col items-center justify-center px-10 md:px-16 pt-36 pb-16 lg:pt-40 lg:pb-20">
+            {/* Left Column */}
+            <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '160px 60px 60px 80px'}}>
               <motion.h1
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.9, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
-                className="font-serif text-[38px] sm:text-[46px] lg:text-[48px] leading-[1.2] font-normal tracking-[0.06em] uppercase text-center mb-10"
-                style={{color: '#4a5e4f'}}
+                style={{color: '#4a5e4f', fontFamily: 'var(--font-playfair), serif', fontSize: '52px', lineHeight: '1.2', fontWeight: 400, letterSpacing: '0.06em', textTransform: 'uppercase', textAlign: 'center', marginBottom: '40px'}}
               >
                 ADDING COLOUR<br />TO YOUR LIFE
               </motion.h1>
@@ -205,8 +205,7 @@ export default function Home() {
                   hidden: { opacity: 0 },
                   visible: { opacity: 1, transition: { staggerChildren: 0.08, delayChildren: 1.0 } }
                 }}
-                className="flex flex-col w-full max-w-[390px]"
-                style={{gap: '8px'}}
+                style={{display: 'flex', flexDirection: 'column', width: '100%', maxWidth: '390px', gap: '8px'}}
               >
                 {["HAIR", "NAILS", "BEAUTY", "BRIDAL", "SKIN"].map((lbl) => (
                   <motion.div
@@ -216,8 +215,7 @@ export default function Home() {
                   >
                     <Link
                       href={lbl.toLowerCase() === "skin" ? "/beauty" : `/${lbl.toLowerCase()}`}
-                      className="w-full block font-sans text-[11px] tracking-[0.25em] uppercase py-[15px] text-center text-white transition-colors duration-300"
-                      style={{backgroundColor: '#9aaa96'}}
+                      style={{display: 'block', width: '100%', backgroundColor: '#9aaa96', color: 'white', textAlign: 'center', padding: '15px', fontFamily: 'var(--font-inter), sans-serif', fontSize: '11px', letterSpacing: '0.25em', textTransform: 'uppercase', textDecoration: 'none', transition: 'background-color 0.3s'}}
                       onMouseEnter={e => (e.currentTarget.style.backgroundColor = '#4a5e4f')}
                       onMouseLeave={e => (e.currentTarget.style.backgroundColor = '#9aaa96')}
                     >
@@ -228,38 +226,48 @@ export default function Home() {
               </motion.div>
             </div>
 
-            {/* Right Column — contained image box with margins, matching live site */}
+            {/* Right Column — image fills entire column, top to bottom, NO padding */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
               transition={{ duration: 1.2, delay: 0.3 }}
-              className="hidden lg:flex items-center justify-start pr-6 py-20"
+              style={{position: 'relative'}}
             >
-              <div className="relative w-full" style={{height: '640px'}}>
-                <Image
-                  src="/images/homepage_hero_main.webp"
-                  alt="Adding Colour To Your Life — Blush + Blow London Salon"
-                  fill
-                  sizes="54vw"
-                  className="object-cover object-center"
-                  priority
-                />
-              </div>
+              <Image
+                src="/images/homepage_hero_main.webp"
+                alt="Adding Colour To Your Life — Blush + Blow London Salon"
+                fill
+                sizes="54vw"
+                className="object-cover object-center"
+                priority
+              />
             </motion.div>
           </div>
 
-          {/* Mobile: image below text */}
-          <div className="lg:hidden relative w-full" style={{height: '300px'}}>
-            <Image
-              src="/images/homepage_hero_main.webp"
-              alt="Blush + Blow London"
-              fill
-              sizes="100vw"
-              className="object-cover"
-              priority
-            />
+          {/* Mobile layout */}
+          <div className="lg:hidden flex flex-col">
+            <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '120px 40px 40px'}}>
+              <h1 style={{color: '#4a5e4f', fontFamily: 'var(--font-playfair), serif', fontSize: '38px', lineHeight: '1.2', fontWeight: 400, letterSpacing: '0.06em', textTransform: 'uppercase', textAlign: 'center', marginBottom: '32px'}}>
+                ADDING COLOUR<br />TO YOUR LIFE
+              </h1>
+              <div style={{display: 'flex', flexDirection: 'column', width: '100%', maxWidth: '360px', gap: '8px'}}>
+                {["HAIR", "NAILS", "BEAUTY", "BRIDAL", "SKIN"].map((lbl) => (
+                  <Link
+                    key={lbl}
+                    href={lbl.toLowerCase() === "skin" ? "/beauty" : `/${lbl.toLowerCase()}`}
+                    style={{display: 'block', backgroundColor: '#9aaa96', color: 'white', textAlign: 'center', padding: '14px', fontSize: '11px', letterSpacing: '0.25em', textTransform: 'uppercase'}}
+                  >
+                    {lbl}
+                  </Link>
+                ))}
+              </div>
+            </div>
+            <div style={{position: 'relative', height: '300px', width: '100%'}}>
+              <Image src="/images/homepage_hero_main.webp" alt="Blush + Blow London" fill sizes="100vw" className="object-cover" priority />
+            </div>
           </div>
         </section>
+
 
         {/* 2. CONCERN SECTION */}
         <section className="overflow-hidden" style={{backgroundColor: '#e8e4d9'}}>
