@@ -56,7 +56,7 @@ export default function BeautsPage() {
                   alt={`Blush + Blow work example ${index + 1}`}
                   fill
                   sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
-                  className="object-cover group-hover:scale-108 transition-transform duration-700 ease-out"
+                  className="object-cover"
                 />
                 
                 {/* Micro-hover overlay */}

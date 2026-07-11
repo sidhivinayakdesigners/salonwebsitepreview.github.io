@@ -75,7 +75,7 @@ export default function BeautyServices() {
                     alt={serv.title}
                     fill
                     sizes="(max-width: 768px) 100vw, 50vw"
-                    className="object-cover hover:scale-108 transition-transform duration-700 ease-out"
+                    className="object-cover"
                     priority={index < 2}
                   />
                 </Link>

@@ -409,7 +409,7 @@ export default function Home() {
                       alt={serv.title}
                       fill
                       sizes="25vw"
-                      className="object-cover group-hover:scale-110 transition-transform duration-1000 ease-out"
+                      className="object-cover"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                   </div>
@@ -500,7 +500,7 @@ export default function Home() {
                       alt={col.title}
                       fill
                       sizes="50vw"
-                      className="object-cover group-hover:scale-110 transition-transform duration-1000 ease-out"
+                      className="object-cover"
                     />
                   </div>
                   <div className="p-8 text-center space-y-4">
@@ -600,7 +600,7 @@ export default function Home() {
                       alt={serv.title}
                       fill
                       sizes="25vw"
-                      className="object-cover group-hover:scale-110 transition-transform duration-1000 ease-out"
+                      className="object-cover"
                     />
                   </div>
                   <div className="p-6 text-center space-y-4 flex-grow flex flex-col justify-between">
@@ -699,7 +699,7 @@ export default function Home() {
                       alt={memb.name}
                       fill
                       sizes="280px"
-                      className="object-cover object-bottom group-hover:scale-108 transition-transform duration-700 ease-out"
+                      className="object-cover object-bottom"
                     />
                   </div>
                   <div className="p-6 text-center space-y-2">
@@ -770,7 +770,7 @@ export default function Home() {
                       alt={b.title}
                       fill
                       sizes="50vw"
-                      className="object-cover group-hover:scale-110 transition-transform duration-1000 ease-out"
+                      className="object-cover"
                     />
                   </div>
                   <div className="p-8 text-center space-y-4">

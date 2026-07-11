@@ -79,7 +79,7 @@ export default function BlowerPage() {
                 src={featured.img}
                 alt={featured.title}
                 fill
-                className="object-cover hover:scale-108 transition-transform duration-700 ease-out"
+                className="object-cover"
                 priority
               />
             </div>
@@ -138,7 +138,7 @@ export default function BlowerPage() {
                       src={post.img}
                       alt={post.title}
                       fill
-                      className="object-cover group-hover:scale-108 transition-transform duration-700 ease-out"
+                      className="object-cover"
                     />
                   </div>
 
