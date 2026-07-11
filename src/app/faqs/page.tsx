@@ -128,14 +128,14 @@ export default function FAQsPage() {
     <>
       <Navbar />
 
-      <main className="pt-32 pb-24 bg-[#eae5db] min-h-screen text-[#788672] font-sans">
+      <main className="pt-32 pb-24 bg-[#FCFAF7] min-h-screen text-[#181816] font-sans">
         
         {/* Title */}
         <div className="max-w-4xl mx-auto px-6 text-center mb-16 space-y-4">
-          <h1 className="font-serif text-5xl md:text-6xl text-[#788672] font-semibold uppercase tracking-wider">
+          <h1 className="font-serif text-5xl md:text-6xl text-[#181816] font-semibold uppercase tracking-wider">
             FAQ’s
           </h1>
-          <div className="h-[1px] w-24 bg-[#788672]/30 mx-auto" />
+          <div className="h-[1px] w-24 bg-[#C6A86B]/30 mx-auto" />
         </div>
 
         {/* Collapsible FAQ Section */}
@@ -145,14 +145,14 @@ export default function FAQsPage() {
             return (
               <div
                 key={idx}
-                className="bg-[#eae5db] border border-[#dcd7cc] overflow-hidden shadow-sm"
+                className="bg-white border border-[#ECE8E1] overflow-hidden shadow-premium hover:shadow-premium-hover rounded-none transition-shadow"
               >
                 <button
                   onClick={() => setActiveIdx(isOpen ? null : idx)}
-                  className="w-full px-8 py-5 text-left flex items-center justify-between font-serif text-base text-[#788672] font-semibold tracking-wide focus:outline-none"
+                  className="w-full px-8 py-5 text-left flex items-center justify-between font-serif text-base text-[#181816] font-semibold tracking-wide focus:outline-none hover:text-[#C6A86B] transition-colors"
                 >
                   <span>{faq.q}</span>
-                  <span className="text-[#788672] font-serif text-2xl font-light">
+                  <span className="text-[#C6A86B] font-serif text-2xl font-light">
                     {isOpen ? "−" : "+"}
                   </span>
                 </button>
@@ -164,9 +164,9 @@ export default function FAQsPage() {
                       animate={{ height: "auto", opacity: 1 }}
                       exit={{ height: 0, opacity: 0 }}
                       transition={{ duration: 0.3 }}
-                      className="border-t border-[#dcd7cc]"
+                      className="border-t border-[#ECE8E1]"
                     >
-                      <p className="px-8 py-5 font-sans text-xs leading-relaxed tracking-wider text-[#788672]/85 bg-[#cbd1c9]/15">
+                      <p className="px-8 py-5 font-sans text-xs leading-relaxed tracking-wider text-[#666666] bg-[#FCFAF7]/40">
                         {faq.a}
                       </p>
                     </motion.div>
@@ -178,24 +178,24 @@ export default function FAQsPage() {
         </div>
 
         {/* Testimonials at bottom */}
-        <div className="max-w-4xl mx-auto px-6 mt-28 border-t border-[#788672]/15 pt-20">
+        <div className="max-w-4xl mx-auto px-6 mt-28 border-t border-[#ECE8E1] pt-20">
           <div className="text-center space-y-8">
-            <h2 className="font-serif text-3xl uppercase tracking-wider font-semibold">
+            <h2 className="font-serif text-3xl uppercase tracking-wider font-semibold text-[#181816]">
               Testimonials
             </h2>
-            <div className="h-[1px] w-12 bg-[#788672]/30 mx-auto" />
+            <div className="h-[1px] w-12 bg-[#C6A86B]/30 mx-auto" />
 
             <div className="min-h-[140px] flex items-center justify-center">
               <div className="space-y-4 max-w-2xl">
                 <div className="flex items-center justify-center space-x-1">
                   {[...Array(5)].map((_, i) => (
-                    <Star key={i} size={14} className="fill-[#788672] text-[#788672]" />
+                    <Star key={i} size={14} className="fill-[#C6A86B] text-[#C6A86B]" />
                   ))}
                 </div>
-                <p className="font-serif text-base md:text-lg italic leading-relaxed text-[#788672]/90">
+                <p className="font-serif text-base md:text-lg italic leading-relaxed text-[#181816]">
                   "{testimonialsList[testimonialIdx].text}"
                 </p>
-                <p className="font-sans text-[10px] font-bold tracking-[0.2em] uppercase pt-2">
+                <p className="font-sans text-[10px] font-bold tracking-[0.2em] uppercase pt-2 text-[#A88B52]">
                   — {testimonialsList[testimonialIdx].name}
                 </p>
               </div>
@@ -208,7 +208,7 @@ export default function FAQsPage() {
                   key={idx}
                   onClick={() => setTestimonialIdx(idx)}
                   className={`w-1.5 h-1.5 rounded-full transition-all duration-300 ${
-                    idx === testimonialIdx ? "bg-[#788672] w-4" : "bg-[#b9c1b7]"
+                    idx === testimonialIdx ? "bg-[#C6A86B] w-4" : "bg-[#ECE8E1]"
                   }`}
                   aria-label={`Go to review ${idx + 1}`}
                 />

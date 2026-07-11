@@ -49,12 +49,12 @@ export default function BeautyServices() {
     <>
       <Navbar />
 
-      <main className="pt-32 pb-24 bg-[#eae5db] min-h-screen text-[#788672] font-sans">
+      <main className="pt-32 pb-24 bg-[#FCFAF7] min-h-screen text-[#181816] font-sans">
         
         {/* Title Wrap */}
         <div className="max-w-7xl mx-auto px-6 md:px-12 mb-12">
-          <div className="text-center md:text-left border-b border-[#dcd7cc] pb-6">
-            <h1 className="font-serif text-5xl md:text-6xl text-[#788672] font-semibold tracking-wider uppercase">
+          <div className="text-center md:text-left border-b border-[#ECE8E1] pb-6">
+            <h1 className="font-serif text-5xl md:text-6xl text-[#181816] font-semibold tracking-wider uppercase">
               Beauty
             </h1>
           </div>
@@ -66,30 +66,30 @@ export default function BeautyServices() {
             {beautyServicesGrid.map((serv, index) => (
               <div
                 key={index}
-                className="flex flex-col bg-[#788672] text-[#fcfaf7] shadow-md border border-[#788672]/20 overflow-hidden"
+                className="flex flex-col bg-white text-[#181816] shadow-premium hover:shadow-premium-hover border border-[#ECE8E1] overflow-hidden transition-all duration-500 rounded-none"
               >
                 {/* Thumbnail Wrap */}
-                <Link href={serv.learnLink} className="h-[300px] relative w-full overflow-hidden bg-[#677461] block">
+                <Link href={serv.learnLink} className="h-[300px] relative w-full overflow-hidden bg-[#FCFAF7] block border-b border-[#ECE8E1]">
                   <Image
                     src={serv.img}
                     alt={serv.title}
                     fill
                     sizes="(max-width: 768px) 100vw, 50vw"
-                    className="object-cover hover:scale-102 transition-transform duration-700"
+                    className="object-cover hover:scale-108 transition-transform duration-700 ease-out"
                     priority={index < 2}
                   />
                 </Link>
 
                 {/* Content Wrap */}
-                <div className="p-8 md:p-12 flex-grow flex flex-col justify-between items-center text-center space-y-6">
+                <div className="p-8 md:p-12 flex-grow flex flex-col justify-between items-center text-center space-y-6 bg-white">
                   <div className="space-y-4 w-full">
                     <Link href={serv.learnLink} className="hover:text-[#C6A86B] transition-colors block">
-                      <h2 className="font-serif text-2xl md:text-3xl font-semibold tracking-[0.05em] uppercase text-white">
+                      <h2 className="font-serif text-2xl md:text-3xl font-semibold tracking-[0.05em] uppercase text-[#181816] hover:text-[#C6A86B] transition-colors">
                         {serv.title}
                       </h2>
                     </Link>
-                    <hr className="border-t border-white/20 w-full" />
-                    <p className="font-sans text-xs md:text-sm leading-relaxed tracking-wider text-white/90 min-h-[60px] flex items-center justify-center">
+                    <hr className="border-t border-[#ECE8E1] w-full" />
+                    <p className="font-sans text-xs md:text-sm leading-relaxed tracking-wider text-[#666666] min-h-[60px] flex items-center justify-center font-light">
                       {serv.desc}
                     </p>
                   </div>
@@ -98,13 +98,13 @@ export default function BeautyServices() {
                   <div className="flex flex-wrap items-center justify-center gap-4 pt-2 w-full">
                     <Link
                       href={serv.learnLink}
-                      className="border border-white text-white font-bold text-xs tracking-[0.2em] uppercase px-6 py-3 hover:bg-white hover:text-[#788672] transition-all duration-300 min-w-[140px] text-center"
+                      className="border border-[#5A6655]/45 text-[#5A6655] font-bold text-[10px] tracking-[0.2em] uppercase px-6 py-3 hover:bg-[#5A6655] hover:text-white transition-all duration-300 min-w-[140px] text-center rounded-none"
                     >
                       Learn More
                     </Link>
                     <a
                       href={serv.bookLink}
-                      className="bg-[#eae5db] border border-[#eae5db] text-[#788672] font-bold text-xs tracking-[0.2em] uppercase px-6 py-3 hover:bg-white hover:text-[#788672] hover:border-white transition-all duration-300 min-w-[140px] text-center"
+                      className="bg-[#5A6655] border border-[#5A6655] text-white font-bold text-[10px] tracking-[0.2em] uppercase px-6 py-3 hover:bg-[#C6A86B] hover:border-[#C6A86B] transition-all duration-300 min-w-[140px] text-center rounded-none"
                     >
                       Book Now
                     </a>

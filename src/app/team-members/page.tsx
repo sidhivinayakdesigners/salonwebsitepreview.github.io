@@ -85,15 +85,15 @@ export default function TeamMembers() {
     <>
       <Navbar />
 
-      <main className="pt-32 pb-24 bg-[#eae5db] min-h-screen text-[#788672] font-sans overflow-x-hidden">
+      <main className="pt-32 pb-24 bg-[#FCFAF7] min-h-screen text-[#181816] font-sans overflow-x-hidden">
         
         {/* Title Section */}
         <div className="max-w-7xl mx-auto px-6 md:px-12 mb-28 text-center space-y-4">
-          <h1 className="font-serif text-5xl md:text-6xl text-[#788672] font-semibold uppercase tracking-wider">
+          <h1 className="font-serif text-5xl md:text-6xl text-[#181816] font-semibold uppercase tracking-wider">
             Blushers + Blowers
           </h1>
-          <div className="h-[1px] w-24 bg-[#788672]/30 mx-auto" />
-          <p className="text-sm md:text-base text-[#788672]/85 leading-relaxed tracking-wider max-w-3xl mx-auto font-medium">
+          <div className="h-[1px] w-24 bg-[#C6A86B]/30 mx-auto" />
+          <p className="text-sm md:text-base text-[#666666] leading-relaxed tracking-wider max-w-3xl mx-auto font-light">
             Driven by passion and expertise, our team at Blush + Blow combines years of industry experience with a shared goal: To add colour to your life.
           </p>
         </div>
@@ -106,11 +106,9 @@ export default function TeamMembers() {
               <div key={index} className="relative w-full overflow-visible">
                 {/* Responsive banner box container */}
                 <div
-                  className={`w-full rounded-lg md:h-[280px] flex flex-col ${
+                  className={`w-full rounded-none md:h-[280px] flex flex-col ${
                     isOdd ? "md:flex-row" : "md:flex-row-reverse"
-                  } overflow-visible shadow-sm border border-[#788672]/10 ${
-                    isOdd ? "bg-[#788672] text-[#fcfaf7]" : "bg-[#cbd1c9] text-[#788672]"
-                  }`}
+                  } overflow-visible shadow-premium border border-[#ECE8E1] bg-white text-[#181816] hover:shadow-premium-hover transition-all duration-300`}
                 >
                   
                   {/* Photo Section (Absolute Overlapping on Desktop, block on Mobile) */}
@@ -139,31 +137,23 @@ export default function TeamMembers() {
                   >
                     <div>
                       <h2
-                        className={`font-serif text-3xl font-semibold tracking-wider uppercase ${
-                          isOdd ? "text-white" : "text-[#788672]"
-                        }`}
+                        className="font-serif text-3xl font-semibold tracking-wider uppercase text-[#181816]"
                       >
                         {member.name}
                       </h2>
                       <span
-                        className={`text-[10px] tracking-[0.25em] uppercase font-bold block mt-1.5 ${
-                          isOdd ? "text-[#C6A86B]" : "text-[#788672]/70"
-                        }`}
+                        className="text-[10px] tracking-[0.25em] uppercase font-bold block mt-1.5 text-[#C6A86B]"
                       >
                         {member.role}
                       </span>
                     </div>
 
                     <hr
-                      className={`my-5 w-full ${
-                        isOdd ? "border-white/20" : "border-[#788672]/20"
-                      }`}
+                      className="my-5 w-full border-t border-[#ECE8E1]"
                     />
 
                     <p
-                      className={`font-sans text-[13px] md:text-sm leading-relaxed tracking-wider font-light ${
-                        isOdd ? "text-white/90" : "text-[#788672]/90"
-                      }`}
+                      className="font-sans text-[13px] md:text-sm leading-relaxed tracking-wider font-light text-[#666666]"
                     >
                       {member.desc}
                     </p>
