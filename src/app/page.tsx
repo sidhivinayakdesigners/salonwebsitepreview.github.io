@@ -293,7 +293,7 @@ export default function Home() {
         </section>
 
         {/* 2. CONCERN SECTION */}
-        <section className="py-16 lg:py-24 bg-[#FCFAF7] border-t border-[#ECE8E1] overflow-hidden">
+        <section className="py-20 lg:py-28 bg-gradient-to-b from-[#FCFAF7] to-[#FAF6EE] border-t border-[#ECE8E1] overflow-hidden">
           <motion.div 
             initial="hidden"
             whileInView="visible"
@@ -305,52 +305,58 @@ export default function Home() {
                 transition: { staggerChildren: 0.2 }
               }
             }}
-            className="max-w-5xl mx-auto px-8 py-16 bg-white border border-[#ECE8E1] rounded shadow-sm grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center"
+            className="max-w-5xl mx-auto px-4"
           >
-            {/* Left: Image */}
-            <motion.div 
-              variants={{
-                hidden: { opacity: 0, x: -50 },
-                visible: { opacity: 1, x: 0 }
-              }}
-              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-              className="lg:col-span-6 relative h-[300px] sm:h-[400px] lg:h-[450px] w-full max-w-md mx-auto"
-            >
-              <Image
-                src="/images/color_life_concern.webp"
-                alt="Show your true colours"
-                fill
-                sizes="(max-width: 768px) 100vw, 55vw"
-                className="object-contain"
-              />
-            </motion.div>
-
-            {/* Right: Text & Action */}
-            <motion.div 
-              variants={{
-                hidden: { opacity: 0, x: 50 },
-                visible: { opacity: 1, x: 0 }
-              }}
-              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-              className="lg:col-span-6 flex flex-col items-center justify-center text-center space-y-6 lg:space-y-8"
-            >
-              <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl text-[#181816] font-semibold uppercase tracking-[0.1em] leading-[1.2]">
-                Show your <br />
-                <span className="text-[#C6A86B] italic font-serif lowercase font-normal">true</span> colours
-              </h2>
-              <motion.div
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                transition={{ type: "spring", stiffness: 400, damping: 20 }}
-              >
-                <Link
-                  href="https://www.fresha.com/providers/blush-blow-w9xnf8li?pId=9954&dppub=true"
-                  className="border border-[#5A6655] text-[#5A6655] font-semibold text-xs tracking-[0.25em] uppercase px-12 py-4.5 rounded hover:bg-[#5A6655] hover:text-white transition-all duration-300 block text-center min-w-[200px]"
+            {/* Elegant Double Frame Border */}
+            <div className="border border-[#C6A86B]/40 p-2 md:p-3 rounded-none shadow-premium bg-white">
+              <div className="border border-[#5A6655]/25 p-8 md:p-12 lg:p-16 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center">
+                
+                {/* Left: Image */}
+                <motion.div 
+                  variants={{
+                    hidden: { opacity: 0, x: -40 },
+                    visible: { opacity: 1, x: 0 }
+                  }}
+                  transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                  className="lg:col-span-6 relative h-[300px] sm:h-[400px] lg:h-[450px] w-full max-w-md mx-auto"
                 >
-                  Book Now
-                </Link>
-              </motion.div>
-            </motion.div>
+                  <Image
+                    src="/images/color_life_concern.webp"
+                    alt="Show your true colours"
+                    fill
+                    sizes="(max-width: 768px) 100vw, 55vw"
+                    className="object-contain"
+                  />
+                </motion.div>
+
+                {/* Right: Text & Action */}
+                <motion.div 
+                  variants={{
+                    hidden: { opacity: 0, x: 40 },
+                    visible: { opacity: 1, x: 0 }
+                  }}
+                  transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                  className="lg:col-span-6 flex flex-col items-center justify-center text-center space-y-6 lg:space-y-8"
+                >
+                  <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl text-[#181816] font-semibold uppercase tracking-[0.1em] leading-[1.2]">
+                    Show your <br />
+                    <span className="text-[#C6A86B] italic font-serif lowercase font-normal">true</span> colours
+                  </h2>
+                  <motion.div
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    transition={{ type: "spring", stiffness: 400, damping: 20 }}
+                  >
+                    <Link
+                      href="https://www.fresha.com/providers/blush-blow-w9xnf8li?pId=9954&dppub=true"
+                      className="border border-[#5A6655] text-[#5A6655] font-semibold text-xs tracking-[0.25em] uppercase px-12 py-4.5 rounded-none hover:bg-[#5A6655] hover:text-white transition-all duration-300 block text-center min-w-[200px] cursor-pointer"
+                    >
+                      Book Now
+                    </Link>
+                  </motion.div>
+                </motion.div>
+              </div>
+            </div>
           </motion.div>
         </section>
 
@@ -395,7 +401,7 @@ export default function Home() {
                   }}
                   transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
                   whileHover={{ y: -6 }}
-                  className="group bg-white border border-[#ECE8E1] overflow-hidden shadow-premium hover:shadow-premium-hover transition-all duration-500 flex flex-col h-full cursor-pointer rounded-none"
+                  className="group bg-white border border-[#ECE8E1] overflow-hidden shadow-premium hover:shadow-premium-hover transition-all duration-500 flex flex-col h-full cursor-pointer rounded-none relative"
                 >
                   <div className="h-60 relative overflow-hidden border-b border-[#ECE8E1]">
                     <Image
@@ -403,7 +409,7 @@ export default function Home() {
                       alt={serv.title}
                       fill
                       sizes="25vw"
-                      className="object-cover group-hover:scale-108 transition-transform duration-700 ease-out"
+                      className="object-cover group-hover:scale-110 transition-transform duration-1000 ease-out"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                   </div>
@@ -419,6 +425,8 @@ export default function Home() {
                       <ArrowRight size={10} className="group-hover:translate-x-1.5 transition-transform" />
                     </Link>
                   </div>
+                  {/* Gold active border bottom */}
+                  <div className="absolute bottom-0 left-0 w-full h-[3px] bg-[#C6A86B] scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
                 </motion.div>
               ))}
             </motion.div>
@@ -432,7 +440,7 @@ export default function Home() {
               >
                 <Link
                   href="/hair"
-                  className="inline-block border border-[#5A6655]/40 text-[#5A6655] font-semibold text-xs tracking-[0.25em] uppercase px-8 py-4 rounded hover:bg-[#5A6655] hover:text-white transition-all duration-300"
+                  className="inline-block border border-[#5A6655]/40 text-[#5A6655] font-semibold text-xs tracking-[0.25em] uppercase px-8 py-4 rounded-none hover:bg-[#5A6655] hover:text-white transition-all duration-300"
                 >
                   More Hair Services
                 </Link>
@@ -481,7 +489,7 @@ export default function Home() {
                   }}
                   transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
                   whileHover={{ y: -6 }}
-                  className="group bg-white border border-[#ECE8E1] overflow-hidden shadow-premium hover:shadow-premium-hover transition-all duration-500 flex flex-col cursor-pointer rounded-none"
+                  className="group bg-white border border-[#ECE8E1] overflow-hidden shadow-premium hover:shadow-premium-hover transition-all duration-500 flex flex-col cursor-pointer rounded-none relative"
                 >
                   <div className="p-4 bg-[#FCFAF7] border-b border-[#ECE8E1] text-center text-[10px] tracking-[0.25em] text-[#5A6655] font-semibold uppercase group-hover:bg-[#ECE8E1]/40 transition-colors">
                     {col.label}
@@ -492,7 +500,7 @@ export default function Home() {
                       alt={col.title}
                       fill
                       sizes="50vw"
-                      className="object-cover group-hover:scale-108 transition-transform duration-700"
+                      className="object-cover group-hover:scale-110 transition-transform duration-1000 ease-out"
                     />
                   </div>
                   <div className="p-8 text-center space-y-4">
@@ -507,6 +515,8 @@ export default function Home() {
                       <ArrowRight size={10} className="group-hover:translate-x-1.5 transition-transform" />
                     </Link>
                   </div>
+                  {/* Gold active border bottom */}
+                  <div className="absolute bottom-0 left-0 w-full h-[3px] bg-[#C6A86B] scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
                 </motion.div>
               ))}
             </motion.div>
@@ -519,7 +529,7 @@ export default function Home() {
               >
                 <Link
                   href="/nails"
-                  className="inline-block border border-[#5A6655]/40 text-[#5A6655] font-semibold text-xs tracking-[0.25em] uppercase px-8 py-4 rounded hover:bg-[#5A6655] hover:text-white transition-all duration-300 text-center min-w-[200px]"
+                  className="inline-block border border-[#5A6655]/40 text-[#5A6655] font-semibold text-xs tracking-[0.25em] uppercase px-8 py-4 rounded-none hover:bg-[#5A6655] hover:text-white transition-all duration-300 text-center min-w-[200px]"
                 >
                   More Nails Services
                 </Link>
@@ -531,7 +541,7 @@ export default function Home() {
               >
                 <Link
                   href="https://www.fresha.com/providers/blush-blow-w9xnf8li?pId=9954&dppub=true"
-                  className="inline-block bg-[#5A6655] text-white font-semibold text-xs tracking-[0.25em] uppercase px-8 py-4 rounded hover:bg-[#C6A86B] transition-all duration-300 text-center min-w-[200px]"
+                  className="inline-block bg-[#5A6655] text-white font-semibold text-xs tracking-[0.25em] uppercase px-8 py-4 rounded-none hover:bg-[#C6A86B] transition-all duration-300 text-center min-w-[200px]"
                 >
                   Book Now
                 </Link>
@@ -582,7 +592,7 @@ export default function Home() {
                   }}
                   transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
                   whileHover={{ y: -6 }}
-                  className="group bg-white border border-[#ECE8E1] overflow-hidden shadow-premium hover:shadow-premium-hover transition-all duration-500 flex flex-col h-full cursor-pointer rounded-none"
+                  className="group bg-white border border-[#ECE8E1] overflow-hidden shadow-premium hover:shadow-premium-hover transition-all duration-500 flex flex-col h-full cursor-pointer rounded-none relative"
                 >
                   <div className="h-60 relative overflow-hidden border-b border-[#ECE8E1]">
                     <Image
@@ -590,7 +600,7 @@ export default function Home() {
                       alt={serv.title}
                       fill
                       sizes="25vw"
-                      className="object-cover group-hover:scale-108 transition-transform duration-700"
+                      className="object-cover group-hover:scale-110 transition-transform duration-1000 ease-out"
                     />
                   </div>
                   <div className="p-6 text-center space-y-4 flex-grow flex flex-col justify-between">
@@ -610,6 +620,8 @@ export default function Home() {
                       <ArrowRight size={10} className="group-hover:translate-x-1.5 transition-transform" />
                     </Link>
                   </div>
+                  {/* Gold active border bottom */}
+                  <div className="absolute bottom-0 left-0 w-full h-[3px] bg-[#C6A86B] scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
                 </motion.div>
               ))}
             </motion.div>
@@ -622,7 +634,7 @@ export default function Home() {
               >
                 <Link
                   href="/beauty"
-                  className="inline-block border border-[#5A6655]/40 text-[#5A6655] font-semibold text-xs tracking-[0.25em] uppercase px-8 py-4 rounded hover:bg-[#5A6655] hover:text-white transition-all duration-300 text-center min-w-[220px]"
+                  className="inline-block border border-[#5A6655]/40 text-[#5A6655] font-semibold text-xs tracking-[0.25em] uppercase px-8 py-4 rounded-none hover:bg-[#5A6655] hover:text-white transition-all duration-300 text-center min-w-[220px]"
                 >
                   See All Beauty Services
                 </Link>
@@ -634,7 +646,7 @@ export default function Home() {
               >
                 <Link
                   href="https://www.fresha.com/providers/blush-blow-w9xnf8li?pId=9954&dppub=true"
-                  className="inline-block bg-[#5A6655] text-white font-semibold text-xs tracking-[0.25em] uppercase px-8 py-4 rounded hover:bg-[#C6A86B] transition-all duration-300 text-center min-w-[200px]"
+                  className="inline-block bg-[#5A6655] text-white font-semibold text-xs tracking-[0.25em] uppercase px-8 py-4 rounded-none hover:bg-[#C6A86B] transition-all duration-300 text-center min-w-[200px]"
                 >
                   Book Now
                 </Link>
@@ -645,7 +657,7 @@ export default function Home() {
         </section>
 
         {/* 6. TEAM SECTION */}
-        <section id="team" className="py-16 lg:py-24 bg-[#181816] text-white">
+        <section id="team" className="py-16 lg:py-24 bg-[#151915] text-white">
           <div className="max-w-7xl mx-auto px-6 md:px-12">
             
             <div className="text-center max-w-2xl mx-auto mb-10 lg:mb-16 space-y-4">
@@ -679,7 +691,7 @@ export default function Home() {
                   }}
                   transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
                   whileHover={{ y: -6 }}
-                  className="flex-shrink-0 w-72 bg-[#FCFAF7] text-[#181816] overflow-hidden shadow-premium border border-white/5 cursor-pointer hover:shadow-premium-hover transition-all duration-500 rounded-none"
+                  className="group flex-shrink-0 w-72 bg-[#FCFAF7] text-[#181816] overflow-hidden shadow-premium border border-[#ECE8E1] hover:border-[#C6A86B] cursor-pointer hover:shadow-premium-hover transition-all duration-500 rounded-none relative"
                 >
                   <div className="h-80 relative overflow-hidden border-b border-[#ECE8E1] bg-[#181816]">
                     <Image
@@ -687,7 +699,7 @@ export default function Home() {
                       alt={memb.name}
                       fill
                       sizes="280px"
-                      className="object-cover object-bottom"
+                      className="object-cover object-bottom group-hover:scale-108 transition-transform duration-700 ease-out"
                     />
                   </div>
                   <div className="p-6 text-center space-y-2">
@@ -696,6 +708,8 @@ export default function Home() {
                       {memb.role}
                     </p>
                   </div>
+                  {/* Gold active border bottom */}
+                  <div className="absolute bottom-0 left-0 w-full h-[3px] bg-[#C6A86B] scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
                 </motion.div>
               ))}
             </motion.div>
@@ -711,7 +725,7 @@ export default function Home() {
               <h2 className="font-serif text-3xl md:text-4xl text-[#181816] font-semibold uppercase tracking-wider">
                 Bridal Services
               </h2>
-              <p className="font-sans text-xs text-[#666666] leading-relaxed tracking-wider max-w-lg mx-auto">
+              <p className="font-sans text-xs text-[#666666] leading-relaxed tracking-wider max-w-lg mx-auto font-light">
                 Every wedding and every bride is different. Book a conversation with Bridget our founder, she'd love to hear your exciting plans.
               </p>
               <div className="h-[1px] w-16 bg-[#C6A86B]/30 mx-auto mt-4" />
@@ -745,7 +759,7 @@ export default function Home() {
                   }}
                   transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
                   whileHover={{ y: -6 }}
-                  className="group bg-white border border-[#ECE8E1] overflow-hidden shadow-premium hover:shadow-premium-hover transition-all duration-500 flex flex-col cursor-pointer rounded-none"
+                  className="group bg-white border border-[#ECE8E1] overflow-hidden shadow-premium hover:shadow-premium-hover transition-all duration-500 flex flex-col cursor-pointer rounded-none relative"
                 >
                   <div className="p-4 bg-[#FCFAF7] border-b border-[#ECE8E1] text-center text-[10px] tracking-[0.25em] text-[#5A6655] font-semibold uppercase group-hover:bg-[#ECE8E1]/40 transition-colors">
                     {b.label}
@@ -756,7 +770,7 @@ export default function Home() {
                       alt={b.title}
                       fill
                       sizes="50vw"
-                      className="object-cover group-hover:scale-108 transition-transform duration-700"
+                      className="object-cover group-hover:scale-110 transition-transform duration-1000 ease-out"
                     />
                   </div>
                   <div className="p-8 text-center space-y-4">
@@ -771,6 +785,8 @@ export default function Home() {
                       <ArrowRight size={10} className="group-hover:translate-x-1.5 transition-transform" />
                     </Link>
                   </div>
+                  {/* Gold active border bottom */}
+                  <div className="absolute bottom-0 left-0 w-full h-[3px] bg-[#C6A86B] scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
                 </motion.div>
               ))}
             </motion.div>
@@ -783,7 +799,7 @@ export default function Home() {
               >
                 <Link
                   href="/bridal"
-                  className="inline-block border border-[#5A6655]/40 text-[#5A6655] font-semibold text-xs tracking-[0.25em] uppercase px-8 py-4 rounded hover:bg-[#5A6655] hover:text-white transition-all duration-300 text-center min-w-[200px]"
+                  className="inline-block border border-[#5A6655]/40 text-[#5A6655] font-semibold text-xs tracking-[0.25em] uppercase px-8 py-4 rounded-none hover:bg-[#5A6655] hover:text-white transition-all duration-300 text-center min-w-[200px]"
                 >
                   More Bridal Services
                 </Link>
@@ -795,7 +811,7 @@ export default function Home() {
               >
                 <Link
                   href="https://www.fresha.com/providers/blush-blow-w9xnf8li?pId=9954&dppub=true"
-                  className="inline-block bg-[#5A6655] text-white font-semibold text-xs tracking-[0.25em] uppercase px-8 py-4 rounded hover:bg-[#C6A86B] transition-all duration-300 text-center min-w-[200px]"
+                  className="inline-block bg-[#5A6655] text-white font-semibold text-xs tracking-[0.25em] uppercase px-8 py-4 rounded-none hover:bg-[#C6A86B] transition-all duration-300 text-center min-w-[200px]"
                 >
                   Book Now
                 </Link>
@@ -814,7 +830,11 @@ export default function Home() {
               <div className="h-[1px] w-16 bg-[#C6A86B]/30 mx-auto mt-4" />
             </div>
 
-            <div className="relative min-h-[220px] sm:min-h-[160px] flex items-center justify-center">
+            <div className="relative min-h-[220px] sm:min-h-[160px] flex items-center justify-center max-w-3xl mx-auto">
+              {/* Decorative Quotation Marks */}
+              <span className="absolute top-0 left-0 md:-left-8 font-serif text-[130px] leading-none text-[#C6A86B]/10 select-none pointer-events-none">“</span>
+              <span className="absolute bottom-0 right-0 md:-right-8 font-serif text-[130px] leading-none text-[#C6A86B]/10 select-none pointer-events-none">”</span>
+
               <AnimatePresence mode="wait">
                 <motion.div
                   key={testimonialIdx}
@@ -822,14 +842,14 @@ export default function Home() {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -10 }}
                   transition={{ duration: 0.5 }}
-                  className="space-y-4"
+                  className="space-y-4 relative z-10 px-6"
                 >
                   <div className="flex items-center justify-center space-x-1">
                     {[...Array(5)].map((_, i) => (
                       <Star key={i} size={14} className="fill-[#C6A86B] text-[#C6A86B]" />
                     ))}
                   </div>
-                  <p className="font-serif text-lg md:text-xl text-[#181816] italic leading-relaxed max-w-3xl mx-auto">
+                  <p className="font-serif text-lg md:text-xl text-[#181816] italic leading-relaxed max-w-2xl mx-auto">
                     "{testimonialsList[testimonialIdx].text}"
                   </p>
                   <p className="font-sans text-[10px] font-bold tracking-[0.2em] text-[#A88B52] uppercase pt-2">
@@ -917,7 +937,7 @@ export default function Home() {
           <div className="max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16">
             
             {/* Form */}
-            <div className="lg:col-span-7 space-y-8 bg-white p-5 md:p-12 rounded border border-[#ECE8E1] shadow-premium rounded-none">
+            <div className="lg:col-span-7 space-y-8 bg-gradient-to-br from-white via-[#FCFAF7]/30 to-[#FAF6EE]/20 p-8 md:p-12 border border-[#ECE8E1] shadow-premium rounded-none">
               <div>
                 <h2 className="font-serif text-3xl text-[#181816] font-semibold uppercase tracking-wider">
                   Get In Touch
@@ -1032,7 +1052,7 @@ export default function Home() {
                       whileHover={{ scale: 1.02, y: -1 }}
                       whileTap={{ scale: 0.98 }}
                       transition={{ type: "spring", stiffness: 400, damping: 20 }}
-                      className="w-full bg-[#5A6655] text-white font-semibold text-xs tracking-[0.25em] uppercase py-4 rounded shadow-sm hover:bg-[#C6A86B] transition-all duration-300 cursor-pointer"
+                      className="w-full bg-[#5A6655] text-white font-semibold text-xs tracking-[0.25em] uppercase py-4 hover:bg-[#C6A86B] transition-all duration-300 cursor-pointer rounded-none"
                     >
                       Submit Request
                     </motion.button>
