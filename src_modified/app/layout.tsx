@@ -40,8 +40,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${playfair.variable} ${inter.variable} ${cormorant.variable} scroll-smooth`}>
-      <body className="min-h-screen bg-[#eae5db] text-[#3d4f3d] font-sans antialiased selection:bg-[#C6A86B]/20 selection:text-[#3d4f3d]">
+    <html lang="en" className={`${playfair.variable} ${inter.variable} ${cormorant.variable}`}>
+      <body className="min-h-screen bg-white text-[#222222] font-sans antialiased selection:bg-[#C6A86B]/20 selection:text-[#222222]">
         {children}
       </body>
     </html>

@@ -592,13 +592,13 @@ export default async function ServiceDetail({ params }: PageProps) {
     <>
       <Navbar />
 
-      <main className="pt-24 bg-[#eae5db] min-h-screen text-[#788672] font-sans">
+      <main className="pt-32 pb-24 bg-[#FFFFFF] min-h-screen text-[#181816] font-sans">
         
-        {/* Back navigation */}
-        <div className="max-w-7xl mx-auto px-6 md:px-12 pt-6">
+        {/* Back Link */}
+        <div className="max-w-7xl mx-auto px-6 md:px-12 mb-8">
           <Link
             href={backUrl}
-            className="inline-flex items-center space-x-2 text-xs tracking-widest uppercase font-bold text-[#788672]/70 hover:text-[#788672] transition-colors"
+            className="inline-flex items-center space-x-2 text-xs tracking-widest uppercase font-bold text-[#E5A99E] hover:text-[#111111] transition-colors"
           >
             <ArrowLeft size={14} />
             <span>Back to Services</span>
@@ -607,20 +607,20 @@ export default async function ServiceDetail({ params }: PageProps) {
 
         {/* Top Header Section */}
         <section className="py-12 md:py-16 max-w-7xl mx-auto px-6 md:px-12 space-y-4">
-          <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl text-[#788672] font-semibold uppercase tracking-wider">
+          <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl text-[#181816] font-semibold uppercase tracking-wider">
             {data.title}
           </h1>
-          <p className="text-sm md:text-base text-[#788672]/85 leading-relaxed tracking-wider max-w-4xl">
+          <p className="text-sm md:text-base text-[#666666] leading-relaxed tracking-wider max-w-4xl font-light">
             {data.description}
           </p>
         </section>
 
         {/* Pricing & Image Box (Green Detail Container) */}
         <section className="max-w-7xl mx-auto px-6 md:px-12 pb-24">
-          <div className="bg-[#788672] text-[#fcfaf7] grid grid-cols-1 md:grid-cols-2 shadow-lg border border-[#788672]/30">
+          <div className="bg-white text-[#181816] grid grid-cols-1 md:grid-cols-2 shadow-premium border border-[#ECE8E1] rounded-none">
             
             {/* Left Column: Image */}
-            <div className="h-[300px] md:h-auto min-h-[350px] relative w-full overflow-hidden bg-[#677461]">
+            <div className="h-[300px] md:h-auto min-h-[350px] relative w-full overflow-hidden bg-[#FFFFFF] border-r border-[#ECE8E1]">
               <Image
                 src={data.image}
                 alt={data.title}
@@ -635,23 +635,23 @@ export default async function ServiceDetail({ params }: PageProps) {
             <div className="p-8 md:p-12 flex-col justify-between flex-grow flex">
               
               {/* Highlight Price Box */}
-              <div className="bg-[#eae5db] text-[#788672] py-8 text-center font-bold text-xl md:text-2xl uppercase tracking-wider select-none shadow-inner mb-6">
+              <div className="bg-[#FDF8F6] text-[#181816] border-y border-[#ECE8E1] py-8 text-center font-bold text-xl md:text-2xl uppercase tracking-wider select-none mb-6">
                 Price: {data.priceTag}
               </div>
 
               {/* Sub-items list */}
               <div className="space-y-4 flex-grow">
                 {data.priceList.map((item, idx) => (
-                  <div key={idx} className="border-b border-white/10 pb-3 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1">
-                    <span className="font-sans text-sm md:text-base text-white/95 font-semibold">
+                  <div key={idx} className="border-b border-[#ECE8E1] pb-3 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1">
+                    <span className="font-sans text-sm md:text-base text-[#181816] font-semibold">
                       {item.name}
                     </span>
                     <div className="flex items-baseline space-x-2 shrink-0">
-                      <span className="font-serif text-base md:text-lg text-white font-bold">
+                      <span className="font-serif text-base md:text-lg text-[#C6A86B] font-bold">
                         {item.price}
                       </span>
                       {item.note && (
-                        <span className="text-[10px] text-white/70 tracking-widest uppercase font-sans">
+                        <span className="text-[10px] text-[#E5A99E] tracking-widest uppercase font-sans">
                           {item.note}
                         </span>
                       )}
@@ -660,13 +660,13 @@ export default async function ServiceDetail({ params }: PageProps) {
                 ))}
               </div>
 
-              {/* Circle Book Now Button */}
-              <div className="flex justify-center pt-8">
+              {/* Book Now Button */}
+              <div className="pt-8">
                 <a
                   href="https://www.fresha.com/providers/blush-blow-w9xnf8li?pId=9954&dppub=true"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-24 h-24 rounded-full border-2 border-white hover:border-[#eae5db] hover:bg-[#eae5db] hover:text-[#788672] bg-transparent text-white font-bold text-xs tracking-wider uppercase flex items-center justify-center transition-all duration-300 text-center shadow-md cursor-pointer"
+                  className="w-full bg-[#111111] text-white font-bold text-xs tracking-[0.25em] uppercase py-4 rounded-none hover:bg-[#E5A99E] hover:text-white transition-all duration-300 text-center shadow-sm block cursor-pointer"
                 >
                   Book Now
                 </a>
@@ -678,28 +678,28 @@ export default async function ServiceDetail({ params }: PageProps) {
         </section>
 
         {/* 13. FAQ ACCORDION SECTION */}
-        <section className="py-24 bg-[#eae5db] border-t border-[#dcd7cc]">
+        <section className="py-24 bg-[#FDF8F6] border-t border-[#ECE8E1]">
           <div className="max-w-4xl mx-auto px-6">
             
             <div className="text-center mb-16 space-y-4">
-              <h2 className="font-serif text-3xl md:text-4xl text-[#788672] font-semibold uppercase tracking-wider">
+              <h2 className="font-serif text-3xl md:text-4xl text-[#181816] font-semibold uppercase tracking-wider">
                 Faq’s
               </h2>
-              <div className="h-[1px] w-16 bg-[#788672]/30 mx-auto mt-4" />
+              <div className="h-[1px] w-16 bg-[#C6A86B]/30 mx-auto mt-4" />
             </div>
 
             <div className="space-y-4">
               {data.faqs.map((faq, idx) => (
                 <details
                   key={idx}
-                  className="group border-b border-[#dcd7cc] pb-4 [&_summary::-webkit-details-marker]:hidden list-none cursor-pointer"
+                  className="group border border-[#ECE8E1] bg-white shadow-sm transition-all"
                 >
-                  <summary className="flex justify-between items-center font-serif text-lg md:text-xl text-[#788672] font-semibold cursor-pointer select-none py-3 list-none">
+                  <summary className="flex justify-between items-center font-serif text-sm sm:text-base text-[#181816] font-semibold cursor-pointer select-none px-6 py-5 list-none hover:text-[#C6A86B] transition-colors">
                     <span>{faq.q}</span>
                     <span className="text-[#C6A86B] font-sans text-xl group-open:hidden">+</span>
-                    <span className="text-[#C6A86B] font-sans text-xl hidden group-open:inline">-</span>
+                    <span className="text-[#C6A86B] font-sans text-xl hidden group-open:inline">−</span>
                   </summary>
-                  <div className="mt-2 text-xs md:text-sm text-[#788672]/80 leading-relaxed tracking-wider font-sans pl-1">
+                  <div className="px-6 pb-5 text-xs sm:text-sm text-[#666666] leading-relaxed tracking-wider font-sans border-t border-[#ECE8E1] pt-4 bg-[#FFFFFF]/45">
                     {faq.a}
                   </div>
                 </details>

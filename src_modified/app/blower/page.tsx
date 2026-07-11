@@ -57,29 +57,29 @@ export default function BlowerPage() {
     <>
       <Navbar />
 
-      <main className="pt-32 pb-24 bg-[#eae5db] min-h-screen text-[#788672] font-sans">
+      <main className="pt-32 pb-24 bg-[#FFFFFF] min-h-screen text-[#181816] font-sans">
         
         {/* Title Block */}
         <div className="max-w-4xl mx-auto px-6 text-center mb-16 space-y-4">
-          <h1 className="font-serif text-5xl md:text-6xl text-[#788672] font-semibold uppercase tracking-wider">
+          <h1 className="font-serif text-5xl md:text-6xl text-[#181816] font-semibold uppercase tracking-wider">
             The Blower
           </h1>
-          <div className="h-[1px] w-24 bg-[#788672]/30 mx-auto" />
-          <p className="text-sm md:text-base text-[#788672]/85 leading-relaxed tracking-wider max-w-2xl mx-auto font-medium">
+          <div className="h-[1px] w-24 bg-[#C6A86B]/30 mx-auto" />
+          <p className="text-sm md:text-base text-[#666666] leading-relaxed tracking-wider max-w-2xl mx-auto font-light">
             Welcome to The Blower, your go-to destination for the latest insights, tips, and trends in hair, nails and beauty. Discover expert advice, product reviews, and insider knowledge to help you achieve your best look ever.
           </p>
         </div>
 
         {/* Featured Post */}
         <div className="max-w-6xl mx-auto px-6 mb-20">
-          <div className="bg-[#cbd1c9]/20 border border-[#788672]/10 rounded-lg overflow-hidden flex flex-col md:flex-row items-center gap-8 md:gap-12 p-6 md:p-10 shadow-sm">
+          <div className="bg-white border border-[#ECE8E1] rounded-none flex flex-col md:flex-row items-center gap-8 md:gap-12 p-6 md:p-10 shadow-premium">
             
-            <div className="w-full md:w-7/12 relative aspect-[4/3] rounded overflow-hidden">
+            <div className="w-full md:w-7/12 relative aspect-[4/3] rounded-none overflow-hidden border border-[#ECE8E1]">
               <Image
                 src={featured.img}
                 alt={featured.title}
                 fill
-                className="object-cover hover:scale-102 transition-transform duration-500"
+                className="object-cover"
                 priority
               />
             </div>
@@ -89,25 +89,25 @@ export default function BlowerPage() {
                 <span className="text-[10px] tracking-[0.25em] text-[#C6A86B] uppercase font-bold">
                   Featured / {featured.cat}
                 </span>
-                <h2 className="font-serif text-2xl md:text-3xl text-[#788672] font-semibold tracking-wide leading-tight uppercase">
+                <h2 className="font-serif text-2xl md:text-3xl text-[#181816] font-semibold tracking-wide leading-tight uppercase">
                   {featured.title}
                 </h2>
               </div>
 
-              <div className="h-[1px] w-12 bg-[#788672]/20" />
+              <div className="h-[1px] w-12 bg-[#C6A86B]/30" />
 
-              <p className="text-xs md:text-sm text-[#788672]/90 leading-relaxed font-light">
+              <p className="text-xs md:text-sm text-[#666666] leading-relaxed font-light">
                 {featured.desc}
               </p>
 
-              <div className="flex items-center justify-between pt-4 border-t border-[#788672]/10">
-                <div className="text-[10px] tracking-wider text-[#788672]/70">
+              <div className="flex items-center justify-between pt-4 border-t border-[#ECE8E1]">
+                <div className="text-[10px] tracking-wider text-[#666666]/70">
                   <p>{featured.date}</p>
-                  <p className="font-semibold text-xs mt-0.5">{featured.author}</p>
+                  <p className="font-semibold text-xs text-[#181816] mt-0.5">{featured.author}</p>
                 </div>
                 <button
                   onClick={() => alert("Coming soon!")}
-                  className="bg-[#788672] text-[#fcfaf7] font-semibold text-[10px] tracking-[0.2em] uppercase px-5 py-2.5 rounded hover:bg-[#677461] transition-colors"
+                  className="bg-[#111111] text-white font-semibold text-[10px] tracking-[0.2em] uppercase px-5 py-2.5 rounded-none hover:bg-[#E5A99E] transition-colors cursor-pointer"
                 >
                   Read More
                 </button>
@@ -120,25 +120,25 @@ export default function BlowerPage() {
         {/* Latest Posts Grid */}
         <div className="max-w-6xl mx-auto px-6">
           <div className="flex items-center space-x-4 mb-8">
-            <h2 className="font-serif text-2xl uppercase tracking-wider font-semibold">
+            <h2 className="font-serif text-2xl uppercase tracking-wider font-semibold text-[#181816]">
               Latest Posts
             </h2>
-            <div className="h-[1px] flex-grow bg-[#788672]/15" />
+            <div className="h-[1px] flex-grow bg-[#ECE8E1]" />
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {latest.map((post, idx) => (
               <div
                 key={idx}
-                className="group bg-[#eae5db] border border-[#dcd7cc] rounded overflow-hidden shadow-sm flex flex-col justify-between h-full"
+                className="group bg-white border border-[#ECE8E1] rounded-none shadow-premium hover:shadow-premium-hover transition-all duration-300 flex flex-col justify-between h-full"
               >
                 <div>
-                  <div className="relative aspect-square overflow-hidden border-b border-[#dcd7cc]">
+                  <div className="relative aspect-square overflow-hidden border-b border-[#ECE8E1]">
                     <Image
                       src={post.img}
                       alt={post.title}
                       fill
-                      className="object-cover group-hover:scale-103 transition-transform duration-500"
+                      className="object-cover"
                     />
                   </div>
 
@@ -146,22 +146,22 @@ export default function BlowerPage() {
                     <span className="text-[9px] tracking-[0.25em] text-[#C6A86B] uppercase font-bold">
                       {post.cat}
                     </span>
-                    <h3 className="font-serif text-base text-[#788672] font-semibold tracking-wide uppercase leading-snug group-hover:text-[#677461] transition-colors">
+                    <h3 className="font-serif text-base text-[#181816] font-semibold tracking-wide uppercase leading-snug group-hover:text-[#C6A86B] transition-colors">
                       {post.title}
                     </h3>
-                    <p className="text-[11px] leading-relaxed text-[#788672]/80 font-light line-clamp-3">
+                    <p className="text-[11px] leading-relaxed text-[#666666] font-light line-clamp-3">
                       {post.desc}
                     </p>
                   </div>
                 </div>
 
-                <div className="px-6 pb-6 pt-4 border-t border-[#788672]/5 flex items-center justify-between">
-                  <span className="text-[9px] tracking-wider text-[#788672]/60">
+                <div className="px-6 pb-6 pt-4 border-t border-[#ECE8E1] flex items-center justify-between">
+                  <span className="text-[9px] tracking-wider text-[#666666]/60">
                     {post.date}
                   </span>
                   <button
                     onClick={() => alert("Coming soon!")}
-                    className="text-[9px] tracking-[0.2em] font-bold text-[#788672] uppercase hover:underline"
+                    className="text-[9px] tracking-[0.2em] font-bold text-[#C6A86B] hover:text-[#A88B52] uppercase transition-colors cursor-pointer"
                   >
                     Read
                   </button>

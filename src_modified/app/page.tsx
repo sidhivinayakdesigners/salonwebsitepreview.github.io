@@ -124,7 +124,7 @@ export default function Home() {
             initial={{ opacity: 1 }}
             exit={{ opacity: 0, y: -80 }}
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-            className="fixed inset-0 bg-[#788672] z-[9999] flex flex-col items-center justify-center select-none overflow-hidden"
+            className="fixed inset-0 bg-[#E5A99E] z-[9999] flex flex-col items-center justify-center select-none overflow-hidden"
           >
             <div className="flex flex-col items-center space-y-6">
               <motion.div 
@@ -161,7 +161,7 @@ export default function Home() {
                 initial={{ opacity: 0, letterSpacing: "0.2em" }}
                 animate={{ opacity: 1, letterSpacing: "0.5em" }}
                 transition={{ duration: 1.5, delay: 0.8, ease: "easeOut" }}
-                className="flex items-center w-full justify-center text-[#eae5db]/80"
+                className="flex items-center w-full justify-center text-white/80"
               >
                 <span className="text-[10px] sm:text-xs tracking-[0.5em] uppercase font-sans font-light">
                   LONDON
@@ -173,7 +173,7 @@ export default function Home() {
               initial={{ scaleX: 0 }}
               animate={{ scaleX: 1 }}
               transition={{ duration: 1.8, delay: 0.3, ease: "easeInOut" }}
-              className="absolute bottom-16 left-12 right-12 h-[0.5px] bg-[#eae5db]/30 origin-left"
+              className="absolute bottom-16 left-12 right-12 h-[0.5px] bg-white/30 origin-left"
             />
           </motion.div>
         )}
@@ -181,142 +181,107 @@ export default function Home() {
 
       <Navbar />
 
-      <main className="overflow-hidden bg-[#eae5db] text-[#788672]">
-        
+      <main className="overflow-hidden text-[#181816]" style={{backgroundColor: '#e8e4d9'}}>
         {/* 1. HERO/BANNER SECTION */}
-        <section className="relative pt-24 pb-16 lg:min-h-screen lg:flex lg:items-center lg:pt-36 lg:pb-20 bg-[#eae5db]">
-          <div className="max-w-7xl mx-auto px-6 md:px-12 w-full grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-            
-            {/* Left Column: Wording and Vertical stacked large buttons */}
-            <div className="lg:col-span-6 flex flex-col space-y-10 z-10 order-2 lg:order-none text-center lg:text-left items-center lg:items-start w-full">
-              <motion.div
-                initial="hidden"
-                animate="visible"
-                variants={{
-                  hidden: { opacity: 0 },
-                  visible: {
-                    opacity: 1,
-                    transition: {
-                      staggerChildren: 0.1,
-                      delayChildren: 0.4
-                    }
-                  }
-                }}
-                className="space-y-4"
-              >
-                <h1 className="font-serif text-4xl sm:text-5xl lg:text-[64px] text-[#788672] leading-[1.2] lg:leading-[1.1] font-light tracking-[0.06em] uppercase italic">
-                  Adding Colour<br />
-                  <span className="font-sans font-semibold not-italic tracking-[0.08em] text-[0.85em] text-[#788672]">
-                    To Your Life
-                  </span>
-                </h1>
-              </motion.div>
+        <section style={{backgroundColor: '#e8e4d9', minHeight: '100vh', position: 'relative'}}>
+          {/* Desktop grid layout — Bootstrap col-md-6 / col-md-6 = 50/50 inside container */}
+          <div className="hidden lg:grid" style={{gridTemplateColumns: '50% 50%', minHeight: '100vh', maxWidth: '1320px', margin: '0 auto', padding: '0 12px'}}>
 
-              {/* Stacked block buttons matching screenshot color and size */}
+            {/* Left Column */}
+            <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '140px 50px 60px 70px'}}>
+              <motion.h1
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.9, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
+                style={{color: '#4a5e4f', fontFamily: 'var(--font-cormorant), serif', fontSize: '52px', lineHeight: '1.2', fontWeight: 300, letterSpacing: '0.06em', textTransform: 'uppercase', textAlign: 'center', marginBottom: '40px', fontStyle: 'italic'}}
+              >
+                ADDING COLOUR<br />TO YOUR LIFE
+              </motion.h1>
+
               <motion.div
                 initial="hidden"
                 animate="visible"
                 variants={{
                   hidden: { opacity: 0 },
-                  visible: {
-                    opacity: 1,
-                    transition: {
-                      staggerChildren: 0.08,
-                      delayChildren: 1.0
-                    }
-                  }
+                  visible: { opacity: 1, transition: { staggerChildren: 0.08, delayChildren: 1.0 } }
                 }}
-                className="flex flex-col space-y-3.5 max-w-sm w-full mx-auto lg:mx-0"
+                style={{display: 'flex', flexDirection: 'column', width: '100%', maxWidth: '390px', gap: '8px'}}
               >
-                {["Hair", "Nails", "Beauty", "Bridal", "Skin"].map((lbl) => {
-                  const isExternal = lbl === "Skin";
-                  const href = isExternal ? "https://theskinstudiolondon.com/" : `/${lbl.toLowerCase()}`;
-                  
-                  return (
-                    <motion.div
-                      key={lbl}
-                      variants={{
-                        hidden: { opacity: 0, y: 15 },
-                        visible: { opacity: 1, y: 0 }
-                      }}
-                      transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-                      whileHover={{ scale: 1.01, y: -1 }}
-                      whileTap={{ scale: 0.99 }}
+                {["HAIR", "NAILS", "BEAUTY", "BRIDAL", "SKIN"].map((lbl) => (
+                  <motion.div
+                    key={lbl}
+                    variants={{ hidden: { opacity: 0, y: 10 }, visible: { opacity: 1, y: 0 } }}
+                    transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+                  >
+                    <Link
+                      href={lbl.toLowerCase() === "skin" ? "/beauty" : `/${lbl.toLowerCase()}`}
+                      style={{display: 'block', width: '100%', backgroundColor: '#9aaa96', color: '#3d4f3d', textAlign: 'center', padding: '15px', fontFamily: 'var(--font-inter), sans-serif', fontSize: '11px', letterSpacing: '0.25em', textTransform: 'uppercase', textDecoration: 'none', transition: 'background-color 0.3s'}}
+                      onMouseEnter={e => (e.currentTarget.style.backgroundColor = '#4a5e4f')}
+                      onMouseLeave={e => (e.currentTarget.style.backgroundColor = '#9aaa96')}
                     >
-                      {isExternal ? (
-                        <a
-                          href={href}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="w-full block bg-[#9aaa96]/80 text-[#3d4f3d] font-sans text-xs font-semibold tracking-[0.25em] uppercase py-4.5 text-center transition-all duration-300 hover:bg-[#788672] hover:text-white border border-[#788672]/15 shadow-sm rounded-none"
-                        >
-                          {lbl}
-                        </a>
-                      ) : (
-                        <Link
-                          href={href}
-                          className="w-full block bg-[#9aaa96]/80 text-[#3d4f3d] font-sans text-xs font-semibold tracking-[0.25em] uppercase py-4.5 text-center transition-all duration-300 hover:bg-[#788672] hover:text-white border border-[#788672]/15 shadow-sm rounded-none"
-                        >
-                          {lbl}
-                        </Link>
-                      )}
-                    </motion.div>
-                  );
-                })}
+                      {lbl}
+                    </Link>
+                  </motion.div>
+                ))}
               </motion.div>
             </div>
 
-            {/* Right Column: Hero Image with solid green frame */}
-            <motion.div 
-              initial={{ opacity: 0, scale: 0.97 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 1.2, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-              className="lg:col-span-6 relative h-[360px] sm:h-[480px] lg:h-[620px] w-full flex items-center justify-center order-1 lg:order-none"
+            {/* Right Column — image fills entire column, top to bottom, NO padding */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 1.2, delay: 0.3 }}
+              style={{position: 'relative'}}
             >
-              <div className="w-[96%] h-[96%] overflow-hidden border border-[#788672]/20 relative shadow-xl">
-                <motion.div
-                  initial={{ scale: 1.08 }}
-                  animate={{ scale: 1.0 }}
-                  transition={{ duration: 1.8, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
-                  className="w-full h-full relative"
-                >
-                  <Image
-                    src="/images/homepage_hero_main.webp"
-                    alt="Adding Colour To Your Life"
-                    fill
-                    sizes="(max-width: 768px) 100vw, 50vw"
-                    className="object-cover"
-                    priority
-                  />
-                </motion.div>
-              </div>
+              <Image
+                src="/images/homepage_hero_main.webp"
+                alt="Adding Colour To Your Life — Blush + Blow London Salon"
+                fill
+                sizes="50vw"
+                className="object-cover object-center"
+                priority
+              />
             </motion.div>
+          </div>
 
+          {/* Mobile layout */}
+          <div className="lg:hidden flex flex-col">
+            <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '120px 40px 40px'}}>
+              <h1 style={{color: '#4a5e4f', fontFamily: 'var(--font-playfair), serif', fontSize: '38px', lineHeight: '1.2', fontWeight: 400, letterSpacing: '0.06em', textTransform: 'uppercase', textAlign: 'center', marginBottom: '32px'}}>
+                ADDING COLOUR<br />TO YOUR LIFE
+              </h1>
+              <div style={{display: 'flex', flexDirection: 'column', width: '100%', maxWidth: '360px', gap: '8px'}}>
+                {["HAIR", "NAILS", "BEAUTY", "BRIDAL", "SKIN"].map((lbl) => (
+                  <Link
+                    key={lbl}
+                    href={lbl.toLowerCase() === "skin" ? "/beauty" : `/${lbl.toLowerCase()}`}
+                    style={{display: 'block', backgroundColor: '#9aaa96', color: 'white', textAlign: 'center', padding: '14px', fontSize: '11px', letterSpacing: '0.25em', textTransform: 'uppercase'}}
+                  >
+                    {lbl}
+                  </Link>
+                ))}
+              </div>
+            </div>
+            <div style={{position: 'relative', height: '300px', width: '100%'}}>
+              <Image src="/images/homepage_hero_main.webp" alt="Blush + Blow London" fill sizes="100vw" className="object-cover" priority />
+            </div>
           </div>
         </section>
 
+
         {/* 2. CONCERN SECTION */}
-        <section className="py-16 lg:py-24 bg-[#eae5db] border-t border-[#dcd7cc] overflow-hidden">
-          <motion.div 
+        <section className="overflow-hidden" style={{backgroundColor: '#e8e4d9'}}>
+          <motion.div
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-            variants={{
-              hidden: { opacity: 0 },
-              visible: {
-                opacity: 1,
-                transition: { staggerChildren: 0.2 }
-              }
-            }}
-            className="max-w-[1320px] mx-auto px-6 md:px-12 w-full grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center"
+            viewport={{ once: true, margin: "-80px" }}
+            variants={{ hidden: { opacity: 0 }, visible: { opacity: 1, transition: { staggerChildren: 0.2 } } }}
+            className="max-w-[1320px] mx-auto px-6 md:px-12 w-full grid grid-cols-1 lg:grid-cols-2 gap-8 items-center py-16 lg:py-24"
           >
             {/* Left: Image — matching live site styling (max-width 440px, centered, not cropped) */}
-            <motion.div 
-              variants={{
-                hidden: { opacity: 0, x: -50 },
-                visible: { opacity: 1, x: 0 }
-              }}
-              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            <motion.div
+              variants={{ hidden: { opacity: 0, x: -30 }, visible: { opacity: 1, x: 0 } }}
+              transition={{ duration: 0.8 }}
               className="flex justify-center items-center w-full"
             >
               <img
@@ -326,143 +291,39 @@ export default function Home() {
               />
             </motion.div>
 
-            {/* Right: Text & Action */}
-            <motion.div 
-              variants={{
-                hidden: { opacity: 0, x: 50 },
-                visible: { opacity: 1, x: 0 }
-              }}
-              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-              className="flex flex-col items-center justify-center text-center space-y-8"
+            {/* Right: Text & CTA */}
+            <motion.div
+              variants={{ hidden: { opacity: 0, x: 30 }, visible: { opacity: 1, x: 0 } }}
+              transition={{ duration: 0.8 }}
+              className="flex flex-col items-center justify-center text-center px-4"
             >
-              <h2 className="font-serif text-[40px] sm:text-[50px] lg:text-[56px] text-[#788672] leading-[1.1] font-light tracking-[0.08em] uppercase italic text-center">
-                Show Your<br />
-                <span className="font-sans font-semibold not-italic text-[0.85em] tracking-[0.06em]">
-                  True Colours
-                </span>
+              <h2 className="font-serif text-[40px] sm:text-[50px] lg:text-[52px] leading-[1.1] font-normal tracking-[0.08em] uppercase mb-10" style={{color: '#4a5e4f', fontFamily: 'var(--font-cormorant), serif', fontStyle: 'italic', fontWeight: 300}}>
+                SHOW YOUR<br />TRUE COLOURS
               </h2>
-              <motion.div
-                whileHover={{ scale: 1.02, y: -1 }}
-                whileTap={{ scale: 0.99 }}
-                transition={{ type: "spring", stiffness: 400, damping: 20 }}
+              <Link
+                href="https://www.fresha.com/providers/blush-blow-w9xnf8li?pId=9954&dppub=true"
+                className="inline-block font-sans text-[11px] tracking-[0.2em] uppercase px-14 py-4 transition-all duration-300"
+                style={{border: '1px solid #4a5e4f', color: '#4a5e4f'}}
+                onMouseEnter={e => { (e.currentTarget as HTMLElement).style.backgroundColor='#4a5e4f'; (e.currentTarget as HTMLElement).style.color='#fff'; }}
+                onMouseLeave={e => { (e.currentTarget as HTMLElement).style.backgroundColor='transparent'; (e.currentTarget as HTMLElement).style.color='#4a5e4f'; }}
               >
-                <Link
-                  href="https://www.fresha.com/providers/blush-blow-w9xnf8li?pId=9954&dppub=true"
-                  className="border border-[#788672]/30 text-[#3d4f3d] font-sans text-xs font-semibold tracking-[0.2em] uppercase px-14 py-4 hover:bg-[#788672] hover:text-white hover:border-[#788672] transition-all duration-300 block text-center min-w-[200px]"
-                >
-                  Book Now
-                </Link>
-              </motion.div>
+                BOOK NOW
+              </Link>
             </motion.div>
           </motion.div>
         </section>
 
         {/* 3. HAIR SERVICES SECTION */}
-        <section className="py-16 lg:py-24 bg-[#eae5db] border-t border-[#dcd7cc]">
+        <section className="py-16 lg:py-24" style={{backgroundColor: '#e8e4d9'}}>
           <div className="max-w-7xl mx-auto px-6 md:px-12">
             
-            <div className="text-center max-w-2xl mx-auto mb-10 lg:mb-16 space-y-4">
-              <h2 className="font-serif text-3xl md:text-4xl text-[#788672] font-semibold uppercase tracking-wider">
-                Hair Services
+            <div className="text-center max-w-2xl mx-auto mb-10 lg:mb-16">
+              <h2 className="font-serif text-[40px] md:text-[56px] font-normal uppercase tracking-[0.12em] leading-none" style={{color: '#4a5e4f'}}>
+                HAIR SERVICES
               </h2>
-              <div className="h-[1px] w-16 bg-[#788672]/30 mx-auto mt-4" />
             </div>
 
             {/* Grid of 4 Cards */}
-            <motion.div 
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: "-100px" }}
-              variants={{
-                hidden: { opacity: 0 },
-                visible: {
-                  opacity: 1,
-                  transition: {
-                    staggerChildren: 0.1
-                  }
-                }
-              }}
-              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
-            >
-              {[
-                { title: "Colour", img: "/images/haircolour.avif" },
-                { title: "Treatments", img: "/images/hairtreatment.jpg" },
-                { title: "Extensions", img: "/images/Hair_Extensions.webp" },
-                { title: "Styling - Blow Dries", img: "/images/styling_blow_dries.jpg" },
-              ].map((serv, index) => (
-                <motion.div
-                  key={index}
-                  variants={{
-                    hidden: { opacity: 0, y: 25 },
-                    visible: { opacity: 1, y: 0 }
-                  }}
-                  transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-                  className="group flex flex-col h-full cursor-pointer"
-                >
-                  {/* Image container with custom thin border */}
-                  <div className="h-68 relative overflow-hidden border border-[#788672]/15 bg-[#cbd1c9]/10">
-                    <Image
-                      src={serv.img}
-                      alt={serv.title}
-                      fill
-                      sizes="25vw"
-                      className="object-cover transition-transform duration-1000 ease-out group-hover:scale-[1.03]"
-                    />
-                  </div>
-                  
-                  {/* Card Info */}
-                  <div className="pt-5 pb-3 text-center flex flex-col items-center flex-grow justify-between">
-                    <div className="space-y-1">
-                      <span className="font-sans text-[9px] tracking-[0.3em] text-[#C6A86B] font-semibold uppercase">
-                        Hair
-                      </span>
-                      <h3 className="font-serif text-xl text-[#3d4f3d] font-light uppercase tracking-[0.06em] group-hover:text-[#C6A86B] transition-colors duration-300">
-                        {serv.title}
-                      </h3>
-                    </div>
-                    
-                    <Link
-                      href="/hair"
-                      className="text-[9px] tracking-[0.2em] font-semibold text-[#788672]/85 uppercase hover-gold-line mt-3.5 block"
-                    >
-                      Explore Service
-                    </Link>
-                  </div>
-                </motion.div>
-              ))}
-            </motion.div>
-
-            <div className="text-center mt-16">
-              <motion.div
-                className="inline-block"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                transition={{ type: "spring", stiffness: 400, damping: 20 }}
-              >
-                <Link
-                  href="/hair"
-                  className="inline-block border border-[#788672]/30 text-[#788672] font-semibold text-xs tracking-[0.25em] uppercase px-8 py-4 rounded hover:bg-[#788672] hover:text-white transition-all duration-300"
-                >
-                  More Hair Services
-                </Link>
-              </motion.div>
-            </div>
-
-          </div>
-        </section>
-
-        {/* 4. NAILS SERVICES SECTION */}
-        <section className="py-16 lg:py-24 bg-[#eae5db] border-t border-[#dcd7cc]">
-          <div className="max-w-7xl mx-auto px-6 md:px-12">
-            
-            <div className="text-center max-w-2xl mx-auto mb-10 lg:mb-16 space-y-4">
-              <h2 className="font-serif text-3xl md:text-4xl text-[#788672] font-semibold uppercase tracking-wider">
-                Nails Services
-              </h2>
-              <div className="h-[1px] w-16 bg-[#788672]/30 mx-auto mt-4" />
-            </div>
-
-             {/* Hands & Feet Split Columns */}
             <motion.div 
               initial="hidden"
               whileInView="visible"
@@ -476,6 +337,79 @@ export default function Home() {
                   }
                 }
               }}
+              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
+            >
+              {[
+                { title: "Colour", img: "/images/haircolour.avif" },
+                { title: "Treatments", img: "/images/hairtreatment.jpg" },
+                { title: "Extensions", img: "/images/Hair_Extensions.webp" },
+                { title: "Styling - Blow Dries", img: "/images/styling_blow_dries.jpg" },
+              ].map((serv, index) => (
+                <motion.div
+                  key={index}
+                  variants={{ hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0 } }}
+                  transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+                  className="group overflow-hidden flex flex-col cursor-pointer"
+                >
+                  <Link href="/hair" className="block">
+                    <div className="h-64 relative overflow-hidden">
+                      <Image
+                        src={serv.img}
+                        alt={serv.title}
+                        fill
+                        sizes="25vw"
+                        className="object-cover"
+                      />
+                    </div>
+                    <div className="py-4 px-4 text-center" style={{backgroundColor: '#7a8f7a'}}>
+                      <h3 className="font-sans text-[11px] text-white tracking-[0.2em] uppercase">
+                        {serv.title}
+                      </h3>
+                    </div>
+                  </Link>
+                </motion.div>
+              ))}
+            </motion.div>
+
+            <div className="text-center mt-12">
+              <Link
+                href="/hair"
+                className="inline-block font-sans text-[11px] tracking-[0.2em] uppercase px-12 py-4 transition-all duration-300"
+                style={{border: '1px solid #4a5e4f', color: '#4a5e4f'}}
+                onMouseEnter={e => { (e.currentTarget as HTMLElement).style.backgroundColor='#4a5e4f'; (e.currentTarget as HTMLElement).style.color='#fff'; }}
+                onMouseLeave={e => { (e.currentTarget as HTMLElement).style.backgroundColor='transparent'; (e.currentTarget as HTMLElement).style.color='#4a5e4f'; }}
+              >
+                MORE HAIR SERVICES
+              </Link>
+            </div>
+
+          </div>
+        </section>
+
+        {/* 4. NAILS SERVICES SECTION */}
+        <section className="py-16 lg:py-24" style={{backgroundColor: '#e8e4d9'}}>
+          <div className="max-w-7xl mx-auto px-6 md:px-12">
+            
+            <div className="text-center max-w-2xl mx-auto mb-10 lg:mb-16">
+              <h2 className="font-serif text-[40px] md:text-[56px] font-normal uppercase tracking-[0.12em] leading-none" style={{color: '#4a5e4f'}}>
+                NAILS SERVICES
+              </h2>
+            </div>
+
+            {/* Hands & Feet Split Columns */}
+            <motion.div 
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-100px" }}
+              variants={{
+                hidden: { opacity: 0 },
+                visible: {
+                  opacity: 1,
+                  transition: {
+                    staggerChildren: 0.2
+                  }
+                }
+              }}
               className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12"
             >
               {[
@@ -485,63 +419,64 @@ export default function Home() {
                 <motion.div
                   key={index}
                   variants={{
-                    hidden: { opacity: 0, y: 25 },
+                    hidden: { opacity: 0, y: 30 },
                     visible: { opacity: 1, y: 0 }
                   }}
                   transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-                  className="group flex flex-col cursor-pointer"
+                  whileHover={{ y: -6 }}
+                  className="group bg-white border border-[#ECE8E1] overflow-hidden shadow-premium hover:shadow-premium-hover transition-all duration-500 flex flex-col cursor-pointer rounded-none relative"
                 >
-                  {/* Image Container */}
-                  <div className="h-80 relative overflow-hidden border border-[#788672]/15 bg-[#cbd1c9]/10">
+                  <div className="p-4 bg-[#FDF8F6] border-b border-[#ECE8E1] text-center text-[10px] tracking-[0.25em] text-[#E5A99E] font-semibold uppercase group-hover:bg-[#ECE8E1]/40 transition-colors">
+                    {col.label}
+                  </div>
+                  <div className="h-72 relative overflow-hidden">
                     <Image
                       src={col.img}
                       alt={col.title}
                       fill
                       sizes="50vw"
-                      className="object-cover transition-transform duration-1000 ease-out group-hover:scale-[1.03]"
+                      className="object-cover"
                     />
                   </div>
-                  
-                  {/* Card Info */}
-                  <div className="pt-6 text-center space-y-3 flex flex-col items-center justify-between">
-                    <div>
-                      <span className="font-sans text-[9px] tracking-[0.3em] text-[#C6A86B] font-semibold uppercase">
-                        {col.label}
-                      </span>
-                      <h3 className="font-serif text-2xl text-[#3d4f3d] font-light uppercase tracking-[0.06em] mt-1 group-hover:text-[#C6A86B] transition-colors duration-300">
-                        {col.title}
-                      </h3>
-                    </div>
+                  <div className="p-8 text-center space-y-4">
+                    <h3 className="font-serif text-xl text-[#181816] font-semibold uppercase tracking-wider group-hover:text-[#C6A86B] transition-colors">
+                      {col.title}
+                    </h3>
                     <Link
                       href={col.slug}
-                      className="text-[9px] tracking-[0.2em] font-semibold text-[#788672]/85 uppercase hover-gold-line mt-2 block"
+                      className="text-[9px] tracking-[0.2em] font-bold text-[#C6A86B] uppercase flex items-center justify-center space-x-1.5 hover:text-[#A88B52] transition-colors"
                     >
-                      Explore Service
+                      <span>Explore Service</span>
+                      <ArrowRight size={10} className="group-hover:translate-x-1.5 transition-transform" />
                     </Link>
                   </div>
+                  {/* Gold active border bottom */}
+                  <div className="absolute bottom-0 left-0 w-full h-[3px] bg-[#C6A86B] scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
                 </motion.div>
               ))}
             </motion.div>
 
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-12 lg:mt-16">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-10 lg:mt-16">
               <motion.div
-                whileHover={{ scale: 1.01, y: -1 }}
-                whileTap={{ scale: 0.99 }}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                transition={{ type: "spring", stiffness: 400, damping: 20 }}
               >
                 <Link
                   href="/nails"
-                  className="inline-block border border-[#788672]/30 text-[#3d4f3d] font-sans text-xs font-semibold tracking-[0.2em] uppercase px-10 py-4.5 hover:bg-[#788672] hover:text-white hover:border-[#788672] transition-all duration-300 text-center min-w-[220px]"
+                  className="inline-block border border-[#E5A99E]/40 text-[#E5A99E] font-semibold text-xs tracking-[0.25em] uppercase px-8 py-4 rounded-none hover:bg-[#E5A99E] hover:text-white transition-all duration-300 text-center min-w-[200px]"
                 >
                   More Nails Services
                 </Link>
               </motion.div>
               <motion.div
-                whileHover={{ scale: 1.01, y: -1 }}
-                whileTap={{ scale: 0.99 }}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                transition={{ type: "spring", stiffness: 400, damping: 20 }}
               >
                 <Link
                   href="https://www.fresha.com/providers/blush-blow-w9xnf8li?pId=9954&dppub=true"
-                  className="inline-block bg-[#788672] text-[#fcfaf7] font-sans text-xs font-semibold tracking-[0.2em] uppercase px-10 py-4.5 hover:bg-[#677461] transition-all duration-300 text-center min-w-[200px]"
+                  className="inline-block bg-[#111111] text-white font-semibold text-xs tracking-[0.25em] uppercase px-8 py-4 rounded-none hover:bg-[#E5A99E] transition-all duration-300 text-center min-w-[200px]"
                 >
                   Book Now
                 </Link>
@@ -552,14 +487,13 @@ export default function Home() {
         </section>
 
         {/* 5. BEAUTY SERVICES SECTION */}
-        <section className="py-16 lg:py-24 bg-[#eae5db] border-t border-[#dcd7cc]">
+        <section className="py-16 lg:py-24" style={{backgroundColor: '#e8e4d9'}}>
           <div className="max-w-7xl mx-auto px-6 md:px-12">
             
-            <div className="text-center max-w-2xl mx-auto mb-10 lg:mb-16 space-y-4">
-              <h2 className="font-serif text-3xl md:text-4xl text-[#788672] font-semibold uppercase tracking-wider">
-                Beauty Services
+            <div className="text-center max-w-2xl mx-auto mb-10 lg:mb-16">
+              <h2 className="font-serif text-[40px] md:text-[56px] font-normal uppercase tracking-[0.12em] leading-none" style={{color: '#4a5e4f'}}>
+                BEAUTY SERVICES
               </h2>
-              <div className="h-[1px] w-16 bg-[#788672]/30 mx-auto mt-4" />
             </div>
 
             {/* Grid of 4 Cards */}
@@ -572,7 +506,7 @@ export default function Home() {
                 visible: {
                   opacity: 1,
                   transition: {
-                    staggerChildren: 0.1
+                    staggerChildren: 0.15
                   }
                 }
               }}
@@ -587,41 +521,41 @@ export default function Home() {
                 <motion.div
                   key={index}
                   variants={{
-                    hidden: { opacity: 0, y: 25 },
+                    hidden: { opacity: 0, y: 30 },
                     visible: { opacity: 1, y: 0 }
                   }}
                   transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-                  className="group flex flex-col h-full cursor-pointer"
+                  whileHover={{ y: -6 }}
+                  className="group bg-white border border-[#ECE8E1] overflow-hidden shadow-premium hover:shadow-premium-hover transition-all duration-500 flex flex-col h-full cursor-pointer rounded-none relative"
                 >
-                  {/* Image container with custom thin border */}
-                  <div className="h-68 relative overflow-hidden border border-[#788672]/15 bg-[#cbd1c9]/10">
+                  <div className="h-60 relative overflow-hidden border-b border-[#ECE8E1]">
                     <Image
                       src={serv.img}
                       alt={serv.title}
                       fill
                       sizes="25vw"
-                      className="object-cover transition-transform duration-1000 ease-out group-hover:scale-[1.03]"
+                      className="object-cover"
                     />
                   </div>
-                  
-                  {/* Card Info */}
-                  <div className="pt-5 pb-3 text-center flex flex-col items-center flex-grow justify-between">
+                  <div className="p-6 text-center space-y-4 flex-grow flex flex-col justify-between">
                     <div className="space-y-1">
-                      <span className="font-sans text-[9px] tracking-[0.3em] text-[#C6A86B] font-semibold uppercase">
-                        Beauty
-                      </span>
-                      <h3 className="font-serif text-xl text-[#3d4f3d] font-light uppercase tracking-[0.06em] group-hover:text-[#C6A86B] transition-colors duration-300">
+                      <p className="text-[10px] tracking-widest text-[#E5A99E] font-semibold uppercase">
+                        {serv.title}
+                      </p>
+                      <h3 className="font-serif text-lg text-[#181816] font-semibold uppercase tracking-wider group-hover:text-[#C6A86B] transition-colors">
                         {serv.title}
                       </h3>
                     </div>
-                    
                     <Link
                       href={serv.slug}
-                      className="text-[9px] tracking-[0.2em] font-semibold text-[#788672]/85 uppercase hover-gold-line mt-3.5 block"
+                      className="text-[9px] tracking-[0.2em] font-bold text-[#C6A86B] uppercase flex items-center justify-center space-x-1.5 hover:text-[#A88B52] transition-colors pt-2"
                     >
-                      Explore Service
+                      <span>Explore Service</span>
+                      <ArrowRight size={10} className="group-hover:translate-x-1.5 transition-transform" />
                     </Link>
                   </div>
+                  {/* Gold active border bottom */}
+                  <div className="absolute bottom-0 left-0 w-full h-[3px] bg-[#C6A86B] scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
                 </motion.div>
               ))}
             </motion.div>
@@ -634,7 +568,7 @@ export default function Home() {
               >
                 <Link
                   href="/beauty"
-                  className="inline-block border border-[#788672]/30 text-[#788672] font-semibold text-xs tracking-[0.25em] uppercase px-8 py-4 rounded hover:bg-[#788672] hover:text-white transition-all duration-300 text-center min-w-[220px]"
+                  className="inline-block border border-[#E5A99E]/40 text-[#E5A99E] font-semibold text-xs tracking-[0.25em] uppercase px-8 py-4 rounded-none hover:bg-[#E5A99E] hover:text-white transition-all duration-300 text-center min-w-[220px]"
                 >
                   See All Beauty Services
                 </Link>
@@ -646,7 +580,7 @@ export default function Home() {
               >
                 <Link
                   href="https://www.fresha.com/providers/blush-blow-w9xnf8li?pId=9954&dppub=true"
-                  className="inline-block bg-[#788672] text-[#fcfaf7] font-semibold text-xs tracking-[0.25em] uppercase px-8 py-4 rounded hover:bg-[#677461] transition-all duration-300 text-center min-w-[200px]"
+                  className="inline-block bg-[#111111] text-white font-semibold text-xs tracking-[0.25em] uppercase px-8 py-4 rounded-none hover:bg-[#E5A99E] transition-all duration-300 text-center min-w-[200px]"
                 >
                   Book Now
                 </Link>
@@ -657,14 +591,14 @@ export default function Home() {
         </section>
 
         {/* 6. TEAM SECTION */}
-        <section id="team" className="py-16 lg:py-24 bg-[#eae5db] border-t border-[#dcd7cc]">
+        <section id="team" className="py-16 lg:py-24 bg-[#111111] text-white">
           <div className="max-w-7xl mx-auto px-6 md:px-12">
             
-            <div className="text-center max-w-2xl mx-auto mb-10 lg:mb-16">
-              <h2 className="font-serif text-[40px] sm:text-[50px] text-[#788672] font-light uppercase tracking-[0.08em] italic">
-                Our Team
+            <div className="text-center max-w-2xl mx-auto mb-10 lg:mb-16 space-y-4">
+              <h2 className="font-serif text-3xl md:text-4xl text-[#C6A86B] font-semibold uppercase tracking-wider">
+                Team
               </h2>
-              <div className="h-[1px] w-16 bg-[#788672]/20 mx-auto mt-4" />
+              <div className="h-[1px] w-16 bg-[#C6A86B]/40 mx-auto mt-4" />
             </div>
 
             <motion.div 
@@ -676,37 +610,40 @@ export default function Home() {
                 visible: {
                   opacity: 1,
                   transition: {
-                    staggerChildren: 0.08
+                    staggerChildren: 0.1
                   }
                 }
               }}
-              className="flex space-x-6 overflow-x-auto pb-8 scrollbar-thin scrollbar-thumb-[#788672]/20 scrollbar-track-transparent"
+              className="flex space-x-6 overflow-x-auto pb-8 scrollbar-thin scrollbar-thumb-white/20 scrollbar-track-transparent"
             >
               {teamMembersList.map((memb, idx) => (
                 <motion.div
                   key={idx}
                   variants={{
-                    hidden: { opacity: 0, y: 20 },
+                    hidden: { opacity: 0, y: 30 },
                     visible: { opacity: 1, y: 0 }
                   }}
                   transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-                  className="flex-shrink-0 w-72 flex flex-col cursor-pointer"
+                  whileHover={{ y: -6 }}
+                  className="group flex-shrink-0 w-72 bg-[#FCFAF7] text-[#181816] overflow-hidden shadow-premium border border-[#ECE8E1] hover:border-[#C6A86B] cursor-pointer hover:shadow-premium-hover transition-all duration-500 rounded-none relative"
                 >
-                  <div className="h-80 relative overflow-hidden border border-[#788672]/15 bg-[#cbd1c9]/10">
+                  <div className="h-80 relative overflow-hidden border-b border-[#ECE8E1] bg-[#181816]">
                     <Image
                       src={memb.image}
                       alt={memb.name}
                       fill
                       sizes="280px"
-                      className="object-cover object-bottom transition-transform duration-1000 ease-out group-hover:scale-[1.03]"
+                      className="object-cover object-bottom"
                     />
                   </div>
-                  <div className="p-5 text-center space-y-1">
-                    <h3 className="font-serif text-lg text-[#3d4f3d] font-normal uppercase tracking-wider">{memb.name}</h3>
-                    <p className="font-sans text-[8px] tracking-[0.2em] text-[#C6A86B] uppercase font-semibold">
+                  <div className="p-6 text-center space-y-2">
+                    <h3 className="font-serif text-lg font-semibold uppercase tracking-wider text-[#181816]">{memb.name}</h3>
+                    <p className="font-sans text-[9px] tracking-widest text-[#E5A99E] uppercase font-bold">
                       {memb.role}
                     </p>
                   </div>
+                  {/* Gold active border bottom */}
+                  <div className="absolute bottom-0 left-0 w-full h-[3px] bg-[#C6A86B] scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
                 </motion.div>
               ))}
             </motion.div>
@@ -715,17 +652,16 @@ export default function Home() {
         </section>
 
         {/* 7. BRIDAL SERVICES SECTION */}
-        <section className="py-16 lg:py-24 bg-[#eae5db] border-t border-[#dcd7cc]">
+        <section className="py-16 lg:py-24" style={{backgroundColor: '#e8e4d9'}}>
           <div className="max-w-7xl mx-auto px-6 md:px-12">
             
-            <div className="text-center max-w-2xl mx-auto mb-10 lg:mb-16 space-y-4">
-              <h2 className="font-serif text-3xl md:text-4xl text-[#788672] font-semibold uppercase tracking-wider">
-                Bridal Services
+            <div className="text-center max-w-2xl mx-auto mb-10 lg:mb-16">
+              <h2 className="font-serif text-[40px] md:text-[56px] font-normal uppercase tracking-[0.12em] leading-none mb-4" style={{color: '#4a5e4f'}}>
+                BRIDAL SERVICES
               </h2>
-              <p className="font-sans text-xs text-[#788672]/80 leading-relaxed tracking-wider max-w-lg mx-auto">
-                Every wedding and every bride is different. Book a conversation with Bridget our founder, she'd love to hear your exciting plans.
+              <p className="font-sans text-xs leading-relaxed tracking-wider max-w-lg mx-auto" style={{color: '#4a5e4f'}}>
+                Every wedding and every bride is different. Book a conversation with Bridget our founder, she&apos;d love to hear your exciting plans.
               </p>
-              <div className="h-[1px] w-16 bg-[#788672]/30 mx-auto mt-4" />
             </div>
 
             {/* Split layout for Bridal */}
@@ -738,7 +674,7 @@ export default function Home() {
                 visible: {
                   opacity: 1,
                   transition: {
-                    staggerChildren: 0.15
+                    staggerChildren: 0.2
                   }
                 }
               }}
@@ -751,63 +687,64 @@ export default function Home() {
                 <motion.div
                   key={index}
                   variants={{
-                    hidden: { opacity: 0, y: 25 },
+                    hidden: { opacity: 0, y: 30 },
                     visible: { opacity: 1, y: 0 }
                   }}
                   transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-                  className="group flex flex-col cursor-pointer"
+                  whileHover={{ y: -6 }}
+                  className="group bg-white border border-[#ECE8E1] overflow-hidden shadow-premium hover:shadow-premium-hover transition-all duration-500 flex flex-col cursor-pointer rounded-none relative"
                 >
-                  {/* Image Container */}
-                  <div className="h-80 relative overflow-hidden border border-[#788672]/15 bg-[#cbd1c9]/10">
+                  <div className="p-4 bg-[#FFFFFF] border-b border-[#ECE8E1] text-center text-[10px] tracking-[0.25em] text-[#E5A99E] font-semibold uppercase group-hover:bg-[#ECE8E1]/40 transition-colors">
+                    {b.label}
+                  </div>
+                  <div className="h-72 relative overflow-hidden">
                     <Image
                       src={b.img}
                       alt={b.title}
                       fill
                       sizes="50vw"
-                      className="object-cover transition-transform duration-1000 ease-out group-hover:scale-[1.03]"
+                      className="object-cover"
                     />
                   </div>
-                  
-                  {/* Card Info */}
-                  <div className="pt-6 text-center space-y-3 flex flex-col items-center justify-between">
-                    <div>
-                      <span className="font-sans text-[9px] tracking-[0.3em] text-[#C6A86B] font-semibold uppercase">
-                        {b.label}
-                      </span>
-                      <h3 className="font-serif text-2xl text-[#3d4f3d] font-light uppercase tracking-[0.06em] mt-1 group-hover:text-[#C6A86B] transition-colors duration-300">
-                        {b.title}
-                      </h3>
-                    </div>
+                  <div className="p-8 text-center space-y-4">
+                    <h3 className="font-serif text-xl text-[#181816] font-semibold uppercase tracking-wider group-hover:text-[#C6A86B] transition-colors">
+                      {b.title}
+                    </h3>
                     <Link
                       href={b.slug}
-                      className="text-[9px] tracking-[0.2em] font-semibold text-[#788672]/85 uppercase hover-gold-line mt-2 block"
+                      className="text-[9px] tracking-[0.2em] font-bold text-[#C6A86B] uppercase flex items-center justify-center space-x-1.5 hover:text-[#A88B52] transition-colors"
                     >
-                      Explore Service
+                      <span>Explore Service</span>
+                      <ArrowRight size={10} className="group-hover:translate-x-1.5 transition-transform" />
                     </Link>
                   </div>
+                  {/* Gold active border bottom */}
+                  <div className="absolute bottom-0 left-0 w-full h-[3px] bg-[#C6A86B] scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
                 </motion.div>
               ))}
             </motion.div>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-16">
               <motion.div
-                whileHover={{ scale: 1.01, y: -1 }}
-                whileTap={{ scale: 0.99 }}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                transition={{ type: "spring", stiffness: 400, damping: 20 }}
               >
                 <Link
                   href="/bridal"
-                  className="inline-block border border-[#788672]/30 text-[#3d4f3d] font-sans text-xs font-semibold tracking-[0.2em] uppercase px-10 py-4.5 hover:bg-[#788672] hover:text-white hover:border-[#788672] transition-all duration-300 text-center min-w-[200px]"
+                  className="inline-block border border-[#E5A99E]/40 text-[#E5A99E] font-semibold text-xs tracking-[0.25em] uppercase px-8 py-4 rounded-none hover:bg-[#E5A99E] hover:text-white transition-all duration-300 text-center min-w-[200px]"
                 >
                   More Bridal Services
                 </Link>
               </motion.div>
               <motion.div
-                whileHover={{ scale: 1.01, y: -1 }}
-                whileTap={{ scale: 0.99 }}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                transition={{ type: "spring", stiffness: 400, damping: 20 }}
               >
                 <Link
                   href="https://www.fresha.com/providers/blush-blow-w9xnf8li?pId=9954&dppub=true"
-                  className="inline-block bg-[#788672] text-[#fcfaf7] font-sans text-xs font-semibold tracking-[0.2em] uppercase px-10 py-4.5 hover:bg-[#677461] transition-all duration-300 text-center min-w-[200px]"
+                  className="inline-block bg-[#111111] text-white font-semibold text-xs tracking-[0.25em] uppercase px-8 py-4 rounded-none hover:bg-[#E5A99E] transition-all duration-300 text-center min-w-[200px]"
                 >
                   Book Now
                 </Link>
@@ -815,36 +752,41 @@ export default function Home() {
             </div>
           </div>
         </section>
+
         {/* 10. TESTIMONIALS SECTION */}
-        <section className="py-16 lg:py-24 bg-[#eae5db] border-t border-[#dcd7cc] relative overflow-hidden">
-          <div className="max-w-5xl mx-auto px-6 text-center space-y-10">
+        <section className="py-16 lg:py-24 bg-[#FFFFFF] border-t border-[#ECE8E1]">
+          <div className="max-w-5xl mx-auto px-6 text-center space-y-8">
             
-            <div className="space-y-2">
-              <h2 className="font-serif text-[40px] sm:text-[50px] text-[#788672] font-light uppercase tracking-[0.08em] italic">
+            <div className="space-y-4">
+              <h2 className="font-serif text-3xl text-[#181816] font-semibold uppercase tracking-wider">
                 Testimonials
               </h2>
-              <div className="h-[1px] w-16 bg-[#788672]/20 mx-auto mt-4" />
+              <div className="h-[1px] w-16 bg-[#C6A86B]/30 mx-auto mt-4" />
             </div>
 
-            <div className="relative min-h-[260px] sm:min-h-[200px] flex items-center justify-center max-w-4xl mx-auto">
+            <div className="relative min-h-[220px] sm:min-h-[160px] flex items-center justify-center max-w-3xl mx-auto">
+              {/* Decorative Quotation Marks */}
+              <span className="absolute top-0 left-0 md:-left-8 font-serif text-[130px] leading-none text-[#C6A86B]/10 select-none pointer-events-none">“</span>
+              <span className="absolute bottom-0 right-0 md:-right-8 font-serif text-[130px] leading-none text-[#C6A86B]/10 select-none pointer-events-none">”</span>
+
               <AnimatePresence mode="wait">
                 <motion.div
                   key={testimonialIdx}
-                  initial={{ opacity: 0, y: 15 }}
+                  initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -15 }}
-                  transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-                  className="space-y-6"
+                  exit={{ opacity: 0, y: -10 }}
+                  transition={{ duration: 0.5 }}
+                  className="space-y-4 relative z-10 px-6"
                 >
                   <div className="flex items-center justify-center space-x-1">
                     {[...Array(5)].map((_, i) => (
-                      <Star key={i} size={13} className="fill-[#C6A86B] text-[#C6A86B] opacity-80" />
+                      <Star key={i} size={14} className="fill-[#C6A86B] text-[#C6A86B]" />
                     ))}
                   </div>
-                  <p className="font-serif text-xl sm:text-2xl text-[#3d4f3d] font-light leading-relaxed max-w-3xl mx-auto italic">
-                    &ldquo;{testimonialsList[testimonialIdx].text}&rdquo;
+                  <p className="font-serif text-lg md:text-xl text-[#181816] italic leading-relaxed max-w-2xl mx-auto">
+                    "{testimonialsList[testimonialIdx].text}"
                   </p>
-                  <p className="font-sans text-[9px] font-bold tracking-[0.25em] text-[#C6A86B] uppercase pt-2">
+                  <p className="font-sans text-[10px] font-bold tracking-[0.2em] text-[#A88B52] uppercase pt-2">
                     — {testimonialsList[testimonialIdx].name}
                   </p>
                 </motion.div>
@@ -858,7 +800,7 @@ export default function Home() {
                   key={idx}
                   onClick={() => setTestimonialIdx(idx)}
                   className={`w-1.5 h-1.5 rounded-full transition-all duration-300 ${
-                    idx === testimonialIdx ? "bg-[#788672] w-4" : "bg-[#cbd1c9]"
+                    idx === testimonialIdx ? "bg-[#C6A86B] w-4" : "bg-[#ECE8E1]"
                   }`}
                   aria-label={`Go to review ${idx + 1}`}
                 />
@@ -869,14 +811,14 @@ export default function Home() {
         </section>
 
         {/* 13. FAQ ACCORDION SECTION */}
-        <section id="faq" className="py-16 lg:py-24 bg-[#eae5db] border-t border-[#dcd7cc]">
+        <section id="faq" className="py-16 lg:py-24 bg-[#FDF8F6] border-t border-[#ECE8E1]">
           <div className="max-w-3xl mx-auto px-6">
             
-            <div className="text-center mb-10 lg:mb-16">
-              <h2 className="font-serif text-[40px] sm:text-[50px] text-[#788672] font-light uppercase tracking-[0.08em] italic">
-                Faq&apos;s
+            <div className="text-center mb-10 lg:mb-16 space-y-4">
+              <h2 className="font-serif text-3xl text-[#181816] font-semibold uppercase tracking-wider">
+                Faq’s
               </h2>
-              <div className="h-[1px] w-16 bg-[#788672]/20 mx-auto mt-4" />
+              <div className="h-[1px] w-16 bg-[#C6A86B]/30 mx-auto mt-4" />
             </div>
 
             <div className="space-y-4">
@@ -885,17 +827,17 @@ export default function Home() {
                 return (
                   <div
                     key={idx}
-                    className="bg-[#eae5db] border-b border-[#788672]/20 overflow-hidden transition-all duration-300"
+                    className="bg-white border border-[#ECE8E1] overflow-hidden shadow-premium hover:shadow-premium-hover rounded-none transition-shadow"
                   >
                     <button
                       onClick={() => setActiveFaq(isOpen ? null : idx)}
-                      className="w-full py-5 text-left flex items-center justify-between font-serif text-base sm:text-lg text-[#3d4f3d] font-normal tracking-wide focus:outline-none hover:text-[#C6A86B] transition-colors cursor-pointer"
+                      className="w-full px-5 py-4 sm:px-8 sm:py-6 text-left flex items-center justify-between font-serif text-sm sm:text-base text-[#181816] font-semibold tracking-wide focus:outline-none hover:text-[#C6A86B] transition-colors"
                     >
                       <span>{faq.q}</span>
                       <motion.span
                         animate={{ rotate: isOpen ? 180 : 0 }}
                         transition={{ duration: 0.3, ease: "easeInOut" }}
-                        className="text-[#788672] font-serif text-2xl font-light inline-block"
+                        className="text-[#C6A86B] font-serif text-2xl font-light inline-block"
                       >
                         {isOpen ? "−" : "+"}
                       </motion.span>
@@ -908,8 +850,9 @@ export default function Home() {
                           animate={{ height: "auto", opacity: 1 }}
                           exit={{ height: 0, opacity: 0 }}
                           transition={{ duration: 0.3 }}
+                          className="border-t border-[#ECE8E1]"
                         >
-                          <p className="pb-6 font-sans text-xs sm:text-sm leading-relaxed tracking-wider text-[#788672]/85">
+                          <p className="px-5 py-4 sm:px-8 sm:py-6 font-sans text-xs leading-relaxed tracking-wider text-[#666666] bg-[#FDF8F6]/40">
                             {faq.a}
                           </p>
                         </motion.div>
@@ -924,27 +867,27 @@ export default function Home() {
         </section>
 
         {/* 14. CONTACT & HOURS */}
-        <section id="contact" className="py-16 lg:py-24 bg-[#eae5db] border-t border-[#dcd7cc]">
-          <div className="max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
+        <section id="contact" className="py-16 lg:py-24 bg-[#FFFFFF] border-t border-[#ECE8E1]">
+          <div className="max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16">
             
             {/* Form */}
-            <div className="lg:col-span-7 space-y-8 bg-transparent">
+            <div className="lg:col-span-7 space-y-8 bg-gradient-to-br from-white via-[#FDF8F6]/30 to-[#FAF0ED]/20 p-8 md:p-12 border border-[#ECE8E1] shadow-premium rounded-none">
               <div>
-                <h2 className="font-serif text-[40px] sm:text-[50px] text-[#788672] font-light uppercase tracking-[0.08em] italic">
+                <h2 className="font-serif text-3xl text-[#181816] font-semibold uppercase tracking-wider">
                   Get In Touch
                 </h2>
-                <p className="font-sans text-xs text-[#788672]/80 leading-relaxed tracking-wider mt-2">
+                <p className="font-sans text-xs text-[#666666] leading-relaxed tracking-wider mt-2">
                   Plan your pampering or styling visit. Send a message to our frontdesk below.
                 </p>
               </div>
 
               {formSubmitted ? (
-                <div className="p-8 bg-[#788672]/10 border border-[#788672]/20 rounded-none flex flex-col items-center justify-center text-center space-y-3">
+                <div className="p-8 bg-[#C6A86B]/10 border border-[#C6A86B]/20 rounded flex flex-col items-center justify-center text-center space-y-3">
                   <CheckCircle size={36} className="text-[#C6A86B]" />
-                  <h3 className="font-serif text-lg text-[#3d4f3d] font-semibold">
+                  <h3 className="font-serif text-lg text-[#181816] font-semibold">
                     Thank You
                   </h3>
-                  <p className="font-sans text-xs text-[#788672]/80 max-w-sm">
+                  <p className="font-sans text-xs text-[#666666] max-w-sm">
                     Your request has been received. Our concierge will be in touch shortly to assist with your booking.
                   </p>
                 </div>
@@ -954,10 +897,10 @@ export default function Home() {
                     e.preventDefault();
                     setFormSubmitted(true);
                   }}
-                  className="grid grid-cols-1 sm:grid-cols-2 gap-8"
+                  className="grid grid-cols-1 sm:grid-cols-2 gap-6"
                 >
                   <div className="flex flex-col space-y-2 relative">
-                    <label className="font-sans text-[9px] tracking-widest text-[#788672] uppercase font-semibold">
+                    <label className="font-sans text-[10px] tracking-widest text-[#111111]/70 uppercase font-semibold">
                       Full Name
                     </label>
                     <div className="relative">
@@ -965,19 +908,19 @@ export default function Home() {
                         type="text"
                         onFocus={() => setActiveField("name")}
                         onBlur={() => setActiveField(null)}
-                        className="w-full bg-transparent border-b border-[#788672]/30 py-3 px-1 text-xs sm:text-sm tracking-wider text-[#3d4f3d] focus:outline-none transition-colors"
+                        className="w-full bg-transparent border-b border-[#ECE8E1] focus:border-[#C6A86B] rounded-none py-3.5 px-1 text-xs tracking-wider text-[#181816] focus:outline-none transition-colors"
                         required
                       />
                       <motion.div
                         initial={{ scaleX: 0 }}
                         animate={{ scaleX: activeField === "name" ? 1 : 0 }}
                         transition={{ duration: 0.3 }}
-                        className="absolute bottom-0 left-0 right-0 h-[1.5px] bg-[#C6A86B] origin-center"
+                        className="absolute bottom-0 left-0 right-0 h-[2px] bg-[#C6A86B] origin-center"
                       />
                     </div>
                   </div>
                   <div className="flex flex-col space-y-2 relative">
-                    <label className="font-sans text-[9px] tracking-widest text-[#788672] uppercase font-semibold">
+                    <label className="font-sans text-[10px] tracking-widest text-[#111111]/70 uppercase font-semibold">
                       Phone Number
                     </label>
                     <div className="relative">
@@ -985,19 +928,19 @@ export default function Home() {
                         type="tel"
                         onFocus={() => setActiveField("phone")}
                         onBlur={() => setActiveField(null)}
-                        className="w-full bg-transparent border-b border-[#788672]/30 py-3 px-1 text-xs sm:text-sm tracking-wider text-[#3d4f3d] focus:outline-none transition-colors"
+                        className="w-full bg-transparent border-b border-[#ECE8E1] focus:border-[#C6A86B] rounded-none py-3.5 px-1 text-xs tracking-wider text-[#181816] focus:outline-none transition-colors"
                         required
                       />
                       <motion.div
                         initial={{ scaleX: 0 }}
                         animate={{ scaleX: activeField === "phone" ? 1 : 0 }}
                         transition={{ duration: 0.3 }}
-                        className="absolute bottom-0 left-0 right-0 h-[1.5px] bg-[#C6A86B] origin-center"
+                        className="absolute bottom-0 left-0 right-0 h-[2px] bg-[#C6A86B] origin-center"
                       />
                     </div>
                   </div>
                   <div className="flex flex-col space-y-2 sm:col-span-2 relative">
-                    <label className="font-sans text-[9px] tracking-widest text-[#788672] uppercase font-semibold">
+                    <label className="font-sans text-[10px] tracking-widest text-[#111111]/70 uppercase font-semibold">
                       Email Address
                     </label>
                     <div className="relative">
@@ -1005,45 +948,45 @@ export default function Home() {
                         type="email"
                         onFocus={() => setActiveField("email")}
                         onBlur={() => setActiveField(null)}
-                        className="w-full bg-transparent border-b border-[#788672]/30 py-3 px-1 text-xs sm:text-sm tracking-wider text-[#3d4f3d] focus:outline-none transition-colors"
+                        className="w-full bg-transparent border-b border-[#ECE8E1] focus:border-[#C6A86B] rounded-none py-3.5 px-1 text-xs tracking-wider text-[#181816] focus:outline-none transition-colors"
                         required
                       />
                       <motion.div
                         initial={{ scaleX: 0 }}
                         animate={{ scaleX: activeField === "email" ? 1 : 0 }}
                         transition={{ duration: 0.3 }}
-                        className="absolute bottom-0 left-0 right-0 h-[1.5px] bg-[#C6A86B] origin-center"
+                        className="absolute bottom-0 left-0 right-0 h-[2px] bg-[#C6A86B] origin-center"
                       />
                     </div>
                   </div>
                   <div className="flex flex-col space-y-2 sm:col-span-2 relative">
-                    <label className="font-sans text-[9px] tracking-widest text-[#788672] uppercase font-semibold">
+                    <label className="font-sans text-[10px] tracking-widest text-[#111111]/70 uppercase font-semibold">
                       Message
                     </label>
                     <div className="relative">
                       <textarea
-                        rows={3}
+                        rows={4}
                         onFocus={() => setActiveField("message")}
                         onBlur={() => setActiveField(null)}
-                        className="w-full bg-transparent border-b border-[#788672]/30 py-3 px-1 text-xs sm:text-sm tracking-wider text-[#3d4f3d] focus:outline-none transition-colors resize-none"
+                        className="w-full bg-transparent border-b border-[#ECE8E1] focus:border-[#C6A86B] rounded-none py-3.5 px-1 text-xs tracking-wider text-[#181816] focus:outline-none transition-colors resize-none"
                         required
                       />
                       <motion.div
                         initial={{ scaleX: 0 }}
                         animate={{ scaleX: activeField === "message" ? 1 : 0 }}
                         transition={{ duration: 0.3 }}
-                        className="absolute bottom-0 left-0 right-0 h-[1.5px] bg-[#C6A86B] origin-center"
+                        className="absolute bottom-0 left-0 right-0 h-[2px] bg-[#C6A86B] origin-center"
                       />
                     </div>
                   </div>
                   
-                  <div className="sm:col-span-2 pt-4">
+                  <div className="sm:col-span-2 pt-2">
                     <motion.button
                       type="submit"
-                      whileHover={{ scale: 1.01, y: -1 }}
-                      whileTap={{ scale: 0.99 }}
+                      whileHover={{ scale: 1.02, y: -1 }}
+                      whileTap={{ scale: 0.98 }}
                       transition={{ type: "spring", stiffness: 400, damping: 20 }}
-                      className="w-full bg-[#788672] text-[#fcfaf7] font-sans text-xs font-semibold tracking-[0.25em] uppercase py-4.5 transition-all duration-300 cursor-pointer border border-[#788672] hover:bg-[#677461]"
+                      className="w-full bg-[#111111] text-white font-semibold text-xs tracking-[0.25em] uppercase py-4 hover:bg-[#E5A99E] transition-all duration-300 cursor-pointer rounded-none"
                     >
                       Submit Request
                     </motion.button>
@@ -1056,30 +999,30 @@ export default function Home() {
             <div className="lg:col-span-5 flex flex-col justify-between space-y-8">
               
               <div className="space-y-6">
-                <h3 className="font-serif text-2xl text-[#788672] font-semibold uppercase tracking-wider">
+                <h3 className="font-serif text-2xl text-[#181816] font-semibold uppercase tracking-wider">
                   Blush + Blow London
                 </h3>
                 
-                <div className="space-y-4 font-sans text-xs tracking-wider text-[#788672]/80">
+                <div className="space-y-4 font-sans text-xs tracking-wider text-[#666666]">
                   <div className="flex items-start space-x-3">
-                    <MapPin size={16} className="text-[#788672] shrink-0 mt-0.5" />
+                    <MapPin size={16} className="text-[#C6A86B] shrink-0 mt-0.5" />
                     <span>197 New Kings Rd, London SW6 4SR</span>
                   </div>
                   <div className="flex items-center space-x-3">
-                    <Phone size={14} className="text-[#788672] shrink-0" />
+                    <Phone size={14} className="text-[#C6A86B] shrink-0" />
                     <span>020 7736 0430</span>
                   </div>
                   <div className="flex items-center space-x-3">
-                    <Mail size={14} className="text-[#788672] shrink-0" />
+                    <Mail size={14} className="text-[#C6A86B] shrink-0" />
                     <span>info@blushandblowlondon.com</span>
                   </div>
                   <div className="flex items-start space-x-3">
-                    <Clock size={16} className="text-[#788672] shrink-0 mt-0.5" />
+                    <Clock size={16} className="text-[#C6A86B] shrink-0 mt-0.5" />
                     <div>
                       <p>Mon - Wed: 7:30 am - 6:00 pm</p>
                       <p className="mt-1">Thu - Fri: 7:30 am - 8:00 pm</p>
                       <p className="mt-1">Sat: 9:00 am - 6:00 pm</p>
-                      <p className="mt-1 text-[#788672]/60">Sunday: Closed</p>
+                      <p className="mt-1 text-[#666666]/60">Sunday: Closed</p>
                     </div>
                   </div>
                 </div>
@@ -1087,7 +1030,7 @@ export default function Home() {
                 <div className="pt-2">
                   <Link
                     href="https://wa.me/447979782832"
-                    className="w-full flex items-center justify-center space-x-2 border border-green-500 text-green-600 hover:bg-green-500 hover:text-white transition-colors py-3.5 rounded text-xs uppercase font-bold tracking-widest"
+                    className="w-full flex items-center justify-center space-x-2 border border-green-500 text-green-600 hover:bg-green-500 hover:text-white transition-colors py-3.5 rounded-none text-xs uppercase font-bold tracking-widest"
                   >
                     <MessageCircle size={16} />
                     <span>WhatsApp Frontdesk</span>
@@ -1096,7 +1039,7 @@ export default function Home() {
               </div>
 
               {/* Map */}
-              <div className="h-64 relative overflow-hidden border border-[#dcd7cc] shadow-sm">
+              <div className="h-64 relative overflow-hidden border border-[#ECE8E1] shadow-sm">
                 <iframe
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2484.582650074211!2d-0.2030272230489972!3d51.465809713809025!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48760fb2159753c1%3A0xe54e69b0fa5d27eb!2s197%20New%20Kings%20Rd%2C%20London%20SW6%204SR%2C%20UK!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
                   width="100%"
@@ -1117,6 +1060,15 @@ export default function Home() {
       </main>
 
 
+      {/* Fixed Tab: Bottom-Left Check Availability (matching live site sage green tab) */}
+      <div className="fixed bottom-16 left-0 z-40 hidden md:block">
+        <Link
+          href="https://www.fresha.com/providers/blush-blow-w9xnf8li?pId=9954&dppub=true"
+          style={{backgroundColor: '#4a5e4f', color: 'white', fontFamily: 'var(--font-inter), sans-serif', fontSize: '11px', letterSpacing: '0.15em', textTransform: 'uppercase', padding: '10px 16px', display: 'block', textDecoration: 'none'}}
+        >
+          Check Availability
+        </Link>
+      </div>
 
       {/* Floating WhatsApp green circle (bottom right) */}
       <div className="fixed bottom-24 right-6 z-40">

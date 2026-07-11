@@ -20,15 +20,15 @@ export default function ContactPage() {
     <>
       <Navbar />
 
-      <main className="pt-32 pb-24 bg-[#eae5db] min-h-screen text-[#788672] font-sans">
+      <main className="pt-32 pb-24 bg-[#FFFFFF] min-h-screen text-[#181816] font-sans">
         
         {/* Title Block */}
         <div className="max-w-4xl mx-auto px-6 text-center mb-16 space-y-4">
-          <h1 className="font-serif text-5xl md:text-6xl text-[#788672] font-semibold uppercase tracking-wider">
+          <h1 className="font-serif text-5xl md:text-6xl text-[#181816] font-semibold uppercase tracking-wider">
             Contact Us
           </h1>
-          <div className="h-[1px] w-24 bg-[#788672]/30 mx-auto" />
-          <p className="text-sm md:text-base text-[#788672]/85 leading-relaxed tracking-wider max-w-2xl mx-auto font-medium">
+          <div className="h-[1px] w-24 bg-[#C6A86B]/30 mx-auto" />
+          <p className="text-sm md:text-base text-[#666666] leading-relaxed tracking-wider max-w-2xl mx-auto font-light">
             We’re here to assist you on your hair nails and beauty journey. Use our WhatsApp channel to talk to our reception staff or to our new AI receptionist if our staff are busy with clients.
           </p>
         </div>
@@ -37,21 +37,21 @@ export default function ContactPage() {
         <div className="max-w-6xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 mb-20 items-stretch">
           
           {/* Left Column: Form */}
-          <div className="lg:col-span-7 bg-[#eae5db] p-8 md:p-12 border border-[#dcd7cc] shadow-sm flex flex-col justify-between">
+          <div className="lg:col-span-7 bg-gradient-to-br from-white via-[#FDF8F6]/30 to-[#FAF0ED]/20 p-8 md:p-12 border border-[#ECE8E1] shadow-premium rounded-none flex flex-col justify-between">
             <div className="mb-8">
-              <h2 className="font-serif text-2xl font-semibold uppercase tracking-wider">
+              <h2 className="font-serif text-2xl font-semibold uppercase tracking-wider text-[#181816]">
                 Send a Message
               </h2>
-              <div className="h-[1px] w-12 bg-[#788672]/30 mt-2" />
+              <div className="h-[1px] w-12 bg-[#C6A86B]/30 mt-2" />
             </div>
 
             {formSubmitted ? (
-              <div className="p-10 bg-[#cbd1c9]/25 border border-[#788672]/20 rounded flex flex-col items-center justify-center text-center space-y-4 h-full">
-                <CheckCircle size={44} className="text-[#788672]" />
-                <h3 className="font-serif text-xl font-semibold uppercase">
+              <div className="p-10 bg-[#C6A86B]/10 border border-[#C6A86B]/20 rounded-none flex flex-col items-center justify-center text-center space-y-4 h-full">
+                <CheckCircle size={44} className="text-[#C6A86B]" />
+                <h3 className="font-serif text-xl font-semibold uppercase text-[#181816]">
                   Thank You
                 </h3>
-                <p className="font-sans text-xs text-[#788672]/80 max-w-sm">
+                <p className="font-sans text-xs text-[#666666] max-w-sm">
                   Your message has been delivered to the front desk. We will respond as quickly as possible.
                 </p>
               </div>
@@ -64,55 +64,51 @@ export default function ContactPage() {
                 className="space-y-6"
               >
                 <div className="flex flex-col space-y-1.5">
-                  <label className="text-[10px] tracking-widest uppercase font-bold">
+                  <label className="text-[10px] tracking-widest uppercase font-bold text-[#111111]/70">
                     Name
                   </label>
                   <input
                     type="text"
                     required
-                    placeholder="Your Name"
-                    className="bg-[#cbd1c9]/30 border border-[#dcd7cc] rounded px-4 py-3.5 text-xs tracking-wider text-[#788672] focus:outline-none focus:border-[#788672]"
+                    className="bg-transparent border-b border-[#ECE8E1] focus:border-[#C6A86B] rounded-none py-3.5 px-1 text-xs tracking-wider text-[#181816] focus:outline-none transition-colors"
                   />
                 </div>
 
                 <div className="flex flex-col space-y-1.5">
-                  <label className="text-[10px] tracking-widest uppercase font-bold">
+                  <label className="text-[10px] tracking-widest uppercase font-bold text-[#111111]/70">
                     Email
                   </label>
                   <input
                     type="email"
                     required
-                    placeholder="Your Email"
-                    className="bg-[#cbd1c9]/30 border border-[#dcd7cc] rounded px-4 py-3.5 text-xs tracking-wider text-[#788672] focus:outline-none focus:border-[#788672]"
+                    className="bg-transparent border-b border-[#ECE8E1] focus:border-[#C6A86B] rounded-none py-3.5 px-1 text-xs tracking-wider text-[#181816] focus:outline-none transition-colors"
                   />
                 </div>
 
                 <div className="flex flex-col space-y-1.5">
-                  <label className="text-[10px] tracking-widest uppercase font-bold">
+                  <label className="text-[10px] tracking-widest uppercase font-bold text-[#111111]/70">
                     Mobile
                   </label>
                   <input
                     type="tel"
-                    placeholder="Your Mobile"
-                    className="bg-[#cbd1c9]/30 border border-[#dcd7cc] rounded px-4 py-3.5 text-xs tracking-wider text-[#788672] focus:outline-none focus:border-[#788672]"
+                    className="bg-transparent border-b border-[#ECE8E1] focus:border-[#C6A86B] rounded-none py-3.5 px-1 text-xs tracking-wider text-[#181816] focus:outline-none transition-colors"
                   />
                 </div>
 
                 <div className="flex flex-col space-y-1.5">
-                  <label className="text-[10px] tracking-widest uppercase font-bold">
+                  <label className="text-[10px] tracking-widest uppercase font-bold text-[#111111]/70">
                     Message
                   </label>
                   <textarea
                     rows={6}
                     required
-                    placeholder="Your Message"
-                    className="bg-[#cbd1c9]/30 border border-[#dcd7cc] rounded px-4 py-3.5 text-xs tracking-wider text-[#788672] focus:outline-none focus:border-[#788672] resize-none"
+                    className="bg-transparent border-b border-[#ECE8E1] focus:border-[#C6A86B] rounded-none py-3.5 px-1 text-xs tracking-wider text-[#181816] focus:outline-none transition-colors resize-none"
                   />
                 </div>
 
                 <button
                   type="submit"
-                  className="w-full bg-[#788672] text-white font-semibold text-xs tracking-[0.25em] uppercase py-4 rounded shadow-sm hover:bg-[#677461] transition-colors"
+                  className="w-full bg-[#111111] text-white font-semibold text-xs tracking-[0.25em] uppercase py-4 rounded-none hover:bg-[#E5A99E] transition-colors cursor-pointer"
                 >
                   Send
                 </button>
@@ -121,37 +117,37 @@ export default function ContactPage() {
           </div>
 
           {/* Right Column: Contact Details Card */}
-          <div className="lg:col-span-5 bg-[#cbd1c9]/25 border border-[#788672]/10 p-8 md:p-12 flex flex-col justify-between">
+          <div className="lg:col-span-5 bg-gradient-to-br from-white via-[#FDF8F6]/30 to-[#FAF0ED]/20 border border-[#ECE8E1] p-8 md:p-12 shadow-premium rounded-none flex flex-col justify-between">
             <div className="space-y-6">
-              <h2 className="font-serif text-2xl font-semibold uppercase tracking-wider">
+              <h2 className="font-serif text-2xl font-semibold uppercase tracking-wider text-[#181816]">
                 Contact Details
               </h2>
-              <div className="h-[1px] w-12 bg-[#788672]/30 mt-2" />
+              <div className="h-[1px] w-12 bg-[#C6A86B]/30 mt-2" />
 
               <ul className="space-y-6 font-sans text-sm tracking-wider">
                 <li>
-                  <span className="text-[10px] tracking-widest uppercase text-[#788672]/70 font-bold block mb-1">
+                  <span className="text-[10px] tracking-widest uppercase text-[#E5A99E] font-bold block mb-1">
                     Call Us
                   </span>
-                  <a href="tel:02077360430" className="hover:text-[#677461] font-semibold">
+                  <a href="tel:02077360430" className="hover:text-[#C6A86B] text-[#181816] font-semibold transition-colors">
                     020 7736 0430
                   </a>
                 </li>
 
                 <li>
-                  <span className="text-[10px] tracking-widest uppercase text-[#788672]/70 font-bold block mb-1">
+                  <span className="text-[10px] tracking-widest uppercase text-[#E5A99E] font-bold block mb-1">
                     Enquiries & Marketing
                   </span>
-                  <a href="mailto:info@blushandblowlondon.com" className="hover:text-[#677461] font-semibold">
+                  <a href="mailto:info@blushandblowlondon.com" className="hover:text-[#C6A86B] text-[#181816] font-semibold transition-colors">
                     info@blushandblowlondon.com
                   </a>
                 </li>
 
                 <li>
-                  <span className="text-[10px] tracking-widest uppercase text-[#788672]/70 font-bold block mb-1">
+                  <span className="text-[10px] tracking-widest uppercase text-[#E5A99E] font-bold block mb-1">
                     Press & PR
                   </span>
-                  <a href="mailto:mel@melissalloydpr.com" className="hover:text-[#677461] font-semibold">
+                  <a href="mailto:mel@melissalloydpr.com" className="hover:text-[#C6A86B] text-[#181816] font-semibold transition-colors">
                     mel@melissalloydpr.com
                   </a>
                 </li>
@@ -159,22 +155,22 @@ export default function ContactPage() {
             </div>
 
             {/* Quick Action Grid */}
-            <div className="pt-8 border-t border-[#788672]/10 space-y-4">
-              <span className="text-[10px] tracking-widest uppercase text-[#788672]/70 font-bold block">
+            <div className="pt-8 border-t border-[#ECE8E1] space-y-4">
+              <span className="text-[10px] tracking-widest uppercase text-[#111111]/70 font-bold block">
                 Quick Booking
               </span>
               <div className="grid grid-cols-2 gap-3 text-[10px] font-bold tracking-widest uppercase text-center">
                 <Link
                   href="https://wa.me/447979782832"
                   target="_blank"
-                  className="bg-[#25d366] text-white py-3 rounded hover:bg-[#1ebd58] transition-colors"
+                  className="bg-[#25d366] text-white py-3 rounded-none hover:bg-[#1ebd58] transition-colors cursor-pointer"
                 >
                   WhatsApp
                 </Link>
                 <Link
                   href="https://www.fresha.com/providers/blush-blow-w9xnf8li?pId=9954&dppub=true"
                   target="_blank"
-                  className="bg-[#788672] text-white py-3 rounded hover:bg-[#677461] transition-colors"
+                  className="bg-[#111111] text-white py-3 rounded-none hover:bg-[#E5A99E] transition-colors cursor-pointer"
                 >
                   Book Online
                 </Link>
@@ -187,12 +183,12 @@ export default function ContactPage() {
 
         {/* Opening Hours Block */}
         <div className="max-w-6xl mx-auto px-6 mb-20">
-          <div className="bg-[#788672] text-[#fcfaf7] rounded-lg p-8 md:p-12 shadow-sm border border-[#788672]/10">
+          <div className="bg-white text-[#181816] rounded-none p-8 md:p-12 shadow-premium border border-[#ECE8E1]">
             <div className="text-center mb-8">
-              <h2 className="font-serif text-3xl uppercase tracking-wider font-semibold">
+              <h2 className="font-serif text-3xl uppercase tracking-wider font-semibold text-[#181816]">
                 Opening Hours
               </h2>
-              <div className="h-[1px] w-12 bg-white/30 mx-auto mt-2" />
+              <div className="h-[1px] w-12 bg-[#C6A86B]/30 mx-auto mt-2" />
             </div>
 
             <div className="max-w-md mx-auto">
@@ -209,12 +205,12 @@ export default function ContactPage() {
                   ].map((row, index) => (
                     <tr
                       key={index}
-                      className="border-b border-white/10 last:border-b-0"
+                      className="border-b border-[#ECE8E1] last:border-b-0"
                     >
-                      <td className="py-3 font-semibold uppercase text-xs">
+                      <td className="py-3 font-semibold uppercase text-xs text-[#E5A99E]">
                         {row.day}
                       </td>
-                      <td className="py-3 text-right font-light text-white/90">
+                      <td className="py-3 text-right font-light text-[#666666]">
                         {row.hours}
                       </td>
                     </tr>
@@ -223,7 +219,7 @@ export default function ContactPage() {
                     <td className="py-3 font-semibold uppercase text-xs text-[#C6A86B]">
                       Bank Holidays
                     </td>
-                    <td className="py-3 text-right font-light text-white/60">
+                    <td className="py-3 text-right font-light text-[#666666]/60">
                       Closed
                     </td>
                   </tr>
@@ -235,19 +231,19 @@ export default function ContactPage() {
 
         {/* Franchise Section */}
         <div className="max-w-4xl mx-auto px-6 text-center">
-          <div className="h-[1px] bg-[#788672]/15 w-full mb-16" />
+          <div className="h-[1px] bg-[#ECE8E1] w-full mb-16" />
           
           <div className="space-y-6">
-            <h2 className="font-serif text-3xl uppercase tracking-wider font-semibold">
+            <h2 className="font-serif text-3xl uppercase tracking-wider font-semibold text-[#181816]">
               Franchise
             </h2>
-            <p className="text-sm text-[#788672]/85 leading-relaxed tracking-wider max-w-2xl mx-auto font-light">
+            <p className="text-sm text-[#666666] leading-relaxed tracking-wider max-w-2xl mx-auto font-light">
               Are you excited about the growth of Hair, Nails and Beauty treatments and interested in our help setting up your own Blush + Blow? We welcome driven individuals who share our dedication to Hair, Nails or Beauty excellence. Reach out via email with your background, ideas, and preferred geographical location for opening your very own Blush + Blow franchise business. We look forward to hearing from you.
             </p>
             <div className="pt-4">
               <a
                 href="mailto:info@blushandblowlondon.com"
-                className="inline-block bg-[#788672] text-white font-semibold text-xs tracking-[0.25em] uppercase px-10 py-4.5 rounded shadow-sm hover:bg-[#677461] transition-colors"
+                className="inline-block bg-[#111111] text-white font-semibold text-xs tracking-[0.25em] uppercase px-10 py-4.5 rounded-none hover:bg-[#E5A99E] transition-colors cursor-pointer"
               >
                 Get In Touch
               </a>

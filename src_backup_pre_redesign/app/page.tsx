@@ -184,11 +184,11 @@ export default function Home() {
       <main className="overflow-hidden bg-[#eae5db] text-[#788672]">
         
         {/* 1. HERO/BANNER SECTION */}
-        <section className="relative pt-24 pb-16 lg:min-h-screen lg:flex lg:items-center lg:pt-36 lg:pb-20 bg-[#eae5db]">
-          <div className="max-w-7xl mx-auto px-6 md:px-12 w-full grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+        <section className="relative pt-24 pb-12 lg:min-h-screen lg:flex lg:items-center lg:pt-32 lg:pb-16 bg-[#eae5db]">
+          <div className="max-w-7xl mx-auto px-6 md:px-12 w-full grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
             
             {/* Left Column: Wording and Vertical stacked large buttons */}
-            <div className="lg:col-span-6 flex flex-col space-y-10 z-10 order-2 lg:order-none text-center lg:text-left items-center lg:items-start w-full">
+            <div className="lg:col-span-6 flex flex-col space-y-8 lg:space-y-10 z-10 order-2 lg:order-none text-center lg:text-left items-center lg:items-start w-full">
               <motion.div
                 initial="hidden"
                 animate="visible"
@@ -197,18 +197,29 @@ export default function Home() {
                   visible: {
                     opacity: 1,
                     transition: {
-                      staggerChildren: 0.1,
-                      delayChildren: 0.4
+                      staggerChildren: 0.12,
+                      delayChildren: 0.6
                     }
                   }
                 }}
                 className="space-y-4"
               >
-                <h1 className="font-serif text-4xl sm:text-5xl lg:text-[64px] text-[#788672] leading-[1.2] lg:leading-[1.1] font-light tracking-[0.06em] uppercase italic">
-                  Adding Colour<br />
-                  <span className="font-sans font-semibold not-italic tracking-[0.08em] text-[0.85em] text-[#788672]">
-                    To Your Life
-                  </span>
+                <h1 className="font-serif text-3xl sm:text-4xl md:text-6xl lg:text-[68px] text-[#788672] leading-[1.2] lg:leading-[1.1] font-semibold tracking-[0.05em] uppercase">
+                  {["ADDING", "COLOUR", "TO", "YOUR", "LIFE"].map((word, idx) => (
+                    <span key={idx} className="inline-block overflow-hidden mr-3">
+                      <motion.span
+                        className="inline-block"
+                        variants={{
+                          hidden: { y: "100%", opacity: 0 },
+                          visible: { y: 0, opacity: 1 }
+                        }}
+                        transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                      >
+                        {word}
+                      </motion.span>
+                      {idx === 1 && <br />}
+                    </span>
+                  ))}
                 </h1>
               </motion.div>
 
@@ -222,60 +233,44 @@ export default function Home() {
                     opacity: 1,
                     transition: {
                       staggerChildren: 0.08,
-                      delayChildren: 1.0
+                      delayChildren: 1.2
                     }
                   }
                 }}
-                className="flex flex-col space-y-3.5 max-w-sm w-full mx-auto lg:mx-0"
+                className="flex flex-col space-y-4 max-w-sm w-full mx-auto lg:mx-0"
               >
-                {["Hair", "Nails", "Beauty", "Bridal", "Skin"].map((lbl) => {
-                  const isExternal = lbl === "Skin";
-                  const href = isExternal ? "https://theskinstudiolondon.com/" : `/${lbl.toLowerCase()}`;
-                  
-                  return (
-                    <motion.div
-                      key={lbl}
-                      variants={{
-                        hidden: { opacity: 0, y: 15 },
-                        visible: { opacity: 1, y: 0 }
-                      }}
-                      transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-                      whileHover={{ scale: 1.01, y: -1 }}
-                      whileTap={{ scale: 0.99 }}
+                {["Hair", "Nails", "Beauty", "Bridal"].map((lbl) => (
+                  <motion.div
+                    key={lbl}
+                    variants={{
+                      hidden: { opacity: 0, y: 15 },
+                      visible: { opacity: 1, y: 0 }
+                    }}
+                    transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+                    whileHover={{ scale: 1.025, y: -2 }}
+                    whileTap={{ scale: 0.98 }}
+                  >
+                    <Link
+                      href={`/${lbl.toLowerCase()}`}
+                      className="w-full block bg-[#cbd1c9] text-[#788672] font-serif text-sm tracking-[0.25em] uppercase py-4 text-center rounded hover:bg-[#b9c1b7] hover:text-[#566151] transition-all duration-300 shadow-sm border border-[#788672]/10"
                     >
-                      {isExternal ? (
-                        <a
-                          href={href}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="w-full block bg-[#9aaa96]/80 text-[#3d4f3d] font-sans text-xs font-semibold tracking-[0.25em] uppercase py-4.5 text-center transition-all duration-300 hover:bg-[#788672] hover:text-white border border-[#788672]/15 shadow-sm rounded-none"
-                        >
-                          {lbl}
-                        </a>
-                      ) : (
-                        <Link
-                          href={href}
-                          className="w-full block bg-[#9aaa96]/80 text-[#3d4f3d] font-sans text-xs font-semibold tracking-[0.25em] uppercase py-4.5 text-center transition-all duration-300 hover:bg-[#788672] hover:text-white border border-[#788672]/15 shadow-sm rounded-none"
-                        >
-                          {lbl}
-                        </Link>
-                      )}
-                    </motion.div>
-                  );
-                })}
+                      {lbl}
+                    </Link>
+                  </motion.div>
+                ))}
               </motion.div>
             </div>
 
             {/* Right Column: Hero Image with solid green frame */}
             <motion.div 
-              initial={{ opacity: 0, scale: 0.97 }}
+              initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 1.2, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-              className="lg:col-span-6 relative h-[360px] sm:h-[480px] lg:h-[620px] w-full flex items-center justify-center order-1 lg:order-none"
+              transition={{ duration: 1.2, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
+              className="lg:col-span-6 relative h-[320px] sm:h-[400px] lg:h-[500px] w-full flex items-center justify-center order-1 lg:order-none"
             >
-              <div className="w-[96%] h-[96%] overflow-hidden border border-[#788672]/20 relative shadow-xl">
+              <div className="w-[92%] h-[92%] overflow-hidden border-[8px] border-[#788672] relative shadow-lg">
                 <motion.div
-                  initial={{ scale: 1.08 }}
+                  initial={{ scale: 1.15 }}
                   animate={{ scale: 1.0 }}
                   transition={{ duration: 1.8, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
                   className="w-full h-full relative"
@@ -308,21 +303,23 @@ export default function Home() {
                 transition: { staggerChildren: 0.2 }
               }
             }}
-            className="max-w-[1320px] mx-auto px-6 md:px-12 w-full grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center"
+            className="max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center"
           >
-            {/* Left: Image — matching live site styling (max-width 440px, centered, not cropped) */}
+            {/* Left: Image */}
             <motion.div 
               variants={{
                 hidden: { opacity: 0, x: -50 },
                 visible: { opacity: 1, x: 0 }
               }}
               transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-              className="flex justify-center items-center w-full"
+              className="lg:col-span-6 relative h-[300px] sm:h-[400px] lg:h-[500px] w-full max-w-md mx-auto"
             >
-              <img
+              <Image
                 src="/images/color_life_concern.webp"
                 alt="Show your true colours"
-                className="w-full h-auto max-w-[440px] object-contain"
+                fill
+                sizes="(max-width: 768px) 100vw, 55vw"
+                className="object-contain"
               />
             </motion.div>
 
@@ -333,22 +330,20 @@ export default function Home() {
                 visible: { opacity: 1, x: 0 }
               }}
               transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-              className="flex flex-col items-center justify-center text-center space-y-8"
+              className="lg:col-span-6 flex flex-col items-center justify-center text-center space-y-6 lg:space-y-8"
             >
-              <h2 className="font-serif text-[40px] sm:text-[50px] lg:text-[56px] text-[#788672] leading-[1.1] font-light tracking-[0.08em] uppercase italic text-center">
-                Show Your<br />
-                <span className="font-sans font-semibold not-italic text-[0.85em] tracking-[0.06em]">
-                  True Colours
-                </span>
+              <h2 className="font-serif text-3xl sm:text-4xl lg:text-6xl text-[#788672] font-semibold uppercase tracking-[0.1em] leading-[1.2]">
+                Show your <br />
+                true colours
               </h2>
               <motion.div
-                whileHover={{ scale: 1.02, y: -1 }}
-                whileTap={{ scale: 0.99 }}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
                 transition={{ type: "spring", stiffness: 400, damping: 20 }}
               >
                 <Link
                   href="https://www.fresha.com/providers/blush-blow-w9xnf8li?pId=9954&dppub=true"
-                  className="border border-[#788672]/30 text-[#3d4f3d] font-sans text-xs font-semibold tracking-[0.2em] uppercase px-14 py-4 hover:bg-[#788672] hover:text-white hover:border-[#788672] transition-all duration-300 block text-center min-w-[200px]"
+                  className="border border-[#788672] text-[#788672] font-semibold text-xs tracking-[0.25em] uppercase px-12 py-4.5 rounded hover:bg-[#788672] hover:text-white transition-all duration-300 block text-center min-w-[200px]"
                 >
                   Book Now
                 </Link>
@@ -378,7 +373,7 @@ export default function Home() {
                 visible: {
                   opacity: 1,
                   transition: {
-                    staggerChildren: 0.1
+                    staggerChildren: 0.15
                   }
                 }
               }}
@@ -393,39 +388,32 @@ export default function Home() {
                 <motion.div
                   key={index}
                   variants={{
-                    hidden: { opacity: 0, y: 25 },
+                    hidden: { opacity: 0, y: 30 },
                     visible: { opacity: 1, y: 0 }
                   }}
                   transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-                  className="group flex flex-col h-full cursor-pointer"
+                  whileHover={{ y: -6, scale: 1.02 }}
+                  className="group bg-[#eae5db] border border-[#dcd7cc] overflow-hidden shadow transition-all duration-500 flex flex-col h-full cursor-pointer hover:shadow-lg hover:border-[#788672]/30"
                 >
-                  {/* Image container with custom thin border */}
-                  <div className="h-68 relative overflow-hidden border border-[#788672]/15 bg-[#cbd1c9]/10">
+                  <div className="h-60 relative overflow-hidden border-b border-[#dcd7cc]">
                     <Image
                       src={serv.img}
                       alt={serv.title}
                       fill
                       sizes="25vw"
-                      className="object-cover transition-transform duration-1000 ease-out group-hover:scale-[1.03]"
+                      className="object-cover group-hover:scale-108 transition-transform duration-700 ease-out"
                     />
                   </div>
-                  
-                  {/* Card Info */}
-                  <div className="pt-5 pb-3 text-center flex flex-col items-center flex-grow justify-between">
-                    <div className="space-y-1">
-                      <span className="font-sans text-[9px] tracking-[0.3em] text-[#C6A86B] font-semibold uppercase">
-                        Hair
-                      </span>
-                      <h3 className="font-serif text-xl text-[#3d4f3d] font-light uppercase tracking-[0.06em] group-hover:text-[#C6A86B] transition-colors duration-300">
-                        {serv.title}
-                      </h3>
-                    </div>
-                    
+                  <div className="p-6 text-center space-y-4 flex-grow flex flex-col justify-between">
+                    <h3 className="font-serif text-lg text-[#788672] font-semibold uppercase tracking-wider group-hover:text-[#C6A86B] transition-colors">
+                      {serv.title}
+                    </h3>
                     <Link
                       href="/hair"
-                      className="text-[9px] tracking-[0.2em] font-semibold text-[#788672]/85 uppercase hover-gold-line mt-3.5 block"
+                      className="text-[10px] tracking-widest font-bold text-[#788672]/70 uppercase flex items-center justify-center space-x-1 hover:text-[#788672] transition-colors pt-2"
                     >
-                      Explore Service
+                      <span>Explore</span>
+                      <ArrowRight size={10} className="group-hover:translate-x-1 transition-transform" />
                     </Link>
                   </div>
                 </motion.div>
@@ -462,7 +450,7 @@ export default function Home() {
               <div className="h-[1px] w-16 bg-[#788672]/30 mx-auto mt-4" />
             </div>
 
-             {/* Hands & Feet Split Columns */}
+            {/* Hands & Feet Split Columns */}
             <motion.div 
               initial="hidden"
               whileInView="visible"
@@ -472,7 +460,7 @@ export default function Home() {
                 visible: {
                   opacity: 1,
                   transition: {
-                    staggerChildren: 0.15
+                    staggerChildren: 0.2
                   }
                 }
               }}
@@ -485,63 +473,62 @@ export default function Home() {
                 <motion.div
                   key={index}
                   variants={{
-                    hidden: { opacity: 0, y: 25 },
+                    hidden: { opacity: 0, y: 30 },
                     visible: { opacity: 1, y: 0 }
                   }}
                   transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-                  className="group flex flex-col cursor-pointer"
+                  whileHover={{ y: -6, scale: 1.015 }}
+                  className="group bg-[#eae5db] border border-[#dcd7cc] overflow-hidden shadow transition-all duration-500 flex flex-col cursor-pointer hover:shadow-lg hover:border-[#788672]/30"
                 >
-                  {/* Image Container */}
-                  <div className="h-80 relative overflow-hidden border border-[#788672]/15 bg-[#cbd1c9]/10">
+                  <div className="p-4 bg-[#cbd1c9]/45 border-b border-[#dcd7cc] text-center text-[10px] tracking-[0.25em] text-[#788672] font-semibold uppercase group-hover:bg-[#cbd1c9]/60 transition-colors">
+                    {col.label}
+                  </div>
+                  <div className="h-72 relative overflow-hidden">
                     <Image
                       src={col.img}
                       alt={col.title}
                       fill
                       sizes="50vw"
-                      className="object-cover transition-transform duration-1000 ease-out group-hover:scale-[1.03]"
+                      className="object-cover group-hover:scale-108 transition-transform duration-700"
                     />
                   </div>
-                  
-                  {/* Card Info */}
-                  <div className="pt-6 text-center space-y-3 flex flex-col items-center justify-between">
-                    <div>
-                      <span className="font-sans text-[9px] tracking-[0.3em] text-[#C6A86B] font-semibold uppercase">
-                        {col.label}
-                      </span>
-                      <h3 className="font-serif text-2xl text-[#3d4f3d] font-light uppercase tracking-[0.06em] mt-1 group-hover:text-[#C6A86B] transition-colors duration-300">
-                        {col.title}
-                      </h3>
-                    </div>
+                  <div className="p-8 text-center space-y-4">
+                    <h3 className="font-serif text-xl text-[#788672] font-semibold uppercase tracking-wider group-hover:text-[#C6A86B] transition-colors">
+                      {col.title}
+                    </h3>
                     <Link
                       href={col.slug}
-                      className="text-[9px] tracking-[0.2em] font-semibold text-[#788672]/85 uppercase hover-gold-line mt-2 block"
+                      className="text-[10px] tracking-widest font-bold text-[#788672]/70 uppercase flex items-center justify-center space-x-1 hover:text-[#788672] transition-colors"
                     >
-                      Explore Service
+                      <span>Explore</span>
+                      <ArrowRight size={10} className="group-hover:translate-x-1 transition-transform" />
                     </Link>
                   </div>
                 </motion.div>
               ))}
             </motion.div>
 
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-12 lg:mt-16">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-10 lg:mt-16">
               <motion.div
-                whileHover={{ scale: 1.01, y: -1 }}
-                whileTap={{ scale: 0.99 }}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                transition={{ type: "spring", stiffness: 400, damping: 20 }}
               >
                 <Link
                   href="/nails"
-                  className="inline-block border border-[#788672]/30 text-[#3d4f3d] font-sans text-xs font-semibold tracking-[0.2em] uppercase px-10 py-4.5 hover:bg-[#788672] hover:text-white hover:border-[#788672] transition-all duration-300 text-center min-w-[220px]"
+                  className="inline-block border border-[#788672]/30 text-[#788672] font-semibold text-xs tracking-[0.25em] uppercase px-8 py-4 rounded hover:bg-[#788672] hover:text-white transition-all duration-300 text-center min-w-[200px]"
                 >
                   More Nails Services
                 </Link>
               </motion.div>
               <motion.div
-                whileHover={{ scale: 1.01, y: -1 }}
-                whileTap={{ scale: 0.99 }}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                transition={{ type: "spring", stiffness: 400, damping: 20 }}
               >
                 <Link
                   href="https://www.fresha.com/providers/blush-blow-w9xnf8li?pId=9954&dppub=true"
-                  className="inline-block bg-[#788672] text-[#fcfaf7] font-sans text-xs font-semibold tracking-[0.2em] uppercase px-10 py-4.5 hover:bg-[#677461] transition-all duration-300 text-center min-w-[200px]"
+                  className="inline-block bg-[#788672] text-[#fcfaf7] font-semibold text-xs tracking-[0.25em] uppercase px-8 py-4 rounded hover:bg-[#677461] transition-all duration-300 text-center min-w-[200px]"
                 >
                   Book Now
                 </Link>
@@ -572,7 +559,7 @@ export default function Home() {
                 visible: {
                   opacity: 1,
                   transition: {
-                    staggerChildren: 0.1
+                    staggerChildren: 0.15
                   }
                 }
               }}
@@ -587,39 +574,37 @@ export default function Home() {
                 <motion.div
                   key={index}
                   variants={{
-                    hidden: { opacity: 0, y: 25 },
+                    hidden: { opacity: 0, y: 30 },
                     visible: { opacity: 1, y: 0 }
                   }}
                   transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-                  className="group flex flex-col h-full cursor-pointer"
+                  whileHover={{ y: -6, scale: 1.02 }}
+                  className="group bg-[#eae5db] border border-[#dcd7cc] overflow-hidden shadow transition-all duration-500 flex flex-col h-full cursor-pointer hover:shadow-lg hover:border-[#788672]/30"
                 >
-                  {/* Image container with custom thin border */}
-                  <div className="h-68 relative overflow-hidden border border-[#788672]/15 bg-[#cbd1c9]/10">
+                  <div className="h-60 relative overflow-hidden border-b border-[#dcd7cc]">
                     <Image
                       src={serv.img}
                       alt={serv.title}
                       fill
                       sizes="25vw"
-                      className="object-cover transition-transform duration-1000 ease-out group-hover:scale-[1.03]"
+                      className="object-cover group-hover:scale-108 transition-transform duration-700"
                     />
                   </div>
-                  
-                  {/* Card Info */}
-                  <div className="pt-5 pb-3 text-center flex flex-col items-center flex-grow justify-between">
+                  <div className="p-6 text-center space-y-4 flex-grow flex flex-col justify-between">
                     <div className="space-y-1">
-                      <span className="font-sans text-[9px] tracking-[0.3em] text-[#C6A86B] font-semibold uppercase">
-                        Beauty
-                      </span>
-                      <h3 className="font-serif text-xl text-[#3d4f3d] font-light uppercase tracking-[0.06em] group-hover:text-[#C6A86B] transition-colors duration-300">
+                      <p className="text-[10px] tracking-widest text-[#788672]/60 font-semibold uppercase">
+                        {serv.title}
+                      </p>
+                      <h3 className="font-serif text-lg text-[#788672] font-semibold uppercase tracking-wider group-hover:text-[#C6A86B] transition-colors">
                         {serv.title}
                       </h3>
                     </div>
-                    
                     <Link
                       href={serv.slug}
-                      className="text-[9px] tracking-[0.2em] font-semibold text-[#788672]/85 uppercase hover-gold-line mt-3.5 block"
+                      className="text-[10px] tracking-widest font-bold text-[#788672]/70 uppercase flex items-center justify-center space-x-1 hover:text-[#788672] transition-colors pt-2"
                     >
-                      Explore Service
+                      <span>Explore</span>
+                      <ArrowRight size={10} className="group-hover:translate-x-1 transition-transform" />
                     </Link>
                   </div>
                 </motion.div>
@@ -657,14 +642,14 @@ export default function Home() {
         </section>
 
         {/* 6. TEAM SECTION */}
-        <section id="team" className="py-16 lg:py-24 bg-[#eae5db] border-t border-[#dcd7cc]">
+        <section id="team" className="py-16 lg:py-24 bg-[#c0c8b9] text-white">
           <div className="max-w-7xl mx-auto px-6 md:px-12">
             
-            <div className="text-center max-w-2xl mx-auto mb-10 lg:mb-16">
-              <h2 className="font-serif text-[40px] sm:text-[50px] text-[#788672] font-light uppercase tracking-[0.08em] italic">
-                Our Team
+            <div className="text-center max-w-2xl mx-auto mb-10 lg:mb-16 space-y-4">
+              <h2 className="font-serif text-3xl md:text-4xl text-[#788672] font-semibold uppercase tracking-wider">
+                Team
               </h2>
-              <div className="h-[1px] w-16 bg-[#788672]/20 mx-auto mt-4" />
+              <div className="h-[1px] w-16 bg-[#788672]/40 mx-auto mt-4" />
             </div>
 
             <motion.div 
@@ -676,34 +661,35 @@ export default function Home() {
                 visible: {
                   opacity: 1,
                   transition: {
-                    staggerChildren: 0.08
+                    staggerChildren: 0.1
                   }
                 }
               }}
-              className="flex space-x-6 overflow-x-auto pb-8 scrollbar-thin scrollbar-thumb-[#788672]/20 scrollbar-track-transparent"
+              className="flex space-x-6 overflow-x-auto pb-8 scrollbar-thin scrollbar-thumb-white/30 scrollbar-track-transparent"
             >
               {teamMembersList.map((memb, idx) => (
                 <motion.div
                   key={idx}
                   variants={{
-                    hidden: { opacity: 0, y: 20 },
+                    hidden: { opacity: 0, y: 30 },
                     visible: { opacity: 1, y: 0 }
                   }}
                   transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-                  className="flex-shrink-0 w-72 flex flex-col cursor-pointer"
+                  whileHover={{ y: -6 }}
+                  className="flex-shrink-0 w-72 bg-[#eae5db] text-[#788672] overflow-hidden shadow border border-[#dcd7cc] cursor-pointer hover:shadow-lg transition-all duration-500"
                 >
-                  <div className="h-80 relative overflow-hidden border border-[#788672]/15 bg-[#cbd1c9]/10">
+                  <div className="h-80 relative overflow-hidden border-b border-[#dcd7cc] bg-[#677461]">
                     <Image
                       src={memb.image}
                       alt={memb.name}
                       fill
                       sizes="280px"
-                      className="object-cover object-bottom transition-transform duration-1000 ease-out group-hover:scale-[1.03]"
+                      className="object-cover object-bottom"
                     />
                   </div>
-                  <div className="p-5 text-center space-y-1">
-                    <h3 className="font-serif text-lg text-[#3d4f3d] font-normal uppercase tracking-wider">{memb.name}</h3>
-                    <p className="font-sans text-[8px] tracking-[0.2em] text-[#C6A86B] uppercase font-semibold">
+                  <div className="p-6 text-center space-y-2">
+                    <h3 className="font-serif text-lg font-semibold uppercase tracking-wider">{memb.name}</h3>
+                    <p className="font-sans text-[9px] tracking-widest text-[#788672]/70 uppercase font-bold">
                       {memb.role}
                     </p>
                   </div>
@@ -738,7 +724,7 @@ export default function Home() {
                 visible: {
                   opacity: 1,
                   transition: {
-                    staggerChildren: 0.15
+                    staggerChildren: 0.2
                   }
                 }
               }}
@@ -751,38 +737,35 @@ export default function Home() {
                 <motion.div
                   key={index}
                   variants={{
-                    hidden: { opacity: 0, y: 25 },
+                    hidden: { opacity: 0, y: 30 },
                     visible: { opacity: 1, y: 0 }
                   }}
                   transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-                  className="group flex flex-col cursor-pointer"
+                  whileHover={{ y: -6, scale: 1.015 }}
+                  className="group bg-[#eae5db] border border-[#dcd7cc] overflow-hidden shadow transition-all duration-500 flex flex-col cursor-pointer hover:shadow-lg hover:border-[#788672]/30"
                 >
-                  {/* Image Container */}
-                  <div className="h-80 relative overflow-hidden border border-[#788672]/15 bg-[#cbd1c9]/10">
+                  <div className="p-4 bg-[#cbd1c9]/45 border-b border-[#dcd7cc] text-center text-[10px] tracking-[0.25em] text-[#788672] font-semibold uppercase group-hover:bg-[#cbd1c9]/60 transition-colors">
+                    {b.label}
+                  </div>
+                  <div className="h-72 relative overflow-hidden">
                     <Image
                       src={b.img}
                       alt={b.title}
                       fill
                       sizes="50vw"
-                      className="object-cover transition-transform duration-1000 ease-out group-hover:scale-[1.03]"
+                      className="object-cover group-hover:scale-108 transition-transform duration-700"
                     />
                   </div>
-                  
-                  {/* Card Info */}
-                  <div className="pt-6 text-center space-y-3 flex flex-col items-center justify-between">
-                    <div>
-                      <span className="font-sans text-[9px] tracking-[0.3em] text-[#C6A86B] font-semibold uppercase">
-                        {b.label}
-                      </span>
-                      <h3 className="font-serif text-2xl text-[#3d4f3d] font-light uppercase tracking-[0.06em] mt-1 group-hover:text-[#C6A86B] transition-colors duration-300">
-                        {b.title}
-                      </h3>
-                    </div>
+                  <div className="p-8 text-center space-y-4">
+                    <h3 className="font-serif text-xl text-[#788672] font-semibold uppercase tracking-wider group-hover:text-[#C6A86B] transition-colors">
+                      {b.title}
+                    </h3>
                     <Link
                       href={b.slug}
-                      className="text-[9px] tracking-[0.2em] font-semibold text-[#788672]/85 uppercase hover-gold-line mt-2 block"
+                      className="text-[10px] tracking-widest font-bold text-[#788672]/70 uppercase flex items-center justify-center space-x-1 hover:text-[#788672] transition-colors"
                     >
-                      Explore Service
+                      <span>Explore</span>
+                      <ArrowRight size={10} className="group-hover:translate-x-1 transition-transform" />
                     </Link>
                   </div>
                 </motion.div>
@@ -791,23 +774,25 @@ export default function Home() {
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-16">
               <motion.div
-                whileHover={{ scale: 1.01, y: -1 }}
-                whileTap={{ scale: 0.99 }}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                transition={{ type: "spring", stiffness: 400, damping: 20 }}
               >
                 <Link
                   href="/bridal"
-                  className="inline-block border border-[#788672]/30 text-[#3d4f3d] font-sans text-xs font-semibold tracking-[0.2em] uppercase px-10 py-4.5 hover:bg-[#788672] hover:text-white hover:border-[#788672] transition-all duration-300 text-center min-w-[200px]"
+                  className="inline-block border border-[#788672]/30 text-[#788672] font-semibold text-xs tracking-[0.25em] uppercase px-8 py-4 rounded hover:bg-[#788672] hover:text-white transition-all duration-300 text-center min-w-[200px]"
                 >
                   More Bridal Services
                 </Link>
               </motion.div>
               <motion.div
-                whileHover={{ scale: 1.01, y: -1 }}
-                whileTap={{ scale: 0.99 }}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                transition={{ type: "spring", stiffness: 400, damping: 20 }}
               >
                 <Link
                   href="https://www.fresha.com/providers/blush-blow-w9xnf8li?pId=9954&dppub=true"
-                  className="inline-block bg-[#788672] text-[#fcfaf7] font-sans text-xs font-semibold tracking-[0.2em] uppercase px-10 py-4.5 hover:bg-[#677461] transition-all duration-300 text-center min-w-[200px]"
+                  className="inline-block bg-[#788672] text-[#fcfaf7] font-semibold text-xs tracking-[0.25em] uppercase px-8 py-4 rounded hover:bg-[#677461] transition-all duration-300 text-center min-w-[200px]"
                 >
                   Book Now
                 </Link>
@@ -816,35 +801,35 @@ export default function Home() {
           </div>
         </section>
         {/* 10. TESTIMONIALS SECTION */}
-        <section className="py-16 lg:py-24 bg-[#eae5db] border-t border-[#dcd7cc] relative overflow-hidden">
-          <div className="max-w-5xl mx-auto px-6 text-center space-y-10">
+        <section className="py-16 lg:py-24 bg-[#eae5db] border-t border-[#dcd7cc]">
+          <div className="max-w-5xl mx-auto px-6 text-center space-y-8">
             
-            <div className="space-y-2">
-              <h2 className="font-serif text-[40px] sm:text-[50px] text-[#788672] font-light uppercase tracking-[0.08em] italic">
+            <div className="space-y-4">
+              <h2 className="font-serif text-3xl text-[#788672] font-semibold uppercase tracking-wider">
                 Testimonials
               </h2>
-              <div className="h-[1px] w-16 bg-[#788672]/20 mx-auto mt-4" />
+              <div className="h-[1px] w-16 bg-[#788672]/30 mx-auto mt-4" />
             </div>
 
-            <div className="relative min-h-[260px] sm:min-h-[200px] flex items-center justify-center max-w-4xl mx-auto">
+            <div className="relative min-h-[220px] sm:min-h-[160px] flex items-center justify-center">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={testimonialIdx}
-                  initial={{ opacity: 0, y: 15 }}
+                  initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -15 }}
-                  transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-                  className="space-y-6"
+                  exit={{ opacity: 0, y: -10 }}
+                  transition={{ duration: 0.5 }}
+                  className="space-y-4"
                 >
                   <div className="flex items-center justify-center space-x-1">
                     {[...Array(5)].map((_, i) => (
-                      <Star key={i} size={13} className="fill-[#C6A86B] text-[#C6A86B] opacity-80" />
+                      <Star key={i} size={14} className="fill-[#788672] text-[#788672]" />
                     ))}
                   </div>
-                  <p className="font-serif text-xl sm:text-2xl text-[#3d4f3d] font-light leading-relaxed max-w-3xl mx-auto italic">
-                    &ldquo;{testimonialsList[testimonialIdx].text}&rdquo;
+                  <p className="font-serif text-lg text-[#788672] italic leading-relaxed max-w-2xl mx-auto">
+                    "{testimonialsList[testimonialIdx].text}"
                   </p>
-                  <p className="font-sans text-[9px] font-bold tracking-[0.25em] text-[#C6A86B] uppercase pt-2">
+                  <p className="font-sans text-[10px] font-bold tracking-[0.2em] text-[#788672] uppercase pt-2">
                     — {testimonialsList[testimonialIdx].name}
                   </p>
                 </motion.div>
@@ -858,7 +843,7 @@ export default function Home() {
                   key={idx}
                   onClick={() => setTestimonialIdx(idx)}
                   className={`w-1.5 h-1.5 rounded-full transition-all duration-300 ${
-                    idx === testimonialIdx ? "bg-[#788672] w-4" : "bg-[#cbd1c9]"
+                    idx === testimonialIdx ? "bg-[#788672] w-4" : "bg-[#b9c1b7]"
                   }`}
                   aria-label={`Go to review ${idx + 1}`}
                 />
@@ -872,11 +857,11 @@ export default function Home() {
         <section id="faq" className="py-16 lg:py-24 bg-[#eae5db] border-t border-[#dcd7cc]">
           <div className="max-w-3xl mx-auto px-6">
             
-            <div className="text-center mb-10 lg:mb-16">
-              <h2 className="font-serif text-[40px] sm:text-[50px] text-[#788672] font-light uppercase tracking-[0.08em] italic">
-                Faq&apos;s
+            <div className="text-center mb-10 lg:mb-16 space-y-4">
+              <h2 className="font-serif text-3xl text-[#788672] font-semibold uppercase tracking-wider">
+                Faq’s
               </h2>
-              <div className="h-[1px] w-16 bg-[#788672]/20 mx-auto mt-4" />
+              <div className="h-[1px] w-16 bg-[#788672]/30 mx-auto mt-4" />
             </div>
 
             <div className="space-y-4">
@@ -885,11 +870,11 @@ export default function Home() {
                 return (
                   <div
                     key={idx}
-                    className="bg-[#eae5db] border-b border-[#788672]/20 overflow-hidden transition-all duration-300"
+                    className="bg-[#eae5db] border border-[#dcd7cc] overflow-hidden shadow"
                   >
                     <button
                       onClick={() => setActiveFaq(isOpen ? null : idx)}
-                      className="w-full py-5 text-left flex items-center justify-between font-serif text-base sm:text-lg text-[#3d4f3d] font-normal tracking-wide focus:outline-none hover:text-[#C6A86B] transition-colors cursor-pointer"
+                      className="w-full px-5 py-4 sm:px-8 sm:py-6 text-left flex items-center justify-between font-serif text-sm sm:text-base text-[#788672] font-semibold tracking-wide focus:outline-none"
                     >
                       <span>{faq.q}</span>
                       <motion.span
@@ -908,8 +893,9 @@ export default function Home() {
                           animate={{ height: "auto", opacity: 1 }}
                           exit={{ height: 0, opacity: 0 }}
                           transition={{ duration: 0.3 }}
+                          className="border-t border-[#dcd7cc]"
                         >
-                          <p className="pb-6 font-sans text-xs sm:text-sm leading-relaxed tracking-wider text-[#788672]/85">
+                          <p className="px-5 py-4 sm:px-8 sm:py-6 font-sans text-xs leading-relaxed tracking-wider text-[#788672]/80 bg-[#eae5db]/50">
                             {faq.a}
                           </p>
                         </motion.div>
@@ -925,26 +911,26 @@ export default function Home() {
 
         {/* 14. CONTACT & HOURS */}
         <section id="contact" className="py-16 lg:py-24 bg-[#eae5db] border-t border-[#dcd7cc]">
-          <div className="max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
+          <div className="max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16">
             
             {/* Form */}
-            <div className="lg:col-span-7 space-y-8 bg-transparent">
+            <div className="lg:col-span-7 space-y-8 bg-[#eae5db] p-5 md:p-12 rounded border border-[#dcd7cc] shadow-sm">
               <div>
-                <h2 className="font-serif text-[40px] sm:text-[50px] text-[#788672] font-light uppercase tracking-[0.08em] italic">
+                <h2 className="font-serif text-3xl text-[#788672] font-semibold uppercase tracking-wider">
                   Get In Touch
                 </h2>
-                <p className="font-sans text-xs text-[#788672]/80 leading-relaxed tracking-wider mt-2">
+                <p className="font-sans text-xs text-[#788672]/70 leading-relaxed tracking-wider mt-2">
                   Plan your pampering or styling visit. Send a message to our frontdesk below.
                 </p>
               </div>
 
               {formSubmitted ? (
-                <div className="p-8 bg-[#788672]/10 border border-[#788672]/20 rounded-none flex flex-col items-center justify-center text-center space-y-3">
-                  <CheckCircle size={36} className="text-[#C6A86B]" />
-                  <h3 className="font-serif text-lg text-[#3d4f3d] font-semibold">
+                <div className="p-8 bg-[#cbd1c9]/20 border border-[#788672]/20 rounded flex flex-col items-center justify-center text-center space-y-3">
+                  <CheckCircle size={36} className="text-[#788672]" />
+                  <h3 className="font-serif text-lg text-[#788672] font-semibold">
                     Thank You
                   </h3>
-                  <p className="font-sans text-xs text-[#788672]/80 max-w-sm">
+                  <p className="font-sans text-xs text-[#788672]/70 max-w-sm">
                     Your request has been received. Our concierge will be in touch shortly to assist with your booking.
                   </p>
                 </div>
@@ -954,10 +940,10 @@ export default function Home() {
                     e.preventDefault();
                     setFormSubmitted(true);
                   }}
-                  className="grid grid-cols-1 sm:grid-cols-2 gap-8"
+                  className="grid grid-cols-1 sm:grid-cols-2 gap-6"
                 >
                   <div className="flex flex-col space-y-2 relative">
-                    <label className="font-sans text-[9px] tracking-widest text-[#788672] uppercase font-semibold">
+                    <label className="font-sans text-[10px] tracking-widest text-[#788672] uppercase font-semibold">
                       Full Name
                     </label>
                     <div className="relative">
@@ -965,19 +951,19 @@ export default function Home() {
                         type="text"
                         onFocus={() => setActiveField("name")}
                         onBlur={() => setActiveField(null)}
-                        className="w-full bg-transparent border-b border-[#788672]/30 py-3 px-1 text-xs sm:text-sm tracking-wider text-[#3d4f3d] focus:outline-none transition-colors"
+                        className="w-full bg-[#cbd1c9]/35 border border-[#dcd7cc] rounded px-5 py-3.5 text-xs tracking-wider text-[#788672] focus:outline-none transition-all duration-300"
                         required
                       />
                       <motion.div
                         initial={{ scaleX: 0 }}
                         animate={{ scaleX: activeField === "name" ? 1 : 0 }}
                         transition={{ duration: 0.3 }}
-                        className="absolute bottom-0 left-0 right-0 h-[1.5px] bg-[#C6A86B] origin-center"
+                        className="absolute bottom-0 left-0 right-0 h-[2px] bg-[#C6A86B] origin-center"
                       />
                     </div>
                   </div>
                   <div className="flex flex-col space-y-2 relative">
-                    <label className="font-sans text-[9px] tracking-widest text-[#788672] uppercase font-semibold">
+                    <label className="font-sans text-[10px] tracking-widest text-[#788672] uppercase font-semibold">
                       Phone Number
                     </label>
                     <div className="relative">
@@ -985,19 +971,19 @@ export default function Home() {
                         type="tel"
                         onFocus={() => setActiveField("phone")}
                         onBlur={() => setActiveField(null)}
-                        className="w-full bg-transparent border-b border-[#788672]/30 py-3 px-1 text-xs sm:text-sm tracking-wider text-[#3d4f3d] focus:outline-none transition-colors"
+                        className="w-full bg-[#cbd1c9]/35 border border-[#dcd7cc] rounded px-5 py-3.5 text-xs tracking-wider text-[#788672] focus:outline-none transition-all duration-300"
                         required
                       />
                       <motion.div
                         initial={{ scaleX: 0 }}
                         animate={{ scaleX: activeField === "phone" ? 1 : 0 }}
                         transition={{ duration: 0.3 }}
-                        className="absolute bottom-0 left-0 right-0 h-[1.5px] bg-[#C6A86B] origin-center"
+                        className="absolute bottom-0 left-0 right-0 h-[2px] bg-[#C6A86B] origin-center"
                       />
                     </div>
                   </div>
                   <div className="flex flex-col space-y-2 sm:col-span-2 relative">
-                    <label className="font-sans text-[9px] tracking-widest text-[#788672] uppercase font-semibold">
+                    <label className="font-sans text-[10px] tracking-widest text-[#788672] uppercase font-semibold">
                       Email Address
                     </label>
                     <div className="relative">
@@ -1005,45 +991,45 @@ export default function Home() {
                         type="email"
                         onFocus={() => setActiveField("email")}
                         onBlur={() => setActiveField(null)}
-                        className="w-full bg-transparent border-b border-[#788672]/30 py-3 px-1 text-xs sm:text-sm tracking-wider text-[#3d4f3d] focus:outline-none transition-colors"
+                        className="w-full bg-[#cbd1c9]/35 border border-[#dcd7cc] rounded px-5 py-3.5 text-xs tracking-wider text-[#788672] focus:outline-none transition-all duration-300"
                         required
                       />
                       <motion.div
                         initial={{ scaleX: 0 }}
                         animate={{ scaleX: activeField === "email" ? 1 : 0 }}
                         transition={{ duration: 0.3 }}
-                        className="absolute bottom-0 left-0 right-0 h-[1.5px] bg-[#C6A86B] origin-center"
+                        className="absolute bottom-0 left-0 right-0 h-[2px] bg-[#C6A86B] origin-center"
                       />
                     </div>
                   </div>
                   <div className="flex flex-col space-y-2 sm:col-span-2 relative">
-                    <label className="font-sans text-[9px] tracking-widest text-[#788672] uppercase font-semibold">
+                    <label className="font-sans text-[10px] tracking-widest text-[#788672] uppercase font-semibold">
                       Message
                     </label>
                     <div className="relative">
                       <textarea
-                        rows={3}
+                        rows={4}
                         onFocus={() => setActiveField("message")}
                         onBlur={() => setActiveField(null)}
-                        className="w-full bg-transparent border-b border-[#788672]/30 py-3 px-1 text-xs sm:text-sm tracking-wider text-[#3d4f3d] focus:outline-none transition-colors resize-none"
+                        className="w-full bg-[#cbd1c9]/35 border border-[#dcd7cc] rounded-lg px-5 py-4 text-xs tracking-wider text-[#788672] focus:outline-none transition-all duration-300 resize-none"
                         required
                       />
                       <motion.div
                         initial={{ scaleX: 0 }}
                         animate={{ scaleX: activeField === "message" ? 1 : 0 }}
                         transition={{ duration: 0.3 }}
-                        className="absolute bottom-0 left-0 right-0 h-[1.5px] bg-[#C6A86B] origin-center"
+                        className="absolute bottom-0 left-0 right-0 h-[2px] bg-[#C6A86B] origin-center"
                       />
                     </div>
                   </div>
                   
-                  <div className="sm:col-span-2 pt-4">
+                  <div className="sm:col-span-2 pt-2">
                     <motion.button
                       type="submit"
-                      whileHover={{ scale: 1.01, y: -1 }}
-                      whileTap={{ scale: 0.99 }}
+                      whileHover={{ scale: 1.02, y: -1 }}
+                      whileTap={{ scale: 0.98 }}
                       transition={{ type: "spring", stiffness: 400, damping: 20 }}
-                      className="w-full bg-[#788672] text-[#fcfaf7] font-sans text-xs font-semibold tracking-[0.25em] uppercase py-4.5 transition-all duration-300 cursor-pointer border border-[#788672] hover:bg-[#677461]"
+                      className="w-full bg-[#788672] text-[#fcfaf7] font-semibold text-xs tracking-[0.25em] uppercase py-4 rounded shadow hover:bg-[#677461] transition-all duration-300 cursor-pointer"
                     >
                       Submit Request
                     </motion.button>

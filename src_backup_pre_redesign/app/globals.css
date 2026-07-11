@@ -3,8 +3,7 @@
 @theme {
   /* Font Family Mappings */
   --font-sans: var(--font-inter), sans-serif;
-  --font-serif: var(--font-cormorant), serif;
-  --font-editorial: var(--font-playfair), serif;
+  --font-serif: var(--font-playfair), serif;
 
   /* Custom Color Tokens */
   --color-primary: #788672;

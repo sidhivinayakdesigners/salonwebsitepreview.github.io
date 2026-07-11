@@ -146,13 +146,13 @@ export const Footer = () => {
             <input
               type="email"
               placeholder="Your email address"
-              className="bg-[#1E1E1E] border border-white/10 rounded-full px-5 py-3.5 text-xs tracking-widest text-white placeholder-[#555555] focus:outline-none focus:border-[#C6A86B] w-full"
+              className="bg-[#1A1A1A] border border-white/10 rounded px-5 py-3 text-xs tracking-widest text-white placeholder-[#555555] focus:outline-none focus:border-[#C6A86B] w-full transition-colors"
               required
             />
             <Button
               type="submit"
               variant="gold-solid"
-              className="px-6 py-3 min-w-[100px] text-[10px]"
+              className="px-6 py-3 min-w-[100px] text-[10px] cursor-pointer hover:bg-[#C6A86B] transition-colors"
             >
               Join
             </Button>

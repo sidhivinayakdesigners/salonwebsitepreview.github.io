@@ -29,15 +29,15 @@ export default function BeautsPage() {
     <>
       <Navbar />
 
-      <main className="pt-32 pb-24 bg-[#eae5db] min-h-screen text-[#788672] font-sans">
+      <main className="pt-32 pb-24 bg-[#FFFFFF] min-h-screen text-[#181816] font-sans">
         
         {/* Title Block */}
         <div className="max-w-4xl mx-auto px-6 text-center mb-16 space-y-4">
-          <h1 className="font-serif text-5xl md:text-6xl text-[#788672] font-semibold uppercase tracking-wider">
+          <h1 className="font-serif text-5xl md:text-6xl text-[#181816] font-semibold uppercase tracking-wider">
             Beauts
           </h1>
-          <div className="h-[1px] w-24 bg-[#788672]/30 mx-auto" />
-          <p className="text-sm md:text-base text-[#788672]/85 leading-relaxed tracking-wider max-w-2xl mx-auto font-medium">
+          <div className="h-[1px] w-24 bg-[#C6A86B]/30 mx-auto" />
+          <p className="text-sm md:text-base text-[#666666] leading-relaxed tracking-wider max-w-2xl mx-auto font-light">
             Some examples of our work. Hand-crafted hair, nails, beauty styling, and treatments created by our experts.
           </p>
         </div>
@@ -49,19 +49,19 @@ export default function BeautsPage() {
               <div
                 key={index}
                 onClick={() => setSelectedImg(imgUrl)}
-                className="group relative aspect-square bg-[#cbd1c9]/20 border border-[#788672]/10 rounded-lg overflow-hidden shadow-sm cursor-zoom-in"
+                className="group relative aspect-square bg-white border border-[#ECE8E1] rounded-none overflow-hidden shadow-premium hover:shadow-premium-hover transition-all duration-300 cursor-zoom-in"
               >
                 <Image
                   src={imgUrl}
                   alt={`Blush + Blow work example ${index + 1}`}
                   fill
                   sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
-                  className="object-cover group-hover:scale-103 transition-transform duration-500"
+                  className="object-cover"
                 />
                 
                 {/* Micro-hover overlay */}
-                <div className="absolute inset-0 bg-[#788672]/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                  <span className="text-[10px] tracking-widest text-[#fcfaf7] font-bold uppercase bg-[#788672] px-4 py-2 rounded-full shadow-md">
+                <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
+                  <span className="text-[9px] tracking-widest text-white font-bold uppercase bg-[#E5A99E] px-4 py-2.5 rounded-none shadow-md">
                     View
                   </span>
                 </div>
