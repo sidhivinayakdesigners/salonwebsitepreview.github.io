@@ -181,14 +181,14 @@ export default function Home() {
 
       <Navbar />
 
-      <main className="overflow-hidden bg-[#FFFFFF] text-[#181816]">
+      <main className="overflow-hidden text-[#181816]" style={{backgroundColor: '#e8e4d9'}}>
         
         {/* 1. HERO/BANNER SECTION */}
-        <section className="relative pt-24 pb-12 lg:min-h-screen lg:flex lg:items-center lg:pt-32 lg:pb-16 bg-[#FFFFFF]">
+        <section className="relative pt-[90px] pb-16 lg:min-h-screen lg:flex lg:items-center" style={{backgroundColor: '#e8e4d9'}}>
           <div className="max-w-7xl mx-auto px-6 md:px-12 w-full grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
             
             {/* Left Column: Wording and Vertical stacked large buttons */}
-            <div className="lg:col-span-6 flex flex-col space-y-8 lg:space-y-10 z-10 order-2 lg:order-none text-center lg:text-left items-center lg:items-start w-full">
+            <div className="lg:col-span-6 flex flex-col space-y-8 lg:space-y-12 z-10 order-2 lg:order-none text-center lg:text-left items-center lg:items-start w-full">
               <motion.div
                 initial="hidden"
                 animate="visible"
@@ -204,7 +204,7 @@ export default function Home() {
                 }}
                 className="space-y-4"
               >
-                <h1 className="font-serif text-3xl sm:text-4xl md:text-6xl lg:text-[68px] text-[#181816] leading-[1.2] lg:leading-[1.1] font-semibold tracking-[0.05em] uppercase">
+                <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-[56px] leading-[1.15] font-normal tracking-[0.08em] uppercase" style={{color: '#4a5e4f'}}>
                   {["ADDING", "COLOUR", "TO", "YOUR", "LIFE"].map((word, idx) => (
                     <span key={idx} className="inline-block overflow-hidden mr-3">
                       <motion.span
@@ -252,7 +252,7 @@ export default function Home() {
                   >
                     <Link
                       href={lbl.toLowerCase() === "skin" ? "/beauty" : `/${lbl.toLowerCase()}`}
-                      className="w-full block bg-white/60 text-[#181816] font-serif text-sm tracking-[0.25em] uppercase py-4 text-center hover:bg-[#E5A99E] hover:text-white hover:border-[#E5A99E] transition-all duration-300 shadow-sm border border-[#ECE8E1] rounded-none"
+                      className="w-full block font-sans text-[11px] tracking-[0.25em] uppercase py-[14px] text-center text-white transition-all duration-300 rounded-none" style={{backgroundColor: '#a8b8a8'}}
                     >
                       {lbl}
                     </Link>
@@ -266,27 +266,16 @@ export default function Home() {
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 1.2, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
-              className="lg:col-span-6 relative h-[320px] sm:h-[400px] lg:h-[500px] w-full flex items-center justify-center order-1 lg:order-none"
+              className="lg:col-span-6 relative h-[380px] sm:h-[480px] lg:h-[580px] w-full order-1 lg:order-none overflow-hidden"
             >
-              <div className="w-[92%] h-[92%] overflow-hidden border border-[#C6A86B] p-2 bg-[#FFFFFF] relative shadow-xl">
-                <div className="w-full h-full relative overflow-hidden border border-[#E5A99E]/20">
-                  <motion.div
-                    initial={{ scale: 1.15 }}
-                    animate={{ scale: 1.0 }}
-                    transition={{ duration: 1.8, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
-                    className="w-full h-full relative"
-                  >
-                    <Image
-                      src="/images/homepage_hero_main.webp"
-                      alt="Adding Colour To Your Life"
-                      fill
-                      sizes="(max-width: 768px) 100vw, 50vw"
-                      className="object-cover"
-                      priority
-                    />
-                  </motion.div>
-                </div>
-              </div>
+              <Image
+                src="/images/homepage_hero_main.webp"
+                alt="Adding Colour To Your Life"
+                fill
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className="object-cover"
+                priority
+              />
             </motion.div>
 
           </div>

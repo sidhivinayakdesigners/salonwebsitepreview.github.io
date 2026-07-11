@@ -2,13 +2,20 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { Menu, X } from "lucide-react";
+
+// Brand colours (matching live site layout, custom palette for our colours)
+const SAGE = "#E5A99E";       // Our brand blush — used where live site uses sage green on buttons
+const HEADER_BG = "#4a5e4f";  // Live site header dark sage green
+const HEADER_TEXT = "#FFFFFF"; // White text on dark header
 
 export const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+  const [isScrolled, setIsScrolled] = useState(false);
   const pathname = usePathname();
 
   useEffect(() => {
@@ -16,58 +23,65 @@ export const Navbar = () => {
     setActiveDropdown(null);
   }, [pathname]);
 
-  const toggleMobileMenu = () => {
-    setIsMobileMenuOpen(!isMobileMenuOpen);
-  };
+  useEffect(() => {
+    const onScroll = () => setIsScrolled(window.scrollY > 10);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  const toggleMobileMenu = () => setIsMobileMenuOpen((v) => !v);
 
   return (
     <>
-      <motion.header
-        initial={{ y: -80, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-        className="fixed top-0 left-0 w-full z-50 bg-[#FFFFFF]/90 backdrop-blur-md text-[#111111] border-b border-[#ECE8E1] shadow-sm select-none h-20"
+      <header
+        className="fixed top-0 left-0 w-full z-50 select-none"
+        style={{ backgroundColor: HEADER_BG }}
       >
         {/* Scallop Divider at the bottom of the header */}
-        <div className="absolute bottom-[-10px] left-0 w-full h-[10px] header-scallop z-25 opacity-30" />
+        <div className="absolute bottom-[-12px] left-0 w-full h-[12px] header-scallop z-10" />
 
-        <div className="max-w-7xl mx-auto px-4 md:px-6 h-full flex items-center justify-between relative">
+        <div className="max-w-none px-6 h-[70px] flex items-center justify-between">
           
-          {/* Left Side: Hamburger & Logo (aligned horizontally for desktop, relative for mobile) */}
-          <div className="flex items-center space-x-5 z-10">
+          {/* Left: Hamburger + Logo */}
+          <div className="flex items-center gap-5">
             <button
               onClick={toggleMobileMenu}
-              className="text-[#111111] hover:text-[#C6A86B] transition-colors focus:outline-none p-1 cursor-pointer"
+              className="text-white hover:text-white/70 transition-colors focus:outline-none cursor-pointer"
               aria-label="Toggle menu"
             >
               {isMobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
             </button>
 
-            {/* Logo Link */}
-            <Link href="/" className="flex items-center group shrink-0">
-              <div className="relative w-[150px] h-[40px]">
-                <img
-                  src="/images/logo.svg"
-                  alt="Blush + Blow London"
-                  className="object-contain w-full h-full"
-                />
+            {/* Logo — text version matching live site style */}
+            <Link href="/" className="flex flex-col items-center leading-none group">
+              <span className="font-serif tracking-[0.18em] text-white text-[18px] font-normal uppercase group-hover:text-white/80 transition-colors">
+                BLUSH + BLOW
+              </span>
+              <div className="flex items-center gap-2 w-full mt-[2px]">
+                <span className="flex-1 h-[0.5px] bg-white/40" />
+                <span className="text-white text-[8px] tracking-[0.3em] uppercase font-normal">
+                  LONDON
+                </span>
+                <span className="flex-1 h-[0.5px] bg-white/40" />
               </div>
             </Link>
           </div>
 
-          {/* Desktop Navigation Links (Clean, borderless links centered vertically) */}
-          <nav className="hidden lg:flex items-center space-x-6 text-[10px] font-sans font-bold tracking-[0.2em] uppercase">
-            <Link
-              href="/"
-              className={`hover:text-[#C6A86B] relative transition-colors ${
-                pathname === "/" ? "text-[#C6A86B]" : "text-[#111111]"
-              }`}
-            >
-              <span>Home</span>
-              {pathname === "/" && (
-                <motion.div layoutId="nav-underline" className="absolute bottom-[-10px] left-0 right-0 h-[2px] bg-[#C6A86B]" />
-              )}
-            </Link>
+          {/* Center / Desktop Navigation */}
+          <nav className="hidden lg:flex items-center gap-0 text-[11px] font-sans tracking-[0.18em] uppercase">
+            {[
+              { href: "/", label: "Home" },
+            ].map(({ href, label }) => (
+              <Link
+                key={href}
+                href={href}
+                className={`px-4 py-[10px] transition-colors hover:text-white/70 ${
+                  pathname === href ? "text-white underline underline-offset-4" : "text-white"
+                }`}
+              >
+                {label}
+              </Link>
+            ))}
 
             {/* About Dropdown */}
             <div
@@ -75,42 +89,29 @@ export const Navbar = () => {
               onMouseEnter={() => setActiveDropdown("about")}
               onMouseLeave={() => setActiveDropdown(null)}
             >
-              <button 
-                className={`hover:text-[#C6A86B] transition-colors focus:outline-none space-x-1 cursor-pointer flex items-center ${
-                  pathname.startsWith("/team-members") || pathname.startsWith("/careers") ? "text-[#C6A86B]" : "text-[#111111]"
-                }`}
-              >
-                <span>About +</span>
-                {(pathname.startsWith("/team-members") || pathname.startsWith("/careers")) && (
-                  <motion.div layoutId="nav-underline" className="absolute bottom-[-10px] left-0 right-0 h-[2px] bg-[#C6A86B]" />
-                )}
+              <button className="px-4 py-[10px] text-white hover:text-white/70 transition-colors focus:outline-none cursor-pointer tracking-[0.18em] uppercase text-[11px] font-sans flex items-center gap-1">
+                About +
               </button>
-              
               <AnimatePresence>
                 {activeDropdown === "about" && (
                   <motion.div
-                    initial={{ opacity: 0, y: 12, scale: 0.95 }}
-                    animate={{ opacity: 1, y: 0, scale: 1 }}
-                    exit={{ opacity: 0, y: 12, scale: 0.95 }}
-                    transition={{ type: "spring", stiffness: 420, damping: 28 }}
-                    className="absolute left-0 mt-2 w-44 bg-[#FFFFFF] border border-[#ECE8E1] rounded shadow-lg py-2 z-50 text-[#111111] origin-top"
+                    initial={{ opacity: 0, y: 8 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: 8 }}
+                    transition={{ duration: 0.2 }}
+                    className="absolute left-0 top-full mt-1 w-48 bg-white border border-gray-100 shadow-lg py-1 z-50"
                   >
                     {[
                       { href: "/team-members", label: "Team Members" },
-                      { href: "/careers", label: "Careers" }
-                    ].map((item, idx) => (
-                      <motion.div
-                        key={idx}
-                        whileHover={{ x: 4 }}
-                        transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                      { href: "/careers", label: "Careers" },
+                    ].map(({ href, label }) => (
+                      <Link
+                        key={href}
+                        href={href}
+                        className="block px-4 py-2 text-[10px] tracking-widest uppercase text-[#4a5e4f] hover:bg-gray-50 transition-colors"
                       >
-                        <Link
-                          href={item.href}
-                          className="block px-5 py-2 hover:bg-[#FDF8F6] text-[9px] tracking-widest font-bold text-[#111111] hover:text-[#C6A86B] transition-colors"
-                        >
-                          {item.label}
-                        </Link>
-                      </motion.div>
+                        {label}
+                      </Link>
                     ))}
                   </motion.div>
                 )}
@@ -123,130 +124,77 @@ export const Navbar = () => {
               onMouseEnter={() => setActiveDropdown("services")}
               onMouseLeave={() => setActiveDropdown(null)}
             >
-              <button 
-                className={`hover:text-[#C6A86B] transition-colors focus:outline-none space-x-1 cursor-pointer flex items-center ${
-                  ["/hair", "/nails", "/beauty", "/bridal"].includes(pathname) ? "text-[#C6A86B]" : "text-[#111111]"
-                }`}
-              >
-                <span>Services +</span>
-                {["/hair", "/nails", "/beauty", "/bridal"].includes(pathname) && (
-                  <motion.div layoutId="nav-underline" className="absolute bottom-[-10px] left-0 right-0 h-[2px] bg-[#C6A86B]" />
-                )}
+              <button className="px-4 py-[10px] text-white hover:text-white/70 transition-colors focus:outline-none cursor-pointer tracking-[0.18em] uppercase text-[11px] font-sans flex items-center gap-1">
+                Services +
               </button>
-              
               <AnimatePresence>
                 {activeDropdown === "services" && (
                   <motion.div
-                    initial={{ opacity: 0, y: 12, scale: 0.95 }}
-                    animate={{ opacity: 1, y: 0, scale: 1 }}
-                    exit={{ opacity: 0, y: 12, scale: 0.95 }}
-                    transition={{ type: "spring", stiffness: 420, damping: 28 }}
-                    className="absolute left-0 mt-2 w-44 bg-[#FFFFFF] border border-[#ECE8E1] rounded shadow-lg py-2 z-50 text-[#111111] origin-top"
+                    initial={{ opacity: 0, y: 8 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: 8 }}
+                    transition={{ duration: 0.2 }}
+                    className="absolute left-0 top-full mt-1 w-48 bg-white border border-gray-100 shadow-lg py-1 z-50"
                   >
                     {[
                       { href: "/hair", label: "Hair" },
                       { href: "/nails", label: "Nails" },
                       { href: "/beauty", label: "Beauty" },
-                      { href: "/bridal", label: "Bridal" }
-                    ].map((item, idx) => (
-                      <motion.div
-                        key={idx}
-                        whileHover={{ x: 4 }}
-                        transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                      { href: "/bridal", label: "Bridal" },
+                    ].map(({ href, label }) => (
+                      <Link
+                        key={href}
+                        href={href}
+                        className="block px-4 py-2 text-[10px] tracking-widest uppercase text-[#4a5e4f] hover:bg-gray-50 transition-colors"
                       >
-                        <Link
-                          href={item.href}
-                          className="block px-5 py-2 hover:bg-[#FDF8F6] text-[9px] tracking-widest font-bold text-[#111111] hover:text-[#C6A86B] transition-colors"
-                        >
-                          {item.label}
-                        </Link>
-                      </motion.div>
+                        {label}
+                      </Link>
                     ))}
                   </motion.div>
                 )}
               </AnimatePresence>
             </div>
 
-            <Link
-              href="/beauts"
-              className={`hover:text-[#C6A86B] relative transition-colors ${
-                pathname === "/beauts" ? "text-[#C6A86B]" : "text-[#111111]"
-              }`}
-            >
-              <span>Beauts</span>
-              {pathname === "/beauts" && (
-                <motion.div layoutId="nav-underline" className="absolute bottom-[-10px] left-0 right-0 h-[2px] bg-[#C6A86B]" />
-              )}
-            </Link>
-            
-            <Link
-              href="/blower"
-              className={`hover:text-[#C6A86B] relative transition-colors ${
-                pathname === "/blower" ? "text-[#C6A86B]" : "text-[#111111]"
-              }`}
-            >
-              <span>The Blower</span>
-              {pathname === "/blower" && (
-                <motion.div layoutId="nav-underline" className="absolute bottom-[-10px] left-0 right-0 h-[2px] bg-[#C6A86B]" />
-              )}
-            </Link>
-
-            <Link
-              href="/faqs"
-              className={`hover:text-[#C6A86B] relative transition-colors ${
-                pathname === "/faqs" ? "text-[#C6A86B]" : "text-[#111111]"
-              }`}
-            >
-              <span>Faq's</span>
-              {pathname === "/faqs" && (
-                <motion.div layoutId="nav-underline" className="absolute bottom-[-10px] left-0 right-0 h-[2px] bg-[#C6A86B]" />
-              )}
-            </Link>
-
-            <Link
-              href="/contact"
-              className={`hover:text-[#C6A86B] relative transition-colors ${
-                pathname === "/contact" ? "text-[#C6A86B]" : "text-[#111111]"
-              }`}
-            >
-              <span>Contact</span>
-              {pathname === "/contact" && (
-                <motion.div layoutId="nav-underline" className="absolute bottom-[-10px] left-0 right-0 h-[2px] bg-[#C6A86B]" />
-              )}
-            </Link>
-
-            <Link
-              href="/contact"
-              className="hover:text-[#C6A86B] relative transition-colors text-[#111111]"
-            >
-              <span>Refer A Friend</span>
-            </Link>
+            {[
+              { href: "/beauts", label: "Beauts" },
+              { href: "/blower", label: "The Blower" },
+              { href: "/faqs", label: "Faq's" },
+              { href: "/contact", label: "Contact" },
+              { href: "/contact", label: "Refer A Friend" },
+            ].map(({ href, label }) => (
+              <Link
+                key={label}
+                href={href}
+                className={`px-4 py-[10px] transition-colors hover:text-white/70 ${
+                  pathname === href ? "text-white underline underline-offset-4" : "text-white"
+                }`}
+              >
+                {label}
+              </Link>
+            ))}
           </nav>
 
-          {/* Right Side: Primary Blush Pink Book Now Button */}
-          <div className="z-10">
-            <Link
-              href="https://www.fresha.com/providers/blush-blow-w9xnf8li?pId=9954&dppub=true"
-              className="bg-[#E5A99E] text-white font-semibold text-[8px] sm:text-[10px] tracking-[0.25em] uppercase px-3 py-2 sm:px-5 sm:py-2.5 rounded-none shadow-sm hover:bg-[#111111] transition-all duration-300 block text-center whitespace-nowrap"
-            >
-              Book Now
-            </Link>
-          </div>
-
+          {/* Right: Book Now */}
+          <Link
+            href="https://www.fresha.com/providers/blush-blow-w9xnf8li?pId=9954&dppub=true"
+            className="hidden sm:block border border-white text-white text-[10px] tracking-[0.2em] uppercase px-5 py-2 hover:bg-white hover:text-[#4a5e4f] transition-all duration-300 font-sans whitespace-nowrap"
+          >
+            Book Now
+          </Link>
         </div>
-      </motion.header>
+      </header>
 
-      {/* Mobile Sidebar Navigation Drawer */}
+      {/* Mobile Sidebar Drawer */}
       <AnimatePresence>
         {isMobileMenuOpen && (
           <>
             {/* Backdrop */}
             <motion.div
               initial={{ opacity: 0 }}
-              animate={{ opacity: 0.4 }}
+              animate={{ opacity: 0.5 }}
               exit={{ opacity: 0 }}
               onClick={toggleMobileMenu}
-              className="fixed inset-0 bg-black/60 z-40"
+              className="fixed inset-0 bg-black z-40"
             />
             {/* Drawer */}
             <motion.div
@@ -254,75 +202,61 @@ export const Navbar = () => {
               animate={{ x: 0 }}
               exit={{ x: "-100%" }}
               transition={{ type: "spring", stiffness: 350, damping: 30 }}
-              className="fixed top-0 left-0 w-72 h-full bg-[#FFFFFF] text-[#111111] border-r border-[#ECE8E1] z-50 p-6 flex flex-col justify-between shadow-2xl overflow-y-auto"
+              className="fixed top-0 left-0 w-72 h-full z-50 p-6 flex flex-col justify-between shadow-2xl overflow-y-auto"
+              style={{ backgroundColor: HEADER_BG }}
             >
               <div className="space-y-8">
                 {/* Logo & Close */}
-                <div className="flex items-center justify-between pb-4 border-b border-[#ECE8E1]">
+                <div className="flex items-center justify-between pb-4 border-b border-white/20">
                   <div className="flex flex-col items-center">
-                    <span className="font-serif text-lg tracking-[0.2em] font-bold text-[#111111]">
+                    <span className="font-serif text-[16px] tracking-[0.18em] text-white uppercase">
                       BLUSH + BLOW
                     </span>
-                    <span className="text-[7px] tracking-[0.35em] text-[#C6A86B] font-medium">
+                    <span className="text-[8px] tracking-[0.3em] text-white/60 uppercase mt-1">
                       LONDON
                     </span>
                   </div>
-                  <button
-                    onClick={toggleMobileMenu}
-                    className="text-[#111111] hover:text-[#C6A86B]"
-                  >
+                  <button onClick={toggleMobileMenu} className="text-white hover:text-white/70">
                     <X size={20} />
                   </button>
                 </div>
 
                 {/* Nav Links */}
-                <nav className="flex flex-col space-y-4 font-sans text-xs tracking-widest uppercase font-bold text-[#111111]">
-                  <Link href="/" onClick={toggleMobileMenu} className="hover:text-[#C6A86B] transition-colors">
-                    Home
-                  </Link>
+                <nav className="flex flex-col space-y-5 font-sans text-[11px] tracking-widest uppercase text-white">
+                  <Link href="/" onClick={toggleMobileMenu} className="hover:text-white/70 transition-colors">Home</Link>
                   <div className="space-y-2">
-                    <span className="text-[#111111]/50 text-[10px] tracking-widest uppercase">About</span>
+                    <span className="text-white/50 text-[10px] tracking-widest uppercase">About</span>
                     <div className="pl-4 flex flex-col space-y-2">
-                      <Link href="/team-members" onClick={toggleMobileMenu} className="hover:text-[#C6A86B] transition-colors">Team Members</Link>
-                      <Link href="/careers" onClick={toggleMobileMenu} className="hover:text-[#C6A86B] transition-colors">Careers</Link>
+                      <Link href="/team-members" onClick={toggleMobileMenu} className="hover:text-white/70 transition-colors">Team Members</Link>
+                      <Link href="/careers" onClick={toggleMobileMenu} className="hover:text-white/70 transition-colors">Careers</Link>
                     </div>
                   </div>
                   <div className="space-y-2">
-                    <span className="text-[#111111]/50 text-[10px] tracking-widest uppercase">Services</span>
+                    <span className="text-white/50 text-[10px] tracking-widest uppercase">Services</span>
                     <div className="pl-4 flex flex-col space-y-2">
-                      <Link href="/hair" onClick={toggleMobileMenu} className="hover:text-[#C6A86B] transition-colors">Hair</Link>
-                      <Link href="/nails" onClick={toggleMobileMenu} className="hover:text-[#C6A86B] transition-colors">Nails</Link>
-                      <Link href="/beauty" onClick={toggleMobileMenu} className="hover:text-[#C6A86B] transition-colors">Beauty</Link>
-                      <Link href="/bridal" onClick={toggleMobileMenu} className="hover:text-[#C6A86B] transition-colors">Bridal</Link>
+                      <Link href="/hair" onClick={toggleMobileMenu} className="hover:text-white/70 transition-colors">Hair</Link>
+                      <Link href="/nails" onClick={toggleMobileMenu} className="hover:text-white/70 transition-colors">Nails</Link>
+                      <Link href="/beauty" onClick={toggleMobileMenu} className="hover:text-white/70 transition-colors">Beauty</Link>
+                      <Link href="/bridal" onClick={toggleMobileMenu} className="hover:text-white/70 transition-colors">Bridal</Link>
                     </div>
                   </div>
-                  <Link href="/beauts" onClick={toggleMobileMenu} className="hover:text-[#C6A86B] transition-colors">
-                    Beauts
-                  </Link>
-                  <Link href="/blower" onClick={toggleMobileMenu} className="hover:text-[#C6A86B] transition-colors">
-                    The Blower
-                  </Link>
-                  <Link href="/faqs" onClick={toggleMobileMenu} className="hover:text-[#C6A86B] transition-colors">
-                    Faq's
-                  </Link>
-                  <Link href="/contact" onClick={toggleMobileMenu} className="hover:text-[#C6A86B] transition-colors">
-                    Contact
-                  </Link>
-                  <Link href="/contact" onClick={toggleMobileMenu} className="hover:text-[#C6A86B] transition-colors">
-                    Refer A Friend
-                  </Link>
+                  <Link href="/beauts" onClick={toggleMobileMenu} className="hover:text-white/70 transition-colors">Beauts</Link>
+                  <Link href="/blower" onClick={toggleMobileMenu} className="hover:text-white/70 transition-colors">The Blower</Link>
+                  <Link href="/faqs" onClick={toggleMobileMenu} className="hover:text-white/70 transition-colors">Faq's</Link>
+                  <Link href="/contact" onClick={toggleMobileMenu} className="hover:text-white/70 transition-colors">Contact</Link>
+                  <Link href="/contact" onClick={toggleMobileMenu} className="hover:text-white/70 transition-colors">Refer A Friend</Link>
                 </nav>
               </div>
 
-              {/* Bottom Details */}
-              <div className="pt-6 border-t border-[#ECE8E1] text-center space-y-4">
+              {/* Bottom */}
+              <div className="pt-6 border-t border-white/20 text-center space-y-4">
                 <Link
                   href="https://www.fresha.com/providers/blush-blow-w9xnf8li?pId=9954&dppub=true"
-                  className="bg-[#E5A99E] text-white font-semibold text-[10px] tracking-[0.25em] uppercase py-3.5 rounded-none w-full block shadow-sm hover:bg-[#111111] transition-colors"
+                  className="border border-white text-white font-sans text-[10px] tracking-[0.2em] uppercase py-3 w-full block hover:bg-white hover:text-[#4a5e4f] transition-colors"
                 >
                   Book Appointment
                 </Link>
-                <p className="text-[8px] text-[#111111]/70 tracking-wider">
+                <p className="text-[9px] text-white/50 tracking-wider">
                   197 New Kings Rd, SW6 4SR • 020 7736 0430
                 </p>
               </div>
