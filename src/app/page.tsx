@@ -183,12 +183,12 @@ export default function Home() {
 
       <main className="overflow-hidden text-[#181816]" style={{backgroundColor: '#e8e4d9'}}>
         {/* 1. HERO/BANNER SECTION */}
-        <section style={{backgroundColor: '#e8e4d9', minHeight: '100vh', display: 'grid', gridTemplateColumns: '1fr', position: 'relative'}}>
+        <section style={{backgroundColor: '#e8e4d9', minHeight: '100vh', position: 'relative'}}>
           {/* Desktop grid layout */}
-          <div className="hidden lg:grid" style={{gridTemplateColumns: '46% 54%', minHeight: '100vh'}}>
+          <div className="hidden lg:grid" style={{gridTemplateColumns: '40% 60%', minHeight: '100vh'}}>
 
             {/* Left Column */}
-            <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '160px 60px 60px 80px'}}>
+            <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '140px 50px 60px 70px'}}>
               <motion.h1
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -237,7 +237,7 @@ export default function Home() {
                 src="/images/homepage_hero_main.webp"
                 alt="Adding Colour To Your Life — Blush + Blow London Salon"
                 fill
-                sizes="54vw"
+                sizes="60vw"
                 className="object-cover object-center"
                 priority
               />
