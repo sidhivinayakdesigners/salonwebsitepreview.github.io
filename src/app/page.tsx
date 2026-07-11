@@ -182,71 +182,74 @@ export default function Home() {
       <Navbar />
 
       <main className="overflow-hidden text-[#181816]" style={{backgroundColor: '#e8e4d9'}}>
-        
-        {/* 1. HERO/BANNER SECTION — matches live site layout exactly */}
-        <section className="relative flex" style={{backgroundColor: '#e8e4d9', minHeight: '100vh'}}>
+        {/* 1. HERO/BANNER SECTION */}
+        <section className="relative" style={{backgroundColor: '#e8e4d9', minHeight: '100vh'}}>
+          <div className="max-w-none w-full grid grid-cols-1 lg:grid-cols-[46%_54%] items-center" style={{minHeight: '100vh'}}>
 
-          {/* Left Column — text & category buttons */}
-          <div className="flex flex-col justify-center pl-8 md:pl-16 pr-6 py-32 z-10 w-full lg:w-[42%] flex-shrink-0">
-            <motion.h1
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.9, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
-              className="font-serif text-[40px] sm:text-[50px] lg:text-[56px] leading-[1.15] font-normal tracking-[0.08em] uppercase text-center mb-10"
-              style={{color: '#4a5e4f'}}
-            >
-              ADDING COLOUR<br />TO YOUR LIFE
-            </motion.h1>
+            {/* Left Column — h1 + stacked category buttons */}
+            <div className="flex flex-col items-center justify-center px-10 md:px-16 pt-36 pb-16 lg:pt-40 lg:pb-20">
+              <motion.h1
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.9, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
+                className="font-serif text-[38px] sm:text-[46px] lg:text-[48px] leading-[1.2] font-normal tracking-[0.06em] uppercase text-center mb-10"
+                style={{color: '#4a5e4f'}}
+              >
+                ADDING COLOUR<br />TO YOUR LIFE
+              </motion.h1>
 
-            <motion.div
-              initial="hidden"
-              animate="visible"
-              variants={{
-                hidden: { opacity: 0 },
-                visible: { opacity: 1, transition: { staggerChildren: 0.08, delayChildren: 1.0 } }
-              }}
-              className="flex flex-col gap-[6px] w-full max-w-[400px] mx-auto"
-            >
-              {["Hair", "Nails", "Beauty", "Bridal", "Skin"].map((lbl) => (
-                <motion.div
-                  key={lbl}
-                  variants={{ hidden: { opacity: 0, y: 10 }, visible: { opacity: 1, y: 0 } }}
-                  transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-                >
-                  <Link
-                    href={lbl.toLowerCase() === "skin" ? "/beauty" : `/${lbl.toLowerCase()}`}
-                    className="w-full block font-sans text-[11px] tracking-[0.25em] uppercase py-[16px] text-center text-white transition-all duration-300"
-                    style={{backgroundColor: '#a8b8a8'}}
-                    onMouseEnter={e => (e.currentTarget.style.backgroundColor = '#4a5e4f')}
-                    onMouseLeave={e => (e.currentTarget.style.backgroundColor = '#a8b8a8')}
+              <motion.div
+                initial="hidden"
+                animate="visible"
+                variants={{
+                  hidden: { opacity: 0 },
+                  visible: { opacity: 1, transition: { staggerChildren: 0.08, delayChildren: 1.0 } }
+                }}
+                className="flex flex-col w-full max-w-[390px]"
+                style={{gap: '8px'}}
+              >
+                {["HAIR", "NAILS", "BEAUTY", "BRIDAL", "SKIN"].map((lbl) => (
+                  <motion.div
+                    key={lbl}
+                    variants={{ hidden: { opacity: 0, y: 10 }, visible: { opacity: 1, y: 0 } }}
+                    transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
                   >
-                    {lbl}
-                  </Link>
-                </motion.div>
-              ))}
+                    <Link
+                      href={lbl.toLowerCase() === "skin" ? "/beauty" : `/${lbl.toLowerCase()}`}
+                      className="w-full block font-sans text-[11px] tracking-[0.25em] uppercase py-[15px] text-center text-white transition-colors duration-300"
+                      style={{backgroundColor: '#9aaa96'}}
+                      onMouseEnter={e => (e.currentTarget.style.backgroundColor = '#4a5e4f')}
+                      onMouseLeave={e => (e.currentTarget.style.backgroundColor = '#9aaa96')}
+                    >
+                      {lbl}
+                    </Link>
+                  </motion.div>
+                ))}
+              </motion.div>
+            </div>
+
+            {/* Right Column — contained image box with margins, matching live site */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1.2, delay: 0.3 }}
+              className="hidden lg:flex items-center justify-start pr-6 py-20"
+            >
+              <div className="relative w-full" style={{height: '640px'}}>
+                <Image
+                  src="/images/homepage_hero_main.webp"
+                  alt="Adding Colour To Your Life — Blush + Blow London Salon"
+                  fill
+                  sizes="54vw"
+                  className="object-cover object-center"
+                  priority
+                />
+              </div>
             </motion.div>
           </div>
 
-          {/* Right Column — large hero image, full height, flush */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1.4, delay: 0.3 }}
-            className="hidden lg:block flex-1 relative"
-            style={{minHeight: '100vh'}}
-          >
-            <Image
-              src="/images/homepage_hero_main.webp"
-              alt="Adding Colour To Your Life — Blush + Blow London Salon"
-              fill
-              sizes="60vw"
-              className="object-cover object-center"
-              priority
-            />
-          </motion.div>
-
-          {/* Mobile image */}
-          <div className="lg:hidden absolute inset-0 opacity-20">
+          {/* Mobile: image below text */}
+          <div className="lg:hidden relative w-full" style={{height: '300px'}}>
             <Image
               src="/images/homepage_hero_main.webp"
               alt="Blush + Blow London"
@@ -258,7 +261,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* 2. CONCERN SECTION — matches live site: cream bg, image left, text right, no frame border */}
+        {/* 2. CONCERN SECTION */}
         <section className="overflow-hidden" style={{backgroundColor: '#e8e4d9'}}>
           <motion.div
             initial="hidden"
@@ -266,13 +269,13 @@ export default function Home() {
             viewport={{ once: true, margin: "-80px" }}
             variants={{ hidden: { opacity: 0 }, visible: { opacity: 1, transition: { staggerChildren: 0.2 } } }}
             className="w-full grid grid-cols-1 lg:grid-cols-2"
-            style={{minHeight: '520px'}}
           >
-            {/* Left: Image — full bleed, no border */}
+            {/* Left: Image — fixed height so fill works */}
             <motion.div
               variants={{ hidden: { opacity: 0, x: -30 }, visible: { opacity: 1, x: 0 } }}
               transition={{ duration: 0.8 }}
-              className="relative h-[380px] lg:h-auto"
+              className="relative"
+              style={{minHeight: '520px'}}
             >
               <Image
                 src="/images/color_life_concern.webp"
@@ -289,7 +292,7 @@ export default function Home() {
               transition={{ duration: 0.8 }}
               className="flex flex-col items-center justify-center text-center px-10 py-16 lg:py-24"
             >
-              <h2 className="font-serif text-[40px] sm:text-[50px] lg:text-[56px] leading-[1.1] font-normal tracking-[0.08em] uppercase mb-10" style={{color: '#4a5e4f'}}>
+              <h2 className="font-serif text-[40px] sm:text-[50px] lg:text-[52px] leading-[1.1] font-normal tracking-[0.08em] uppercase mb-10" style={{color: '#4a5e4f'}}>
                 SHOW YOUR<br />TRUE COLOURS
               </h2>
               <Link
