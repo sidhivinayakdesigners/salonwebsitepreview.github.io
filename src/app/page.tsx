@@ -276,21 +276,18 @@ export default function Home() {
             whileInView="visible"
             viewport={{ once: true, margin: "-80px" }}
             variants={{ hidden: { opacity: 0 }, visible: { opacity: 1, transition: { staggerChildren: 0.2 } } }}
-            className="w-full grid grid-cols-1 lg:grid-cols-2"
+            className="max-w-[1320px] mx-auto px-6 md:px-12 w-full grid grid-cols-1 lg:grid-cols-2 gap-8 items-center py-16 lg:py-24"
           >
-            {/* Left: Image — fixed height so fill works */}
+            {/* Left: Image — matching live site styling (max-width 440px, centered, not cropped) */}
             <motion.div
               variants={{ hidden: { opacity: 0, x: -30 }, visible: { opacity: 1, x: 0 } }}
               transition={{ duration: 0.8 }}
-              className="relative"
-              style={{minHeight: '520px'}}
+              className="flex justify-center items-center w-full"
             >
-              <Image
+              <img
                 src="/images/color_life_concern.webp"
                 alt="Show your true colours"
-                fill
-                sizes="(max-width: 1024px) 100vw, 50vw"
-                className="object-cover"
+                className="w-full h-auto max-w-[440px] object-contain"
               />
             </motion.div>
 
@@ -298,9 +295,9 @@ export default function Home() {
             <motion.div
               variants={{ hidden: { opacity: 0, x: 30 }, visible: { opacity: 1, x: 0 } }}
               transition={{ duration: 0.8 }}
-              className="flex flex-col items-center justify-center text-center px-10 py-16 lg:py-24"
+              className="flex flex-col items-center justify-center text-center px-4"
             >
-              <h2 className="font-serif text-[40px] sm:text-[50px] lg:text-[52px] leading-[1.1] font-normal tracking-[0.08em] uppercase mb-10" style={{color: '#4a5e4f'}}>
+              <h2 className="font-serif text-[40px] sm:text-[50px] lg:text-[52px] leading-[1.1] font-normal tracking-[0.08em] uppercase mb-10" style={{color: '#4a5e4f', fontFamily: 'var(--font-cormorant), serif', fontStyle: 'italic', fontWeight: 300}}>
                 SHOW YOUR<br />TRUE COLOURS
               </h2>
               <Link
