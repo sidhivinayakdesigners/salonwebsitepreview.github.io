@@ -239,7 +239,7 @@ export default function Home() {
                 }}
                 className="flex flex-col space-y-4 max-w-sm w-full mx-auto lg:mx-0"
               >
-                {["Hair", "Nails", "Beauty", "Bridal"].map((lbl) => (
+                {["Hair", "Nails", "Beauty", "Bridal", "Skin"].map((lbl) => (
                   <motion.div
                     key={lbl}
                     variants={{
@@ -251,7 +251,7 @@ export default function Home() {
                     whileTap={{ scale: 0.98 }}
                   >
                     <Link
-                      href={`/${lbl.toLowerCase()}`}
+                      href={lbl.toLowerCase() === "skin" ? "/beauty" : `/${lbl.toLowerCase()}`}
                       className="w-full block bg-white/60 text-[#181816] font-serif text-sm tracking-[0.25em] uppercase py-4 text-center hover:bg-[#E5A99E] hover:text-white hover:border-[#E5A99E] transition-all duration-300 shadow-sm border border-[#ECE8E1] rounded-none"
                     >
                       {lbl}

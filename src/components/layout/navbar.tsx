@@ -33,91 +33,56 @@ export const Navbar = () => {
 
         <div className="max-w-7xl mx-auto px-4 md:px-6 h-full flex items-center justify-between relative">
           
-          {/* Left Side: Hamburger (visible only on mobile/tablet) */}
-          <div className="flex items-center lg:hidden">
+          {/* Left Side: Hamburger & Logo (aligned horizontally for desktop, relative for mobile) */}
+          <div className="flex items-center space-x-5 z-10">
             <button
               onClick={toggleMobileMenu}
               className="text-[#111111] hover:text-[#C6A86B] transition-colors focus:outline-none p-1 cursor-pointer"
-              aria-label="Toggle mobile menu"
+              aria-label="Toggle menu"
             >
               {isMobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
             </button>
-          </div>
 
-          {/* Logo Link: Centered absolutely on mobile, left-aligned/normal on desktop */}
-          <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 lg:static lg:transform-none z-10 flex flex-col items-center">
-            <Link href="/" className="flex flex-col items-center group">
-              <motion.span 
-                initial="hidden"
-                animate="visible"
-                variants={{
-                  hidden: { opacity: 0 },
-                  visible: {
-                    opacity: 1,
-                    transition: {
-                      staggerChildren: 0.05,
-                      delayChildren: 0.5
-                    }
-                  }
-                }}
-                className="font-serif text-sm sm:text-base md:text-xl tracking-[0.15em] sm:tracking-[0.22em] text-[#111111] group-hover:text-[#C6A86B] transition-colors uppercase font-bold whitespace-nowrap"
-              >
-                {"BLUSH + BLOW".split("").map((char, idx) => (
-                  <motion.span
-                    key={idx}
-                    variants={{
-                      hidden: { opacity: 0, y: 8 },
-                      visible: { opacity: 1, y: 0 }
-                    }}
-                    transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-                  >
-                    {char === " " ? "\u00A0" : char}
-                  </motion.span>
-                ))}
-              </motion.span>
-              <motion.div 
-                initial={{ opacity: 0, scaleX: 0 }}
-                animate={{ opacity: 1, scaleX: 1 }}
-                transition={{ duration: 0.8, delay: 1.2, ease: "easeOut" }}
-                className="flex items-center w-full justify-center space-x-1.5 mt-0.5"
-              >
-                <div className="h-[0.5px] bg-[#111111]/15 flex-grow" />
-                <span className="text-[6px] sm:text-[7px] tracking-[0.25em] sm:tracking-[0.35em] text-[#C6A86B] uppercase font-sans font-medium">
-                  LONDON
-                </span>
-                <div className="h-[0.5px] bg-[#111111]/15 flex-grow" />
-              </motion.div>
+            {/* Logo Link */}
+            <Link href="/" className="flex items-center group shrink-0">
+              <div className="relative w-[150px] h-[40px]">
+                <img
+                  src="/images/logo.svg"
+                  alt="Blush + Blow London"
+                  className="object-contain w-full h-full"
+                />
+              </div>
             </Link>
           </div>
 
-          {/* Desktop Navigation Links */}
-          <nav className="hidden lg:flex items-center h-full text-[10px] font-sans font-bold tracking-[0.2em] uppercase">
+          {/* Desktop Navigation Links (Clean, borderless links centered vertically) */}
+          <nav className="hidden lg:flex items-center space-x-6 text-[10px] font-sans font-bold tracking-[0.2em] uppercase">
             <Link
               href="/"
-              className={`px-4 flex items-center h-full border-r border-[#ECE8E1] transition-colors hover:text-[#C6A86B] relative ${
+              className={`hover:text-[#C6A86B] relative transition-colors ${
                 pathname === "/" ? "text-[#C6A86B]" : "text-[#111111]"
               }`}
             >
               <span>Home</span>
               {pathname === "/" && (
-                <motion.div layoutId="nav-underline" className="absolute bottom-0 left-4 right-4 h-[2px] bg-[#C6A86B]" />
+                <motion.div layoutId="nav-underline" className="absolute bottom-[-10px] left-0 right-0 h-[2px] bg-[#C6A86B]" />
               )}
             </Link>
 
             {/* About Dropdown */}
             <div
-              className="relative h-full border-r border-[#ECE8E1]"
+              className="relative"
               onMouseEnter={() => setActiveDropdown("about")}
               onMouseLeave={() => setActiveDropdown(null)}
             >
               <button 
-                className={`px-4 flex items-center h-full hover:text-[#C6A86B] transition-colors focus:outline-none space-x-1 cursor-pointer ${
+                className={`hover:text-[#C6A86B] transition-colors focus:outline-none space-x-1 cursor-pointer flex items-center ${
                   pathname.startsWith("/team-members") || pathname.startsWith("/careers") ? "text-[#C6A86B]" : "text-[#111111]"
                 }`}
               >
                 <span>About +</span>
                 {(pathname.startsWith("/team-members") || pathname.startsWith("/careers")) && (
-                  <motion.div layoutId="nav-underline" className="absolute bottom-0 left-4 right-4 h-[2px] bg-[#C6A86B]" />
+                  <motion.div layoutId="nav-underline" className="absolute bottom-[-10px] left-0 right-0 h-[2px] bg-[#C6A86B]" />
                 )}
               </button>
               
@@ -128,7 +93,7 @@ export const Navbar = () => {
                     animate={{ opacity: 1, y: 0, scale: 1 }}
                     exit={{ opacity: 0, y: 12, scale: 0.95 }}
                     transition={{ type: "spring", stiffness: 420, damping: 28 }}
-                    className="absolute left-0 w-44 bg-[#FFFFFF] border border-[#ECE8E1] rounded shadow-lg py-2 z-50 text-[#111111] origin-top"
+                    className="absolute left-0 mt-2 w-44 bg-[#FFFFFF] border border-[#ECE8E1] rounded shadow-lg py-2 z-50 text-[#111111] origin-top"
                   >
                     {[
                       { href: "/team-members", label: "Team Members" },
@@ -154,18 +119,18 @@ export const Navbar = () => {
 
             {/* Services Dropdown */}
             <div
-              className="relative h-full border-r border-[#ECE8E1]"
+              className="relative"
               onMouseEnter={() => setActiveDropdown("services")}
               onMouseLeave={() => setActiveDropdown(null)}
             >
               <button 
-                className={`px-4 flex items-center h-full hover:text-[#C6A86B] transition-colors focus:outline-none space-x-1 cursor-pointer ${
+                className={`hover:text-[#C6A86B] transition-colors focus:outline-none space-x-1 cursor-pointer flex items-center ${
                   ["/hair", "/nails", "/beauty", "/bridal"].includes(pathname) ? "text-[#C6A86B]" : "text-[#111111]"
                 }`}
               >
                 <span>Services +</span>
                 {["/hair", "/nails", "/beauty", "/bridal"].includes(pathname) && (
-                  <motion.div layoutId="nav-underline" className="absolute bottom-0 left-4 right-4 h-[2px] bg-[#C6A86B]" />
+                  <motion.div layoutId="nav-underline" className="absolute bottom-[-10px] left-0 right-0 h-[2px] bg-[#C6A86B]" />
                 )}
               </button>
               
@@ -176,7 +141,7 @@ export const Navbar = () => {
                     animate={{ opacity: 1, y: 0, scale: 1 }}
                     exit={{ opacity: 0, y: 12, scale: 0.95 }}
                     transition={{ type: "spring", stiffness: 420, damping: 28 }}
-                    className="absolute left-0 w-44 bg-[#FFFFFF] border border-[#ECE8E1] rounded shadow-lg py-2 z-50 text-[#111111] origin-top"
+                    className="absolute left-0 mt-2 w-44 bg-[#FFFFFF] border border-[#ECE8E1] rounded shadow-lg py-2 z-50 text-[#111111] origin-top"
                   >
                     {[
                       { href: "/hair", label: "Hair" },
@@ -204,50 +169,57 @@ export const Navbar = () => {
 
             <Link
               href="/beauts"
-              className={`px-4 flex items-center h-full border-r border-[#ECE8E1] hover:text-[#C6A86B] relative transition-colors ${
+              className={`hover:text-[#C6A86B] relative transition-colors ${
                 pathname === "/beauts" ? "text-[#C6A86B]" : "text-[#111111]"
               }`}
             >
               <span>Beauts</span>
               {pathname === "/beauts" && (
-                <motion.div layoutId="nav-underline" className="absolute bottom-0 left-4 right-4 h-[2px] bg-[#C6A86B]" />
+                <motion.div layoutId="nav-underline" className="absolute bottom-[-10px] left-0 right-0 h-[2px] bg-[#C6A86B]" />
               )}
             </Link>
             
             <Link
               href="/blower"
-              className={`px-4 flex items-center h-full border-r border-[#ECE8E1] hover:text-[#C6A86B] relative transition-colors ${
+              className={`hover:text-[#C6A86B] relative transition-colors ${
                 pathname === "/blower" ? "text-[#C6A86B]" : "text-[#111111]"
               }`}
             >
               <span>The Blower</span>
               {pathname === "/blower" && (
-                <motion.div layoutId="nav-underline" className="absolute bottom-0 left-4 right-4 h-[2px] bg-[#C6A86B]" />
+                <motion.div layoutId="nav-underline" className="absolute bottom-[-10px] left-0 right-0 h-[2px] bg-[#C6A86B]" />
               )}
             </Link>
 
             <Link
               href="/faqs"
-              className={`px-4 flex items-center h-full border-r border-[#ECE8E1] hover:text-[#C6A86B] relative transition-colors ${
+              className={`hover:text-[#C6A86B] relative transition-colors ${
                 pathname === "/faqs" ? "text-[#C6A86B]" : "text-[#111111]"
               }`}
             >
               <span>Faq's</span>
               {pathname === "/faqs" && (
-                <motion.div layoutId="nav-underline" className="absolute bottom-0 left-4 right-4 h-[2px] bg-[#C6A86B]" />
+                <motion.div layoutId="nav-underline" className="absolute bottom-[-10px] left-0 right-0 h-[2px] bg-[#C6A86B]" />
               )}
             </Link>
 
             <Link
               href="/contact"
-              className={`px-4 flex items-center h-full hover:text-[#C6A86B] relative transition-colors ${
+              className={`hover:text-[#C6A86B] relative transition-colors ${
                 pathname === "/contact" ? "text-[#C6A86B]" : "text-[#111111]"
               }`}
             >
               <span>Contact</span>
               {pathname === "/contact" && (
-                <motion.div layoutId="nav-underline" className="absolute bottom-0 left-4 right-4 h-[2px] bg-[#C6A86B]" />
+                <motion.div layoutId="nav-underline" className="absolute bottom-[-10px] left-0 right-0 h-[2px] bg-[#C6A86B]" />
               )}
+            </Link>
+
+            <Link
+              href="/contact"
+              className="hover:text-[#C6A86B] relative transition-colors text-[#111111]"
+            >
+              <span>Refer A Friend</span>
             </Link>
           </nav>
 
@@ -274,7 +246,7 @@ export const Navbar = () => {
               animate={{ opacity: 0.4 }}
               exit={{ opacity: 0 }}
               onClick={toggleMobileMenu}
-              className="fixed inset-0 bg-black/60 z-40 lg:hidden"
+              className="fixed inset-0 bg-black/60 z-40"
             />
             {/* Drawer */}
             <motion.div
@@ -282,7 +254,7 @@ export const Navbar = () => {
               animate={{ x: 0 }}
               exit={{ x: "-100%" }}
               transition={{ type: "spring", stiffness: 350, damping: 30 }}
-              className="fixed top-0 left-0 w-72 h-full bg-[#FFFFFF] text-[#111111] border-r border-[#ECE8E1] z-50 p-6 flex flex-col justify-between shadow-2xl lg:hidden overflow-y-auto"
+              className="fixed top-0 left-0 w-72 h-full bg-[#FFFFFF] text-[#111111] border-r border-[#ECE8E1] z-50 p-6 flex flex-col justify-between shadow-2xl overflow-y-auto"
             >
               <div className="space-y-8">
                 {/* Logo & Close */}
@@ -335,6 +307,9 @@ export const Navbar = () => {
                   </Link>
                   <Link href="/contact" onClick={toggleMobileMenu} className="hover:text-[#C6A86B] transition-colors">
                     Contact
+                  </Link>
+                  <Link href="/contact" onClick={toggleMobileMenu} className="hover:text-[#C6A86B] transition-colors">
+                    Refer A Friend
                   </Link>
                 </nav>
               </div>
