@@ -183,181 +183,136 @@ export default function Home() {
 
       <main className="overflow-hidden text-[#181816]" style={{backgroundColor: '#e8e4d9'}}>
         
-        {/* 1. HERO/BANNER SECTION */}
-        <section className="relative pt-[90px] pb-16 lg:min-h-screen lg:flex lg:items-center" style={{backgroundColor: '#e8e4d9'}}>
-          <div className="max-w-7xl mx-auto px-6 md:px-12 w-full grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-            
-            {/* Left Column: Wording and Vertical stacked large buttons */}
-            <div className="lg:col-span-6 flex flex-col space-y-8 lg:space-y-12 z-10 order-2 lg:order-none text-center lg:text-left items-center lg:items-start w-full">
-              <motion.div
-                initial="hidden"
-                animate="visible"
-                variants={{
-                  hidden: { opacity: 0 },
-                  visible: {
-                    opacity: 1,
-                    transition: {
-                      staggerChildren: 0.12,
-                      delayChildren: 0.6
-                    }
-                  }
-                }}
-                className="space-y-4"
-              >
-                <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-[56px] leading-[1.15] font-normal tracking-[0.08em] uppercase" style={{color: '#4a5e4f'}}>
-                  {["ADDING", "COLOUR", "TO", "YOUR", "LIFE"].map((word, idx) => (
-                    <span key={idx} className="inline-block overflow-hidden mr-3">
-                      <motion.span
-                        className="inline-block"
-                        variants={{
-                          hidden: { y: "100%", opacity: 0 },
-                          visible: { y: 0, opacity: 1 }
-                        }}
-                        transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                      >
-                        {word}
-                      </motion.span>
-                      {idx === 1 && <br />}
-                    </span>
-                  ))}
-                </h1>
-              </motion.div>
+        {/* 1. HERO/BANNER SECTION — matches live site layout exactly */}
+        <section className="relative flex" style={{backgroundColor: '#e8e4d9', minHeight: '100vh'}}>
 
-              {/* Stacked block buttons matching screenshot color and size */}
-              <motion.div
-                initial="hidden"
-                animate="visible"
-                variants={{
-                  hidden: { opacity: 0 },
-                  visible: {
-                    opacity: 1,
-                    transition: {
-                      staggerChildren: 0.08,
-                      delayChildren: 1.2
-                    }
-                  }
-                }}
-                className="flex flex-col space-y-4 max-w-sm w-full mx-auto lg:mx-0"
-              >
-                {["Hair", "Nails", "Beauty", "Bridal", "Skin"].map((lbl) => (
-                  <motion.div
-                    key={lbl}
-                    variants={{
-                      hidden: { opacity: 0, y: 15 },
-                      visible: { opacity: 1, y: 0 }
-                    }}
-                    transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-                    whileHover={{ scale: 1.025, y: -2 }}
-                    whileTap={{ scale: 0.98 }}
-                  >
-                    <Link
-                      href={lbl.toLowerCase() === "skin" ? "/beauty" : `/${lbl.toLowerCase()}`}
-                      className="w-full block font-sans text-[11px] tracking-[0.25em] uppercase py-[14px] text-center text-white transition-all duration-300 rounded-none" style={{backgroundColor: '#a8b8a8'}}
-                    >
-                      {lbl}
-                    </Link>
-                  </motion.div>
-                ))}
-              </motion.div>
-            </div>
-
-            {/* Right Column: Hero Image with solid green frame */}
-            <motion.div 
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 1.2, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
-              className="lg:col-span-6 relative h-[380px] sm:h-[480px] lg:h-[580px] w-full order-1 lg:order-none overflow-hidden"
+          {/* Left Column — text & category buttons */}
+          <div className="flex flex-col justify-center pl-8 md:pl-16 pr-6 py-32 z-10 w-full lg:w-[42%] flex-shrink-0">
+            <motion.h1
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.9, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
+              className="font-serif text-[40px] sm:text-[50px] lg:text-[56px] leading-[1.15] font-normal tracking-[0.08em] uppercase text-center mb-10"
+              style={{color: '#4a5e4f'}}
             >
-              <Image
-                src="/images/homepage_hero_main.webp"
-                alt="Adding Colour To Your Life"
-                fill
-                sizes="(max-width: 768px) 100vw, 50vw"
-                className="object-cover"
-                priority
-              />
-            </motion.div>
+              ADDING COLOUR<br />TO YOUR LIFE
+            </motion.h1>
 
+            <motion.div
+              initial="hidden"
+              animate="visible"
+              variants={{
+                hidden: { opacity: 0 },
+                visible: { opacity: 1, transition: { staggerChildren: 0.08, delayChildren: 1.0 } }
+              }}
+              className="flex flex-col gap-[6px] w-full max-w-[400px] mx-auto"
+            >
+              {["Hair", "Nails", "Beauty", "Bridal", "Skin"].map((lbl) => (
+                <motion.div
+                  key={lbl}
+                  variants={{ hidden: { opacity: 0, y: 10 }, visible: { opacity: 1, y: 0 } }}
+                  transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+                >
+                  <Link
+                    href={lbl.toLowerCase() === "skin" ? "/beauty" : `/${lbl.toLowerCase()}`}
+                    className="w-full block font-sans text-[11px] tracking-[0.25em] uppercase py-[16px] text-center text-white transition-all duration-300"
+                    style={{backgroundColor: '#a8b8a8'}}
+                    onMouseEnter={e => (e.currentTarget.style.backgroundColor = '#4a5e4f')}
+                    onMouseLeave={e => (e.currentTarget.style.backgroundColor = '#a8b8a8')}
+                  >
+                    {lbl}
+                  </Link>
+                </motion.div>
+              ))}
+            </motion.div>
+          </div>
+
+          {/* Right Column — large hero image, full height, flush */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1.4, delay: 0.3 }}
+            className="hidden lg:block flex-1 relative"
+            style={{minHeight: '100vh'}}
+          >
+            <Image
+              src="/images/homepage_hero_main.webp"
+              alt="Adding Colour To Your Life — Blush + Blow London Salon"
+              fill
+              sizes="60vw"
+              className="object-cover object-center"
+              priority
+            />
+          </motion.div>
+
+          {/* Mobile image */}
+          <div className="lg:hidden absolute inset-0 opacity-20">
+            <Image
+              src="/images/homepage_hero_main.webp"
+              alt="Blush + Blow London"
+              fill
+              sizes="100vw"
+              className="object-cover"
+              priority
+            />
           </div>
         </section>
 
-        {/* 2. CONCERN SECTION */}
-        <section className="py-20 lg:py-28 bg-gradient-to-b from-[#FFFFFF] to-[#FDF8F6] border-t border-[#ECE8E1] overflow-hidden">
-          <motion.div 
+        {/* 2. CONCERN SECTION — matches live site: cream bg, image left, text right, no frame border */}
+        <section className="overflow-hidden" style={{backgroundColor: '#e8e4d9'}}>
+          <motion.div
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-            variants={{
-              hidden: { opacity: 0 },
-              visible: {
-                opacity: 1,
-                transition: { staggerChildren: 0.2 }
-              }
-            }}
-            className="max-w-5xl mx-auto px-4"
+            viewport={{ once: true, margin: "-80px" }}
+            variants={{ hidden: { opacity: 0 }, visible: { opacity: 1, transition: { staggerChildren: 0.2 } } }}
+            className="w-full grid grid-cols-1 lg:grid-cols-2"
+            style={{minHeight: '520px'}}
           >
-            {/* Elegant Double Frame Border */}
-            <div className="border border-[#C6A86B]/40 p-2 md:p-3 rounded-none shadow-premium bg-white">
-              <div className="border border-[#E5A99E]/30 p-8 md:p-12 lg:p-16 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center">
-                
-                {/* Left: Image */}
-                <motion.div 
-                  variants={{
-                    hidden: { opacity: 0, x: -40 },
-                    visible: { opacity: 1, x: 0 }
-                  }}
-                  transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                  className="lg:col-span-6 relative h-[300px] sm:h-[400px] lg:h-[450px] w-full max-w-md mx-auto"
-                >
-                  <Image
-                    src="/images/color_life_concern.webp"
-                    alt="Show your true colours"
-                    fill
-                    sizes="(max-width: 768px) 100vw, 55vw"
-                    className="object-contain"
-                  />
-                </motion.div>
+            {/* Left: Image — full bleed, no border */}
+            <motion.div
+              variants={{ hidden: { opacity: 0, x: -30 }, visible: { opacity: 1, x: 0 } }}
+              transition={{ duration: 0.8 }}
+              className="relative h-[380px] lg:h-auto"
+            >
+              <Image
+                src="/images/color_life_concern.webp"
+                alt="Show your true colours"
+                fill
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                className="object-cover"
+              />
+            </motion.div>
 
-                {/* Right: Text & Action */}
-                <motion.div 
-                  variants={{
-                    hidden: { opacity: 0, x: 40 },
-                    visible: { opacity: 1, x: 0 }
-                  }}
-                  transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                  className="lg:col-span-6 flex flex-col items-center justify-center text-center space-y-6 lg:space-y-8"
-                >
-                  <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl text-[#181816] font-semibold uppercase tracking-[0.1em] leading-[1.2]">
-                    Show your <br />
-                    <span className="text-[#C6A86B] italic font-serif lowercase font-normal">true</span> colours
-                  </h2>
-                  <motion.div
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    transition={{ type: "spring", stiffness: 400, damping: 20 }}
-                  >
-                    <Link
-                      href="https://www.fresha.com/providers/blush-blow-w9xnf8li?pId=9954&dppub=true"
-                      className="border border-[#E5A99E] text-[#E5A99E] font-semibold text-xs tracking-[0.25em] uppercase px-12 py-4.5 rounded-none hover:bg-[#E5A99E] hover:text-white transition-all duration-300 block text-center min-w-[200px] cursor-pointer"
-                    >
-                      Book Now
-                    </Link>
-                  </motion.div>
-                </motion.div>
-              </div>
-            </div>
+            {/* Right: Text & CTA */}
+            <motion.div
+              variants={{ hidden: { opacity: 0, x: 30 }, visible: { opacity: 1, x: 0 } }}
+              transition={{ duration: 0.8 }}
+              className="flex flex-col items-center justify-center text-center px-10 py-16 lg:py-24"
+            >
+              <h2 className="font-serif text-[40px] sm:text-[50px] lg:text-[56px] leading-[1.1] font-normal tracking-[0.08em] uppercase mb-10" style={{color: '#4a5e4f'}}>
+                SHOW YOUR<br />TRUE COLOURS
+              </h2>
+              <Link
+                href="https://www.fresha.com/providers/blush-blow-w9xnf8li?pId=9954&dppub=true"
+                className="inline-block font-sans text-[11px] tracking-[0.2em] uppercase px-14 py-4 transition-all duration-300"
+                style={{border: '1px solid #4a5e4f', color: '#4a5e4f'}}
+                onMouseEnter={e => { (e.currentTarget as HTMLElement).style.backgroundColor='#4a5e4f'; (e.currentTarget as HTMLElement).style.color='#fff'; }}
+                onMouseLeave={e => { (e.currentTarget as HTMLElement).style.backgroundColor='transparent'; (e.currentTarget as HTMLElement).style.color='#4a5e4f'; }}
+              >
+                BOOK NOW
+              </Link>
+            </motion.div>
           </motion.div>
         </section>
 
         {/* 3. HAIR SERVICES SECTION */}
-        <section className="py-16 lg:py-24 bg-[#FFFFFF] border-t border-[#ECE8E1]">
+        <section className="py-16 lg:py-24" style={{backgroundColor: '#e8e4d9'}}>
           <div className="max-w-7xl mx-auto px-6 md:px-12">
             
-            <div className="text-center max-w-2xl mx-auto mb-10 lg:mb-16 space-y-4">
-              <h2 className="font-serif text-3xl md:text-4xl text-[#181816] font-semibold uppercase tracking-wider">
-                Hair Services
+            <div className="text-center max-w-2xl mx-auto mb-10 lg:mb-16">
+              <h2 className="font-serif text-[40px] md:text-[56px] font-normal uppercase tracking-[0.12em] leading-none" style={{color: '#4a5e4f'}}>
+                HAIR SERVICES
               </h2>
-              <div className="h-[1px] w-16 bg-[#C6A86B]/30 mx-auto mt-4" />
             </div>
 
             {/* Grid of 4 Cards */}
@@ -384,70 +339,53 @@ export default function Home() {
               ].map((serv, index) => (
                 <motion.div
                   key={index}
-                  variants={{
-                    hidden: { opacity: 0, y: 30 },
-                    visible: { opacity: 1, y: 0 }
-                  }}
+                  variants={{ hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0 } }}
                   transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-                  whileHover={{ y: -6 }}
-                  className="group bg-white border border-[#ECE8E1] overflow-hidden shadow-premium hover:shadow-premium-hover transition-all duration-500 flex flex-col h-full cursor-pointer rounded-none relative"
+                  className="group overflow-hidden flex flex-col cursor-pointer"
                 >
-                  <div className="h-60 relative overflow-hidden border-b border-[#ECE8E1]">
-                    <Image
-                      src={serv.img}
-                      alt={serv.title}
-                      fill
-                      sizes="25vw"
-                      className="object-cover"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                  </div>
-                  <div className="p-6 text-center space-y-4 flex-grow flex flex-col justify-between">
-                    <h3 className="font-serif text-lg text-[#181816] font-semibold uppercase tracking-wider group-hover:text-[#C6A86B] transition-colors">
-                      {serv.title}
-                    </h3>
-                    <Link
-                      href="/hair"
-                      className="text-[9px] tracking-[0.2em] font-bold text-[#C6A86B] uppercase flex items-center justify-center space-x-1.5 hover:text-[#A88B52] transition-colors pt-2"
-                    >
-                      <span>Explore Service</span>
-                      <ArrowRight size={10} className="group-hover:translate-x-1.5 transition-transform" />
-                    </Link>
-                  </div>
-                  {/* Gold active border bottom */}
-                  <div className="absolute bottom-0 left-0 w-full h-[3px] bg-[#C6A86B] scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
+                  <Link href="/hair" className="block">
+                    <div className="h-64 relative overflow-hidden">
+                      <Image
+                        src={serv.img}
+                        alt={serv.title}
+                        fill
+                        sizes="25vw"
+                        className="object-cover"
+                      />
+                    </div>
+                    <div className="py-4 px-4 text-center" style={{backgroundColor: '#7a8f7a'}}>
+                      <h3 className="font-sans text-[11px] text-white tracking-[0.2em] uppercase">
+                        {serv.title}
+                      </h3>
+                    </div>
+                  </Link>
                 </motion.div>
               ))}
             </motion.div>
 
-            <div className="text-center mt-16">
-              <motion.div
-                className="inline-block"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                transition={{ type: "spring", stiffness: 400, damping: 20 }}
+            <div className="text-center mt-12">
+              <Link
+                href="/hair"
+                className="inline-block font-sans text-[11px] tracking-[0.2em] uppercase px-12 py-4 transition-all duration-300"
+                style={{border: '1px solid #4a5e4f', color: '#4a5e4f'}}
+                onMouseEnter={e => { (e.currentTarget as HTMLElement).style.backgroundColor='#4a5e4f'; (e.currentTarget as HTMLElement).style.color='#fff'; }}
+                onMouseLeave={e => { (e.currentTarget as HTMLElement).style.backgroundColor='transparent'; (e.currentTarget as HTMLElement).style.color='#4a5e4f'; }}
               >
-                <Link
-                  href="/hair"
-                  className="inline-block border border-[#E5A99E]/40 text-[#E5A99E] font-semibold text-xs tracking-[0.25em] uppercase px-8 py-4 rounded-none hover:bg-[#E5A99E] hover:text-white transition-all duration-300"
-                >
-                  More Hair Services
-                </Link>
-              </motion.div>
+                MORE HAIR SERVICES
+              </Link>
             </div>
 
           </div>
         </section>
 
         {/* 4. NAILS SERVICES SECTION */}
-        <section className="py-16 lg:py-24 bg-[#FDF8F6] border-t border-[#ECE8E1]">
+        <section className="py-16 lg:py-24" style={{backgroundColor: '#e8e4d9'}}>
           <div className="max-w-7xl mx-auto px-6 md:px-12">
             
-            <div className="text-center max-w-2xl mx-auto mb-10 lg:mb-16 space-y-4">
-              <h2 className="font-serif text-3xl md:text-4xl text-[#181816] font-semibold uppercase tracking-wider">
-                Nails Services
+            <div className="text-center max-w-2xl mx-auto mb-10 lg:mb-16">
+              <h2 className="font-serif text-[40px] md:text-[56px] font-normal uppercase tracking-[0.12em] leading-none" style={{color: '#4a5e4f'}}>
+                NAILS SERVICES
               </h2>
-              <div className="h-[1px] w-16 bg-[#C6A86B]/30 mx-auto mt-4" />
             </div>
 
             {/* Hands & Feet Split Columns */}
@@ -541,14 +479,13 @@ export default function Home() {
         </section>
 
         {/* 5. BEAUTY SERVICES SECTION */}
-        <section className="py-16 lg:py-24 bg-[#FFFFFF] border-t border-[#ECE8E1]">
+        <section className="py-16 lg:py-24" style={{backgroundColor: '#e8e4d9'}}>
           <div className="max-w-7xl mx-auto px-6 md:px-12">
             
-            <div className="text-center max-w-2xl mx-auto mb-10 lg:mb-16 space-y-4">
-              <h2 className="font-serif text-3xl md:text-4xl text-[#181816] font-semibold uppercase tracking-wider">
-                Beauty Services
+            <div className="text-center max-w-2xl mx-auto mb-10 lg:mb-16">
+              <h2 className="font-serif text-[40px] md:text-[56px] font-normal uppercase tracking-[0.12em] leading-none" style={{color: '#4a5e4f'}}>
+                BEAUTY SERVICES
               </h2>
-              <div className="h-[1px] w-16 bg-[#C6A86B]/30 mx-auto mt-4" />
             </div>
 
             {/* Grid of 4 Cards */}
@@ -707,17 +644,16 @@ export default function Home() {
         </section>
 
         {/* 7. BRIDAL SERVICES SECTION */}
-        <section className="py-16 lg:py-24 bg-[#FDF8F6] border-t border-[#ECE8E1]">
+        <section className="py-16 lg:py-24" style={{backgroundColor: '#e8e4d9'}}>
           <div className="max-w-7xl mx-auto px-6 md:px-12">
             
-            <div className="text-center max-w-2xl mx-auto mb-10 lg:mb-16 space-y-4">
-              <h2 className="font-serif text-3xl md:text-4xl text-[#181816] font-semibold uppercase tracking-wider">
-                Bridal Services
+            <div className="text-center max-w-2xl mx-auto mb-10 lg:mb-16">
+              <h2 className="font-serif text-[40px] md:text-[56px] font-normal uppercase tracking-[0.12em] leading-none mb-4" style={{color: '#4a5e4f'}}>
+                BRIDAL SERVICES
               </h2>
-              <p className="font-sans text-xs text-[#666666] leading-relaxed tracking-wider max-w-lg mx-auto font-light">
-                Every wedding and every bride is different. Book a conversation with Bridget our founder, she'd love to hear your exciting plans.
+              <p className="font-sans text-xs leading-relaxed tracking-wider max-w-lg mx-auto" style={{color: '#4a5e4f'}}>
+                Every wedding and every bride is different. Book a conversation with Bridget our founder, she&apos;d love to hear your exciting plans.
               </p>
-              <div className="h-[1px] w-16 bg-[#C6A86B]/30 mx-auto mt-4" />
             </div>
 
             {/* Split layout for Bridal */}
