@@ -193,7 +193,7 @@ export default function Home() {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.9, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
-                style={{color: '#4a5e4f', fontFamily: 'var(--font-playfair), serif', fontSize: '52px', lineHeight: '1.2', fontWeight: 400, letterSpacing: '0.06em', textTransform: 'uppercase', textAlign: 'center', marginBottom: '40px'}}
+                style={{color: '#4a5e4f', fontFamily: 'var(--font-cormorant), serif', fontSize: '52px', lineHeight: '1.2', fontWeight: 300, letterSpacing: '0.06em', textTransform: 'uppercase', textAlign: 'center', marginBottom: '40px', fontStyle: 'italic'}}
               >
                 ADDING COLOUR<br />TO YOUR LIFE
               </motion.h1>
@@ -215,7 +215,7 @@ export default function Home() {
                   >
                     <Link
                       href={lbl.toLowerCase() === "skin" ? "/beauty" : `/${lbl.toLowerCase()}`}
-                      style={{display: 'block', width: '100%', backgroundColor: '#9aaa96', color: 'white', textAlign: 'center', padding: '15px', fontFamily: 'var(--font-inter), sans-serif', fontSize: '11px', letterSpacing: '0.25em', textTransform: 'uppercase', textDecoration: 'none', transition: 'background-color 0.3s'}}
+                      style={{display: 'block', width: '100%', backgroundColor: '#9aaa96', color: '#3d4f3d', textAlign: 'center', padding: '15px', fontFamily: 'var(--font-inter), sans-serif', fontSize: '11px', letterSpacing: '0.25em', textTransform: 'uppercase', textDecoration: 'none', transition: 'background-color 0.3s'}}
                       onMouseEnter={e => (e.currentTarget.style.backgroundColor = '#4a5e4f')}
                       onMouseLeave={e => (e.currentTarget.style.backgroundColor = '#9aaa96')}
                     >
@@ -1062,40 +1062,12 @@ export default function Home() {
 
       </main>
 
-      {/* Floating Availability bar (Sticky bottom) */}
-      <div className="fixed bottom-0 left-0 right-0 bg-[#111111] border-t border-[#ECE8E1]/10 z-40 text-white py-3 px-4 md:py-4.5 md:px-6 flex items-center justify-between shadow-lg">
-        <div className="hidden md:flex items-center space-x-3.5">
-          <span className="w-2.5 h-2.5 rounded-full bg-[#C6A86B] animate-pulse shrink-0" />
-          <p className="font-serif text-sm font-semibold tracking-wide leading-snug">
-            Caring for your hair, nails and skin makes you look and feel healthier, younger and more confident. Prioritise yourself.
-          </p>
-        </div>
-        <div className="flex items-center justify-between w-full md:w-auto md:justify-end space-x-4 shrink-0">
-          <span className="font-sans text-[10px] tracking-widest uppercase text-white/70 hidden lg:inline">
-            197 New Kings Rd, London SW6 4SR
-          </span>
-          <div className="flex items-center space-x-3 w-full md:w-auto justify-center">
-            <Link
-              href="https://www.fresha.com/providers/blush-blow-w9xnf8li?pId=9954&dppub=true"
-              className="bg-transparent border border-white/30 text-white font-semibold text-[10px] tracking-[0.2em] uppercase px-4 py-2.5 rounded-none hover:bg-white/10 transition-colors text-center flex-1 md:flex-none whitespace-nowrap"
-            >
-              Check Availability
-            </Link>
-            <Link
-              href="https://www.fresha.com/providers/blush-blow-w9xnf8li?pId=9954&dppub=true"
-              className="bg-[#E5A99E] text-white border border-[#E5A99E] font-semibold text-[10px] tracking-[0.2em] uppercase px-4 py-2.5 rounded-none hover:bg-[#C6A86B] hover:border-[#C6A86B] transition-all duration-300 block text-center flex-1 md:flex-none whitespace-nowrap"
-            >
-              Book Now
-            </Link>
-          </div>
-        </div>
-      </div>
 
-      {/* Fixed Tab: Bottom-Left Check Availability (Exactly matching screenshot) */}
-      <div className="fixed bottom-32 left-0 z-40 hidden md:block">
+      {/* Fixed Tab: Bottom-Left Check Availability (matching live site sage green tab) */}
+      <div className="fixed bottom-16 left-0 z-40 hidden md:block">
         <Link
           href="https://www.fresha.com/providers/blush-blow-w9xnf8li?pId=9954&dppub=true"
-          className="bg-[#111111] text-white font-serif text-[11px] tracking-[0.2em] uppercase px-4 py-3 border border-white/20 border-l-0 rounded-r shadow-lg block select-none hover:bg-[#E5A99E] transition-colors rounded-none"
+          style={{backgroundColor: '#4a5e4f', color: 'white', fontFamily: 'var(--font-inter), sans-serif', fontSize: '11px', letterSpacing: '0.15em', textTransform: 'uppercase', padding: '10px 16px', display: 'block', textDecoration: 'none'}}
         >
           Check Availability
         </Link>
