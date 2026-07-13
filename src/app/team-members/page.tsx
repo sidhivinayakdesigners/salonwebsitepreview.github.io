@@ -85,16 +85,19 @@ export default function TeamMembers() {
     <>
       <Navbar />
 
-      <main className="pt-32 pb-24 bg-[#eae5db] min-h-screen text-[#788672] font-sans overflow-x-hidden">
+      <main className="pt-32 pb-24 bg-[#FAF8F5] min-h-screen text-[#1E241B] font-sans overflow-x-hidden">
         
         {/* Title Section */}
-        <div className="max-w-7xl mx-auto px-6 md:px-12 mb-28 text-center space-y-4">
-          <h1 className="font-serif text-5xl md:text-6xl text-[#788672] font-semibold uppercase tracking-wider">
+        <div className="max-w-7xl mx-auto px-6 mb-28 text-center space-y-4">
+          <span className="text-[#C5A86A] text-[9px] tracking-[0.3em] font-bold uppercase block font-sans">
+            THE ARTISTS & FOUNDERS
+          </span>
+          <h1 className="font-serif text-5xl md:text-6xl text-[#1E241B] font-light uppercase tracking-wider italic">
             Blushers + Blowers
           </h1>
-          <div className="h-[1px] w-24 bg-[#788672]/30 mx-auto" />
-          <p className="text-sm md:text-base text-[#788672]/85 leading-relaxed tracking-wider max-w-3xl mx-auto font-medium">
-            Driven by passion and expertise, our team at Blush + Blow combines years of industry experience with a shared goal: To add colour to your life.
+          <div className="h-[1px] w-16 bg-[#C5A86A]/40 mx-auto" />
+          <p className="text-xs sm:text-sm text-[#1E241B]/75 leading-relaxed tracking-wider max-w-2xl mx-auto">
+            Driven by passion and expertise, our team at Blush + Blow combines years of industry experience with a shared goal: to elevate your personal style.
           </p>
         </div>
 
@@ -108,17 +111,15 @@ export default function TeamMembers() {
                 <div
                   className={`w-full rounded-lg md:h-[280px] flex flex-col ${
                     isOdd ? "md:flex-row" : "md:flex-row-reverse"
-                  } overflow-visible shadow-sm border border-[#788672]/10 ${
-                    isOdd ? "bg-[#788672] text-[#fcfaf7]" : "bg-[#cbd1c9] text-[#788672]"
-                  }`}
+                  } overflow-visible shadow-premium border border-[#EFECE6] bg-white`}
                 >
                   
                   {/* Photo Section (Absolute Overlapping on Desktop, block on Mobile) */}
                   <div
-                    className={`relative w-full md:w-5/12 h-[300px] md:h-full shrink-0 overflow-visible`}
+                    className="relative w-full md:w-5/12 h-[300px] md:h-full shrink-0 overflow-visible"
                   >
                     <div
-                      className={`absolute bottom-0 left-1/2 -translate-x-1/2 w-[280px] h-[330px] md:w-[310px] md:h-[350px] lg:h-[380px] overflow-visible`}
+                      className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[280px] h-[330px] md:w-[310px] md:h-[350px] lg:h-[380px] overflow-visible"
                     >
                       <Image
                         src={member.img}
@@ -138,33 +139,17 @@ export default function TeamMembers() {
                     }`}
                   >
                     <div>
-                      <h2
-                        className={`font-serif text-3xl font-semibold tracking-wider uppercase ${
-                          isOdd ? "text-white" : "text-[#788672]"
-                        }`}
-                      >
+                      <h2 className="font-serif text-3xl font-light tracking-wider uppercase text-[#1E241B]">
                         {member.name}
                       </h2>
-                      <span
-                        className={`text-[10px] tracking-[0.25em] uppercase font-bold block mt-1.5 ${
-                          isOdd ? "text-[#C6A86B]" : "text-[#788672]/70"
-                        }`}
-                      >
+                      <span className="text-[#C5A86A] text-[9px] tracking-[0.25em] uppercase font-bold block mt-1.5 font-sans">
                         {member.role}
                       </span>
                     </div>
 
-                    <hr
-                      className={`my-5 w-full ${
-                        isOdd ? "border-white/20" : "border-[#788672]/20"
-                      }`}
-                    />
+                    <hr className="my-5 w-full border-[#EFECE6]" />
 
-                    <p
-                      className={`font-sans text-[13px] md:text-sm leading-relaxed tracking-wider font-light ${
-                        isOdd ? "text-white/90" : "text-[#788672]/90"
-                      }`}
-                    >
+                    <p className="font-sans text-xs sm:text-sm leading-relaxed tracking-wider text-[#1E241B]/70 font-light">
                       {member.desc}
                     </p>
                   </div>

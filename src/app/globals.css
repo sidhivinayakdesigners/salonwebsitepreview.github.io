@@ -2,60 +2,56 @@
 
 @theme {
   /* Font Family Mappings */
-  --font-sans: var(--font-inter), sans-serif;
+  --font-sans: var(--font-outfit), var(--font-inter), sans-serif;
   --font-serif: var(--font-cormorant), serif;
   --font-editorial: var(--font-playfair), serif;
 
-  /* Custom Color Tokens */
-  --color-primary: #788672;
-  --color-secondary-text: #777777;
-  --color-accent: #C6A86B;
-  --color-accent-hover: #B5965A;
-  --color-bg-warm: #eae5db;
-  --color-border-soft: #dcd7cc;
-  --color-sage: #788672;
-  --color-cream: #eae5db;
-  --color-btn-gray: #cbd1c9;
+  /* Custom Premium Color Tokens */
+  --color-primary: #1E241B;         /* Luxury Deep Charcoal / Forest Black */
+  --color-secondary-text: #666666;  /* Soft Muted Gray */
+  --color-accent: #C5A86A;          /* Champagne Gold */
+  --color-accent-hover: #B49658;    /* Dark Gold */
+  --color-bg-warm: #FAF8F5;         /* Glowing Linen / Oyster White */
+  --color-border-soft: #EFECE6;     /* Fine Luxury Border */
+  --color-sage: #5C6B57;            /* Organic Slate Sage Green */
+  --color-cream: #FAF8F5;
+  --color-btn-gray: #E8E5DF;
   
   /* Luxury Shadows */
-  --shadow-premium: 0 4px 20px rgba(0, 0, 0, 0.03);
-  --shadow-premium-hover: 0 20px 40px rgba(198, 168, 107, 0.08);
+  --shadow-premium: 0 4px 30px rgba(30, 36, 27, 0.02);
+  --shadow-premium-hover: 0 20px 50px rgba(197, 168, 106, 0.05);
 }
 
 /* Base resets & transitions */
-.header-scallop {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 10' width='20' height='10'%3E%3Cpath fill='%23788672' d='M0 0 Q 10 10, 20 0 Z'/%3E%3C/svg%3E");
-  background-repeat: repeat-x;
-  background-size: 20px 10px;
-}
-
 html {
   scroll-behavior: smooth;
-  background-color: #eae5db;
+  background-color: #FAF8F5;
+  color: #1E241B;
 }
 
 body {
   font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  background-color: #FAF8F5;
 }
 
 /* Premium Scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 5px;
 }
 ::-webkit-scrollbar-track {
-  background: #FFFFFF;
+  background: #FAF8F5;
 }
 ::-webkit-scrollbar-thumb {
-  background: #E5E5E5;
-  border-radius: 4px;
+  background: #E8E5DF;
+  border-radius: 2px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #C6A86B;
+  background: #C5A86A;
 }
 
-/* Custom transitions and micro-interactions */
+/* Luxury transitions and micro-interactions */
 .luxury-transition {
-  transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .hover-gold-line {
@@ -68,7 +64,7 @@ body {
   left: 0;
   width: 100%;
   height: 1px;
-  background-color: #C6A86B;
+  background-color: #C5A86A;
   transform: scaleX(0);
   transform-origin: right;
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
@@ -97,5 +93,66 @@ body {
 }
 
 .image-reveal-container:hover .image-reveal-zoom {
-  transform: scale(1.05);
+  transform: scale(1.03);
 }
+
+/* Custom styles for the interactive before/after slider */
+.before-after-slider-container {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  aspect-ratio: 4/5;
+  user-select: none;
+}
+
+/* Horizontal Marquee Animation */
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.runway-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 30s linear infinite;
+}
+
+.runway-marquee-reverse {
+  display: flex;
+  width: max-content;
+  animation: marquee 30s linear infinite reverse;
+}
+
+.runway-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* Premium border drawing animation */
+.luxury-btn-draw {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s ease;
+}
+.luxury-btn-draw::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 1px solid var(--color-accent);
+  border-radius: inherit;
+  transform: scale(0.96);
+  opacity: 0;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
+  pointer-events: none;
+}
+.luxury-btn-draw:hover::before {
+  transform: scale(1);
+  opacity: 1;
+}
+

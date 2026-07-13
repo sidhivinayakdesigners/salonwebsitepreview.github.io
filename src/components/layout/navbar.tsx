@@ -4,17 +4,30 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { Menu, X, MessageCircle, Calendar } from "lucide-react";
 
 export const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+  const [isScrolled, setIsScrolled] = useState(false);
   const pathname = usePathname();
 
   useEffect(() => {
     setIsMobileMenuOpen(false);
     setActiveDropdown(null);
   }, [pathname]);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 20) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -26,76 +39,51 @@ export const Navbar = () => {
         initial={{ y: -80, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-        className="fixed top-0 left-0 w-full z-50 bg-[#788672] text-white shadow-md select-none h-20"
+        className={`fixed top-0 left-0 w-full z-50 h-20 transition-all duration-500 ${
+          isScrolled
+            ? "bg-[#FAF8F5]/90 backdrop-blur-md border-b border-[#EFECE6] shadow-sm text-[#1E241B]"
+            : "bg-[#5C6B57]/95 border-b border-transparent text-white"
+        }`}
       >
-        {/* Scallop Divider at the bottom of the header */}
-        <div className="absolute bottom-[-10px] left-0 w-full h-[10px] header-scallop z-25" />
-
         <div className="max-w-7xl mx-auto px-4 md:px-6 h-full flex items-center justify-between relative">
           
           {/* Left Side: Hamburger (visible only on mobile/tablet) */}
           <div className="flex items-center lg:hidden">
             <button
               onClick={toggleMobileMenu}
-              className="text-white hover:text-white/80 transition-colors focus:outline-none p-1 cursor-pointer"
+              className={`transition-colors focus:outline-none p-1 cursor-pointer ${
+                isScrolled ? "text-[#1E241B] hover:text-[#C5A86A]" : "text-white hover:text-white/80"
+              }`}
               aria-label="Toggle mobile menu"
             >
-              {isMobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
+              {isMobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
             </button>
           </div>
 
           {/* Logo Link: Centered absolutely on mobile, left-aligned/normal on desktop */}
           <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 lg:static lg:transform-none z-10 flex flex-col items-center">
             <Link href="/" className="flex flex-col items-center group">
-              <motion.span 
-                initial="hidden"
-                animate="visible"
-                variants={{
-                  hidden: { opacity: 0 },
-                  visible: {
-                    opacity: 1,
-                    transition: {
-                      staggerChildren: 0.05,
-                      delayChildren: 0.5
-                    }
-                  }
-                }}
-                className="font-serif text-sm sm:text-base md:text-xl tracking-[0.15em] sm:tracking-[0.22em] text-white uppercase font-bold whitespace-nowrap"
-              >
-                {"BLUSH + BLOW".split("").map((char, idx) => (
-                  <motion.span
-                    key={idx}
-                    variants={{
-                      hidden: { opacity: 0, y: 8 },
-                      visible: { opacity: 1, y: 0 }
-                    }}
-                    transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-                  >
-                    {char === " " ? "\u00A0" : char}
-                  </motion.span>
-                ))}
-              </motion.span>
-              <motion.div 
-                initial={{ opacity: 0, scaleX: 0 }}
-                animate={{ opacity: 1, scaleX: 1 }}
-                transition={{ duration: 0.8, delay: 1.2, ease: "easeOut" }}
-                className="flex items-center w-full justify-center space-x-1.5 mt-0.5"
-              >
-                <div className="h-[0.5px] bg-white/40 flex-grow" />
-                <span className="text-[6px] sm:text-[7px] tracking-[0.25em] sm:tracking-[0.35em] text-[#C6A86B] uppercase font-sans font-medium">
+              <span className="font-serif text-xs sm:text-sm md:text-lg tracking-[0.2em] font-bold uppercase whitespace-nowrap transition-colors duration-300">
+                BLUSH + BLOW
+              </span>
+              <div className="flex items-center w-full justify-center space-x-1.5 mt-0.5">
+                <div className={`h-[0.5px] flex-grow transition-colors duration-300 ${isScrolled ? "bg-[#1E241B]/20" : "bg-white/20"}`} />
+                <span className="text-[6px] sm:text-[7px] tracking-[0.3em] text-[#C5A86A] uppercase font-sans font-medium">
                   LONDON
                 </span>
-                <div className="h-[0.5px] bg-white/40 flex-grow" />
-              </motion.div>
+                <div className={`h-[0.5px] flex-grow transition-colors duration-300 ${isScrolled ? "bg-[#1E241B]/20" : "bg-white/20"}`} />
+              </div>
             </Link>
           </div>
 
           {/* Desktop Navigation Links */}
-          <nav className="hidden lg:flex items-center h-full text-[10px] font-sans font-bold tracking-[0.2em] uppercase">
+          <nav className="hidden lg:flex items-center h-full text-[9px] font-sans font-bold tracking-[0.25em] uppercase">
             <Link
               href="/"
-              className={`px-4 flex items-center h-full border-r border-white/10 transition-colors ${
-                pathname === "/" ? "bg-[#677461] border-l border-white/10" : "hover:bg-[#677461]"
+              className={`px-4 flex items-center h-full border-r border-[#EFECE6]/10 transition-colors ${
+                pathname === "/" 
+                  ? (isScrolled ? "bg-[#E8E5DF] text-[#1E241B]" : "bg-[#4E5A49] text-white") 
+                  : (isScrolled ? "hover:bg-[#FAF8F5]/50 text-[#1E241B] hover:text-[#C5A86A]" : "hover:bg-[#4E5A49] text-white")
               }`}
             >
               Home
@@ -103,39 +91,34 @@ export const Navbar = () => {
 
             {/* About Dropdown */}
             <div
-              className="relative h-full border-r border-white/10"
+              className="relative h-full border-r border-[#EFECE6]/10"
               onMouseEnter={() => setActiveDropdown("about")}
               onMouseLeave={() => setActiveDropdown(null)}
             >
-              <button className="px-4 flex items-center h-full hover:bg-[#677461] transition-colors focus:outline-none space-x-1 cursor-pointer">
+              <button className="px-4 flex items-center h-full hover:bg-[#FAF8F5]/50 dark:hover:bg-[#4E5A49] transition-colors focus:outline-none cursor-pointer">
                 <span>About +</span>
               </button>
               
               <AnimatePresence>
                 {activeDropdown === "about" && (
                   <motion.div
-                    initial={{ opacity: 0, y: 12, scale: 0.95 }}
+                    initial={{ opacity: 0, y: 8, scale: 0.98 }}
                     animate={{ opacity: 1, y: 0, scale: 1 }}
-                    exit={{ opacity: 0, y: 12, scale: 0.95 }}
-                    transition={{ type: "spring", stiffness: 420, damping: 28 }}
-                    className="absolute left-0 w-44 bg-white border border-[#dcd7cc] rounded-lg shadow-lg py-2 z-50 text-[#788672] origin-top"
+                    exit={{ opacity: 0, y: 8, scale: 0.98 }}
+                    transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+                    className="absolute left-0 w-44 bg-[#FAF8F5] border border-[#EFECE6] rounded-md shadow-lg py-2 z-50 text-[#1E241B] origin-top"
                   >
                     {[
                       { href: "/team-members", label: "Team Members" },
                       { href: "/careers", label: "Careers" }
                     ].map((item, idx) => (
-                      <motion.div
+                      <Link
                         key={idx}
-                        whileHover={{ x: 4 }}
-                        transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                        href={item.href}
+                        className="block px-5 py-2.5 hover:bg-[#E8E5DF] text-[8px] tracking-widest font-bold text-[#1E241B] hover:text-[#C5A86A] transition-colors"
                       >
-                        <Link
-                          href={item.href}
-                          className="block px-5 py-2 hover:bg-[#FAF8F6] text-[9px] tracking-widest font-bold text-[#788672] hover:text-[#C6A86B] transition-colors"
-                        >
-                          {item.label}
-                        </Link>
-                      </motion.div>
+                        {item.label}
+                      </Link>
                     ))}
                   </motion.div>
                 )}
@@ -144,22 +127,22 @@ export const Navbar = () => {
 
             {/* Services Dropdown */}
             <div
-              className="relative h-full border-r border-white/10"
+              className="relative h-full border-r border-[#EFECE6]/10"
               onMouseEnter={() => setActiveDropdown("services")}
               onMouseLeave={() => setActiveDropdown(null)}
             >
-              <button className="px-4 flex items-center h-full hover:bg-[#677461] transition-colors focus:outline-none space-x-1 cursor-pointer">
+              <button className="px-4 flex items-center h-full hover:bg-[#FAF8F5]/50 dark:hover:bg-[#4E5A49] transition-colors focus:outline-none cursor-pointer">
                 <span>Services +</span>
               </button>
               
               <AnimatePresence>
                 {activeDropdown === "services" && (
                   <motion.div
-                    initial={{ opacity: 0, y: 12, scale: 0.95 }}
+                    initial={{ opacity: 0, y: 8, scale: 0.98 }}
                     animate={{ opacity: 1, y: 0, scale: 1 }}
-                    exit={{ opacity: 0, y: 12, scale: 0.95 }}
-                    transition={{ type: "spring", stiffness: 420, damping: 28 }}
-                    className="absolute left-0 w-44 bg-white border border-[#dcd7cc] rounded-lg shadow-lg py-2 z-50 text-[#788672] origin-top"
+                    exit={{ opacity: 0, y: 8, scale: 0.98 }}
+                    transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+                    className="absolute left-0 w-44 bg-[#FAF8F5] border border-[#EFECE6] rounded-md shadow-lg py-2 z-50 text-[#1E241B] origin-top"
                   >
                     {[
                       { href: "/hair", label: "Hair" },
@@ -167,18 +150,13 @@ export const Navbar = () => {
                       { href: "/beauty", label: "Beauty" },
                       { href: "/bridal", label: "Bridal" }
                     ].map((item, idx) => (
-                      <motion.div
+                      <Link
                         key={idx}
-                        whileHover={{ x: 4 }}
-                        transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                        href={item.href}
+                        className="block px-5 py-2.5 hover:bg-[#E8E5DF] text-[8px] tracking-widest font-bold text-[#1E241B] hover:text-[#C5A86A] transition-colors"
                       >
-                        <Link
-                          href={item.href}
-                          className="block px-5 py-2 hover:bg-[#FAF8F6] text-[9px] tracking-widest font-bold text-[#788672] hover:text-[#C6A86B] transition-colors"
-                        >
-                          {item.label}
-                        </Link>
-                      </motion.div>
+                        {item.label}
+                      </Link>
                     ))}
                   </motion.div>
                 )}
@@ -187,40 +165,46 @@ export const Navbar = () => {
 
             <Link
               href="/beauts"
-              className="px-4 flex items-center h-full border-r border-white/10 hover:bg-[#677461] transition-colors"
+              className="px-4 flex items-center h-full border-r border-[#EFECE6]/10 hover:bg-[#FAF8F5]/50 dark:hover:bg-[#4E5A49] transition-colors"
             >
               Beauts
             </Link>
             
             <Link
               href="/blower"
-              className="px-4 flex items-center h-full border-r border-white/10 hover:bg-[#677461] transition-colors"
+              className="px-4 flex items-center h-full border-r border-[#EFECE6]/10 hover:bg-[#FAF8F5]/50 dark:hover:bg-[#4E5A49] transition-colors"
             >
               The Blower
             </Link>
 
             <Link
               href="/faqs"
-              className="px-4 flex items-center h-full border-r border-white/10 hover:bg-[#677461] transition-colors"
+              className="px-4 flex items-center h-full border-r border-[#EFECE6]/10 hover:bg-[#FAF8F5]/50 dark:hover:bg-[#4E5A49] transition-colors"
             >
               Faq's
             </Link>
 
             <Link
               href="/contact"
-              className="px-4 flex items-center h-full hover:bg-[#677461] transition-colors"
+              className="px-4 flex items-center h-full hover:bg-[#FAF8F5]/50 dark:hover:bg-[#4E5A49] transition-colors"
             >
               Contact
             </Link>
           </nav>
 
-          {/* Right Side: Cream Book Now Button */}
+          {/* Right Side: Champagne Gold Book Now Button */}
           <div className="z-10">
             <Link
               href="https://www.fresha.com/providers/blush-blow-w9xnf8li?pId=9954&dppub=true"
-              className="bg-[#fcfaf7] text-[#788672] font-semibold text-[8px] sm:text-[10px] tracking-[0.18em] sm:tracking-[0.25em] uppercase px-3 py-2 sm:px-5 sm:py-2.5 rounded shadow-sm hover:bg-white transition-all duration-300 block text-center whitespace-nowrap"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`font-sans font-bold text-[8px] sm:text-[9px] tracking-[0.2em] uppercase px-4 py-2.5 rounded-full border transition-all duration-300 block text-center whitespace-nowrap shadow-sm hover:scale-[1.02] active:scale-[0.98] ${
+                isScrolled
+                  ? "bg-[#C5A86A] border-[#C5A86A] text-white hover:bg-[#B49658]"
+                  : "bg-white border-white text-[#5C6B57] hover:bg-[#FAF8F5]"
+              }`}
             >
-              Book Now
+              Book Online
             </Link>
           </div>
 
@@ -234,83 +218,85 @@ export const Navbar = () => {
             {/* Backdrop */}
             <motion.div
               initial={{ opacity: 0 }}
-              animate={{ opacity: 0.5 }}
+              animate={{ opacity: 0.6 }}
               exit={{ opacity: 0 }}
               onClick={toggleMobileMenu}
-              className="fixed inset-0 bg-black z-40 lg:hidden"
+              className="fixed inset-0 bg-[#1E241B]/40 backdrop-blur-sm z-40 lg:hidden"
             />
             {/* Drawer */}
             <motion.div
               initial={{ x: "-100%" }}
               animate={{ x: 0 }}
               exit={{ x: "-100%" }}
-              transition={{ type: "tween", duration: 0.3 }}
-              className="fixed top-0 left-0 w-72 h-full bg-[#788672] text-white z-50 p-6 flex flex-col justify-between shadow-2xl lg:hidden overflow-y-auto"
+              transition={{ type: "spring", stiffness: 380, damping: 30 }}
+              className="fixed top-0 left-0 w-72 h-full bg-[#1E241B] text-[#FAF8F5] z-50 p-6 flex flex-col justify-between shadow-2xl lg:hidden overflow-y-auto"
             >
               <div className="space-y-8">
                 {/* Logo & Close */}
-                <div className="flex items-center justify-between pb-4 border-b border-white/10">
-                  <div className="flex flex-col items-center">
-                    <span className="font-serif text-lg tracking-[0.2em] font-bold">
+                <div className="flex items-center justify-between pb-4 border-b border-[#FAF8F5]/10">
+                  <div className="flex flex-col">
+                    <span className="font-serif text-sm tracking-[0.15em] font-bold">
                       BLUSH + BLOW
                     </span>
-                    <span className="text-[7px] tracking-[0.35em] font-light">
+                    <span className="text-[6px] tracking-[0.25em] text-[#C5A86A] uppercase font-sans mt-0.5">
                       LONDON
                     </span>
                   </div>
                   <button
                     onClick={toggleMobileMenu}
-                    className="text-white hover:text-white/80"
+                    className="text-[#FAF8F5] hover:text-[#C5A86A] transition-colors"
                   >
-                    <X size={20} />
+                    <X size={18} />
                   </button>
                 </div>
 
                 {/* Nav Links */}
-                <nav className="flex flex-col space-y-4 font-sans text-xs tracking-widest uppercase font-bold">
-                  <Link href="/" onClick={toggleMobileMenu} className="hover:text-white/80">
+                <nav className="flex flex-col space-y-4 font-sans text-xs tracking-widest uppercase font-bold text-[#FAF8F5]/90">
+                  <Link href="/" onClick={toggleMobileMenu} className="hover:text-[#C5A86A] transition-colors">
                     Home
                   </Link>
                   <div className="space-y-2">
-                    <span className="text-white/50 text-[10px]">About</span>
-                    <div className="pl-4 flex flex-col space-y-2">
-                      <Link href="/team-members" onClick={toggleMobileMenu} className="hover:text-white/80">Team Members</Link>
-                      <Link href="/careers" onClick={toggleMobileMenu} className="hover:text-white/80">Careers</Link>
+                    <span className="text-[#C5A86A] text-[8px] tracking-[0.3em] uppercase block font-semibold">About Us</span>
+                    <div className="pl-3 flex flex-col space-y-2.5 border-l border-[#FAF8F5]/10">
+                      <Link href="/team-members" onClick={toggleMobileMenu} className="hover:text-[#C5A86A] transition-colors">Team Members</Link>
+                      <Link href="/careers" onClick={toggleMobileMenu} className="hover:text-[#C5A86A] transition-colors">Careers</Link>
                     </div>
                   </div>
                   <div className="space-y-2">
-                    <span className="text-white/50 text-[10px]">Services</span>
-                    <div className="pl-4 flex flex-col space-y-2">
-                      <Link href="/hair" onClick={toggleMobileMenu} className="hover:text-white/80">Hair</Link>
-                      <Link href="/nails" onClick={toggleMobileMenu} className="hover:text-white/80">Nails</Link>
-                      <Link href="/beauty" onClick={toggleMobileMenu} className="hover:text-white/80">Beauty</Link>
-                      <Link href="/bridal" onClick={toggleMobileMenu} className="hover:text-white/80">Bridal</Link>
+                    <span className="text-[#C5A86A] text-[8px] tracking-[0.3em] uppercase block font-semibold">Services</span>
+                    <div className="pl-3 flex flex-col space-y-2.5 border-l border-[#FAF8F5]/10">
+                      <Link href="/hair" onClick={toggleMobileMenu} className="hover:text-[#C5A86A] transition-colors">Hair</Link>
+                      <Link href="/nails" onClick={toggleMobileMenu} className="hover:text-[#C5A86A] transition-colors">Nails</Link>
+                      <Link href="/beauty" onClick={toggleMobileMenu} className="hover:text-[#C5A86A] transition-colors">Beauty</Link>
+                      <Link href="/bridal" onClick={toggleMobileMenu} className="hover:text-[#C5A86A] transition-colors">Bridal</Link>
                     </div>
                   </div>
-                  <Link href="/beauts" onClick={toggleMobileMenu} className="hover:text-white/80">
+                  <Link href="/beauts" onClick={toggleMobileMenu} className="hover:text-[#C5A86A] transition-colors">
                     Beauts
                   </Link>
-                  <Link href="/blower" onClick={toggleMobileMenu} className="hover:text-white/80">
+                  <Link href="/blower" onClick={toggleMobileMenu} className="hover:text-[#C5A86A] transition-colors">
                     The Blower
                   </Link>
-                  <Link href="/faqs" onClick={toggleMobileMenu} className="hover:text-white/80">
+                  <Link href="/faqs" onClick={toggleMobileMenu} className="hover:text-[#C5A86A] transition-colors">
                     Faq's
                   </Link>
-                  <Link href="/contact" onClick={toggleMobileMenu} className="hover:text-white/80">
+                  <Link href="/contact" onClick={toggleMobileMenu} className="hover:text-[#C5A86A] transition-colors">
                     Contact
                   </Link>
                 </nav>
               </div>
 
               {/* Bottom Details */}
-              <div className="pt-6 border-t border-white/10 text-center space-y-4">
+              <div className="pt-6 border-t border-[#FAF8F5]/10 text-center space-y-4">
                 <Link
                   href="https://www.fresha.com/providers/blush-blow-w9xnf8li?pId=9954&dppub=true"
-                  className="bg-[#fcfaf7] text-[#788672] font-semibold text-[10px] tracking-[0.25em] uppercase py-3 rounded w-full block shadow"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-[#C5A86A] text-white font-semibold text-[9px] tracking-[0.25em] uppercase py-3 rounded-full w-full block shadow hover:bg-[#B49658] transition-colors"
                 >
                   Book Appointment
                 </Link>
-                <p className="text-[8px] text-white/50 tracking-wider">
+                <p className="text-[7px] text-[#FAF8F5]/40 tracking-wider">
                   197 New Kings Rd, SW6 4SR • 020 7736 0430
                 </p>
               </div>
@@ -318,6 +304,29 @@ export const Navbar = () => {
           </>
         )}
       </AnimatePresence>
+
+      {/* Sticky Mobile Portrait Bottom Action Bar (high converting, premium touch UI) */}
+      <div className="fixed bottom-0 left-0 right-0 z-45 bg-[#FAF8F5]/90 backdrop-blur-md border-t border-[#EFECE6] h-16 flex items-center justify-between px-4 py-2 shadow-2xl lg:hidden">
+        <a
+          href="https://wa.me/447979782832"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center justify-center space-x-2 bg-[#5C6B57] active:bg-[#4E5A49] text-white text-[9px] tracking-[0.2em] font-bold uppercase rounded-full h-11 w-[47%] transition-all duration-300 shadow-sm"
+        >
+          <MessageCircle size={14} className="fill-white text-[#5C6B57]" />
+          <span>WhatsApp Us</span>
+        </a>
+        <a
+          href="https://www.fresha.com/providers/blush-blow-w9xnf8li?pId=9954&dppub=true"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center justify-center space-x-2 bg-[#C5A86A] active:bg-[#B49658] text-white text-[9px] tracking-[0.2em] font-bold uppercase rounded-full h-11 w-[47%] transition-all duration-300 shadow-sm"
+        >
+          <Calendar size={14} />
+          <span>Book Now</span>
+        </a>
+      </div>
     </>
   );
 };
+

@@ -8,143 +8,45 @@ import { Footer } from "@/components/layout/footer";
 
 const nailServicesGrid = [
   {
-    title: "Manicure",
-    img: "/images/manicure.jpg",
-    desc: "Manicure is a complete hand and nail care service designed to clean, shape, and beautify the nails while improving the health of your hands.",
-    learnLink: "/service/nails-hands",
+    title: "Gel Manicure",
+    img: "/images/gel_manicure.jpg",
+    desc: "Cuticle detailing, custom nail shaping, and long-lasting gel polish with high-gloss durability.",
+    learnLink: "/service/gel-manicure",
     bookLink: "https://www.fresha.com/providers/blush-blow-w9xnf8li?pId=9954&dppub=true",
   },
   {
-    title: "Manicure (without polish)",
+    title: "Manicure (Natural)",
     img: "/images/manicure_without_polish.png",
-    desc: "Manicure (without Polish) is a natural nail care service focused on enhancing the health and appearance of your hands and nails.",
+    desc: "A natural nail grooming service focused on cuticle care, filing, buffing, and relaxing skin hydration.",
     learnLink: "/service/manicure-without-polish",
     bookLink: "https://www.fresha.com/providers/blush-blow-w9xnf8li?pId=9954&dppub=true",
   },
   {
-    title: "Gel Manicure and Gel Pedicure",
-    img: "/images/gel_manicure_gel_pedicure.png",
-    desc: "Gel Manicure and Gel Pedicure is a comprehensive nail service that combines expert care for both your hands and feet, with long-lasting gel coatings.",
-    learnLink: "/service/gel-manicure-and-gel-pedicure",
-    bookLink: "https://www.fresha.com/providers/blush-blow-w9xnf8li?pId=9954&dppub=true",
-  },
-  {
-    title: "Manicure and Pedicure",
-    img: "/images/manicure_pedicure.jpg",
-    desc: "Manicure and Pedicure is a combined treatment designed to provide effective cuticle work, skin filing, and hydration therapy for hands and feet.",
-    learnLink: "/service/manicure-and-pedicure",
-    bookLink: "https://www.fresha.com/providers/blush-blow-w9xnf8li?pId=9954&dppub=true",
-  },
-  {
-    title: "Bambino Manicure (under 12)",
-    img: "/images/bambino_manicure.jpg",
-    desc: "Bambino Manicure (under 12) is a delightful nail service tailored specifically for children under 12, providing a fun and gentle nail tidy.",
-    learnLink: "/service/bambino-manicure-under-12",
-    bookLink: "https://www.fresha.com/providers/blush-blow-w9xnf8li?pId=9954&dppub=true",
-  },
-  {
-    title: "Bambino Pedicure (under 12)",
-    img: "/images/bambino_pedicure.jpg",
-    desc: "Bambino Pedicure (under 12) is a fun and age-appropriate foot care service designed specifically for children under 12 to refresh feet.",
-    learnLink: "/service/bambino-pedicure-under-12",
-    bookLink: "https://www.fresha.com/providers/blush-blow-w9xnf8li?pId=9954&dppub=true",
-  },
-  {
-    title: "Male Pedicure",
-    img: "/images/male_pedicure.jpg",
-    desc: "Male Pedicure is a tailored foot care service designed specifically for men, focusing on clean grooming, callus file prep, and hydration comfort.",
-    learnLink: "/service/profession-male-pedicure",
-    bookLink: "https://www.fresha.com/providers/blush-blow-w9xnf8li?pId=9954&dppub=true",
-  },
-  {
-    title: "Male Manicure",
-    img: "/images/male_manicure.jpg",
-    desc: "Male Manicure is a specialized nail service designed to cater to the grooming needs of men, including deep cuticle shape and massage.",
-    learnLink: "/service/male-manicure",
-    bookLink: "https://www.fresha.com/providers/blush-blow-w9xnf8li?pId=9954&dppub=true",
-  },
-  {
-    title: "Luxury Gel Pedicure",
-    img: "/images/luxury_gel_pedicure.jpg",
-    desc: "Luxury Gel Pedicure is an exquisite foot care service designed to provide a pampering experience while delivering long-lasting results.",
-    learnLink: "/service/luxury-gel-pedicure",
-    bookLink: "https://www.fresha.com/providers/blush-blow-w9xnf8li?pId=9954&dppub=true",
-  },
-  {
-    title: "Luxury Pedicure",
-    img: "/images/luxury_pedicure.jpg",
-    desc: "Luxury Pedicure is a rejuvenating foot care service that provides a pampering experience while enhancing the beauty and health of soles.",
-    learnLink: "/service/luxury-pedicure",
-    bookLink: "https://www.fresha.com/providers/blush-blow-w9xnf8li?pId=9954&dppub=true",
-  },
-  {
-    title: "Luxury Gel Manicure",
-    img: "/images/luxury_gel_manicure.jpg",
-    desc: "Luxury Gel Manicure is an indulgent nail service that combines expert nail care, hand scrubs, and massage with long-lasting gel polish.",
-    learnLink: "/service/luxury-gel-manicure",
-    bookLink: "https://www.fresha.com/providers/blush-blow-w9xnf8li?pId=9954&dppub=true",
-  },
-  {
-    title: "Luxury Manicure",
-    img: "/images/luxury_manicure.jpg",
-    desc: "Luxury Manicure is a premium hand and nail care service designed to provide an indulgent experience while enhancing nail structure.",
-    learnLink: "/service/luxury-manicure",
+    title: "BIAB overlay",
+    img: "/images/biab.jpg",
+    desc: "Builder in a Bottle overlay to reinforce natural nail strength, preventing breakage and chips.",
+    learnLink: "/service/biab",
     bookLink: "https://www.fresha.com/providers/blush-blow-w9xnf8li?pId=9954&dppub=true",
   },
   {
     title: "Gel Pedicure",
     img: "/images/gel_pedicure.png",
-    desc: "Gel Pedicure is a luxurious foot care service that combines nail grooming with long-lasting gel polish for a flawless finish.",
+    desc: "Warm foot bath, botanical scrub, detailed cuticle prep, and long-wear gel coat.",
     learnLink: "/service/gel-pedicure",
     bookLink: "https://www.fresha.com/providers/blush-blow-w9xnf8li?pId=9954&dppub=true",
   },
   {
-    title: "Shape and Paint Hands",
-    img: "/images/shape_paint_hands.png",
-    desc: "Shape and Paint Hands is a classic nail service that enhances the look of your natural nails by shaping them to your preference and painting them with high-quality classic polish.",
-    learnLink: "/service/shape-paint-hands",
-    bookLink: "https://www.fresha.com/providers/blush-blow-w9xnf8li?pId=9954&dppub=true",
-  },
-  {
-    title: "Gel Shape and Paint Hands",
-    img: "/images/gel_shape_paint_hands.png",
-    desc: "Gel Shape and Paint Hands is a nail service that focuses on reshaping and painting the nails with gel polish for a glossy, durable finish that lasts up to 2-3 weeks.",
-    learnLink: "/service/gel-shape-paint-hands",
-    bookLink: "https://www.fresha.com/providers/blush-blow-w9xnf8li?pId=9954&dppub=true",
-  },
-  {
-    title: "Gel Manicure",
-    img: "/images/gel_manicure.jpg",
-    desc: "Gel Manicure is a premium nail service that offers long-lasting, glossy color with a durable finish. This manicure begins with full cuticle care, filing, and shaping.",
-    learnLink: "/service/gel-manicure",
-    bookLink: "https://www.fresha.com/providers/blush-blow-w9xnf8li?pId=9954&dppub=true",
-  },
-  {
-    title: "Pedicure",
+    title: "Signature Pedicure",
     img: "/images/pedicure.jpg",
-    desc: "Pedicure is a relaxing and rejuvenating foot care service that focuses on both grooming and pampering your feet. It includes soak, hard skin removal, and massage.",
+    desc: "A classic botanical foot soak, callus prep, massage, and premium standard lacquer finish.",
     learnLink: "/service/pedicure",
     bookLink: "https://www.fresha.com/providers/blush-blow-w9xnf8li?pId=9954&dppub=true",
   },
   {
-    title: "Shape and Paint Feet",
-    img: "/images/shape_paint_feet.jpg",
-    desc: "Shape and Paint Feet is a simple yet effective nail service that focuses on grooming and beautifying your toenails with a perfect shape and premium standard lacquer.",
-    learnLink: "/service/shape-paint-feet",
-    bookLink: "https://www.fresha.com/providers/blush-blow-w9xnf8li?pId=9954&dppub=true",
-  },
-  {
-    title: "Gel Shape and Paint Feet",
-    img: "/images/gel_shape_paint_feet.jpg",
-    desc: "Gel Shape and Paint Feet is a nail service designed to enhance the appearance of your toenails with professional shaping and long-lasting gel coatings.",
-    learnLink: "/service/gel-shape-paint-feet",
-    bookLink: "https://www.fresha.com/providers/blush-blow-w9xnf8li?pId=9954&dppub=true",
-  },
-  {
-    title: "BIAB",
-    img: "/images/biab.jpg",
-    desc: "A BIAB manicure uses Builder in a Bottle, a gel-like nail base and top coat, which is applied as an overlay to strengthen your natural nails and prevent breakage.",
-    learnLink: "/service/biab",
+    title: "Luxury Gel Manicure",
+    img: "/images/luxury_gel_manicure.jpg",
+    desc: "An indulgent treatment including nourishing hand masks, deep massage, and flawless gel color.",
+    learnLink: "/service/luxury-gel-manicure",
     bookLink: "https://www.fresha.com/providers/blush-blow-w9xnf8li?pId=9954&dppub=true",
   },
 ];
@@ -154,62 +56,71 @@ export default function NailsServices() {
     <>
       <Navbar />
 
-      <main className="pt-32 pb-24 bg-[#eae5db] min-h-screen text-[#788672] font-sans">
+      <main className="pt-32 pb-24 bg-[#FAF8F5] min-h-screen text-[#1E241B] font-sans">
         
         {/* Title Wrap */}
-        <div className="max-w-7xl mx-auto px-6 md:px-12 mb-12">
-          <div className="text-center md:text-left border-b border-[#dcd7cc] pb-6">
-            <h1 className="font-serif text-5xl md:text-6xl text-[#788672] font-semibold tracking-wider uppercase">
-              Nails
+        <div className="max-w-7xl mx-auto px-6 mb-16">
+          <div className="text-center md:text-left border-b border-[#EFECE6] pb-8">
+            <span className="text-[#C5A86A] text-[9px] tracking-[0.3em] font-bold uppercase block font-sans mb-2">
+              BLUSH + BLOW LONDON
+            </span>
+            <h1 className="font-serif text-4xl md:text-6xl text-[#1E241B] font-light tracking-wider uppercase italic">
+              Nails <span className="font-sans not-italic font-semibold text-[0.8em] text-[#5C6B57]">Services</span>
             </h1>
           </div>
         </div>
 
         {/* Treatment Boxes Grid */}
-        <div className="max-w-7xl mx-auto px-6 md:px-12">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {nailServicesGrid.map((serv, index) => (
               <div
                 key={index}
-                className="flex flex-col bg-[#788672] text-[#fcfaf7] shadow-md border border-[#788672]/20 overflow-hidden"
+                className="flex flex-col bg-white shadow-premium border border-[#EFECE6] rounded-lg overflow-hidden group hover:shadow-premium-hover transition-all duration-500"
               >
                 {/* Thumbnail Wrap */}
-                <Link href={serv.learnLink} className="h-[300px] relative w-full overflow-hidden bg-[#677461] block">
+                <Link href={serv.learnLink} className="h-72 relative w-full overflow-hidden bg-[#E8E5DF] block">
                   <Image
                     src={serv.img}
                     alt={serv.title}
                     fill
-                    sizes="(max-width: 768px) 100vw, 50vw"
-                    className="object-cover hover:scale-102 transition-transform duration-700"
-                    priority={index < 2}
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                    className="object-cover group-hover:scale-102 transition-transform duration-1000"
+                    priority={index < 3}
                   />
+                  <div className="absolute inset-0 bg-black/5" />
                 </Link>
 
                 {/* Content Wrap */}
-                <div className="p-8 md:p-12 flex-grow flex flex-col justify-between items-center text-center space-y-6">
-                  <div className="space-y-4 w-full">
-                    <Link href={serv.learnLink} className="hover:text-[#C6A86B] transition-colors block">
-                      <h2 className="font-serif text-2xl md:text-3xl font-semibold tracking-[0.05em] uppercase text-white">
+                <div className="p-8 flex-grow flex flex-col justify-between items-center text-center space-y-6">
+                  <div className="space-y-3 w-full">
+                    <span className="text-[#C5A86A] text-[8px] tracking-[0.25em] font-bold uppercase block">
+                      NAILS • THERAPY
+                    </span>
+                    <Link href={serv.learnLink} className="hover:text-[#C5A86A] transition-colors block">
+                      <h2 className="font-serif text-2xl font-light tracking-[0.05em] uppercase text-[#1E241B]">
                         {serv.title}
                       </h2>
                     </Link>
-                    <hr className="border-t border-white/20 w-full" />
-                    <p className="font-sans text-xs md:text-sm leading-relaxed tracking-wider text-white/90 min-h-[60px] flex items-center justify-center">
+                    <div className="h-[1px] w-8 bg-[#C5A86A]/30 mx-auto" />
+                    <p className="font-sans text-xs leading-relaxed tracking-wider text-[#1E241B]/70 min-h-[50px] flex items-center justify-center">
                       {serv.desc}
                     </p>
                   </div>
 
                   {/* Buttons Wrap */}
-                  <div className="flex flex-wrap items-center justify-center gap-4 pt-2 w-full">
+                  <div className="flex items-center justify-center gap-3 pt-2 w-full">
                     <Link
                       href={serv.learnLink}
-                      className="border border-white text-white font-bold text-xs tracking-[0.2em] uppercase px-6 py-3 hover:bg-white hover:text-[#788672] transition-all duration-300 min-w-[140px] text-center"
+                      className="border border-[#1E241B]/15 text-[#1E241B] font-bold text-[9px] tracking-[0.2em] uppercase px-5 py-3 hover:border-[#C5A86A] hover:bg-[#C5A86A] hover:text-white transition-all duration-300 rounded-full flex-1 text-center"
                     >
-                      Learn More
+                      Details
                     </Link>
                     <a
                       href={serv.bookLink}
-                      className="bg-[#eae5db] border border-[#eae5db] text-[#788672] font-bold text-xs tracking-[0.2em] uppercase px-6 py-3 hover:bg-white hover:text-[#788672] hover:border-white transition-all duration-300 min-w-[140px] text-center"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="bg-[#C5A86A] text-white font-bold text-[9px] tracking-[0.2em] uppercase px-5 py-3 hover:bg-[#B49658] transition-all duration-300 rounded-full flex-1 text-center shadow-sm"
                     >
                       Book Now
                     </a>

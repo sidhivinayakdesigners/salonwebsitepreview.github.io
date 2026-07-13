@@ -592,83 +592,97 @@ export default async function ServiceDetail({ params }: PageProps) {
     <>
       <Navbar />
 
-      <main className="pt-24 bg-[#eae5db] min-h-screen text-[#788672] font-sans">
+      <main className="pt-28 bg-[#FAF8F5] min-h-screen text-[#1E241B] font-sans">
         
         {/* Back navigation */}
-        <div className="max-w-7xl mx-auto px-6 md:px-12 pt-6">
+        <div className="max-w-7xl mx-auto px-6 pt-6">
           <Link
             href={backUrl}
-            className="inline-flex items-center space-x-2 text-xs tracking-widest uppercase font-bold text-[#788672]/70 hover:text-[#788672] transition-colors"
+            className="inline-flex items-center space-x-2 text-[10px] tracking-widest uppercase font-bold text-[#1E241B]/60 hover:text-[#C5A86A] transition-colors"
           >
-            <ArrowLeft size={14} />
+            <ArrowLeft size={12} />
             <span>Back to Services</span>
           </Link>
         </div>
 
         {/* Top Header Section */}
-        <section className="py-12 md:py-16 max-w-7xl mx-auto px-6 md:px-12 space-y-4">
-          <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl text-[#788672] font-semibold uppercase tracking-wider">
+        <section className="py-10 max-w-7xl mx-auto px-6 space-y-3">
+          <span className="text-[#C5A86A] text-[9px] tracking-[0.3em] font-bold uppercase block font-sans">
+            TREATMENT DETAILS
+          </span>
+          <h1 className="font-serif text-3xl md:text-5xl lg:text-6xl text-[#1E241B] font-light uppercase tracking-wider italic">
             {data.title}
           </h1>
-          <p className="text-sm md:text-base text-[#788672]/85 leading-relaxed tracking-wider max-w-4xl">
+          <div className="h-[1px] w-12 bg-[#C5A86A]/40" />
+          <p className="text-xs sm:text-sm text-[#1E241B]/70 leading-relaxed tracking-wider max-w-3xl pt-2">
             {data.description}
           </p>
         </section>
 
-        {/* Pricing & Image Box (Green Detail Container) */}
-        <section className="max-w-7xl mx-auto px-6 md:px-12 pb-24">
-          <div className="bg-[#788672] text-[#fcfaf7] grid grid-cols-1 md:grid-cols-2 shadow-lg border border-[#788672]/30">
+        {/* Pricing & Image Box (Editorial Columns) */}
+        <section className="max-w-7xl mx-auto px-6 pb-20">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
             
-            {/* Left Column: Image */}
-            <div className="h-[300px] md:h-auto min-h-[350px] relative w-full overflow-hidden bg-[#677461]">
-              <Image
-                src={data.image}
-                alt={data.title}
-                fill
-                sizes="(max-width: 768px) 100vw, 50vw"
-                className="object-cover"
-                priority
-              />
+            {/* Left Column: Image with frame */}
+            <div className="lg:col-span-5 h-[300px] lg:h-auto min-h-[350px] relative w-full overflow-hidden bg-[#E8E5DF] rounded-lg border border-[#EFECE6] p-1.5 shadow-premium">
+              <div className="relative w-full h-full overflow-hidden rounded-md">
+                <Image
+                  src={data.image}
+                  alt={data.title}
+                  fill
+                  sizes="(max-width: 768px) 100vw, 40vw"
+                  className="object-cover"
+                  priority
+                />
+              </div>
             </div>
 
-            {/* Right Column: Price Content */}
-            <div className="p-8 md:p-12 flex-col justify-between flex-grow flex">
+            {/* Right Column: Premium Price List */}
+            <div className="lg:col-span-7 bg-white border border-[#EFECE6] rounded-lg p-6 md:p-10 flex flex-col justify-between shadow-premium">
               
-              {/* Highlight Price Box */}
-              <div className="bg-[#eae5db] text-[#788672] py-8 text-center font-bold text-xl md:text-2xl uppercase tracking-wider select-none shadow-inner mb-6">
-                Price: {data.priceTag}
-              </div>
+              <div className="space-y-6">
+                <div className="border-b border-[#EFECE6] pb-4 flex items-center justify-between">
+                  <span className="text-[10px] tracking-widest text-[#1E241B]/55 uppercase font-bold">
+                    Services & Pricing Menu
+                  </span>
+                  <span className="bg-[#C5A86A]/10 text-[#C5A86A] text-[9px] tracking-wider font-bold uppercase px-3 py-1 rounded-full">
+                    From {data.priceTag}
+                  </span>
+                </div>
 
-              {/* Sub-items list */}
-              <div className="space-y-4 flex-grow">
-                {data.priceList.map((item, idx) => (
-                  <div key={idx} className="border-b border-white/10 pb-3 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1">
-                    <span className="font-sans text-sm md:text-base text-white/95 font-semibold">
-                      {item.name}
-                    </span>
-                    <div className="flex items-baseline space-x-2 shrink-0">
-                      <span className="font-serif text-base md:text-lg text-white font-bold">
-                        {item.price}
-                      </span>
-                      {item.note && (
-                        <span className="text-[10px] text-white/70 tracking-widest uppercase font-sans">
-                          {item.note}
+                {/* Sub-items list with dotted leaders */}
+                <div className="space-y-4">
+                  {data.priceList.map((item, idx) => (
+                    <div key={idx} className="space-y-1">
+                      <div className="flex items-baseline justify-between gap-1">
+                        <span className="font-sans text-xs sm:text-sm text-[#1E241B] font-bold tracking-wide">
+                          {item.name}
                         </span>
+                        {/* Dot leader line */}
+                        <div className="flex-grow border-b border-dotted border-[#1E241B]/15 mx-2" />
+                        <span className="font-serif text-sm sm:text-base text-[#C5A86A] font-bold shrink-0">
+                          {item.price}
+                        </span>
+                      </div>
+                      {item.note && (
+                        <p className="text-[9px] text-[#1E241B]/40 tracking-widest uppercase font-sans">
+                          {item.note}
+                        </p>
                       )}
                     </div>
-                  </div>
-                ))}
+                  ))}
+                </div>
               </div>
 
-              {/* Circle Book Now Button */}
-              <div className="flex justify-center pt-8">
+              {/* Book Appointment CTA */}
+              <div className="pt-10 flex justify-center lg:justify-start">
                 <a
                   href="https://www.fresha.com/providers/blush-blow-w9xnf8li?pId=9954&dppub=true"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-24 h-24 rounded-full border-2 border-white hover:border-[#eae5db] hover:bg-[#eae5db] hover:text-[#788672] bg-transparent text-white font-bold text-xs tracking-wider uppercase flex items-center justify-center transition-all duration-300 text-center shadow-md cursor-pointer"
+                  className="bg-[#C5A86A] hover:bg-[#B49658] text-white font-sans text-[10px] font-bold tracking-[0.25em] uppercase px-10 py-4 rounded-full transition-all duration-300 shadow-md hover:scale-[1.02] active:scale-[0.98]"
                 >
-                  Book Now
+                  Book Appointment
                 </a>
               </div>
 
@@ -678,28 +692,31 @@ export default async function ServiceDetail({ params }: PageProps) {
         </section>
 
         {/* 13. FAQ ACCORDION SECTION */}
-        <section className="py-24 bg-[#eae5db] border-t border-[#dcd7cc]">
-          <div className="max-w-4xl mx-auto px-6">
+        <section className="py-20 bg-white border-t border-[#EFECE6]">
+          <div className="max-w-3xl mx-auto px-6">
             
-            <div className="text-center mb-16 space-y-4">
-              <h2 className="font-serif text-3xl md:text-4xl text-[#788672] font-semibold uppercase tracking-wider">
-                Faq’s
+            <div className="text-center mb-12 space-y-2">
+              <span className="text-[#C5A86A] text-[9px] tracking-[0.3em] font-bold uppercase block font-sans">
+                FAQS & INFORMATION
+              </span>
+              <h2 className="font-serif text-3xl text-[#1E241B] font-light uppercase tracking-wider italic">
+                Frequently Asked Questions
               </h2>
-              <div className="h-[1px] w-16 bg-[#788672]/30 mx-auto mt-4" />
+              <div className="h-[1px] w-12 bg-[#C5A86A]/40 mx-auto mt-2" />
             </div>
 
             <div className="space-y-4">
               {data.faqs.map((faq, idx) => (
                 <details
                   key={idx}
-                  className="group border-b border-[#dcd7cc] pb-4 [&_summary::-webkit-details-marker]:hidden list-none cursor-pointer"
+                  className="group border border-[#EFECE6] rounded-md px-5 py-2 [&_summary::-webkit-details-marker]:hidden list-none cursor-pointer"
                 >
-                  <summary className="flex justify-between items-center font-serif text-lg md:text-xl text-[#788672] font-semibold cursor-pointer select-none py-3 list-none">
+                  <summary className="flex justify-between items-center font-serif text-sm sm:text-base text-[#1E241B] font-normal cursor-pointer select-none py-3 list-none hover:text-[#C5A86A] transition-colors">
                     <span>{faq.q}</span>
-                    <span className="text-[#C6A86B] font-sans text-xl group-open:hidden">+</span>
-                    <span className="text-[#C6A86B] font-sans text-xl hidden group-open:inline">-</span>
+                    <span className="text-[#C5A86A] font-serif text-xl font-light group-open:hidden">+</span>
+                    <span className="text-[#C5A86A] font-serif text-xl font-light hidden group-open:inline">−</span>
                   </summary>
-                  <div className="mt-2 text-xs md:text-sm text-[#788672]/80 leading-relaxed tracking-wider font-sans pl-1">
+                  <div className="mt-2 text-xs text-[#1E241B]/75 leading-relaxed tracking-wider font-sans pb-4 pt-1 border-t border-[#EFECE6]/60">
                     {faq.a}
                   </div>
                 </details>

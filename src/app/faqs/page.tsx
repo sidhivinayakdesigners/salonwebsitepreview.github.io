@@ -9,103 +9,35 @@ import { Star } from "lucide-react";
 const faqs = [
   {
     q: "When did Blush + Blow open?",
-    a: "Blush + Blow opened in 2016 and next door The Skin Studio Opened in 2022.",
+    a: "Blush + Blow opened in 2016, and our adjacent Skin Studio opened in 2022.",
   },
   {
     q: "Where is Blush + Blow located?",
-    a: "Blush + Blow is located in Parsons Green, London. Our address is 197 New King’s Road, London SW6 4SR.",
+    a: "We are situated in Parsons Green, Fulham. Our address is 197 New King’s Road, London SW6 4SR.",
   },
   {
-    q: "What does Blush + Blow do or provide?",
-    a: "Blush + Blow is a hair and beauty salon that provides, nails, tanning, massage, waxing, hair colour, cuts, styling, blow dries and more. Visit our website for more details.",
+    q: "What treatments do you provide?",
+    a: "We offer hair styling, coloring, blow dries, manicures, pedicures, beauty waxing, brows, lashes, massage, and spray tanning.",
   },
   {
-    q: "Can I walk in and get an appointment?",
-    a: "We have lots of people who walk in and get an appointment but to avoid disappointment we recommend booking on our website www.blushandblowlondon.com",
+    q: "Can I walk in, or do I need to book?",
+    a: "We do accommodate walk-ins when possible, but we highly recommend booking online in advance to ensure availability.",
   },
   {
     q: "What are your opening hours?",
-    a: "We are open Monday - Wednesday 7:30am to 6:00pm Thursday - Friday 7:30am to 8pm and Saturday - 9:00am to 6:00pm.",
+    a: "Monday – Wednesday: 9am to 6pm | Thursday – Friday: 9am to 8pm | Saturday: 9am to 6pm | Sunday: Closed.",
   },
   {
-    q: "Do you provide hair and beauty for weddings?",
-    a: "We have provided hair and make-up staff for weddings all over the World. Let us know what you would like and and we'll give you a quote. We'd be honoured to be part of your big day.",
+    q: "Do you offer wedding styling?",
+    a: "Yes, we specialize in bridal hair and makeup services. We cater to weddings globally and offer full in-salon trials.",
   },
   {
-    q: "Can I get my make-up done in Blush + Blow?",
-    a: "We have two make-up artists who work in Blush + Blow and who can travel for fashion or advertising shoots or weddings etc. Book online to make an appointment at Blush + Blow or else email us your specific requirements and we'll get straight back to you.",
+    q: "How can I contact the salon?",
+    a: "Call us on 020 7736 0430, WhatsApp us on 07979782832, or email info@blushandblowlondon.com.",
   },
   {
-    q: "How can I book an appointment?",
-    a: "You can book an appointment through our website at www.blushandblowlondon.com, via phone at 020 7736 0430, or through our Instagram @blushandblowlondon and WhatsApp 07979782832 channels.",
-  },
-  {
-    q: "I'm running late. Can I still come to my appointment?",
-    a: "Sorry to hear that you have been delayed but don't worry as we are here to help. Let me check what your appointment was for and I'll ask the staff member/s involved in your appointment if it can be done within the time remaining or whether you will need to rebook.",
-  },
-  {
-    q: "Do you have air conditioning?",
-    a: "Yes, our salon has air conditioning.",
-  },
-  {
-    q: "Can I bring my dog to Blush + Blow?",
-    a: "We are very dog friendly. So long as your doggy is too. Please clean up after your dog if they have an accident in the salon. We look forward to welcoming you both.",
-  },
-  {
-    q: "Can I bring my child or baby to Blush + Blow?",
-    a: "Children are very welcome and we even have kids parties in our salon so ask about booking us for a childrens party. For a normal booking where you bring your child please have them sit quietly and don't disrupt any other clients who may have come to get away from their own children for an hour! If your child causes other clients to complain we may have to reschedule your appointment but that's never happened yet.",
-  },
-  {
-    q: "Where can I leave my bike?",
-    a: "You can lock your bike to a bike stand outside the front of the salon.",
-  },
-  {
-    q: "Can I hire an electric bike near by?",
-    a: "There is an electric bike rental stand about 100 yards away by the Green.",
-  },
-  {
-    q: "How far away is the Tube or Underground Station?",
-    a: "The Tube is a 5 minute walk away.",
-  },
-  {
-    q: "Can I use my Skin Studio Voucher at Blush + Blow?",
-    a: "Unfortunately vouchers between the two locations are non-transferable.",
-  },
-  {
-    q: "Do you sell vouchers or gift cards?",
-    a: "Yes we sell vouchers and giftcards on the website.",
-  },
-  {
-    q: "I can't make a booking on your website?",
-    a: "I am sorry to hear that you are having trouble booking online. Call us or message us via Whatsapp on our site.",
-  },
-  {
-    q: "Can I pay in Euros or Dollars?",
-    a: "We accept cash in Pounds Sterling only or any major credit card including American Express.",
-  },
-  {
-    q: "Do you accept American Express?",
-    a: "We do accept American Express.",
-  },
-  {
-    q: "Do you accept walk-ins?",
-    a: "Yes, we do accept walk-ins based on availability. However, we recommend booking in advance to secure your preferred time and team member.",
-  },
-  {
-    q: "Is the clinic wheelchair accessible?",
-    a: "Our hair and nail stations are upstairs however our bathroom and treatment rooms are downstairs and are unfortunately not wheelchair accessible.",
-  },
-  {
-    q: "How do I get there by public transport?",
-    a: "Parsons Green Tube is a short walk away and the 22 bus stops a block from us at the Irene Road stop. You can lock your bike outside too.",
-  },
-  {
-    q: "What payment methods do you accept?",
-    a: "We accept all major credit and debit cards, as well as cash payments.",
-  },
-  {
-    q: "How will you use my personal information and data?",
-    a: "We will use your information to communicate with you about treatments and any offers and promotions related to relevant treatments for you.",
+    q: "Is the salon pet friendly?",
+    a: "We are extremely dog friendly! Well-behaved dogs are always welcome.",
   },
 ];
 
@@ -128,14 +60,17 @@ export default function FAQsPage() {
     <>
       <Navbar />
 
-      <main className="pt-32 pb-24 bg-[#eae5db] min-h-screen text-[#788672] font-sans">
+      <main className="pt-32 pb-24 bg-[#FAF8F5] min-h-screen text-[#1E241B] font-sans">
         
         {/* Title */}
         <div className="max-w-4xl mx-auto px-6 text-center mb-16 space-y-4">
-          <h1 className="font-serif text-5xl md:text-6xl text-[#788672] font-semibold uppercase tracking-wider">
+          <span className="text-[#C5A86A] text-[9px] tracking-[0.3em] font-bold uppercase block font-sans">
+            COMMON INQUIRIES
+          </span>
+          <h1 className="font-serif text-5xl md:text-6xl text-[#1E241B] font-light uppercase tracking-wider italic">
             FAQ’s
           </h1>
-          <div className="h-[1px] w-24 bg-[#788672]/30 mx-auto" />
+          <div className="h-[1px] w-16 bg-[#C5A86A]/40 mx-auto" />
         </div>
 
         {/* Collapsible FAQ Section */}
@@ -145,14 +80,14 @@ export default function FAQsPage() {
             return (
               <div
                 key={idx}
-                className="bg-[#eae5db] border border-[#dcd7cc] overflow-hidden shadow-sm"
+                className="bg-white border border-[#EFECE6] rounded-md overflow-hidden shadow-premium transition-all duration-300"
               >
                 <button
                   onClick={() => setActiveIdx(isOpen ? null : idx)}
-                  className="w-full px-8 py-5 text-left flex items-center justify-between font-serif text-base text-[#788672] font-semibold tracking-wide focus:outline-none"
+                  className="w-full px-6 py-5 text-left flex items-center justify-between font-serif text-sm sm:text-base text-[#1E241B] font-normal tracking-wide focus:outline-none hover:text-[#C5A86A] transition-colors"
                 >
                   <span>{faq.q}</span>
-                  <span className="text-[#788672] font-serif text-2xl font-light">
+                  <span className="text-[#C5A86A] font-serif text-2xl font-light leading-none">
                     {isOpen ? "−" : "+"}
                   </span>
                 </button>
@@ -164,9 +99,9 @@ export default function FAQsPage() {
                       animate={{ height: "auto", opacity: 1 }}
                       exit={{ height: 0, opacity: 0 }}
                       transition={{ duration: 0.3 }}
-                      className="border-t border-[#dcd7cc]"
+                      className="border-t border-[#EFECE6]"
                     >
-                      <p className="px-8 py-5 font-sans text-xs leading-relaxed tracking-wider text-[#788672]/85 bg-[#cbd1c9]/15">
+                      <p className="px-6 py-5 font-sans text-xs leading-relaxed tracking-wider text-[#1E241B]/70 bg-[#FAF8F5]/50">
                         {faq.a}
                       </p>
                     </motion.div>
@@ -178,24 +113,27 @@ export default function FAQsPage() {
         </div>
 
         {/* Testimonials at bottom */}
-        <div className="max-w-4xl mx-auto px-6 mt-28 border-t border-[#788672]/15 pt-20">
+        <div className="max-w-4xl mx-auto px-6 mt-28 border-t border-[#EFECE6] pt-20">
           <div className="text-center space-y-8">
-            <h2 className="font-serif text-3xl uppercase tracking-wider font-semibold">
-              Testimonials
+            <span className="text-[#C5A86A] text-[9px] tracking-[0.3em] font-bold uppercase block font-sans">
+              REVIEWS
+            </span>
+            <h2 className="font-serif text-3xl text-[#1E241B] font-light uppercase tracking-wider italic mt-1">
+              Client Testimonials
             </h2>
-            <div className="h-[1px] w-12 bg-[#788672]/30 mx-auto" />
+            <div className="h-[1px] w-12 bg-[#C5A86A]/40 mx-auto" />
 
             <div className="min-h-[140px] flex items-center justify-center">
-              <div className="space-y-4 max-w-2xl">
+              <div className="space-y-4 max-w-2xl bg-white p-8 border border-[#EFECE6] rounded-lg shadow-premium">
                 <div className="flex items-center justify-center space-x-1">
                   {[...Array(5)].map((_, i) => (
-                    <Star key={i} size={14} className="fill-[#788672] text-[#788672]" />
+                    <Star key={i} size={12} className="fill-[#C5A86A] text-[#C5A86A]" />
                   ))}
                 </div>
-                <p className="font-serif text-base md:text-lg italic leading-relaxed text-[#788672]/90">
+                <p className="font-serif text-sm sm:text-base italic leading-relaxed text-[#1E241B]/80 font-light">
                   "{testimonialsList[testimonialIdx].text}"
                 </p>
-                <p className="font-sans text-[10px] font-bold tracking-[0.2em] uppercase pt-2">
+                <p className="font-sans text-[9px] font-bold tracking-[0.2em] uppercase pt-2 text-[#C5A86A]">
                   — {testimonialsList[testimonialIdx].name}
                 </p>
               </div>
@@ -208,7 +146,7 @@ export default function FAQsPage() {
                   key={idx}
                   onClick={() => setTestimonialIdx(idx)}
                   className={`w-1.5 h-1.5 rounded-full transition-all duration-300 ${
-                    idx === testimonialIdx ? "bg-[#788672] w-4" : "bg-[#b9c1b7]"
+                    idx === testimonialIdx ? "bg-[#C5A86A] w-4" : "bg-[#1E241B]/15"
                   }`}
                   aria-label={`Go to review ${idx + 1}`}
                 />

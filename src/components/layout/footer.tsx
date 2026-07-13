@@ -8,7 +8,7 @@ import { motion } from "framer-motion";
 
 export const Footer = () => {
   return (
-    <footer className="bg-[#111111] text-white pt-20 pb-10 border-t border-white/5 font-sans">
+    <footer className="bg-[#121610] text-[#FAF8F5] pt-20 pb-20 border-t border-white/5 font-sans">
       <motion.div 
         initial="hidden"
         whileInView="visible"
@@ -18,7 +18,7 @@ export const Footer = () => {
           visible: {
             opacity: 1,
             transition: {
-              staggerChildren: 0.12
+              staggerChildren: 0.1
             }
           }
         }}
@@ -28,38 +28,38 @@ export const Footer = () => {
         {/* Brand details */}
         <motion.div 
           variants={{
-            hidden: { opacity: 0, y: 25 },
+            hidden: { opacity: 0, y: 15 },
             visible: { opacity: 1, y: 0 }
           }}
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
           className="flex flex-col space-y-6"
         >
           <Link href="/" className="flex flex-col select-none">
-            <span className="font-serif text-lg md:text-xl tracking-[0.25em] text-white uppercase font-bold">
+            <span className="font-serif text-base tracking-[0.25em] text-white uppercase font-bold">
               BLUSH + BLOW
             </span>
-            <span className="text-[8px] tracking-[0.45em] text-[#C6A86B] uppercase ml-0.5 font-sans">
+            <span className="text-[7px] tracking-[0.35em] text-[#C5A86A] uppercase mt-0.5 font-sans">
               LONDON
             </span>
           </Link>
-          <p className="font-sans text-xs text-[#999999] leading-relaxed tracking-wider max-w-xs">
+          <p className="font-sans text-xs text-[#FAF8F5]/60 leading-relaxed tracking-wider max-w-xs">
             Blush + Blow London offers premium hair, nails, beauty, and skincare services in the heart of Parsons Green on New Kings Road, Fulham (SW6).
           </p>
           {/* Social Icons */}
           <div className="flex items-center space-x-5 pt-2">
             {[
-              { href: "https://www.instagram.com/blushandblowlondon", icon: <Instagram size={18} />, label: "Instagram" },
-              { href: "https://www.facebook.com/blushandblow", icon: <Facebook size={18} />, label: "Facebook" },
-              { href: "https://wa.me/447979782832", icon: <MessageCircle size={18} />, label: "WhatsApp" },
-              { href: "tel:02077360430", icon: <Phone size={16} />, label: "Call Us" }
+              { href: "https://www.instagram.com/blushandblowlondon", icon: <Instagram size={16} />, label: "Instagram" },
+              { href: "https://www.facebook.com/blushandblow", icon: <Facebook size={16} />, label: "Facebook" },
+              { href: "https://wa.me/447979782832", icon: <MessageCircle size={16} />, label: "WhatsApp" },
+              { href: "tel:02077360430", icon: <Phone size={15} />, label: "Call Us" }
             ].map((soc, idx) => (
               <motion.a
                 key={idx}
                 href={soc.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                whileHover={{ scale: 1.15, y: -2 }}
-                className="text-[#999999] hover:text-[#C6A86B] transition-colors"
+                whileHover={{ scale: 1.1, y: -2 }}
+                className="text-[#FAF8F5]/50 hover:text-[#C5A86A] transition-colors"
                 aria-label={soc.label}
               >
                 {soc.icon}
@@ -71,24 +71,24 @@ export const Footer = () => {
         {/* Quick links */}
         <motion.div 
           variants={{
-            hidden: { opacity: 0, y: 25 },
+            hidden: { opacity: 0, y: 15 },
             visible: { opacity: 1, y: 0 }
           }}
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
           className="flex flex-col space-y-6"
         >
-          <h4 className="font-serif text-sm tracking-[0.22em] uppercase text-[#C6A86B] font-medium">
+          <h4 className="font-serif text-xs tracking-[0.2em] uppercase text-[#C5A86A] font-semibold">
             About Us
           </h4>
-          <nav className="flex flex-col space-y-3 font-sans text-xs tracking-widest text-[#999999]">
+          <nav className="flex flex-col space-y-3 font-sans text-xs tracking-widest text-[#FAF8F5]/60">
             {[
               { href: "/", label: "Home" },
               { href: "/team-members", label: "Team Members" },
               { href: "/careers", label: "Careers" },
               { href: "/contact", label: "Contact & Hours" }
             ].map((link, idx) => (
-              <motion.div key={idx} whileHover={{ x: 3 }}>
-                <Link href={link.href} className="hover:text-[#C6A86B] transition-colors">
+              <motion.div key={idx} whileHover={{ x: 2 }}>
+                <Link href={link.href} className="hover:text-[#C5A86A] transition-colors">
                   {link.label}
                 </Link>
               </motion.div>
@@ -99,24 +99,24 @@ export const Footer = () => {
         {/* Services menu */}
         <motion.div 
           variants={{
-            hidden: { opacity: 0, y: 25 },
+            hidden: { opacity: 0, y: 15 },
             visible: { opacity: 1, y: 0 }
           }}
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
           className="flex flex-col space-y-6"
         >
-          <h4 className="font-serif text-sm tracking-[0.22em] uppercase text-[#C6A86B] font-medium">
+          <h4 className="font-serif text-xs tracking-[0.2em] uppercase text-[#C5A86A] font-semibold">
             Services
           </h4>
-          <nav className="flex flex-col space-y-3 font-sans text-xs tracking-widest text-[#999999]">
+          <nav className="flex flex-col space-y-3 font-sans text-xs tracking-widest text-[#FAF8F5]/60">
             {[
               { href: "/hair", label: "Hair Styling & Color" },
               { href: "/nails", label: "Nails (Hands & Feet)" },
               { href: "/beauty", label: "Brows, Makeup & Massage" },
               { href: "/bridal", label: "Bridal Hair & Makeup" }
             ].map((link, idx) => (
-              <motion.div key={idx} whileHover={{ x: 3 }}>
-                <Link href={link.href} className="hover:text-[#C6A86B] transition-colors">
+              <motion.div key={idx} whileHover={{ x: 2 }}>
+                <Link href={link.href} className="hover:text-[#C5A86A] transition-colors">
                   {link.label}
                 </Link>
               </motion.div>
@@ -127,34 +127,34 @@ export const Footer = () => {
         {/* Newsletter Signup */}
         <motion.div 
           variants={{
-            hidden: { opacity: 0, y: 25 },
+            hidden: { opacity: 0, y: 15 },
             visible: { opacity: 1, y: 0 }
           }}
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
           className="flex flex-col space-y-6"
         >
-          <h4 className="font-serif text-sm tracking-[0.22em] uppercase text-[#C6A86B] font-medium">
+          <h4 className="font-serif text-xs tracking-[0.2em] uppercase text-[#C5A86A] font-semibold">
             Newsletter
           </h4>
-          <p className="font-sans text-xs text-[#999999] leading-relaxed tracking-wider">
+          <p className="font-sans text-xs text-[#FAF8F5]/60 leading-relaxed tracking-wider">
             Subscribe to stay updated with Blush + Blow news, seasonal promotions, and beauty tips.
           </p>
           <form
             onSubmit={(e) => e.preventDefault()}
-            className="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-2 pt-2"
+            className="flex flex-col space-y-3 pt-2"
           >
             <input
               type="email"
               placeholder="Your email address"
-              className="bg-[#1E1E1E] border border-white/10 rounded-full px-5 py-3.5 text-xs tracking-widest text-white placeholder-[#555555] focus:outline-none focus:border-[#C6A86B] w-full"
+              className="bg-transparent border-b border-[#FAF8F5]/20 pb-2 text-xs tracking-widest text-[#FAF8F5] placeholder-[#FAF8F5]/30 focus:outline-none focus:border-[#C5A86A] w-full transition-colors"
               required
             />
             <Button
               type="submit"
               variant="gold-solid"
-              className="px-6 py-3 min-w-[100px] text-[10px]"
+              className="px-6 py-2.5 text-[8px] mt-2 self-start bg-[#C5A86A] border-[#C5A86A] text-white hover:bg-[#B49658]"
             >
-              Join
+              Subscribe
             </Button>
           </form>
         </motion.div>
@@ -162,13 +162,13 @@ export const Footer = () => {
       </motion.div>
 
       {/* Border & Copyright */}
-      <div className="max-w-7xl mx-auto px-6 md:px-12 mt-16 pt-8 border-t border-white/5 flex flex-col md:flex-row items-center justify-between text-[10px] tracking-[0.2em] uppercase text-[#666666]">
+      <div className="max-w-7xl mx-auto px-6 md:px-12 mt-16 pt-8 border-t border-white/5 flex flex-col md:flex-row items-center justify-between text-[8px] tracking-[0.2em] uppercase text-[#FAF8F5]/30 gap-4">
         <p>&copy; {new Date().getFullYear()} Blush + Blow London. All Rights Reserved.</p>
-        <div className="flex items-center space-x-6 mt-4 md:mt-0">
-          <Link href="/" className="hover:text-[#C6A86B] luxury-transition">
+        <div className="flex items-center space-x-6">
+          <Link href="/" className="hover:text-[#C5A86A] transition-colors">
             Privacy Policy
           </Link>
-          <Link href="/" className="hover:text-[#C6A86B] luxury-transition">
+          <Link href="/" className="hover:text-[#C5A86A] transition-colors">
             Terms of Service
           </Link>
         </div>
