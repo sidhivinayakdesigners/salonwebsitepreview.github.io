@@ -156,3 +156,27 @@ body {
   opacity: 1;
 }
 
+/* Custom Cursor Hiding on Desktop */
+@media (min-width: 1025px) {
+  .custom-cursor-enabled,
+  .custom-cursor-enabled * {
+    cursor: none !important;
+  }
+}
+
+/* Premium smooth fade-in image reveal wrapper */
+.premium-reveal-image {
+  clip-path: inset(100% 0 0 0);
+  transition: clip-path 1.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.premium-reveal-image.in-view {
+  clip-path: inset(0 0 0 0);
+}
+
+/* Text slide up animation container */
+.split-text-container {
+  overflow: hidden;
+  display: inline-block;
+}
+
+

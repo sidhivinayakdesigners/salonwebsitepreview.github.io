@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Playfair_Display, Inter, Cormorant_Garamond, Outfit } from "next/font/google";
 import "./globals.css";
+import { SoundProvider } from "@/components/ui/ambient-sound";
+import { CustomCursor } from "@/components/ui/custom-cursor";
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
@@ -29,12 +31,12 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
-  title: "Blush + Blow London | Luxury Hair, Nails & Beauty | New Kings Road SW6",
-  description: "Blush + Blow London offers luxury hair, beauty, and skincare services on New Kings Road, Parsons Green, SW6. Discover premium experiences tailored to you.",
-  metadataBase: new URL("https://blushandblowlondon.com"),
+  title: "Maison de Beauté London | Luxury Hair, Nails & Beauty | Maison Avenue SW6",
+  description: "Maison de Beauté London offers luxury hair, beauty, and skincare services on Maison Avenue, Chelsea, SW6. Discover premium experiences tailored to you.",
+  metadataBase: new URL("https://maisondebeautelondon.com"),
   openGraph: {
-    title: "Blush + Blow London | Luxury Hair, Nails & Beauty | New Kings Road SW6",
-    description: "Blush + Blow London offers luxury hair, beauty, and skincare services on New Kings Road, Parsons Green, SW6. Discover premium experiences tailored to you.",
+    title: "Maison de Beauté London | Luxury Hair, Nails & Beauty | Maison Avenue SW6",
+    description: "Maison de Beauté London offers luxury hair, beauty, and skincare services on Maison Avenue, Chelsea, SW6. Discover premium experiences tailored to you.",
     type: "website",
     locale: "en_GB",
   },
@@ -47,8 +49,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${playfair.variable} ${inter.variable} ${cormorant.variable} ${outfit.variable} scroll-smooth`}>
-      <body className="min-h-screen bg-[#eae5db] text-[#3d4f3d] font-sans antialiased selection:bg-[#C6A86B]/20 selection:text-[#3d4f3d]">
-        {children}
+      <body className="min-h-screen bg-[#FAF8F5] text-[#1E241B] font-sans antialiased selection:bg-[#C5A86A]/20 selection:text-[#1E241B] custom-cursor-enabled">
+        <SoundProvider>
+          <CustomCursor />
+          {children}
+        </SoundProvider>
       </body>
     </html>
   );

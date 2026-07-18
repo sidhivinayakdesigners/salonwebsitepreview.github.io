@@ -12,8 +12,10 @@ import {
   CheckCircle,
 } from "lucide-react";
 import Link from "next/link";
+import { useSound } from "@/components/ui/ambient-sound";
 
 export default function ContactPage() {
+  const { playHover, playClick } = useSound();
   const [formSubmitted, setFormSubmitted] = useState(false);
 
   return (
@@ -118,6 +120,8 @@ export default function ContactPage() {
 
                 <button
                   type="submit"
+                  onMouseEnter={playHover}
+                  onClick={playClick}
                   className="w-full bg-[#1E241B] hover:bg-[#5C6B57] text-[#FAF8F5] font-sans text-[10px] font-bold tracking-[0.25em] uppercase py-4 rounded-full transition-all duration-300 cursor-pointer shadow-md"
                 >
                   Send Message
@@ -142,8 +146,8 @@ export default function ContactPage() {
                   <span className="text-[9px] tracking-widest uppercase text-[#1E241B]/40 font-bold block mb-1">
                     Call Us
                   </span>
-                  <a href="tel:02077360430" className="hover:text-[#C5A86A] transition-colors text-sm font-semibold">
-                    020 7736 0430
+                  <a href="tel:02071234567" className="hover:text-[#C5A86A] transition-colors text-sm font-semibold">
+                    020 7123 4567
                   </a>
                 </li>
 
@@ -151,8 +155,8 @@ export default function ContactPage() {
                   <span className="text-[9px] tracking-widest uppercase text-[#1E241B]/40 font-bold block mb-1">
                     Enquiries & Marketing
                   </span>
-                  <a href="mailto:info@blushandblowlondon.com" className="hover:text-[#C5A86A] transition-colors text-sm font-semibold">
-                    info@blushandblowlondon.com
+                  <a href="mailto:info@maisondebeautelondon.com" className="hover:text-[#C5A86A] transition-colors text-sm font-semibold">
+                    info@maisondebeautelondon.com
                   </a>
                 </li>
 
@@ -160,8 +164,8 @@ export default function ContactPage() {
                   <span className="text-[9px] tracking-widest uppercase text-[#1E241B]/40 font-bold block mb-1">
                     Press & PR
                   </span>
-                  <a href="mailto:mel@melissalloydpr.com" className="hover:text-[#C5A86A] transition-colors text-sm font-semibold">
-                    mel@melissalloydpr.com
+                  <a href="mailto:press@maisondebeautedemo.com" className="hover:text-[#C5A86A] transition-colors text-sm font-semibold">
+                    press@maisondebeautedemo.com
                   </a>
                 </li>
               </ul>
@@ -174,15 +178,19 @@ export default function ContactPage() {
               </span>
               <div className="grid grid-cols-2 gap-3 text-[9px] font-bold tracking-widest uppercase text-center font-sans">
                 <Link
-                  href="https://wa.me/447979782832"
+                  href="https://wa.me/447000000000"
                   target="_blank"
+                  onMouseEnter={playHover}
+                  onClick={playClick}
                   className="bg-[#25d366] text-white py-3.5 rounded-full hover:bg-[#1ebd58] transition-all duration-300 shadow-sm"
                 >
                   WhatsApp
                 </Link>
                 <Link
-                  href="https://www.fresha.com/providers/blush-blow-w9xnf8li?pId=9954&dppub=true"
+                  href="https://www.fresha.com/providers/maison-de-beaute-demo"
                   target="_blank"
+                  onMouseEnter={playHover}
+                  onClick={playClick}
                   className="bg-[#C5A86A] text-white py-3.5 rounded-full hover:bg-[#B49658] transition-all duration-300 shadow-sm"
                 >
                   Book Online
@@ -257,11 +265,13 @@ export default function ContactPage() {
               Franchise
             </h2>
             <p className="text-xs sm:text-sm text-[#1E241B]/70 leading-relaxed tracking-wider max-w-2xl mx-auto font-light">
-              Are you excited about the growth of Hair, Nails and Beauty treatments and interested in our help setting up your own Blush + Blow? We welcome driven individuals who share our dedication to Hair, Nails or Beauty excellence. Reach out via email with your background, ideas, and preferred geographical location for opening your very own Blush + Blow franchise business. We look forward to hearing from you.
+              Are you excited about the growth of Hair, Nails and Beauty treatments and interested in our help setting up your own Maison de Beauté? We welcome driven individuals who share our dedication to Hair, Nails or Beauty excellence. Reach out via email with your background, ideas, and preferred geographical location for opening your very own Maison de Beauté franchise business. We look forward to hearing from you.
             </p>
             <div className="pt-4">
               <a
-                href="mailto:info@blushandblowlondon.com"
+                href="mailto:info@maisondebeautelondon.com"
+                onMouseEnter={playHover}
+                onClick={playClick}
                 className="inline-block bg-[#1E241B] hover:bg-[#5C6B57] text-[#FAF8F5] font-sans text-[10px] font-bold tracking-[0.25em] uppercase px-10 py-4.5 rounded-full transition-all duration-300 shadow-md"
               >
                 Get In Touch

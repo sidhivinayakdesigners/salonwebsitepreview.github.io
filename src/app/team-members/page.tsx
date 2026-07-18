@@ -7,76 +7,76 @@ import { Footer } from "@/components/layout/footer";
 
 const teamMembers = [
   {
-    name: "Annie",
+    name: "Alice",
     role: "Receptionist",
     img: "/images/team/annie.webp",
-    desc: "Annie is our friendly receptionist who thrives in working in a bustling environment where everyone works as a team. She really enjoys working with people, both our clients and supporting our staff. Annie’s kind and calm demeanor will welcome you into our space and you will be well taken care of.",
+    desc: "Alice is our friendly receptionist who thrives in working in a bustling environment where everyone works as a team. She really enjoys working with people, both our clients and supporting our staff. Alice’s kind and calm demeanor will welcome you into our space and you will be well taken care of.",
   },
   {
-    name: "Bridget",
+    name: "Genevieve",
     role: "Founder",
     img: "/images/team/bridget.png",
-    desc: "Bridget has a love for gorgeous hair, beauty and glowing skin as well as a passion for keeping up to date with the latest industry trends and technologies. This has allowed her to create a truly luxurious retreat in the heart of London that delivers bespoke treatments, in a setting that feels like a home away from home.",
+    desc: "Genevieve has a love for gorgeous hair, beauty and glowing skin as well as a passion for keeping up to date with the latest industry trends and technologies. This has allowed her to create a truly luxurious retreat in the heart of London that delivers bespoke treatments, in a setting that feels like a home away from home.",
   },
   {
-    name: "Morgan",
+    name: "Camille",
     role: "Beauty & Laser Therapist",
     img: "/images/team/morgan.webp",
-    desc: "Morgan enjoys the aspect of caring in beauty work. She loves making someone feel better when they might not be feeling their best. Morgan is skilled in a variety of beauty treatments as well as Hydrafacial and laser hair removal. Her calm demeanour and attention to detail make her a favourite among her clients.",
+    desc: "Camille enjoys the aspect of caring in beauty work. She loves making someone feel better when they might not be feeling their best. Camille is skilled in a variety of beauty treatments as well as Hydrafacial and laser hair removal. Her calm demeanour and attention to detail make her a favourite among her clients.",
   },
   {
-    name: "Kate",
+    name: "Eleanor",
     role: "Operations",
     img: "/images/team/kate.webp",
-    desc: "Kate loves enabling others and playing a part in making the cogs of the business turn. She enjoys interacting with the team and that her role covers a variety of work, from supporting others, being creative and administration.",
+    desc: "Eleanor loves enabling others and playing a part in making the cogs of the business turn. She enjoys interacting with the team and that her role covers a variety of work, from supporting others, being creative and administration.",
   },
   {
-    name: "Bee",
+    name: "Chloe",
     role: "Nail Technician",
     img: "/images/team/bee.webp",
-    desc: "Bee believes that careful and patient preparation creates the setting for applying flawless work. She loves to see her clients’ glowing and admiring her work. Her favourite treatment to deliver is gel-extensions, ensuring her clients’ leave with long, strong and stunning nails.",
+    desc: "Chloe believes that careful and patient preparation creates the setting for applying flawless work. She loves to see her clients’ glowing and admiring her work. Her favourite treatment to deliver is gel-extensions, ensuring her clients’ leave with long, strong and stunning nails.",
   },
   {
-    name: "Cristina",
+    name: "Clara",
     role: "Nail Technician & Makeup Artist",
     img: "/images/team/cristina.webp",
-    desc: "Cristina is inspired by making people feel beautiful. She loves doing make-up because it allows her to use her creativity to bring out the best in others and enhance their natural beauty. She feels a deep sense of gratitude in being able to empower her clients and the positive impact that her work has on others.",
+    desc: "Clara is inspired by making people feel beautiful. She loves doing make-up because it allows her to use her creativity to bring out the best in others and enhance their natural beauty. She feels a deep sense of gratitude in being able to empower her clients and the positive impact that her work has on others.",
   },
   {
-    name: "Freya",
+    name: "Sophia",
     role: "Beauty Therapist & Makeup Artist",
     img: "/images/team/freya.webp",
-    desc: "Freya loves making her clients feel more comfortable and relaxed, so that they leave the salon feeling happy and a more confident version of themselves. She is passionate about doing makeovers and giving makeup lessons, as this brings her clients joy and empowers them to use their products correctly.",
+    desc: "Sophia loves making her clients feel more comfortable and relaxed, so that they leave the salon feeling happy and a more confident version of themselves. She is passionate about doing makeovers and giving makeup lessons, as this brings her clients joy and empowers them to use their products correctly.",
   },
   {
-    name: "Hema",
+    name: "Amara",
     role: "Beauty Therapist",
     img: "/images/team/hema.webp",
-    desc: "Hema loves to make people feel better, ease stress and induce relaxation. She achieves this through the power of touch: she has over 17 years experience in massage, which is her favourite treatment to perform. Hema is kind, supportive and caring and regularly gets feedback that she has made her clients’ day.",
+    desc: "Amara loves to make people feel better, ease stress and induce relaxation. She achieves this through the power of touch: she has over 17 years experience in massage, which is her favourite treatment to perform. Amara is kind, supportive and caring and regularly gets feedback that she has made her clients’ day.",
   },
   {
-    name: "Lamiaa",
+    name: "Layla",
     role: "Beauty Therapist & Threading Artist",
     img: "/images/team/lamiaa.png",
-    desc: "Lamiaa is a multi-talented beauty professional, having done hair for over 20 years as well as being extremely in demand for her threading skills! She is so popular that she gets booked up weeks in advance, so magical are her hands! She is also renowned for her signature baby-lights and really enjoys the creative element of colour.",
+    desc: "Layla is a multi-talented beauty professional, having done hair for over 20 years as well as being extremely in demand for her threading skills! She is so popular that she gets booked up weeks in advance, so magical are her hands! She is also renowned for her signature baby-lights and really enjoys the creative element of colour.",
   },
   {
-    name: "Migle",
+    name: "Mia",
     role: "Colourist",
     img: "/images/team/migle.webp",
-    desc: "Migle has been with Blush + Blow London since our doors opened in 2016. She is constantly in demand with our clients for her amazing blow dry skills and colour creations. Her hair styling is so loved by her clients that she has travelled to five different countries for multiple Blush + Blow London International brides.",
+    desc: "Mia has been with Maison de Beauté London since our doors opened in 2016. She is constantly in demand with our clients for her amazing blow dry skills and colour creations. Her hair styling is so loved by her clients that she has travelled to five different countries for multiple Maison de Beauté London International brides.",
   },
   {
-    name: "Rozina",
+    name: "Rose",
     role: "Colourist",
     img: "/images/team/rozina.webp",
-    desc: "Rozina can create the perfect look for any occasion. She specialises in incredible blow dries and flawless styling. Her clients’ burst with happiness with the results and she loves creating this experience for them. She also uses colour to transform clients’ hair into gorgeous, glowing locks.",
+    desc: "Rose can create the perfect look for any occasion. She specialises in incredible blow dries and flawless styling. Her clients’ burst with happiness with the results and she loves creating this experience for them. She also uses colour to transform clients’ hair into gorgeous, glowing locks.",
   },
   {
-    name: "Sara Eddi",
+    name: "Sara",
     role: "Colourist",
     img: "/images/team/sara.webp",
-    desc: "Sara Eddi loves that her profession allows her to express her creativity and at the same time help people feel more confident. She is wonderfully creative, friendly and attentive and takes great care of her clients. With more than 10 years’ hair experience, she fashions beautiful up dos and delivers gorgeous colour.",
+    desc: "Sara loves that her profession allows her to express her creativity and at the same time help people feel more confident. She is wonderfully creative, friendly and attentive and takes great care of her clients. With more than 10 years’ hair experience, she fashions beautiful up dos and delivers gorgeous colour.",
   },
 ];
 
@@ -93,11 +93,11 @@ export default function TeamMembers() {
             THE ARTISTS & FOUNDERS
           </span>
           <h1 className="font-serif text-5xl md:text-6xl text-[#1E241B] font-light uppercase tracking-wider italic">
-            Blushers + Blowers
+            Specialists & Artists
           </h1>
           <div className="h-[1px] w-16 bg-[#C5A86A]/40 mx-auto" />
           <p className="text-xs sm:text-sm text-[#1E241B]/75 leading-relaxed tracking-wider max-w-2xl mx-auto">
-            Driven by passion and expertise, our team at Blush + Blow combines years of industry experience with a shared goal: to elevate your personal style.
+            Driven by passion and expertise, our team at Maison de Beauté combines years of industry experience with a shared goal: to elevate your personal style.
           </p>
         </div>
 

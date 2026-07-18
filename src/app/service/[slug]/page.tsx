@@ -9,7 +9,7 @@ import { ArrowLeft } from "lucide-react";
 const hairFaqs = [
   {
     q: "How do I book an appointment for a Blow Dry or a Cut or Colour?",
-    a: "You can book directly via our online Fresha booking system, call us at 020 7736 0430, or drop by the salon. We recommend booking in advance.",
+    a: "You can book directly via our online Fresha booking system, call us at 020 7123 4567, or drop by the salon. We recommend booking in advance.",
   },
   {
     q: "What hair services do you offer?",
@@ -21,7 +21,7 @@ const hairFaqs = [
   },
   {
     q: "Do you offer services for both men and women?",
-    a: "Yes! Blush + Blow is a unisex salon offering premium hair styling, cuts, and coloring for both men and women.",
+    a: "Yes! Maison de Beauté is a unisex salon offering premium hair styling, cuts, and coloring for both men and women.",
   },
   {
     q: "How much does a haircut cost?",
@@ -84,7 +84,7 @@ const servicesData: Record<
   colour: {
     title: "Colour",
     description:
-      "At Blush + Blow, we believe that your hair colour is more than just a shade—it's a reflection of your style and personality. Our expert team of colorists is dedicated to providing bespoke hair colour services that bring out the best in your hair, whether you're looking for a subtle touch-up or a complete transformation.",
+      "At Maison de Beauté, we believe that your hair colour is more than just a shade—it's a reflection of your style and personality. Our expert team of colorists is dedicated to providing bespoke hair colour services that bring out the best in your hair, whether you're looking for a subtle touch-up or a complete transformation.",
     image: "/images/haircolour.avif",
     priceTag: "£49",
     priceList: [
@@ -97,7 +97,7 @@ const servicesData: Record<
     ],
     faqs: hairFaqs,
   },
-  "blow-dry-blush-blow-london": {
+  "blow-dry-maison-de-beaute": {
     title: "Blow Dry",
     description:
       "Experience the ultimate blow dry with our color experts, who bring a unique blend of technique and brushwork to every blow dry. Enjoy a luxury wash and condition followed by a customized bouncy or sleek blow dry finish.",
@@ -175,7 +175,7 @@ const servicesData: Record<
     priceTag: "£36",
     priceList: [
       { name: "Gel Shape & Paint (Hands)", price: "£36", note: "any professional" },
-      { name: "Blush + Blow Signature Manicure", price: "£45", note: "any professional" },
+      { name: "Maison de Beauté Signature Manicure", price: "£45", note: "any professional" },
       { name: "Gel Removal & Nail Tidy", price: "£20", note: "any professional" },
       { name: "Quick File & Polish", price: "£25", note: "any professional" },
     ],
@@ -402,7 +402,7 @@ const servicesData: Record<
     priceTag: "£40",
     priceList: [
       { name: "Gel Shape & Paint (Feet)", price: "£40", note: "any professional" },
-      { name: "Blush + Blow Luxury Pedicure", price: "£55", note: "any professional" },
+      { name: "Maison de Beauté Luxury Pedicure", price: "£55", note: "any professional" },
       { name: "Callus Treatment & Gel Pedicure", price: "£65", note: "any professional" },
     ],
     faqs: nailsFaqs,
@@ -507,7 +507,7 @@ const servicesData: Record<
 export async function generateStaticParams() {
   return [
     { slug: "colour" },
-    { slug: "blow-dry-blush-blow-london" },
+    { slug: "blow-dry-maison-de-beaute" },
     { slug: "cut-and-style" },
     { slug: "hair-treatments" },
     { slug: "hair-extensions" },
@@ -677,7 +677,7 @@ export default async function ServiceDetail({ params }: PageProps) {
               {/* Book Appointment CTA */}
               <div className="pt-10 flex justify-center lg:justify-start">
                 <a
-                  href="https://www.fresha.com/providers/blush-blow-w9xnf8li?pId=9954&dppub=true"
+                  href="https://www.fresha.com/providers/maison-de-beaute-demo"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="bg-[#C5A86A] hover:bg-[#B49658] text-white font-sans text-[10px] font-bold tracking-[0.25em] uppercase px-10 py-4 rounded-full transition-all duration-300 shadow-md hover:scale-[1.02] active:scale-[0.98]"

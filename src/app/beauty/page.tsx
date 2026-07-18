@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
+import { useSound } from "@/components/ui/ambient-sound";
 
 const beautyServicesGrid = [
   {
@@ -12,39 +13,40 @@ const beautyServicesGrid = [
     img: "/images/beauty_lashes.jpg",
     desc: "Bespoke classic extensions, volume sets, and lash lifts customized to open your eyes beautifully.",
     learnLink: "/service/eyelashes",
-    bookLink: "https://www.fresha.com/providers/blush-blow-w9xnf8li?pId=9954&dppub=true",
+    bookLink: "https://www.fresha.com/providers/maison-de-beaute-demo",
   },
   {
     title: "Brows + Threading",
     img: "/images/beauty_brows.jpg",
     desc: "Expert brow shaping, thread hair removal, hybrid tinting, and brow lamination to frame your face.",
     learnLink: "/service/brows-threading",
-    bookLink: "https://www.fresha.com/providers/blush-blow-w9xnf8li?pId=9954&dppub=true",
+    bookLink: "https://www.fresha.com/providers/maison-de-beaute-demo",
   },
   {
     title: "Spray Tan",
     img: "/images/beauty_tan.webp",
     desc: "Seamless, golden bronzing using premium St. Tropez express formulas for a natural, healthy glow.",
     learnLink: "/service/spray-tan",
-    bookLink: "https://www.fresha.com/providers/blush-blow-w9xnf8li?pId=9954&dppub=true",
+    bookLink: "https://www.fresha.com/providers/maison-de-beaute-demo",
   },
   {
     title: "Make Up",
     img: "/images/beauty_makeup.jpg",
     desc: "Professional cosmetic applications using premium Charlotte Tilbury ranges for events and bridal parties.",
     learnLink: "/service/makeup",
-    bookLink: "https://www.fresha.com/providers/blush-blow-w9xnf8li?pId=9954&dppub=true",
+    bookLink: "https://www.fresha.com/providers/maison-de-beaute-demo",
   },
   {
     title: "Massage",
     img: "/images/beauty_massage.webp",
     desc: "Therapeutic deep tissue or Swedish relaxation body massage in our private, quiet treatment rooms.",
     learnLink: "/service/massage",
-    bookLink: "https://www.fresha.com/providers/blush-blow-w9xnf8li?pId=9954&dppub=true",
+    bookLink: "https://www.fresha.com/providers/maison-de-beaute-demo",
   },
 ];
 
 export default function BeautyServices() {
+  const { playHover, playClick } = useSound();
   return (
     <>
       <Navbar />
@@ -55,7 +57,7 @@ export default function BeautyServices() {
         <div className="max-w-7xl mx-auto px-6 mb-16">
           <div className="text-center md:text-left border-b border-[#EFECE6] pb-8">
             <span className="text-[#C5A86A] text-[9px] tracking-[0.3em] font-bold uppercase block font-sans mb-2">
-              BLUSH + BLOW LONDON
+              MAISON DE BEAUTÉ
             </span>
             <h1 className="font-serif text-4xl md:text-6xl text-[#1E241B] font-light tracking-wider uppercase italic">
               Beauty <span className="font-sans not-italic font-semibold text-[0.8em] text-[#5C6B57]">Services</span>
@@ -72,7 +74,12 @@ export default function BeautyServices() {
                 className="flex flex-col bg-white shadow-premium border border-[#EFECE6] rounded-lg overflow-hidden group hover:shadow-premium-hover transition-all duration-500"
               >
                 {/* Thumbnail Wrap */}
-                <Link href={serv.learnLink} className="h-72 relative w-full overflow-hidden bg-[#E8E5DF] block">
+                <Link
+                  href={serv.learnLink}
+                  onMouseEnter={playHover}
+                  onClick={playClick}
+                  className="h-72 relative w-full overflow-hidden bg-[#E8E5DF] block"
+                >
                   <Image
                     src={serv.img}
                     alt={serv.title}
@@ -90,7 +97,12 @@ export default function BeautyServices() {
                     <span className="text-[#C5A86A] text-[8px] tracking-[0.25em] font-bold uppercase block">
                       BEAUTY • WELLNESS
                     </span>
-                    <Link href={serv.learnLink} className="hover:text-[#C5A86A] transition-colors block">
+                    <Link
+                      href={serv.learnLink}
+                      onMouseEnter={playHover}
+                      onClick={playClick}
+                      className="hover:text-[#C5A86A] transition-colors block"
+                    >
                       <h2 className="font-serif text-2xl font-light tracking-[0.05em] uppercase text-[#1E241B]">
                         {serv.title}
                       </h2>
@@ -105,6 +117,8 @@ export default function BeautyServices() {
                   <div className="flex items-center justify-center gap-3 pt-2 w-full">
                     <Link
                       href={serv.learnLink}
+                      onMouseEnter={playHover}
+                      onClick={playClick}
                       className="border border-[#1E241B]/15 text-[#1E241B] font-bold text-[9px] tracking-[0.2em] uppercase px-5 py-3 hover:border-[#C5A86A] hover:bg-[#C5A86A] hover:text-white transition-all duration-300 rounded-full flex-1 text-center"
                     >
                       Details
@@ -113,6 +127,8 @@ export default function BeautyServices() {
                       href={serv.bookLink}
                       target="_blank"
                       rel="noopener noreferrer"
+                      onMouseEnter={playHover}
+                      onClick={playClick}
                       className="bg-[#C5A86A] text-white font-bold text-[9px] tracking-[0.2em] uppercase px-5 py-3 hover:bg-[#B49658] transition-all duration-300 rounded-full flex-1 text-center shadow-sm"
                     >
                       Book Now

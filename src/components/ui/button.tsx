@@ -4,6 +4,7 @@ import Link from "next/link";
 interface ButtonProps {
   children: React.ReactNode;
   onClick?: () => void;
+  onMouseEnter?: () => void;
   className?: string;
   variant?: "gold-outline" | "gold-solid" | "plain";
   type?: "button" | "submit";
@@ -14,6 +15,7 @@ interface ButtonProps {
 export const Button: React.FC<ButtonProps> = ({
   children,
   onClick,
+  onMouseEnter,
   className = "",
   variant = "gold-outline",
   type = "button",
@@ -35,7 +37,7 @@ export const Button: React.FC<ButtonProps> = ({
 
   if (href) {
     return (
-      <Link href={href} className={combinedStyles}>
+      <Link href={href} className={combinedStyles} onMouseEnter={onMouseEnter} onClick={onClick}>
         {children}
       </Link>
     );
@@ -45,6 +47,7 @@ export const Button: React.FC<ButtonProps> = ({
     <button
       type={type}
       onClick={onClick}
+      onMouseEnter={onMouseEnter}
       disabled={disabled}
       className={combinedStyles}
     >

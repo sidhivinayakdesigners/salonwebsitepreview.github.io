@@ -5,15 +5,16 @@ import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import { motion, AnimatePresence } from "framer-motion";
 import { Star } from "lucide-react";
+import { useSound } from "@/components/ui/ambient-sound";
 
 const faqs = [
   {
-    q: "When did Blush + Blow open?",
-    a: "Blush + Blow opened in 2016, and our adjacent Skin Studio opened in 2022.",
+    q: "When did Maison de Beauté open?",
+    a: "Maison de Beauté opened in 2016, and our adjacent Skin Studio opened in 2022.",
   },
   {
-    q: "Where is Blush + Blow located?",
-    a: "We are situated in Parsons Green, Fulham. Our address is 197 New King’s Road, London SW6 4SR.",
+    q: "Where is Maison de Beauté located?",
+    a: "We are situated in Chelsea, Kensington. Our address is 123 Maison Avenue, London SW6 4SR.",
   },
   {
     q: "What treatments do you provide?",
@@ -33,7 +34,7 @@ const faqs = [
   },
   {
     q: "How can I contact the salon?",
-    a: "Call us on 020 7736 0430, WhatsApp us on 07979782832, or email info@blushandblowlondon.com.",
+    a: "Call us on 020 7123 4567, WhatsApp us on 07979782832, or email info@maisondebeautelondon.com.",
   },
   {
     q: "Is the salon pet friendly?",
@@ -44,15 +45,16 @@ const faqs = [
 const testimonialsList = [
   {
     name: "Zara and Adam Glowacki",
-    text: "Migle is simply amazing! I have been doing my hair with her for past 3 years, colour and cut, she always listens to what you want and like and never does anything opposite of that. Every single time i come out of the salon feeling very happy with my hair:) She will always check in the end if everything is ok until everything is perfect!",
+    text: "Mia is simply amazing! I have been doing my hair with her for past 3 years, colour and cut, she always listens to what you want and like and never does anything opposite of that. Every single time i come out of the salon feeling very happy with my hair:) She will always check in the end if everything is ok until everything is perfect!",
   },
   {
     name: "Sophie Luker",
-    text: "I go to Migle for my blow dries, hair cuts and colour and would not go anywhere else. She always listens to my colour requests and always does a fab job! I have really fine hair that doesn’t usually hold a curl, yet Migle manages to get it right every time.",
+    text: "I go to Mia for my blow dries, hair cuts and colour and would not go anywhere else. She always listens to my colour requests and always does a fab job! I have really fine hair that doesn’t usually hold a curl, yet Mia manages to get it right every time.",
   },
 ];
 
 export default function FAQsPage() {
+  const { playHover, playClick } = useSound();
   const [activeIdx, setActiveIdx] = useState<number | null>(null);
   const [testimonialIdx, setTestimonialIdx] = useState(0);
 
@@ -83,8 +85,12 @@ export default function FAQsPage() {
                 className="bg-white border border-[#EFECE6] rounded-md overflow-hidden shadow-premium transition-all duration-300"
               >
                 <button
-                  onClick={() => setActiveIdx(isOpen ? null : idx)}
-                  className="w-full px-6 py-5 text-left flex items-center justify-between font-serif text-sm sm:text-base text-[#1E241B] font-normal tracking-wide focus:outline-none hover:text-[#C5A86A] transition-colors"
+                  onMouseEnter={playHover}
+                  onClick={() => {
+                    playClick();
+                    setActiveIdx(isOpen ? null : idx);
+                  }}
+                  className="w-full px-6 py-5 text-left flex items-center justify-between font-serif text-sm sm:text-base text-[#1E241B] font-normal tracking-wide focus:outline-none hover:text-[#C5A86A] transition-colors cursor-pointer"
                 >
                   <span>{faq.q}</span>
                   <span className="text-[#C5A86A] font-serif text-2xl font-light leading-none">

@@ -24,36 +24,37 @@ import {
 } from "lucide-react";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
+import { useSound } from "@/components/ui/ambient-sound";
 
 // Testimonials data
 const testimonialsList = [
   {
     name: "Zara and Adam Glowacki",
-    text: "Migle is simply amazing! I have been doing my hair with her for past 3 years, colour and cut, she always listens to what you want. Every single time I come out of the salon feeling very happy with my hair:)",
+    text: "Mia is simply amazing! I have been doing my hair with her for past 3 years, colour and cut, she always listens to what you want. Every single time I come out of the salon feeling very happy with my hair:)",
   },
   {
     name: "Sophie Luker",
-    text: "I go to Migle for my blow dries, hair cuts and colour and would not go anywhere else. She always listens to my colour requests and always does a fab job! I have really fine hair yet Migle manages to get it right every time.",
+    text: "I go to Mia for my blow dries, hair cuts and colour and would not go anywhere else. She always listens to my colour requests and always does a fab job! I have really fine hair yet Mia manages to get it right every time.",
   },
   {
     name: "HCannon",
-    text: "What a gorgeous spot. Between Blush & Blow and their sister location, The Skin Studio, you can get a complete beauty package in a gorgeous space from lovely, professional staff. I have never been disappointed.",
+    text: "What a gorgeous spot. Between Maison de Beauté and their sister location, The Skin Studio, you can get a complete beauty package in a gorgeous space from lovely, professional staff. I have never been disappointed.",
   },
   {
     name: "Anna Halliday",
-    text: "The best salon in Parsons Green, by a long way! They have excellent stylists - you can trust that you will always walk out with an amazing blow dry or beauty treatment. The team are super kind and friendly.",
+    text: "The best salon in Chelsea, by a long way! They have excellent stylists - you can trust that you will always walk out with an amazing blow dry or beauty treatment. The team are super kind and friendly.",
   },
 ];
 
 // FAQs data
 const faqsList = [
   {
-    q: "When did Blush + Blow open?",
-    a: "Blush + Blow opened in 2016 and our sister space, The Skin Studio, opened in 2022 next door.",
+    q: "When did Maison de Beauté open?",
+    a: "Maison de Beauté opened in 2016 and our sister space, The Skin Studio, opened in 2022 next door.",
   },
   {
-    q: "Where is Blush + Blow located?",
-    a: "Blush + Blow is located in Parsons Green, London. Our address is 197 New King’s Road, London SW6 4SR.",
+    q: "Where is Maison de Beauté located?",
+    a: "Maison de Beauté is located in Chelsea, London. Our address is 123 Maison Avenue, London SW6 4SR.",
   },
   {
     q: "What services do you provide?",
@@ -67,13 +68,13 @@ const faqsList = [
 
 // Team List
 const teamMembersList = [
-  { name: "Bridget", role: "FOUNDER", image: "/images/team/bridget.png" },
-  { name: "Morgan", role: "BEAUTY & LASER THERAPIST", image: "/images/team/morgan.webp" },
-  { name: "Bee", role: "NAIL TECHNICIAN", image: "/images/team/bee.webp" },
-  { name: "Lamiaa", role: "BEAUTY THERAPIST & COLOURIST", image: "/images/team/lamiaa.png" },
-  { name: "Migle", role: "COLOURIST", image: "/images/team/migle.webp" },
-  { name: "Rozina", role: "COLOURIST", image: "/images/team/rozina.webp" },
-  { name: "Sara Eddi", role: "COLOURIST", image: "/images/team/sara.webp" },
+  { name: "Genevieve", role: "FOUNDER", image: "/images/team/bridget.png" },
+  { name: "Camille", role: "BEAUTY & LASER THERAPIST", image: "/images/team/morgan.webp" },
+  { name: "Chloe", role: "NAIL TECHNICIAN", image: "/images/team/bee.webp" },
+  { name: "Layla", role: "BEAUTY THERAPIST & COLOURIST", image: "/images/team/lamiaa.png" },
+  { name: "Mia", role: "COLOURIST", image: "/images/team/migle.webp" },
+  { name: "Rose", role: "COLOURIST", image: "/images/team/rozina.webp" },
+  { name: "Sara", role: "COLOURIST", image: "/images/team/sara.webp" },
 ];
 
 // Quick menu price highlights
@@ -86,7 +87,7 @@ const quickMenuData = {
   ],
   nails: [
     { name: "Gel Shape & Paint (Hands)", price: "£36", desc: "Cuticle work, precision shaping and high-gloss long lasting gel polish." },
-    { name: "Blush + Blow Signature Manicure", price: "£45", desc: "Deluxe skin exfoliation, deep massage and classic paint finish." },
+    { name: "Maison de Beauté Signature Manicure", price: "£45", desc: "Deluxe skin exfoliation, deep massage and classic paint finish." },
     { name: "BIAB Overlay (Natural)", price: "£48", desc: "Builder in a Bottle overlay to strengthen and grow natural nails." },
     { name: "Gel Pedicure", price: "£40", desc: "Refreshing botanical soak, cuticle care and durable gel polish." },
   ],
@@ -221,7 +222,7 @@ const fullServiceDetails: Record<
     time: "40 mins",
   },
   "sig-manicure": {
-    title: "Blush + Blow Signature Manicure",
+    title: "Maison de Beauté Signature Manicure",
     price: "£45",
     desc: "Deluxe hand therapy with gentle skin exfoliation, deep moisturizing massage, and classic polish.",
     time: "50 mins",
@@ -308,6 +309,7 @@ const fullServiceDetails: Record<
 type MenuKey = "hair" | "nails" | "beauty" | "bridal";
 
 export default function Home() {
+  const { playHover, playClick } = useSound();
   const [activeFaq, setActiveFaq] = useState<number | null>(null);
   const [testimonialIdx, setTestimonialIdx] = useState(0);
   const [currentTeamIdx, setCurrentTeamIdx] = useState(0);
@@ -372,16 +374,16 @@ export default function Home() {
     if (priority && fullServiceDetails[priority]) {
       return {
         ...fullServiceDetails[priority],
-        link: "https://www.fresha.com/providers/blush-blow-w9xnf8li?pId=9954&dppub=true",
+        link: "https://www.fresha.com/providers/maison-de-beaute-demo",
       };
     }
     // Default Fallback
     return {
-      title: "The Blush + Blow Signature Welcome Package",
+      title: "The Maison de Beauté Signature Welcome Package",
       price: "£101",
       desc: "Our highly popular signature combination: a precision style cut & finish with an express gel shape & paint manicure.",
       time: "90 mins",
-      link: "https://www.fresha.com/providers/blush-blow-w9xnf8li?pId=9954&dppub=true",
+      link: "https://www.fresha.com/providers/maison-de-beaute-demo",
     };
   };
 
@@ -414,7 +416,7 @@ export default function Home() {
                 }}
                 className="flex items-center space-x-1"
               >
-                {"BLUSH + BLOW".split("").map((char, index) => (
+                {"MAISON DE BEAUTÉ".split("").map((char, index) => (
                   <motion.span
                     key={index}
                     variants={{
@@ -465,9 +467,25 @@ export default function Home() {
                   FULHAM & PARSONS GREEN
                 </span>
                 <h1 className="font-serif text-4xl sm:text-6xl lg:text-7xl text-[#1E241B] leading-[1.05] font-light tracking-[0.03em] uppercase italic">
-                  Adding Colour<br />
-                  <span className="font-sans font-semibold not-italic tracking-[0.06em] text-[0.75em] text-[#5C6B57]">
-                    To Your Life
+                  <span className="block overflow-hidden py-1">
+                    <motion.span 
+                      initial={{ y: "100%" }}
+                      animate={{ y: 0 }}
+                      transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
+                      className="block"
+                    >
+                      Adding Colour
+                    </motion.span>
+                  </span>
+                  <span className="block overflow-hidden py-1">
+                    <motion.span 
+                      initial={{ y: "100%" }}
+                      animate={{ y: 0 }}
+                      transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.25 }}
+                      className="font-sans font-semibold not-italic tracking-[0.06em] text-[0.75em] text-[#5C6B57] block"
+                    >
+                      To Your Life
+                    </motion.span>
                   </span>
                 </h1>
                 <p className="font-sans text-xs sm:text-sm text-[#1E241B]/70 leading-relaxed max-w-lg mx-auto lg:mx-0 tracking-wide font-light">
@@ -486,7 +504,9 @@ export default function Home() {
                   <Link
                     key={item.name}
                     href={item.href}
-                    className="border border-[#1E241B]/10 bg-white text-[#1E241B] font-sans text-[9px] font-bold tracking-[0.2em] uppercase py-4 text-center transition-all duration-300 shadow-sm active:scale-[0.98] rounded luxury-btn-draw hover:text-[#C5A86A]"
+                    onMouseEnter={playHover}
+                    onClick={playClick}
+                    className="border border-[#1E241B]/10 bg-white text-[#1E241B] font-sans text-[9px] font-bold tracking-[0.25em] uppercase py-4 text-center transition-all duration-300 shadow-sm active:scale-[0.98] rounded luxury-btn-draw hover:text-[#C5A86A]"
                   >
                     {item.name}
                   </Link>
@@ -519,7 +539,7 @@ export default function Home() {
                           "/images/haircolour.avif",
                           "/images/beauty_brows.jpg"
                         ][heroImageIdx]}
-                        alt="Blush + Blow London styling"
+                        alt="Maison de Beauté London styling"
                         fill
                         sizes="(max-width: 768px) 100vw, 400px"
                         className="object-cover"
@@ -535,10 +555,10 @@ export default function Home() {
           </div>
         </section>
 
-        {/* 2. RUNWAY MARQUEE TICKER */}
-        <div className="bg-[#1E241B] py-4 overflow-hidden border-y border-[#C5A86A]/20 select-none">
+        {/* 2. RUNWAY MARQUEE TICKER (DOUBLE LAYER) */}
+        <div className="bg-[#1E241B] py-3.5 overflow-hidden border-y border-[#C5A86A]/20 select-none flex flex-col space-y-2">
           <div className="runway-marquee whitespace-nowrap flex items-center gap-16 text-white text-[9px] tracking-[0.3em] font-sans font-bold uppercase">
-            <span>BLUSH + BLOW LONDON</span>
+            <span>MAISON DE BEAUTÉ</span>
             <span className="text-[#C5A86A]">★</span>
             <span>SIGNATURE BLOW DRIES</span>
             <span className="text-[#C5A86A]">★</span>
@@ -552,7 +572,7 @@ export default function Home() {
             <span className="text-[#C5A86A]">★</span>
 
             {/* Repeat for seamless loop */}
-            <span>BLUSH + BLOW LONDON</span>
+            <span>MAISON DE BEAUTÉ</span>
             <span className="text-[#C5A86A]">★</span>
             <span>SIGNATURE BLOW DRIES</span>
             <span className="text-[#C5A86A]">★</span>
@@ -564,6 +584,12 @@ export default function Home() {
             <span className="text-[#C5A86A]">★</span>
             <span>BRIDAL CONCIERGE</span>
             <span className="text-[#C5A86A]">★</span>
+          </div>
+          <div className="runway-marquee-reverse whitespace-nowrap flex items-center gap-16 text-white/50 text-[8px] tracking-[0.25em] font-sans uppercase">
+            <span>HAIR • COLOUR • CUT • BLOWDRY • NAILS • MASSAGE • LASHES • BRIDAL • LUXURY EXPERIENCE</span>
+            <span className="text-[#C5A86A]">✦</span>
+            <span>HAIR • COLOUR • CUT • BLOWDRY • NAILS • MASSAGE • LASHES • BRIDAL • LUXURY EXPERIENCE</span>
+            <span className="text-[#C5A86A]">✦</span>
           </div>
         </div>
 
@@ -819,7 +845,7 @@ export default function Home() {
                         <>
                           {[
                             { id: "gel-hands", name: "Gel Shape & Paint - Hands (£36)" },
-                            { id: "sig-manicure", name: "Blush + Blow Signature Manicure (£45)" },
+                            { id: "sig-manicure", name: "Maison de Beauté Signature Manicure (£45)" },
                             { id: "nail-tidy", name: "Gel Removal & Nail Tidy (£20)" },
                             { id: "file-polish", name: "Quick File & Polish (£25)" },
                             { id: "biab", name: "BIAB Natural Overlay (£48)" },
@@ -996,6 +1022,8 @@ export default function Home() {
             </div>
           </div>
         </section>
+
+
 
         {/* 4. ASYMMETRICAL EDITORIAL GRID PHILOSOPHY */}
         <section className="py-16 md:py-24 bg-[#FAF8F5] border-b border-[#EFECE6]">
@@ -1196,13 +1224,13 @@ export default function Home() {
             {/* Interactive Grid: Horizontal scroll on mobile, Grid on desktop */}
             <div className="flex overflow-x-auto md:grid md:grid-cols-4 gap-6 pb-6 md:pb-0 snap-x scrollbar-thin max-w-6xl mx-auto">
               {[
-                { name: "Bridget", role: "Founder & Director", specialty: "Salon Curation & Bridal Styling", quote: "Creating spaces of effortless luxury.", image: "/images/team/bridget.png" },
-                { name: "Morgan", role: "Beauty & Laser Therapist", specialty: "Laser Skincare & Brow Artistry", quote: "Highlighting your natural features.", image: "/images/team/morgan.webp" },
-                { name: "Bee", role: "Nail Technician", specialty: "BIAB Overlay & Custom Nail Art", quote: "Precision in every detail.", image: "/images/team/bee.webp" },
-                { name: "Lamiaa", role: "Beauty & Colourist", specialty: "Combined Tone Color & Skincare", quote: "Beauty from root to tip.", image: "/images/team/lamiaa.png" },
-                { name: "Migle", role: "Master Colourist", specialty: "Davines Tone Matching & Balayage", quote: "Color that reflects your personality.", image: "/images/team/migle.webp" },
-                { name: "Rozina", role: "Creative Colourist", specialty: "Root Regrowth & Custom Highlights", quote: "Stunning blends that fade beautifully.", image: "/images/team/rozina.webp" },
-                { name: "Sara Eddi", role: "Senior Colourist", specialty: "Precision Cuts & Creative Tones", quote: "Crafting styles that frame your lifestyle.", image: "/images/team/sara.webp" },
+                { name: "Genevieve", role: "Founder & Director", specialty: "Salon Curation & Bridal Styling", quote: "Creating spaces of effortless luxury.", image: "/images/team/bridget.png" },
+                { name: "Camille", role: "Beauty & Laser Therapist", specialty: "Laser Skincare & Brow Artistry", quote: "Highlighting your natural features.", image: "/images/team/morgan.webp" },
+                { name: "Chloe", role: "Nail Technician", specialty: "BIAB Overlay & Custom Nail Art", quote: "Precision in every detail.", image: "/images/team/bee.webp" },
+                { name: "Layla", role: "Beauty & Colourist", specialty: "Combined Tone Color & Skincare", quote: "Beauty from root to tip.", image: "/images/team/lamiaa.png" },
+                { name: "Mia", role: "Master Colourist", specialty: "Davines Tone Matching & Balayage", quote: "Color that reflects your personality.", image: "/images/team/migle.webp" },
+                { name: "Rose", role: "Creative Colourist", specialty: "Root Regrowth & Custom Highlights", quote: "Stunning blends that fade beautifully.", image: "/images/team/rozina.webp" },
+                { name: "Sara", role: "Senior Colourist", specialty: "Precision Cuts & Creative Tones", quote: "Crafting styles that frame your lifestyle.", image: "/images/team/sara.webp" },
               ].map((member, idx) => (
                 <div
                   key={idx}
@@ -1246,7 +1274,7 @@ export default function Home() {
                       </div>
 
                       <a
-                        href="https://www.fresha.com/providers/blush-blow-w9xnf8li?pId=9954&dppub=true"
+                        href="https://www.fresha.com/providers/maison-de-beaute-demo"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="w-full bg-[#C5A86A] hover:bg-[#B49658] text-white text-center font-sans text-[9px] font-bold tracking-[0.2em] uppercase py-3 rounded transition-all duration-300 shadow-sm"
@@ -1510,7 +1538,7 @@ export default function Home() {
 
               <div className="space-y-6">
                 <h3 className="font-serif text-xl text-[#1E241B] uppercase tracking-wider font-semibold">
-                  Blush + Blow London
+                  Maison de Beauté London
                 </h3>
 
                 <div className="space-y-4 font-sans text-xs tracking-wider text-[#1E241B]/75 leading-relaxed font-light">
@@ -1520,11 +1548,11 @@ export default function Home() {
                   </div>
                   <div className="flex items-center space-x-3">
                     <Phone size={13} className="text-[#C5A86A] shrink-0" />
-                    <span>020 7736 0430</span>
+                    <span>020 7123 4567</span>
                   </div>
                   <div className="flex items-center space-x-3">
                     <Mail size={13} className="text-[#C5A86A] shrink-0" />
-                    <span>info@blushandblowlondon.com</span>
+                    <span>info@maisondebeautelondon.com</span>
                   </div>
                   <div className="flex items-start space-x-3">
                     <Clock size={14} className="text-[#C5A86A] shrink-0 mt-0.5" />
@@ -1539,7 +1567,7 @@ export default function Home() {
 
                 <div className="pt-2">
                   <Link
-                    href="https://wa.me/447979782832"
+                    href="https://wa.me/447000000000"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="w-full flex items-center justify-center space-x-2 border border-[#5C6B57] text-[#5C6B57] hover:bg-[#5C6B57] hover:text-white transition-all py-3.5 rounded-full text-[9px] uppercase font-bold tracking-widest"
@@ -1599,13 +1627,13 @@ export default function Home() {
                       FRONTDESK ASSISTANT
                     </span>
                     <h4 className="font-serif text-lg text-[#1E241B] font-light uppercase tracking-wider italic mt-0.5">
-                      Fulham Concierge
+                      Kensington Concierge
                     </h4>
                   </div>
 
                   <div className="space-y-3 font-sans text-[10px] font-bold tracking-widest uppercase">
                     <a
-                      href="https://www.fresha.com/providers/blush-blow-w9xnf8li?pId=9954&dppub=true"
+                      href="https://www.fresha.com/providers/maison-de-beaute-demo"
                       target="_blank"
                       className="flex items-center justify-between bg-[#1E241B] text-white py-3.5 px-4 rounded hover:bg-[#5C6B57] transition-all"
                     >
@@ -1614,7 +1642,7 @@ export default function Home() {
                     </a>
 
                     <a
-                      href="https://wa.me/447979782832"
+                      href="https://wa.me/447000000000"
                       target="_blank"
                       className="flex items-center justify-between border border-[#25d366] text-[#25d366] hover:bg-[#25d366] hover:text-white py-3.5 px-4 rounded transition-all"
                     >
@@ -1623,7 +1651,7 @@ export default function Home() {
                     </a>
 
                     <a
-                      href="tel:02077360430"
+                      href="tel:02071234567"
                       className="flex items-center justify-between border border-[#1E241B]/15 text-[#1E241B] hover:border-[#C5A86A] py-3.5 px-4 rounded transition-all"
                     >
                       <span>Call Front Desk</span>

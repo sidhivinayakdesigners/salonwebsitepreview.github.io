@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
+import { useSound } from "@/components/ui/ambient-sound";
 
 const nailServicesGrid = [
   {
@@ -12,46 +13,47 @@ const nailServicesGrid = [
     img: "/images/gel_manicure.jpg",
     desc: "Cuticle detailing, custom nail shaping, and long-lasting gel polish with high-gloss durability.",
     learnLink: "/service/gel-manicure",
-    bookLink: "https://www.fresha.com/providers/blush-blow-w9xnf8li?pId=9954&dppub=true",
+    bookLink: "https://www.fresha.com/providers/maison-de-beaute-demo",
   },
   {
     title: "Manicure (Natural)",
     img: "/images/manicure_without_polish.png",
     desc: "A natural nail grooming service focused on cuticle care, filing, buffing, and relaxing skin hydration.",
     learnLink: "/service/manicure-without-polish",
-    bookLink: "https://www.fresha.com/providers/blush-blow-w9xnf8li?pId=9954&dppub=true",
+    bookLink: "https://www.fresha.com/providers/maison-de-beaute-demo",
   },
   {
     title: "BIAB overlay",
     img: "/images/biab.jpg",
     desc: "Builder in a Bottle overlay to reinforce natural nail strength, preventing breakage and chips.",
     learnLink: "/service/biab",
-    bookLink: "https://www.fresha.com/providers/blush-blow-w9xnf8li?pId=9954&dppub=true",
+    bookLink: "https://www.fresha.com/providers/maison-de-beaute-demo",
   },
   {
     title: "Gel Pedicure",
     img: "/images/gel_pedicure.png",
     desc: "Warm foot bath, botanical scrub, detailed cuticle prep, and long-wear gel coat.",
     learnLink: "/service/gel-pedicure",
-    bookLink: "https://www.fresha.com/providers/blush-blow-w9xnf8li?pId=9954&dppub=true",
+    bookLink: "https://www.fresha.com/providers/maison-de-beaute-demo",
   },
   {
     title: "Signature Pedicure",
     img: "/images/pedicure.jpg",
     desc: "A classic botanical foot soak, callus prep, massage, and premium standard lacquer finish.",
     learnLink: "/service/pedicure",
-    bookLink: "https://www.fresha.com/providers/blush-blow-w9xnf8li?pId=9954&dppub=true",
+    bookLink: "https://www.fresha.com/providers/maison-de-beaute-demo",
   },
   {
     title: "Luxury Gel Manicure",
     img: "/images/luxury_gel_manicure.jpg",
     desc: "An indulgent treatment including nourishing hand masks, deep massage, and flawless gel color.",
     learnLink: "/service/luxury-gel-manicure",
-    bookLink: "https://www.fresha.com/providers/blush-blow-w9xnf8li?pId=9954&dppub=true",
+    bookLink: "https://www.fresha.com/providers/maison-de-beaute-demo",
   },
 ];
 
 export default function NailsServices() {
+  const { playHover, playClick } = useSound();
   return (
     <>
       <Navbar />
@@ -62,7 +64,7 @@ export default function NailsServices() {
         <div className="max-w-7xl mx-auto px-6 mb-16">
           <div className="text-center md:text-left border-b border-[#EFECE6] pb-8">
             <span className="text-[#C5A86A] text-[9px] tracking-[0.3em] font-bold uppercase block font-sans mb-2">
-              BLUSH + BLOW LONDON
+              MAISON DE BEAUTÉ
             </span>
             <h1 className="font-serif text-4xl md:text-6xl text-[#1E241B] font-light tracking-wider uppercase italic">
               Nails <span className="font-sans not-italic font-semibold text-[0.8em] text-[#5C6B57]">Services</span>
@@ -79,7 +81,12 @@ export default function NailsServices() {
                 className="flex flex-col bg-white shadow-premium border border-[#EFECE6] rounded-lg overflow-hidden group hover:shadow-premium-hover transition-all duration-500"
               >
                 {/* Thumbnail Wrap */}
-                <Link href={serv.learnLink} className="h-72 relative w-full overflow-hidden bg-[#E8E5DF] block">
+                <Link
+                  href={serv.learnLink}
+                  onMouseEnter={playHover}
+                  onClick={playClick}
+                  className="h-72 relative w-full overflow-hidden bg-[#E8E5DF] block"
+                >
                   <Image
                     src={serv.img}
                     alt={serv.title}
@@ -97,7 +104,12 @@ export default function NailsServices() {
                     <span className="text-[#C5A86A] text-[8px] tracking-[0.25em] font-bold uppercase block">
                       NAILS • THERAPY
                     </span>
-                    <Link href={serv.learnLink} className="hover:text-[#C5A86A] transition-colors block">
+                    <Link
+                      href={serv.learnLink}
+                      onMouseEnter={playHover}
+                      onClick={playClick}
+                      className="hover:text-[#C5A86A] transition-colors block"
+                    >
                       <h2 className="font-serif text-2xl font-light tracking-[0.05em] uppercase text-[#1E241B]">
                         {serv.title}
                       </h2>
@@ -112,6 +124,8 @@ export default function NailsServices() {
                   <div className="flex items-center justify-center gap-3 pt-2 w-full">
                     <Link
                       href={serv.learnLink}
+                      onMouseEnter={playHover}
+                      onClick={playClick}
                       className="border border-[#1E241B]/15 text-[#1E241B] font-bold text-[9px] tracking-[0.2em] uppercase px-5 py-3 hover:border-[#C5A86A] hover:bg-[#C5A86A] hover:text-white transition-all duration-300 rounded-full flex-1 text-center"
                     >
                       Details
@@ -120,6 +134,8 @@ export default function NailsServices() {
                       href={serv.bookLink}
                       target="_blank"
                       rel="noopener noreferrer"
+                      onMouseEnter={playHover}
+                      onClick={playClick}
                       className="bg-[#C5A86A] text-white font-bold text-[9px] tracking-[0.2em] uppercase px-5 py-3 hover:bg-[#B49658] transition-all duration-300 rounded-full flex-1 text-center shadow-sm"
                     >
                       Book Now

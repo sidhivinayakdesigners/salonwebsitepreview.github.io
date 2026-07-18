@@ -6,6 +6,7 @@ import Link from "next/link";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import { ArrowRight } from "lucide-react";
+import { useSound } from "@/components/ui/ambient-sound";
 
 const hairServicesGrid = [
   {
@@ -13,46 +14,47 @@ const hairServicesGrid = [
     img: "/images/haircolour.avif",
     desc: "Seamless root touch-up, highlights, and hand-painted balayage customized by master colorists for a natural, shimmering blend.",
     learnLink: "/service/colour",
-    bookLink: "https://www.fresha.com/providers/blush-blow-w9xnf8li?pId=9954&dppub=true",
+    bookLink: "https://www.fresha.com/providers/maison-de-beaute-demo",
   },
   {
     title: "Blow Dry",
     img: "/images/hairblowdry.jpg",
     desc: "Indulge in a relaxing scalp massage wash followed by our signature bouncy or sleek blow dry finish styled for any occasion.",
-    learnLink: "/service/blow-dry-blush-blow-london",
-    bookLink: "https://www.fresha.com/providers/blush-blow-w9xnf8li?pId=9954&dppub=true",
+    learnLink: "/service/blow-dry-maison-de-beaute",
+    bookLink: "https://www.fresha.com/providers/maison-de-beaute-demo",
   },
   {
     title: "Cut and Style",
     img: "/images/haircutanddry.webp",
     desc: "Bespoke structural layering and precision cuts designed to frame your features and elevate your personal style.",
     learnLink: "/service/cut-and-style",
-    bookLink: "https://www.fresha.com/providers/blush-blow-w9xnf8li?pId=9954&dppub=true",
+    bookLink: "https://www.fresha.com/providers/maison-de-beaute-demo",
   },
   {
     title: "Treatments",
     img: "/images/hairtreatment.jpg",
     desc: "Nourish and repair with intensive molecular masks and bond-building therapies including Olaplex and Keratin smoothing.",
     learnLink: "/service/hair-treatments",
-    bookLink: "https://www.fresha.com/providers/blush-blow-w9xnf8li?pId=9954&dppub=true",
+    bookLink: "https://www.fresha.com/providers/maison-de-beaute-demo",
   },
   {
     title: "Extensions",
     img: "/images/Hair_Extensions.webp",
     desc: "Premium, ethically sourced human hair extensions custom matched to add breathtaking length, thickness, and volume.",
     learnLink: "/service/hair-extensions",
-    bookLink: "https://www.fresha.com/providers/blush-blow-w9xnf8li?pId=9954&dppub=true",
+    bookLink: "https://www.fresha.com/providers/maison-de-beaute-demo",
   },
   {
     title: "Styling – Blow Dries",
     img: "/images/styling_blow_dries.jpg",
     desc: "Express dry styling, elegant updos, and intricate braids completed in minutes to prepare you for events.",
     learnLink: "/service/styling-blow-dries",
-    bookLink: "https://www.fresha.com/providers/blush-blow-w9xnf8li?pId=9954&dppub=true",
+    bookLink: "https://www.fresha.com/providers/maison-de-beaute-demo",
   },
 ];
 
 export default function HairServices() {
+  const { playHover, playClick } = useSound();
   return (
     <>
       <Navbar />
@@ -63,7 +65,7 @@ export default function HairServices() {
         <div className="max-w-7xl mx-auto px-6 mb-16">
           <div className="text-center md:text-left border-b border-[#EFECE6] pb-8">
             <span className="text-[#C5A86A] text-[9px] tracking-[0.3em] font-bold uppercase block font-sans mb-2">
-              BLUSH + BLOW LONDON
+              MAISON DE BEAUTÉ
             </span>
             <h1 className="font-serif text-4xl md:text-6xl text-[#1E241B] font-light tracking-wider uppercase italic">
               Hair <span className="font-sans not-italic font-semibold text-[0.8em] text-[#5C6B57]">Services</span>
@@ -80,7 +82,12 @@ export default function HairServices() {
                 className="flex flex-col bg-white shadow-premium border border-[#EFECE6] rounded-lg overflow-hidden group hover:shadow-premium-hover transition-all duration-500"
               >
                 {/* Thumbnail Wrap */}
-                <Link href={serv.learnLink} className="h-72 relative w-full overflow-hidden bg-[#E8E5DF] block">
+                <Link
+                  href={serv.learnLink}
+                  onMouseEnter={playHover}
+                  onClick={playClick}
+                  className="h-72 relative w-full overflow-hidden bg-[#E8E5DF] block"
+                >
                   <Image
                     src={serv.img}
                     alt={serv.title}
@@ -98,7 +105,12 @@ export default function HairServices() {
                     <span className="text-[#C5A86A] text-[8px] tracking-[0.25em] font-bold uppercase block">
                       HAIR • STYLING
                     </span>
-                    <Link href={serv.learnLink} className="hover:text-[#C5A86A] transition-colors block">
+                    <Link
+                      href={serv.learnLink}
+                      onMouseEnter={playHover}
+                      onClick={playClick}
+                      className="hover:text-[#C5A86A] transition-colors block"
+                    >
                       <h2 className="font-serif text-2xl font-light tracking-[0.05em] uppercase text-[#1E241B]">
                         {serv.title}
                       </h2>
@@ -113,6 +125,8 @@ export default function HairServices() {
                   <div className="flex items-center justify-center gap-3 pt-2 w-full">
                     <Link
                       href={serv.learnLink}
+                      onMouseEnter={playHover}
+                      onClick={playClick}
                       className="border border-[#1E241B]/15 text-[#1E241B] font-bold text-[9px] tracking-[0.2em] uppercase px-5 py-3 hover:border-[#C5A86A] hover:bg-[#C5A86A] hover:text-white transition-all duration-300 rounded-full flex-1 text-center"
                     >
                       Details
@@ -121,6 +135,8 @@ export default function HairServices() {
                       href={serv.bookLink}
                       target="_blank"
                       rel="noopener noreferrer"
+                      onMouseEnter={playHover}
+                      onClick={playClick}
                       className="bg-[#C5A86A] text-white font-bold text-[9px] tracking-[0.2em] uppercase px-5 py-3 hover:bg-[#B49658] transition-all duration-300 rounded-full flex-1 text-center shadow-sm"
                     >
                       Book Now
