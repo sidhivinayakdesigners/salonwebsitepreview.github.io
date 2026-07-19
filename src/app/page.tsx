@@ -27,22 +27,75 @@ import { Footer } from "@/components/layout/footer";
 import { useSound } from "@/components/ui/ambient-sound";
 
 // Testimonials data
+// Testimonials data
 const testimonialsList = [
   {
     name: "Zara and Adam Glowacki",
-    text: "Mia is simply amazing! I have been doing my hair with her for past 3 years, colour and cut, she always listens to what you want. Every single time I come out of the salon feeling very happy with my hair:)",
+    text: "Mia is simply amazing! I have been doing my hair with her for past 3 years, colour and cut, she always listens to what you want and like and never does anything opposite of that. Every single time I come out of the salon feeling very happy with my hair:) She will always check in the end if everything is ok until everything is perfect! Salon itself is very clean and pretty and in a lovely location ❤️"
   },
   {
     name: "Sophie Luker",
-    text: "I go to Mia for my blow dries, hair cuts and colour and would not go anywhere else. She always listens to my colour requests and always does a fab job! I have really fine hair yet Mia manages to get it right every time.",
+    text: "I go to Mia for my blow dries, hair cuts and colour and would not go anywhere else. She always listens to my colour requests and always does a fab job! I have really fine hair that doesn’t usually hold a curl, yet Mia manages to get it right every time. Thank you!"
   },
   {
     name: "HCannon",
-    text: "What a gorgeous spot. Between Maison de Beauté and their sister location, The Skin Studio, you can get a complete beauty package in a gorgeous space from lovely, professional staff. I have never been disappointed.",
+    text: "What a gorgeous spot. Between Maison de Beauté and our sister (next door) location, The Skin Studio, you can get a complete beauty package in a gorgeous space, from lovely, professional staff. I have had several blowouts here and a couple of manicures and have never ever been disappointed. Well done to the whole team."
   },
   {
     name: "Anna Halliday",
-    text: "The best salon in Chelsea, by a long way! They have excellent stylists - you can trust that you will always walk out with an amazing blow dry or beauty treatment. The team are super kind and friendly.",
+    text: "The best salon in Chelsea, by a long way!! They have excellent stylists - you can trust that you will always walk out with an amazing blow dry or beauty treatment. Also the team are super kind and friendly, and the salon itself is really beautiful and stylish. Highly recommend ❤"
+  },
+  {
+    name: "Ellie Rhodes",
+    text: "Beautiful Space. Friendly Staff and coffee passed to you as soon as you walk in! Camille was a gem, so friendly and kind. Always checked I was happy with what I was after in my results. Will be back :)"
+  },
+  {
+    name: "Stephanie oiknine",
+    text: "I had highlights with Sara and the result is amazing, looks so natural. Exactly how I like it. Plus she is super friendly and nice and the blow dry is amazing as well. Highly recommended"
+  },
+  {
+    name: "Hayley Richardson",
+    text: "I love this salon - have always been so happy with my treatments and the staff are friendly and attentive. Great atmosphere, stylish place, would definitely recommend."
+  },
+  {
+    name: "Jade Adami",
+    text: "A beautiful salon experience, which left me feeling pampered and indulged. The ladies at the salon really looked after me. I will certainly be back!"
+  },
+  {
+    name: "Lucy Coe",
+    text: "Amazing salon, welcoming staff and the best blow dry I have had in London. It lasts me the whole night, a feat I have never managed before! Thanks team."
+  },
+  {
+    name: "Kate Richards",
+    text: "I've finally found the perfect place for facials and botox with Dr K! Helps that Maison de Beauté is a gorgeous salon and the staff are super friendly too. Dr K made feel so relaxed and my skin looks and feels amazing, can't imagine going anywhere else now"
+  },
+  {
+    name: "Kate Richards",
+    text: "Visited for the first time last night and will definitely be making this my salon of choice. The atmosphere is so friendly, the salon is gorgeous and the girls make you feel instantly warm and welcome. On top of that my treatment was brilliant and have booked to back in a few weeks!"
+  },
+  {
+    name: "Marianna Cirillo",
+    text: "I’m a regular at Maison de Beauté and never been disappointed! I had a few treatments done with Dr Krystina and I have to say she is the best ever!! Love the results and lasts for long time! High recommend her!"
+  },
+  {
+    name: "Rebecca Ross",
+    text: "I always absolutely love going to Maison de Beauté. The team are meticulous and extremely professional. They always remember you and make you feel at ease and as through you are truly a valued customer. Their costs for a Gel Shape and Paint are extremely competitive too - which is always a plus!"
+  }
+];
+
+// Press section logos
+const pressImages = [
+  {
+    src: "https://blushandblowlondon.com/wp-content/themes/skinstudiolondon/images/Press%201.png",
+    alt: "Grazia, Tatler, Cosmopolitan, Vogue, Glamour, Bazaar, WomensHealth, Sheerluxe",
+  },
+  {
+    src: "https://blushandblowlondon.com/wp-content/themes/skinstudiolondon/images/Press%202.png",
+    alt: "Hello, Ok, London Evening Standard, Perfect Wedding, Get The Gloss, Forbes, StyleNest",
+  },
+  {
+    src: "https://blushandblowlondon.com/wp-content/themes/skinstudiolondon/images/Press%203.png",
+    alt: "Mailonline, Metro, The Telegraph, Independent, TheSun, DailyMail",
   },
 ];
 
@@ -68,10 +121,12 @@ const faqsList = [
 
 // Team List
 const teamMembersList = [
-  { name: "Genevieve", role: "FOUNDER", image: "/images/team/bridget.png" },
+  { name: "Bee", role: "NAIL TECHNICIAN", image: "/images/team/bee.webp" },
+  { name: "Annie", role: "RECEPTIONIST", image: "/images/team/annie.webp" },
+  { name: "Cristina", role: "NAIL TECHNICIAN & MAKEUP ARTIST", image: "/images/team/cristina.webp" },
+  { name: "Genevieve", role: "FOUNDER & DIRECTOR", image: "/images/team/bridget.png" },
   { name: "Camille", role: "BEAUTY & LASER THERAPIST", image: "/images/team/morgan.webp" },
-  { name: "Chloe", role: "NAIL TECHNICIAN", image: "/images/team/bee.webp" },
-  { name: "Layla", role: "BEAUTY THERAPIST & COLOURIST", image: "/images/team/lamiaa.png" },
+  { name: "Layla", role: "BEAUTY & THREADING ARTIST", image: "/images/team/lamiaa.png" },
   { name: "Mia", role: "COLOURIST", image: "/images/team/migle.webp" },
   { name: "Rose", role: "COLOURIST", image: "/images/team/rozina.webp" },
   { name: "Sara", role: "COLOURIST", image: "/images/team/sara.webp" },
@@ -308,11 +363,44 @@ const fullServiceDetails: Record<
 
 type MenuKey = "hair" | "nails" | "beauty" | "bridal";
 
+const slideVariants = {
+  enter: (dir: number) => ({
+    x: dir > 0 ? 120 : -120,
+    opacity: 0,
+  }),
+  center: {
+    x: 0,
+    opacity: 1,
+  },
+  exit: (dir: number) => ({
+    x: dir > 0 ? -120 : 120,
+    opacity: 0,
+  }),
+};
+
+const mobileSlideVariants = {
+  enter: (dir: number) => ({
+    x: dir > 0 ? 80 : -80,
+    opacity: 0,
+  }),
+  center: {
+    x: 0,
+    opacity: 1,
+  },
+  exit: (dir: number) => ({
+    x: dir > 0 ? -80 : 80,
+    opacity: 0,
+  }),
+};
+
 export default function Home() {
   const { playHover, playClick } = useSound();
   const [activeFaq, setActiveFaq] = useState<number | null>(null);
-  const [testimonialIdx, setTestimonialIdx] = useState(0);
+  const [testiStartIdx, setTestiStartIdx] = useState(0);
+  const [visibleCardsCount, setVisibleCardsCount] = useState(3);
+  const [pressIdx, setPressIdx] = useState(0);
   const [currentTeamIdx, setCurrentTeamIdx] = useState(0);
+  const [teamDirection, setTeamDirection] = useState(1); // 1: next (right to left), -1: prev (left to right)
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [loading, setLoading] = useState(true);
   const [activeField, setActiveField] = useState<string | null>(null);
@@ -329,11 +417,6 @@ export default function Home() {
     priority: "",
   });
 
-  // Floating Concierge state
-  const [showConcierge, setShowConcierge] = useState(false);
-  const [bridalEmail, setBridalEmail] = useState("");
-  const [bridalSent, setBridalSent] = useState(false);
-
   // Hero section image slideshow index
   const [heroImageIdx, setHeroImageIdx] = useState(0);
 
@@ -344,19 +427,64 @@ export default function Home() {
     return () => clearInterval(interval);
   }, []);
 
+  // Handle client resize to dynamically update visible reviews count
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 768) {
+        setVisibleCardsCount(1);
+      } else if (window.innerWidth < 1024) {
+        setVisibleCardsCount(2);
+      } else {
+        setVisibleCardsCount(3);
+      }
+    };
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   // Auto-run reviews slider
   useEffect(() => {
+    const maxIndex = testimonialsList.length - visibleCardsCount;
     const interval = setInterval(() => {
-      setTestimonialIdx((prev) => (prev + 1) % testimonialsList.length);
-    }, 6000);
+      setTestiStartIdx((prev) => (prev >= maxIndex ? 0 : prev + 1));
+    }, 7000);
+    return () => clearInterval(interval);
+  }, [visibleCardsCount]);
+
+  // Auto-run press slider
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setPressIdx((prev) => (prev + 1) % 3);
+    }, 5000);
     return () => clearInterval(interval);
   }, []);
 
   const nextTeamMember = () => {
+    setTeamDirection(1);
     setCurrentTeamIdx((prev) => (prev + 1) % teamMembersList.length);
   };
   const prevTeamMember = () => {
+    setTeamDirection(-1);
     setCurrentTeamIdx((prev) => (prev - 1 + teamMembersList.length) % teamMembersList.length);
+  };
+
+  const getVisibleTeamMembers = () => {
+    const visible = [];
+    for (let i = 0; i < 3; i++) {
+      const idx = (currentTeamIdx + i) % teamMembersList.length;
+      visible.push(teamMembersList[idx]);
+    }
+    return visible;
+  };
+
+  const handlePrevTesti = () => {
+    const maxIndex = testimonialsList.length - visibleCardsCount;
+    setTestiStartIdx((prev) => (prev <= 0 ? maxIndex : prev - 1));
+  };
+  const handleNextTesti = () => {
+    const maxIndex = testimonialsList.length - visibleCardsCount;
+    setTestiStartIdx((prev) => (prev >= maxIndex ? 0 : prev + 1));
   };
 
   useEffect(() => {
@@ -1208,138 +1336,422 @@ export default function Home() {
         </section>
 
         {/* 8. TEAM PORTFOLIOS */}
-        <section id="team" className="py-16 md:py-24 bg-[#EFECE6]/30 border-b border-[#EFECE6]">
+        <section id="team" className="py-20 md:py-24 bg-[#C0C8B9] border-b border-white/5 select-none overflow-hidden text-[#5C6B57]">
           <div className="max-w-7xl mx-auto px-6">
 
-            <div className="text-center mb-16 space-y-3">
-              <span className="text-[#C5A86A] text-[9px] tracking-[0.3em] font-bold uppercase block font-sans">
-                EXPERT CREATIVE TEAM
-              </span>
-              <h2 className="font-serif text-3xl md:text-4xl text-[#1E241B] font-light uppercase tracking-wider italic">
-                Our Specialists
+            {/* Title */}
+            <div className="text-center mb-10">
+              <h2 className="font-serif text-5xl md:text-7xl font-normal uppercase tracking-[0.25em] text-[#5C6B57]">
+                TEAM
               </h2>
-              <div className="h-[1px] w-12 bg-[#C5A86A]/40 mx-auto mt-2" />
+              <div className="h-[1px] w-20 bg-[#5C6B57]/30 mx-auto mt-4" />
             </div>
 
-            {/* Interactive Grid: Horizontal scroll on mobile, Grid on desktop */}
-            <div className="flex overflow-x-auto md:grid md:grid-cols-4 gap-6 pb-6 md:pb-0 snap-x scrollbar-thin max-w-6xl mx-auto">
-              {[
-                { name: "Genevieve", role: "Founder & Director", specialty: "Salon Curation & Bridal Styling", quote: "Creating spaces of effortless luxury.", image: "/images/team/bridget.png" },
-                { name: "Camille", role: "Beauty & Laser Therapist", specialty: "Laser Skincare & Brow Artistry", quote: "Highlighting your natural features.", image: "/images/team/morgan.webp" },
-                { name: "Chloe", role: "Nail Technician", specialty: "BIAB Overlay & Custom Nail Art", quote: "Precision in every detail.", image: "/images/team/bee.webp" },
-                { name: "Layla", role: "Beauty & Colourist", specialty: "Combined Tone Color & Skincare", quote: "Beauty from root to tip.", image: "/images/team/lamiaa.png" },
-                { name: "Mia", role: "Master Colourist", specialty: "Davines Tone Matching & Balayage", quote: "Color that reflects your personality.", image: "/images/team/migle.webp" },
-                { name: "Rose", role: "Creative Colourist", specialty: "Root Regrowth & Custom Highlights", quote: "Stunning blends that fade beautifully.", image: "/images/team/rozina.webp" },
-                { name: "Sara", role: "Senior Colourist", specialty: "Precision Cuts & Creative Tones", quote: "Crafting styles that frame your lifestyle.", image: "/images/team/sara.webp" },
-              ].map((member, idx) => (
-                <div
-                  key={idx}
-                  className="min-w-[240px] md:min-w-0 snap-center group relative aspect-[3/4] rounded-lg overflow-hidden border border-[#C5A86A]/20 bg-white p-1.5 shadow-premium hover:shadow-premium-hover transition-all duration-500 cursor-pointer"
-                >
-                  <div className="w-full h-full relative overflow-hidden rounded-md bg-[#FAF8F5]">
-                    <Image
-                      src={member.image}
-                      alt={member.name}
-                      fill
-                      sizes="(max-width: 768px) 240px, 280px"
-                      className="object-cover object-center group-hover:scale-102 transition-transform duration-700"
-                    />
+            {/* Carousel Slider with flanking vertical layout */}
+            <div className="relative flex items-center justify-between w-full max-w-6xl mx-auto px-2 mt-8">
+              
+              {/* Left Arrow */}
+              <button
+                onClick={prevTeamMember}
+                className="w-12 h-12 rounded-full bg-white text-[#5C6B57] flex items-center justify-center shadow-md hover:scale-105 transition-all z-10 shrink-0 cursor-pointer"
+                aria-label="Previous team member"
+              >
+                <svg className="w-5 h-5 stroke-current" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M15 19l-7-7 7-7" />
+                </svg>
+              </button>
 
-                    {/* Dark gradient base visual overlays */}
-                    <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/80 to-transparent flex flex-col justify-end p-4 text-white group-hover:opacity-0 transition-opacity duration-300">
-                      <span className="font-sans text-[7px] tracking-[0.2em] text-[#C5A86A] font-bold uppercase">
-                        {member.role}
-                      </span>
-                      <h3 className="font-serif text-base uppercase tracking-wider font-light">
-                        {member.name}
-                      </h3>
-                    </div>
+              {/* Members Frame */}
+              <div className="w-full mx-2 overflow-hidden min-h-[420px] flex items-center justify-center relative">
+                
+                {/* Desktop view: 3 members */}
+                <div className="hidden md:block w-full">
+                  <AnimatePresence initial={false} mode="popLayout" custom={teamDirection}>
+                    <motion.div
+                      key={currentTeamIdx}
+                      custom={teamDirection}
+                      variants={slideVariants}
+                      initial="enter"
+                      animate="center"
+                      exit="exit"
+                      transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+                      className="grid grid-cols-3 gap-6 py-6 w-full"
+                    >
+                      {getVisibleTeamMembers().map((member, index) => (
+                        <div
+                          key={index}
+                          className="flex items-center justify-center"
+                        >
+                          <div className="flex items-center space-x-4">
+                            
+                            {/* Left Side: Role Text (rotated -90deg) */}
+                            <div className="h-[340px] flex items-center justify-end w-6">
+                              <span
+                                className="text-[9px] tracking-[0.25em] text-[#5C6B57]/80 uppercase font-sans font-bold whitespace-nowrap block"
+                                style={{
+                                  writingMode: "vertical-rl",
+                                  transform: "rotate(180deg)",
+                                }}
+                              >
+                                {member.role}
+                              </span>
+                            </div>
 
-                    {/* Premium Detail Overlay on Hover */}
-                    <div className="absolute inset-0 bg-black/90 flex flex-col justify-between p-6 opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0">
-                      <div className="space-y-3">
-                        <span className="font-sans text-[8px] tracking-[0.25em] text-[#C5A86A] font-bold uppercase block border-b border-[#C5A86A]/20 pb-2">
-                          {member.role}
+                            {/* Middle: Photo inside frame */}
+                            <div className="relative w-[210px] h-[300px] lg:w-[245px] lg:h-[350px] shrink-0 border-[3px] border-[#5C6B57] p-2.5 bg-transparent">
+                              <div className="relative w-full h-full overflow-hidden bg-transparent">
+                                <Image
+                                  src={member.image}
+                                  alt={member.name}
+                                  fill
+                                  className="object-cover object-center pointer-events-none mix-blend-multiply"
+                                  sizes="(max-width: 1024px) 210px, 250px"
+                                />
+                              </div>
+                            </div>
+
+                            {/* Right Side: Name (rotated -90deg, large serif) */}
+                            <div className="h-[340px] flex items-center justify-start w-10">
+                              <span
+                                        className="font-serif text-4xl lg:text-5xl tracking-[0.2em] text-[#5C6B57] uppercase font-light whitespace-nowrap block"
+                                style={{
+                                  writingMode: "vertical-rl",
+                                  transform: "rotate(180deg)",
+                                }}
+                              >
+                                {member.name}
+                              </span>
+                            </div>
+
+                          </div>
+                        </div>
+                      ))}
+                    </motion.div>
+                  </AnimatePresence>
+                </div>
+
+                {/* Mobile view: 1 member */}
+                <div className="md:hidden w-full flex items-center justify-center min-h-[300px]">
+                  <AnimatePresence initial={false} mode="popLayout" custom={teamDirection}>
+                    <motion.div
+                      key={currentTeamIdx}
+                      custom={teamDirection}
+                      variants={mobileSlideVariants}
+                      initial="enter"
+                      animate="center"
+                      exit="exit"
+                      transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+                      className="flex items-center justify-center"
+                    >
+                      
+                      {/* Left Side: Role Text */}
+                      <div className="h-[260px] flex items-center justify-end w-6">
+                        <span
+                          className="text-[8px] tracking-[0.2em] text-[#5C6B57]/85 uppercase font-sans font-bold whitespace-nowrap block"
+                          style={{
+                            writingMode: "vertical-rl",
+                            transform: "rotate(180deg)",
+                          }}
+                        >
+                          {teamMembersList[currentTeamIdx].role}
                         </span>
-                        <h3 className="font-serif text-xl tracking-[0.05em] text-white uppercase font-light">
-                          {member.name}
-                        </h3>
-                        <p className="font-sans text-[10px] tracking-wide text-white/90 font-light leading-relaxed">
-                          <strong className="text-[#C5A86A] font-bold block mb-0.5">Specialty:</strong>
-                          {member.specialty}
-                        </p>
-                        <p className="font-serif text-xs text-white/60 italic font-light leading-relaxed pt-1">
-                          "{member.quote}"
-                        </p>
                       </div>
 
-                      <a
-                        href="https://www.fresha.com/providers/maison-de-beaute-demo"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="w-full bg-[#C5A86A] hover:bg-[#B49658] text-white text-center font-sans text-[9px] font-bold tracking-[0.2em] uppercase py-3 rounded transition-all duration-300 shadow-sm"
-                      >
-                        Book {member.name.split(" ")[0]}
-                      </a>
-                    </div>
-                  </div>
+                      {/* Middle: Photo Box */}
+                      <div className="relative w-[170px] h-[240px] shrink-0 border-[3px] border-[#5C6B57] p-1.5 bg-transparent">
+                        <div className="relative w-full h-full overflow-hidden bg-transparent">
+                          <Image
+                            src={teamMembersList[currentTeamIdx].image}
+                            alt={teamMembersList[currentTeamIdx].name}
+                            fill
+                            className="object-cover object-center pointer-events-none mix-blend-multiply"
+                            sizes="170px"
+                          />
+                        </div>
+                      </div>
+
+                      {/* Right Side: Name */}
+                      <div className="h-[260px] flex items-center justify-start w-10">
+                        <span
+                          className="font-serif text-4xl tracking-[0.2em] text-[#5C6B57] uppercase font-light whitespace-nowrap block"
+                          style={{
+                            writingMode: "vertical-rl",
+                            transform: "rotate(180deg)",
+                          }}
+                        >
+                          {teamMembersList[currentTeamIdx].name}
+                        </span>
+                      </div>
+
+                    </motion.div>
+                  </AnimatePresence>
                 </div>
-              ))}
+
+              </div>
+
+              {/* Right Arrow */}
+              <button
+                onClick={nextTeamMember}
+                className="w-12 h-12 rounded-full bg-white text-[#5C6B57] flex items-center justify-center shadow-md hover:scale-105 transition-all z-10 shrink-0 cursor-pointer"
+                aria-label="Next team member"
+              >
+                <svg className="w-5 h-5 stroke-current" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />
+                </svg>
+              </button>
+
             </div>
 
           </div>
         </section>
 
         {/* 9. TESTIMONIALS */}
-        <section className="py-16 md:py-24 bg-white border-b border-[#EFECE6]">
-          <div className="max-w-4xl mx-auto px-6 text-center space-y-8">
-
-            <div className="space-y-2">
-              <span className="text-[#C5A86A] text-[9px] tracking-[0.3em] font-bold uppercase block font-sans">
-                KIND WORDS FROM CLIENTS
-              </span>
-              <h2 className="font-serif text-3xl text-[#1E241B] font-light uppercase tracking-wider italic">
+        <section className="py-16 md:py-24 bg-[#FAF8F5] border-b border-[#EFECE6]/40 select-none overflow-hidden">
+          <div className="max-w-[1360px] mx-auto px-4 md:px-8">
+            
+            {/* Title */}
+            <div className="text-center mb-12">
+              <h2 className="font-serif text-3xl md:text-4xl text-[#5C6B57] font-normal tracking-[0.25em] uppercase">
                 Testimonials
               </h2>
-              <div className="h-[1px] w-12 bg-[#C5A86A]/40 mx-auto mt-2" />
+              <div className="h-[1px] w-12 bg-[#5C6B57]/30 mx-auto mt-3.5" />
             </div>
 
-            <div className="relative min-h-[160px] flex items-center justify-center max-w-2xl mx-auto">
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={testimonialIdx}
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -10 }}
-                  transition={{ duration: 0.4 }}
-                  className="space-y-4"
+            {/* Slider Container with side arrows */}
+            <div className="relative flex items-center justify-between w-full">
+              
+              {/* Left Arrow */}
+              <button
+                onClick={handlePrevTesti}
+                className="text-[#5C6B57] hover:text-[#4A5746] transition-colors p-3 text-3xl font-light cursor-pointer select-none z-10"
+                aria-label="Previous testimonials"
+              >
+                &lt;
+              </button>
+
+              {/* Slide viewport */}
+              <div className="flex-grow mx-4 overflow-hidden py-4">
+                <div
+                  className="flex transition-transform duration-500 ease-in-out"
+                  style={{
+                    transform: `translateX(-${testiStartIdx * (100 / visibleCardsCount)}%)`,
+                  }}
                 >
-                  <div className="flex items-center justify-center space-x-1">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} size={11} className="fill-[#C5A86A] text-[#C5A86A]" />
-                    ))}
-                  </div>
-                  <p className="font-serif text-base sm:text-lg text-[#1E241B] font-light leading-relaxed italic">
-                    &ldquo;{testimonialsList[testimonialIdx].text}&rdquo;
-                  </p>
-                  <p className="font-sans text-[8px] font-bold tracking-[0.25em] text-[#C5A86A] uppercase pt-2">
-                    — {testimonialsList[testimonialIdx].name}
-                  </p>
-                </motion.div>
-              </AnimatePresence>
+                  {testimonialsList.map((item, idx) => {
+                    const isDark = idx % 2 === 1;
+                    return (
+                      <div
+                        key={idx}
+                        className="w-full md:w-1/2 lg:w-1/3 flex-shrink-0 px-3"
+                      >
+                        <div
+                          className={`h-full flex flex-col justify-between p-8 sm:p-10 rounded shadow-sm min-h-[300px] sm:min-h-[340px] md:min-h-[380px] lg:min-h-[420px] transition-all duration-300 ${
+                            isDark ? "bg-[#5C6B57] text-[#FAF8F5]" : "bg-[#C0C8B9] text-[#5C6B57]"
+                          }`}
+                        >
+                          <div className="space-y-5 text-center flex-grow flex flex-col justify-center">
+                            <h3 className="font-serif text-lg sm:text-xl font-normal leading-tight">
+                              {item.name}
+                            </h3>
+                            
+                            {/* 5 Stars */}
+                            <div className="flex items-center justify-center space-x-1">
+                              {[...Array(5)].map((_, i) => (
+                                <Star
+                                  key={i}
+                                  size={13}
+                                  className={isDark ? "fill-[#FAF8F5] text-[#FAF8F5]" : "fill-[#5C6B57] text-[#5C6B57]"}
+                                />
+                              ))}
+                            </div>
+
+                            <p className="font-serif text-sm sm:text-base leading-relaxed font-light italic">
+                              &ldquo;{item.text}&rdquo;
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+
+              {/* Right Arrow */}
+              <button
+                onClick={handleNextTesti}
+                className="text-[#5C6B57] hover:text-[#4A5746] transition-colors p-3 text-3xl font-light cursor-pointer select-none z-10"
+                aria-label="Next testimonials"
+              >
+                &gt;
+              </button>
+
             </div>
 
-            {/* Bullet indicators */}
-            <div className="flex items-center justify-center space-x-2 pt-2">
-              {testimonialsList.map((_, idx) => (
+            {/* Dots navigation */}
+            <div className="flex justify-center space-x-2 mt-10">
+              {[...Array(testimonialsList.length - visibleCardsCount + 1)].map((_, idx) => (
                 <button
                   key={idx}
-                  onClick={() => setTestimonialIdx(idx)}
-                  className={`w-1.5 h-1.5 rounded-full transition-all duration-300 cursor-pointer ${idx === testimonialIdx ? "bg-[#C5A86A] w-4" : "bg-[#E8E5DF]"
-                    }`}
-                  aria-label={`Go to review ${idx + 1}`}
+                  onClick={() => setTestiStartIdx(idx)}
+                  className={`w-1.5 h-1.5 rounded-full transition-all duration-300 cursor-pointer ${
+                    idx === testiStartIdx ? "bg-[#5C6B57] w-3" : "bg-[#5C6B57]/30"
+                  }`}
+                  aria-label={`Go to testimonial page ${idx + 1}`}
                 />
               ))}
+            </div>
+
+          </div>
+        </section>
+
+        {/* 9.25. PRESS SECTION */}
+        <section className="py-16 bg-[#C0C8B9] border-b border-[#EFECE6]/20 select-none">
+          <div className="max-w-[1360px] mx-auto px-4 md:px-8">
+            
+            {/* Title */}
+            <div className="text-center mb-10">
+              <h2 className="font-serif text-3xl md:text-4xl text-[#5C6B57] font-normal tracking-[0.25em] uppercase">
+                Press
+              </h2>
+              <div className="h-[1px] w-12 bg-[#5C6B57]/30 mx-auto mt-3.5" />
+            </div>
+            
+            {/* Slider with side arrows */}
+            <div className="relative flex items-center justify-between w-full">
+              
+              {/* Left Arrow */}
+              <button
+                onClick={() => setPressIdx((prev) => (prev - 1 + 3) % 3)}
+                className="text-[#5C6B57] hover:text-[#4A5746] transition-colors p-3 text-3xl font-light cursor-pointer select-none z-10"
+                aria-label="Previous slide"
+              >
+                &lt;
+              </button>
+
+              {/* Slide transition container */}
+              <div className="flex-grow mx-4 md:mx-8 overflow-hidden relative flex items-center justify-center min-h-[100px] sm:min-h-[135px] md:min-h-[155px] lg:min-h-[180px]">
+                <AnimatePresence mode="popLayout">
+                  <motion.div
+                    key={pressIdx}
+                    initial={{ opacity: 0, x: 200 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: -200 }}
+                    transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+                    className="w-full flex justify-center grayscale contrast-125 opacity-85 hover:opacity-100 transition-opacity duration-300"
+                  >
+                    <img
+                      src={pressImages[pressIdx].src}
+                      alt={pressImages[pressIdx].alt}
+                      loading="eager"
+                      className="h-[90px] sm:h-[125px] md:h-[145px] lg:h-[160px] w-auto object-contain mx-auto"
+                    />
+                  </motion.div>
+                </AnimatePresence>
+              </div>
+
+              {/* Right Arrow */}
+              <button
+                onClick={() => setPressIdx((prev) => (prev + 1) % 3)}
+                className="text-[#5C6B57] hover:text-[#4A5746] transition-colors p-3 text-3xl font-light cursor-pointer select-none z-10"
+                aria-label="Next slide"
+              >
+                &gt;
+              </button>
+
+            </div>
+
+            {/* Dots navigation */}
+            <div className="flex justify-center space-x-2 mt-8">
+              {pressImages.map((_, idx) => (
+                <button
+                  key={idx}
+                  onClick={() => setPressIdx(idx)}
+                  className={`w-1.5 h-1.5 rounded-full transition-all duration-300 cursor-pointer ${
+                    idx === pressIdx ? "bg-[#5C6B57] w-3" : "bg-white/50"
+                  }`}
+                  aria-label={`Go to press slide ${idx + 1}`}
+                />
+              ))}
+            </div>
+
+          </div>
+        </section>
+
+        {/* 9.5. INSTAGRAM FEED */}
+        <section className="py-16 bg-[#FAF8F5] border-b border-[#EFECE6]">
+          <div className="max-w-7xl mx-auto px-6">
+            
+            {/* Instagram Profile Header */}
+            <div className="flex items-center mb-8">
+              <a
+                href="https://www.instagram.com/blushandblowlondon/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="relative flex items-center space-x-3.5 group select-none cursor-pointer"
+              >
+                <div className="relative w-12 h-12">
+                  <Image
+                    src="/images/instagram/profile.webp"
+                    alt="Blush + Blow London Instagram Profile"
+                    width={48}
+                    height={48}
+                    className="rounded-full object-cover"
+                  />
+                  {/* Hover overlay for profile circle */}
+                  <div className="absolute inset-0 bg-black/40 rounded-full opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity duration-300">
+                    <Instagram size={16} className="text-white" />
+                  </div>
+                </div>
+                <h3 className="font-serif text-lg tracking-widest text-[#5C6B57] lowercase font-medium transition-colors duration-300">
+                  blushandblowlondon
+                </h3>
+              </a>
+            </div>
+
+            {/* Instagram Grid */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+              {[
+                { src: "/images/instagram/post_1.webp", alt: "Instagram post 1" },
+                { src: "/images/instagram/post_2.webp", alt: "Instagram post 2" },
+                { src: "/images/instagram/post_3.webp", alt: "Instagram post 3" },
+                { src: "/images/instagram/post_4.webp", alt: "Instagram post 4" },
+              ].map((post, idx) => (
+                <div key={idx} className="insta-post relative aspect-square overflow-hidden group rounded shadow-sm border border-[#EFECE6]/40">
+                  <a
+                    href="https://www.instagram.com/blushandblowlondon/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block w-full h-full relative"
+                  >
+                    <Image
+                      src={post.src}
+                      alt={post.alt}
+                      fill
+                      sizes="(max-width: 768px) 50vw, 25vw"
+                      className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+                    />
+                    {/* Overlay on hover */}
+                    <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 flex flex-col items-center justify-center transition-all duration-300">
+                      <Instagram size={20} className="text-white" />
+                      <span className="text-white text-[8px] tracking-[0.2em] font-sans font-bold uppercase mt-2">
+                        View on Instagram
+                      </span>
+                    </div>
+                  </a>
+                </div>
+              ))}
+            </div>
+
+            {/* Follow Button */}
+            <div className="flex justify-center mt-10">
+              <a
+                href="https://www.instagram.com/blushandblowlondon/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-serif text-xs tracking-[0.25em] uppercase px-8 py-3.5 border border-[#5C6B57] text-[#5C6B57] hover:bg-[#5C6B57] hover:text-white transition-all duration-300 bg-transparent block text-center"
+              >
+                Follow on Instagram
+              </a>
             </div>
 
           </div>
@@ -1596,109 +2008,6 @@ export default function Home() {
 
           </div>
         </section>
-
-        {/* 12. FLOATING CONCIERGE WIDGET */}
-        <div className="fixed bottom-24 right-6 z-50">
-          <div className="relative">
-
-            {/* The Floating Expandable Widget Button */}
-            <motion.button
-              onClick={() => setShowConcierge(!showConcierge)}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="bg-[#C5A86A] text-white w-14 h-14 rounded-full shadow-lg flex items-center justify-center cursor-pointer border border-white/20 select-none"
-              aria-label="Toggle concierge concierge assistant"
-            >
-              {showConcierge ? <X size={20} /> : <Sparkles size={20} />}
-            </motion.button>
-
-            {/* Dropdown Menu Modal */}
-            <AnimatePresence>
-              {showConcierge && (
-                <motion.div
-                  initial={{ opacity: 0, y: 15, scale: 0.95 }}
-                  animate={{ opacity: 1, y: 0, scale: 1 }}
-                  exit={{ opacity: 0, y: 15, scale: 0.95 }}
-                  transition={{ duration: 0.3 }}
-                  className="absolute bottom-16 right-0 w-80 bg-white/95 backdrop-blur-md border border-[#EFECE6] rounded-lg shadow-2xl p-6 space-y-6"
-                >
-                  <div className="border-b border-[#EFECE6] pb-3 text-left">
-                    <span className="text-[#C5A86A] text-[8px] tracking-[0.25em] font-bold uppercase block font-sans">
-                      FRONTDESK ASSISTANT
-                    </span>
-                    <h4 className="font-serif text-lg text-[#1E241B] font-light uppercase tracking-wider italic mt-0.5">
-                      Kensington Concierge
-                    </h4>
-                  </div>
-
-                  <div className="space-y-3 font-sans text-[10px] font-bold tracking-widest uppercase">
-                    <a
-                      href="https://www.fresha.com/providers/maison-de-beaute-demo"
-                      target="_blank"
-                      className="flex items-center justify-between bg-[#1E241B] text-white py-3.5 px-4 rounded hover:bg-[#5C6B57] transition-all"
-                    >
-                      <span>Book Online (Fresha)</span>
-                      <ArrowRight size={12} />
-                    </a>
-
-                    <a
-                      href="https://wa.me/447000000000"
-                      target="_blank"
-                      className="flex items-center justify-between border border-[#25d366] text-[#25d366] hover:bg-[#25d366] hover:text-white py-3.5 px-4 rounded transition-all"
-                    >
-                      <span>WhatsApp Concierge</span>
-                      <MessageCircle size={12} />
-                    </a>
-
-                    <a
-                      href="tel:02071234567"
-                      className="flex items-center justify-between border border-[#1E241B]/15 text-[#1E241B] hover:border-[#C5A86A] py-3.5 px-4 rounded transition-all"
-                    >
-                      <span>Call Front Desk</span>
-                      <Phone size={12} />
-                    </a>
-                  </div>
-
-                  {/* Brochure signup form */}
-                  <div className="border-t border-[#EFECE6] pt-4 text-left">
-                    <span className="text-[8px] tracking-widest text-[#1E241B]/50 uppercase font-bold block mb-2 font-sans">
-                      Request Bridal Brochure
-                    </span>
-                    {bridalSent ? (
-                      <p className="text-[10px] text-[#5C6B57] font-semibold tracking-wide">
-                        ✓ Brochure link sent to your inbox.
-                      </p>
-                    ) : (
-                      <form
-                        onSubmit={(e) => {
-                          e.preventDefault();
-                          setBridalSent(true);
-                        }}
-                        className="flex items-center gap-2"
-                      >
-                        <input
-                          type="email"
-                          placeholder="Your email address"
-                          value={bridalEmail}
-                          onChange={(e) => setBridalEmail(e.target.value)}
-                          className="flex-grow bg-transparent border-b border-[#1E241B]/15 py-1.5 text-xs text-[#1E241B] focus:outline-none focus:border-[#C5A86A]"
-                          required
-                        />
-                        <button
-                          type="submit"
-                          className="bg-[#C5A86A] hover:bg-[#B49658] text-white text-[8px] tracking-widest uppercase font-bold py-2 px-3 rounded cursor-pointer"
-                        >
-                          Send
-                        </button>
-                      </form>
-                    )}
-                  </div>
-
-                </motion.div>
-              )}
-            </AnimatePresence>
-          </div>
-        </div>
 
         {/* Lightbox Modal */}
         <AnimatePresence>

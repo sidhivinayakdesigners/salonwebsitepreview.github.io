@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Playfair_Display, Inter, Cormorant_Garamond, Outfit } from "next/font/google";
 import "./globals.css";
 import { SoundProvider } from "@/components/ui/ambient-sound";
-import { CustomCursor } from "@/components/ui/custom-cursor";
+import Script from "next/script";
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
@@ -49,10 +49,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${playfair.variable} ${inter.variable} ${cormorant.variable} ${outfit.variable} scroll-smooth`}>
-      <body className="min-h-screen bg-[#FAF8F5] text-[#1E241B] font-sans antialiased selection:bg-[#C5A86A]/20 selection:text-[#1E241B] custom-cursor-enabled">
+      <body className="min-h-screen bg-[#FAF8F5] text-[#1E241B] font-sans antialiased selection:bg-[#C5A86A]/20 selection:text-[#1E241B]">
         <SoundProvider>
-          <CustomCursor />
           {children}
+          <Script
+            src="https://widget.fresha.com/bootstrap.js"
+            strategy="afterInteractive"
+          />
         </SoundProvider>
       </body>
     </html>

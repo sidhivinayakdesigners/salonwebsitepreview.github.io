@@ -3,113 +3,86 @@
 import React from "react";
 import Link from "next/link";
 import { Instagram, Facebook, Phone, MessageCircle } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { useSound } from "@/components/ui/ambient-sound";
 
 export const Footer = () => {
   const { playHover, playClick } = useSound();
   return (
-    <footer className="bg-[#121610] text-[#FAF8F5] pt-20 pb-20 border-t border-white/5 font-sans">
-      <motion.div 
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: "-80px" }}
-        variants={{
-          hidden: { opacity: 0 },
-          visible: {
-            opacity: 1,
-            transition: {
-              staggerChildren: 0.1
-            }
-          }
-        }}
-        className="max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8"
-      >
-        
-        {/* Brand details */}
-        <motion.div 
-          variants={{
-            hidden: { opacity: 0, y: 15 },
-            visible: { opacity: 1, y: 0 }
-          }}
-          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-          className="flex flex-col space-y-6"
-        >
-          <Link href="/" className="flex flex-col select-none">
-            <span className="font-serif text-base tracking-[0.25em] text-white uppercase font-bold">
-              MAISON DE BEAUTÉ
+    <footer className="bg-[#121610] text-[#FAF8F5] pt-24 pb-16 border-t border-white/5 select-none">
+      
+      {/* Upper Brand Monogram Header */}
+      <div className="max-w-[1360px] mx-auto px-4 md:px-8 border-b border-white/5 pb-12 mb-16 text-center md:text-left">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-8">
+          <div>
+            <span className="font-serif text-3xl md:text-5xl tracking-[0.25em] text-white uppercase font-light leading-none">
+              Maison de Beauté
             </span>
-            <span className="text-[7px] tracking-[0.35em] text-[#C5A86A] uppercase mt-0.5 font-sans">
-              LONDON
+            <span className="text-[9px] tracking-[0.5em] text-[#C5A86A] uppercase block mt-2 font-sans font-medium">
+              L O N D O N
             </span>
-          </Link>
-          <p className="font-sans text-xs text-[#FAF8F5]/60 leading-relaxed tracking-wider max-w-xs">
-            Maison de Beauté London offers premium hair, nails, beauty, and skincare services in the heart of Chelsea on Maison Avenue, Kensington (SW6).
-          </p>
-          {/* Social Icons */}
-          <div className="flex items-center space-x-5 pt-2">
-            {[
-              { href: "https://www.instagram.com/maisondebeautedemo", icon: <Instagram size={16} />, label: "Instagram" },
-              { href: "https://www.facebook.com/maisondebeautedemo", icon: <Facebook size={16} />, label: "Facebook" },
-              { href: "https://wa.me/447000000000", icon: <MessageCircle size={16} />, label: "WhatsApp" },
-              { href: "tel:02071234567", icon: <Phone size={15} />, label: "Call Us" }
-            ].map((soc, idx) => (
-              <motion.a
-                key={idx}
-                href={soc.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                whileHover={{ scale: 1.1, y: -2 }}
-                className="text-[#FAF8F5]/50 hover:text-[#C5A86A] transition-colors"
-                aria-label={soc.label}
-              >
-                {soc.icon}
-              </motion.a>
-            ))}
           </div>
-        </motion.div>
+          <p className="font-serif text-xs md:text-sm text-[#FAF8F5]/45 italic max-w-sm leading-relaxed md:text-right font-light">
+            "Offering premium hair, nails, beauty, and skincare services in the heart of Chelsea, London."
+          </p>
+        </div>
+      </div>
 
-        {/* Quick links */}
-        <motion.div 
-          variants={{
-            hidden: { opacity: 0, y: 15 },
-            visible: { opacity: 1, y: 0 }
-          }}
-          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-          className="flex flex-col space-y-6"
-        >
-          <h4 className="font-serif text-xs tracking-[0.2em] uppercase text-[#C5A86A] font-semibold">
-            About Us
-          </h4>
+      {/* Grid Columns */}
+      <div className="max-w-[1360px] mx-auto px-4 md:px-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
+        
+        {/* Column 1: Coordinates */}
+        <div className="flex flex-col space-y-5">
+          <span className="font-sans text-[10px] tracking-[0.3em] uppercase text-[#C5A86A] font-semibold">
+            Coordinates
+          </span>
+          <div className="font-sans text-xs tracking-widest text-[#FAF8F5]/60 space-y-3.5 leading-relaxed">
+            <p>
+              Maison Avenue, Chelsea<br />
+              London, SW6 4SR
+            </p>
+            <div className="pt-2 space-y-1.5">
+              <a href="tel:02071234567" className="hover:text-[#C5A86A] transition-colors block">
+                020 7123 4567
+              </a>
+              <a href="mailto:concierge@maisondebeaute.com" className="hover:text-[#C5A86A] transition-colors block">
+                concierge@maisondebeaute.com
+              </a>
+            </div>
+          </div>
+        </div>
+
+        {/* Column 2: Navigation */}
+        <div className="flex flex-col space-y-5">
+          <span className="font-sans text-[10px] tracking-[0.3em] uppercase text-[#C5A86A] font-semibold">
+            Navigation
+          </span>
           <nav className="flex flex-col space-y-3 font-sans text-xs tracking-widest text-[#FAF8F5]/60">
             {[
               { href: "/", label: "Home" },
-              { href: "/team-members", label: "Team Members" },
+              { href: "/team-members", label: "Team" },
               { href: "/careers", label: "Careers" },
               { href: "/contact", label: "Contact & Hours" }
             ].map((link, idx) => (
-              <motion.div key={idx} whileHover={{ x: 2 }}>
-                <Link href={link.href} onMouseEnter={playHover} onClick={playClick} className="hover:text-[#C5A86A] transition-colors">
-                  {link.label}
-                </Link>
-              </motion.div>
+              <Link
+                key={idx}
+                href={link.href}
+                onMouseEnter={playHover}
+                onClick={playClick}
+                className="hover:text-[#C5A86A] transition-colors w-fit relative group pb-1"
+              >
+                {link.label}
+                <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-[#C5A86A] transition-all duration-300 group-hover:w-full" />
+              </Link>
             ))}
           </nav>
-        </motion.div>
+        </div>
 
-        {/* Services menu */}
-        <motion.div 
-          variants={{
-            hidden: { opacity: 0, y: 15 },
-            visible: { opacity: 1, y: 0 }
-          }}
-          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-          className="flex flex-col space-y-6"
-        >
-          <h4 className="font-serif text-xs tracking-[0.2em] uppercase text-[#C5A86A] font-semibold font-sans">
-            Services
-          </h4>
+        {/* Column 3: Offerings */}
+        <div className="flex flex-col space-y-5">
+          <span className="font-sans text-[10px] tracking-[0.3em] uppercase text-[#C5A86A] font-semibold">
+            Offerings
+          </span>
           <nav className="flex flex-col space-y-3 font-sans text-xs tracking-widest text-[#FAF8F5]/60">
             {[
               { href: "/hair", label: "Hair Styling & Color" },
@@ -117,66 +90,87 @@ export const Footer = () => {
               { href: "/beauty", label: "Brows, Makeup & Massage" },
               { href: "/bridal", label: "Bridal Hair & Makeup" }
             ].map((link, idx) => (
-              <motion.div key={idx} whileHover={{ x: 2 }}>
-                <Link href={link.href} onMouseEnter={playHover} onClick={playClick} className="hover:text-[#C5A86A] transition-colors">
-                  {link.label}
-                </Link>
-              </motion.div>
+              <Link
+                key={idx}
+                href={link.href}
+                onMouseEnter={playHover}
+                onClick={playClick}
+                className="hover:text-[#C5A86A] transition-colors w-fit relative group pb-1"
+              >
+                {link.label}
+                <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-[#C5A86A] transition-all duration-300 group-hover:w-full" />
+              </Link>
             ))}
           </nav>
-        </motion.div>
+        </div>
 
-        {/* Newsletter Signup */}
-        <motion.div 
-          variants={{
-            hidden: { opacity: 0, y: 15 },
-            visible: { opacity: 1, y: 0 }
-          }}
-          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-          className="flex flex-col space-y-6"
-        >
-          <h4 className="font-serif text-xs tracking-[0.2em] uppercase text-[#C5A86A] font-semibold">
-            Newsletter
-          </h4>
+        {/* Column 4: Club Newsletter */}
+        <div className="flex flex-col space-y-5">
+          <span className="font-sans text-[10px] tracking-[0.3em] uppercase text-[#C5A86A] font-semibold">
+            The Club
+          </span>
           <p className="font-sans text-xs text-[#FAF8F5]/60 leading-relaxed tracking-wider">
-            Subscribe to stay updated with Maison de Beauté news, seasonal promotions, and beauty tips.
+            Join our newsletter to receive seasonal updates, luxury tips, and priority booking invites.
           </p>
           <form
             onSubmit={(e) => e.preventDefault()}
-            className="flex flex-col space-y-3 pt-2"
+            className="relative flex items-center border-b border-[#FAF8F5]/20 focus-within:border-[#C5A86A] transition-colors duration-300 py-1.5 mt-2"
           >
             <input
               type="email"
-              placeholder="Your email address"
-              className="bg-transparent border-b border-[#FAF8F5]/20 pb-2 text-xs tracking-widest text-[#FAF8F5] placeholder-[#FAF8F5]/30 focus:outline-none focus:border-[#C5A86A] w-full transition-colors"
+              placeholder="YOUR EMAIL"
+              className="bg-transparent text-xs tracking-[0.15em] text-[#FAF8F5] placeholder-[#FAF8F5]/30 focus:outline-none w-full pr-10 font-sans"
               required
             />
-            <Button
+            <button
               type="submit"
-              variant="gold-solid"
               onMouseEnter={playHover}
               onClick={playClick}
-              className="px-6 py-2.5 text-[8px] mt-2 self-start bg-[#C5A86A] border-[#C5A86A] text-white hover:bg-[#B49658]"
+              className="absolute right-0 text-[#C5A86A] hover:text-white transition-colors text-xs font-semibold tracking-widest font-sans cursor-pointer uppercase"
+              aria-label="Subscribe"
             >
-              Subscribe
-            </Button>
+              JOIN
+            </button>
           </form>
-        </motion.div>
+          {/* Social Icons */}
+          <div className="flex items-center space-x-3.5 pt-4">
+            {[
+              { href: "https://www.instagram.com/maisondebeautedemo", icon: <Instagram size={14} />, label: "Instagram" },
+              { href: "https://www.facebook.com/maisondebeautedemo", icon: <Facebook size={14} />, label: "Facebook" },
+              { href: "https://wa.me/447000000000", icon: <MessageCircle size={14} />, label: "WhatsApp" },
+              { href: "tel:02071234567", icon: <Phone size={13} />, label: "Call Us" }
+            ].map((soc, idx) => (
+              <a
+                key={idx}
+                href={soc.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-7 h-7 rounded-full border border-white/10 flex items-center justify-center text-[#FAF8F5]/50 hover:text-[#C5A86A] hover:border-[#C5A86A] transition-all duration-300"
+                aria-label={soc.label}
+              >
+                {soc.icon}
+              </a>
+            ))}
+          </div>
+        </div>
 
-      </motion.div>
+      </div>
 
-      {/* Border & Copyright */}
-      <div className="max-w-7xl mx-auto px-6 md:px-12 mt-16 pt-8 border-t border-white/5 flex flex-col md:flex-row items-center justify-between text-[8px] tracking-[0.2em] uppercase text-[#FAF8F5]/30 gap-4">
-        <p>&copy; {new Date().getFullYear()} Maison de Beauté London. All Rights Reserved.</p>
-        <div className="flex items-center space-x-6">
-          <Link href="/" onMouseEnter={playHover} onClick={playClick} className="hover:text-[#C5A86A] transition-colors">
+      {/* Copyright Footer Links */}
+      <div className="max-w-[1360px] mx-auto px-4 md:px-8 mt-20 pt-8 border-t border-white/5 flex flex-col md:flex-row items-center justify-between text-[8px] tracking-[0.25em] uppercase text-[#FAF8F5]/35 gap-4">
+        <p>&copy; {new Date().getFullYear()} Maison de Beauté. All rights reserved.</p>
+        <div className="flex items-center space-x-8">
+          <Link href="/privacy-statement" onMouseEnter={playHover} onClick={playClick} className="hover:text-[#C5A86A] transition-colors relative group pb-0.5">
             Privacy Policy
+            <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-[#C5A86A] transition-all duration-300 group-hover:w-full" />
           </Link>
-          <Link href="/" onMouseEnter={playHover} onClick={playClick} className="hover:text-[#C5A86A] transition-colors">
-            Terms of Service
+          <Link href="/terms-and-conditions" onMouseEnter={playHover} onClick={playClick} className="hover:text-[#C5A86A] transition-colors relative group pb-0.5">
+            Terms & Conditions
+            <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-[#C5A86A] transition-all duration-300 group-hover:w-full" />
           </Link>
         </div>
       </div>
+
     </footer>
   );
 };

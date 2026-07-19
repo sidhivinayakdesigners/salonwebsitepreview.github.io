@@ -4,11 +4,11 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, MessageCircle, Calendar, VolumeX, Volume2 } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { useSound } from "@/components/ui/ambient-sound";
 
 export const Navbar = () => {
-  const { isMuted, toggleMute, playHover, playClick } = useSound();
+  const { playHover, playClick } = useSound();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const [isScrolled, setIsScrolled] = useState(false);
@@ -41,16 +41,32 @@ export const Navbar = () => {
         initial={{ y: -80, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-        className={`fixed top-0 left-0 w-full z-50 h-20 transition-all duration-500 ${
+        className={`fixed top-0 left-0 w-full z-50 h-24 transition-all duration-500 ${
           isScrolled
             ? "bg-[#FAF8F5]/95 backdrop-blur-md border-b border-[#EFECE6] shadow-sm text-[#1E241B]"
-            : "bg-[#FAF8F5]/60 backdrop-blur-sm border-b border-[#EFECE6]/40 text-[#1E241B]"
+            : "bg-[#FAF8F5]/80 backdrop-blur-sm border-b border-[#EFECE6]/40 text-[#1E241B]"
         }`}
       >
-        <div className="max-w-7xl mx-auto px-4 md:px-6 h-full flex items-center justify-between relative">
+        <div className="max-w-7xl mx-auto px-6 h-full flex items-center justify-between relative">
           
-          {/* Left Side: Hamburger (visible only on mobile/tablet) */}
-          <div className="flex items-center lg:hidden">
+          {/* Left Side: Brand Logo (Centered absolutely on mobile, left-aligned relative on desktop) */}
+          <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 lg:relative lg:left-auto lg:top-auto lg:translate-x-0 lg:translate-y-0 lg:transform-none z-20 flex flex-col items-center lg:items-start justify-center">
+            <Link href="/" onMouseEnter={playHover} onClick={playClick} className="flex flex-col items-center lg:items-start group select-none">
+              <span className="font-serif text-base sm:text-lg md:text-xl tracking-[0.22em] font-normal uppercase whitespace-nowrap text-[#1E241B] leading-none">
+                MAISON DE BEAUTÉ
+              </span>
+              <div className="flex items-center w-full justify-center lg:justify-start space-x-1.5 mt-1.5">
+                <div className="h-[0.5px] w-4 bg-[#1E241B]/15" />
+                <span className="text-[6.5px] sm:text-[7.5px] tracking-[0.35em] text-[#C5A86A] uppercase font-sans font-semibold">
+                  LONDON
+                </span>
+                <div className="h-[0.5px] w-4 bg-[#1E241B]/15" />
+              </div>
+            </Link>
+          </div>
+
+          {/* Left Side Menu Toggle (Mobile/Tablet only) */}
+          <div className="flex items-center lg:hidden z-10">
             <button
               onClick={toggleMobileMenu}
               onMouseEnter={playHover}
@@ -61,45 +77,32 @@ export const Navbar = () => {
             </button>
           </div>
 
-          {/* Logo Link: Centered absolutely on mobile, left-aligned/normal on desktop */}
-          <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 lg:static lg:transform-none z-10 flex flex-col items-center">
-            <Link href="/" onMouseEnter={playHover} onClick={playClick} className="flex flex-col items-center group">
-              <span className="font-serif text-xs sm:text-sm md:text-lg tracking-[0.2em] font-bold uppercase whitespace-nowrap transition-colors duration-300">
-                MAISON DE BEAUTÉ
-              </span>
-              <div className="flex items-center w-full justify-center space-x-1.5 mt-0.5">
-                <div className="h-[0.5px] flex-grow transition-colors duration-300 bg-[#1E241B]/20" />
-                <span className="text-[6px] sm:text-[7px] tracking-[0.3em] text-[#C5A86A] uppercase font-sans font-medium">
-                  LONDON
-                </span>
-                <div className="h-[0.5px] flex-grow transition-colors duration-300 bg-[#1E241B]/20" />
-              </div>
-            </Link>
-          </div>
-
-          {/* Desktop Navigation Links */}
-          <nav className="hidden lg:flex items-center h-full text-[9px] font-sans font-bold tracking-[0.25em] uppercase">
+          {/* Right Side: Navigation Menu (Desktop only) */}
+          <nav className="hidden lg:flex items-center space-x-1 text-[11px] sm:text-xs font-serif font-normal tracking-[0.2em] uppercase z-10">
+            
+            {/* HOME */}
             <Link
               href="/"
               onMouseEnter={playHover}
               onClick={playClick}
-              className={`px-4 flex items-center h-full border-r border-[#EFECE6]/10 transition-colors ${
-                pathname === "/" 
-                  ? "bg-[#E8E5DF] text-[#1E241B]" 
-                  : "hover:bg-[#FAF8F5]/50 text-[#1E241B] hover:text-[#C5A86A]"
+              className={`px-4 py-2 relative transition-colors ${
+                pathname === "/" ? "text-[#C5A86A]" : "text-[#1E241B] hover:text-[#C5A86A]"
               }`}
             >
-              Home
+              HOME
+              {pathname === "/" && (
+                <span className="absolute bottom-0 left-4 right-4 h-[1px] bg-[#C5A86A]" />
+              )}
             </Link>
 
-            {/* About Dropdown */}
+            {/* ABOUT */}
             <div
-              className="relative h-full border-r border-[#EFECE6]/10"
+              className="relative"
               onMouseEnter={() => { playHover(); setActiveDropdown("about"); }}
               onMouseLeave={() => setActiveDropdown(null)}
             >
-              <button className="px-4 flex items-center h-full hover:bg-[#FAF8F5]/50 transition-colors focus:outline-none cursor-pointer">
-                <span>About +</span>
+              <button className="px-4 py-2 flex items-center space-x-1 hover:text-[#C5A86A] transition-colors focus:outline-none cursor-pointer font-serif uppercase tracking-[0.2em]">
+                <span>ABOUT +</span>
               </button>
               
               <AnimatePresence>
@@ -109,18 +112,18 @@ export const Navbar = () => {
                     animate={{ opacity: 1, y: 0, scale: 1 }}
                     exit={{ opacity: 0, y: 8, scale: 0.98 }}
                     transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-                    className="absolute left-0 w-44 bg-[#FAF8F5] border border-[#EFECE6] rounded-md shadow-lg py-2 z-50 text-[#1E241B] origin-top"
+                    className="absolute left-0 mt-1 w-44 bg-[#FAF8F5] border border-[#EFECE6] rounded shadow-lg py-2 z-50 text-[#1E241B] origin-top font-serif tracking-[0.18em]"
                   >
                     {[
-                      { href: "/team-members", label: "Team Members" },
-                      { href: "/careers", label: "Careers" }
+                      { href: "/team-members", label: "TEAM MEMBERS" },
+                      { href: "/careers", label: "CAREERS" }
                     ].map((item, idx) => (
                       <Link
                         key={idx}
                         href={item.href}
                         onMouseEnter={playHover}
                         onClick={playClick}
-                        className="block px-5 py-2.5 hover:bg-[#E8E5DF] text-[8px] tracking-widest font-bold text-[#1E241B] hover:text-[#C5A86A] transition-colors"
+                        className="block px-5 py-2.5 hover:bg-[#E8E5DF] text-[9px] font-normal text-[#1E241B] hover:text-[#C5A86A] transition-colors"
                       >
                         {item.label}
                       </Link>
@@ -130,14 +133,14 @@ export const Navbar = () => {
               </AnimatePresence>
             </div>
 
-            {/* Services Dropdown */}
+            {/* SERVICES */}
             <div
-              className="relative h-full border-r border-[#EFECE6]/10"
+              className="relative"
               onMouseEnter={() => { playHover(); setActiveDropdown("services"); }}
               onMouseLeave={() => setActiveDropdown(null)}
             >
-              <button className="px-4 flex items-center h-full hover:bg-[#FAF8F5]/50 transition-colors focus:outline-none cursor-pointer">
-                <span>Services +</span>
+              <button className="px-4 py-2 flex items-center space-x-1 hover:text-[#C5A86A] transition-colors focus:outline-none cursor-pointer font-serif uppercase tracking-[0.2em]">
+                <span>SERVICES +</span>
               </button>
               
               <AnimatePresence>
@@ -147,20 +150,20 @@ export const Navbar = () => {
                     animate={{ opacity: 1, y: 0, scale: 1 }}
                     exit={{ opacity: 0, y: 8, scale: 0.98 }}
                     transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-                    className="absolute left-0 w-44 bg-[#FAF8F5] border border-[#EFECE6] rounded-md shadow-lg py-2 z-50 text-[#1E241B] origin-top"
+                    className="absolute left-0 mt-1 w-44 bg-[#FAF8F5] border border-[#EFECE6] rounded shadow-lg py-2 z-50 text-[#1E241B] origin-top font-serif tracking-[0.18em]"
                   >
                     {[
-                      { href: "/hair", label: "Hair" },
-                      { href: "/nails", label: "Nails" },
-                      { href: "/beauty", label: "Beauty" },
-                      { href: "/bridal", label: "Bridal" }
+                      { href: "/hair", label: "HAIR" },
+                      { href: "/nails", label: "NAILS" },
+                      { href: "/beauty", label: "BEAUTY" },
+                      { href: "/bridal", label: "BRIDAL" }
                     ].map((item, idx) => (
                       <Link
                         key={idx}
                         href={item.href}
                         onMouseEnter={playHover}
                         onClick={playClick}
-                        className="block px-5 py-2.5 hover:bg-[#E8E5DF] text-[8px] tracking-widest font-bold text-[#1E241B] hover:text-[#C5A86A] transition-colors"
+                        className="block px-5 py-2.5 hover:bg-[#E8E5DF] text-[9px] font-normal text-[#1E241B] hover:text-[#C5A86A] transition-colors"
                       >
                         {item.label}
                       </Link>
@@ -170,78 +173,30 @@ export const Navbar = () => {
               </AnimatePresence>
             </div>
 
-            <Link
-              href="/beauts"
-              onMouseEnter={playHover}
-              onClick={playClick}
-              className="px-4 flex items-center h-full border-r border-[#EFECE6]/10 hover:bg-[#FAF8F5]/50 transition-colors"
-            >
-              Beauts
-            </Link>
-            
-            <Link
-              href="/blower"
-              onMouseEnter={playHover}
-              onClick={playClick}
-              className="px-4 flex items-center h-full border-r border-[#EFECE6]/10 hover:bg-[#FAF8F5]/50 transition-colors"
-            >
-              The Blower
-            </Link>
+            {/* BEAUTS, THE BLOWER, FAQs, CONTACT */}
+            {[
+              { href: "/beauts", label: "BEAUTS" },
+              { href: "/blower", label: "THE BLOWER" },
+              { href: "/faqs", label: "FAQ'S" },
+              { href: "/contact", label: "CONTACT" }
+            ].map((link, idx) => (
+              <Link
+                key={idx}
+                href={link.href}
+                onMouseEnter={playHover}
+                onClick={playClick}
+                className={`px-4 py-2 relative transition-colors ${
+                  pathname === link.href ? "text-[#C5A86A]" : "text-[#1E241B] hover:text-[#C5A86A]"
+                }`}
+              >
+                {link.label}
+                {pathname === link.href && (
+                  <span className="absolute bottom-0 left-4 right-4 h-[1px] bg-[#C5A86A]" />
+                )}
+              </Link>
+            ))}
 
-            <Link
-              href="/faqs"
-              onMouseEnter={playHover}
-              onClick={playClick}
-              className="px-4 flex items-center h-full border-r border-[#EFECE6]/10 hover:bg-[#FAF8F5]/50 transition-colors"
-            >
-              Faq's
-            </Link>
-
-            <Link
-              href="/contact"
-              onMouseEnter={playHover}
-              onClick={playClick}
-              className="px-4 flex items-center h-full hover:bg-[#FAF8F5]/50 transition-colors"
-            >
-              Contact
-            </Link>
           </nav>
-
-          {/* Right Side: Sound Toggle & Book Now */}
-          <div className="flex items-center space-x-3.5 z-10">
-            {/* Audio Toggle Button */}
-            <button
-              onClick={toggleMute}
-              onMouseEnter={playHover}
-              className="p-2.5 rounded-full border border-[#1E241B]/15 text-[#1E241B] hover:text-[#C5A86A] hover:border-[#C5A86A] transition-all duration-300 focus:outline-none flex items-center justify-center cursor-pointer"
-              aria-label={isMuted ? "Unmute site audio" : "Mute site audio"}
-            >
-              {isMuted ? (
-                <VolumeX size={12} />
-              ) : (
-                <div className="flex items-center space-x-0.5 h-3">
-                  <div className="w-[1.5px] bg-[#C5A86A] animate-bounce h-2" style={{ animationDelay: "0.1s", animationDuration: "0.8s" }} />
-                  <div className="w-[1.5px] bg-[#C5A86A] animate-bounce h-3" style={{ animationDelay: "0.3s", animationDuration: "0.6s" }} />
-                  <div className="w-[1.5px] bg-[#C5A86A] animate-bounce h-1.5" style={{ animationDelay: "0.2s", animationDuration: "0.7s" }} />
-                </div>
-              )}
-            </button>
-
-            <Link
-              href="https://www.fresha.com/providers/maison-de-beaute-demo"
-              target="_blank"
-              rel="noopener noreferrer"
-              onMouseEnter={playHover}
-              onClick={playClick}
-              className={`font-sans font-bold text-[8px] sm:text-[9px] tracking-[0.2em] uppercase px-4 py-2.5 rounded-full border transition-all duration-300 block text-center whitespace-nowrap shadow-sm hover:scale-[1.02] active:scale-[0.98] ${
-                isScrolled
-                  ? "bg-[#C5A86A] border-[#C5A86A] text-white hover:bg-[#B49658]"
-                  : "bg-white border-[#1E241B]/15 text-[#1E241B] hover:bg-[#E8E5DF]"
-              }`}
-            >
-              Book Online
-            </Link>
-          </div>
 
         </div>
       </motion.header>
@@ -329,39 +284,13 @@ export const Navbar = () => {
                   rel="noopener noreferrer"
                   className="bg-[#C5A86A] text-white font-semibold text-[9px] tracking-[0.25em] uppercase py-3 rounded-full w-full block shadow hover:bg-[#B49658] transition-colors"
                 >
-                  Book Appointment
+                  Book Online
                 </Link>
-                <p className="text-[7px] text-[#FAF8F5]/40 tracking-wider">
-                  197 New Kings Rd, SW6 4SR • 020 7123 4567
-                </p>
               </div>
             </motion.div>
           </>
         )}
       </AnimatePresence>
-
-      {/* Sticky Mobile Portrait Bottom Action Bar (high converting, premium touch UI) */}
-      <div className="fixed bottom-0 left-0 right-0 z-45 bg-[#FAF8F5]/90 backdrop-blur-md border-t border-[#EFECE6] h-16 flex items-center justify-between px-4 py-2 shadow-2xl lg:hidden">
-        <a
-          href="https://wa.me/447000000000"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center justify-center space-x-2 bg-[#5C6B57] active:bg-[#4E5A49] text-white text-[9px] tracking-[0.2em] font-bold uppercase rounded-full h-11 w-[47%] transition-all duration-300 shadow-sm"
-        >
-          <MessageCircle size={14} className="fill-white text-[#5C6B57]" />
-          <span>WhatsApp Us</span>
-        </a>
-        <a
-          href="https://www.fresha.com/providers/maison-de-beaute-demo"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center justify-center space-x-2 bg-[#C5A86A] active:bg-[#B49658] text-white text-[9px] tracking-[0.2em] font-bold uppercase rounded-full h-11 w-[47%] transition-all duration-300 shadow-sm"
-        >
-          <Calendar size={14} />
-          <span>Book Now</span>
-        </a>
-      </div>
     </>
   );
 };
-
