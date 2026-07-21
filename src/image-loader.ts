@@ -7,7 +7,7 @@ interface ImageLoaderProps {
 }
 
 export default function imageLoader({ src }: ImageLoaderProps): string {
-  const basePath = "/salonwebsitepreview.github.io";
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
   
   // If the path starts with a slash, prepend the basePath
   if (src.startsWith("/")) {
