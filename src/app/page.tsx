@@ -1634,7 +1634,7 @@ export default function Home() {
               </button>
 
               {/* Slide transition container */}
-              <div className="flex-grow mx-4 md:mx-8 overflow-x-auto scrollbar-none relative flex items-center min-h-[100px] sm:min-h-[135px] md:min-h-[155px] lg:min-h-[180px]">
+              <div className="flex-grow mx-4 md:mx-8 overflow-hidden relative flex items-center min-h-[100px] sm:min-h-[135px] md:min-h-[155px] lg:min-h-[180px]">
                 <AnimatePresence mode="popLayout">
                   <motion.div
                     key={pressIdx}
@@ -1642,13 +1642,13 @@ export default function Home() {
                     animate={{ opacity: 1, x: 0 }}
                     exit={{ opacity: 0, x: -80 }}
                     transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-                    className="w-full flex justify-start md:justify-center grayscale contrast-125 opacity-85 hover:opacity-100 transition-opacity duration-300 px-4 md:px-0"
+                    className="w-full flex justify-center grayscale contrast-125 opacity-85 hover:opacity-100 transition-opacity duration-300"
                   >
                     <img
                       src={pressImages[pressIdx].src}
                       alt={pressImages[pressIdx].alt}
                       loading="eager"
-                      className="h-[60px] sm:h-[110px] md:h-[130px] lg:h-[150px] min-w-[520px] md:min-w-0 w-auto object-contain mx-auto"
+                      className="w-full max-w-[450px] md:max-w-none h-auto max-h-[60px] sm:max-h-[85px] md:max-h-none md:h-[130px] lg:h-[150px] object-contain mx-auto"
                     />
                   </motion.div>
                 </AnimatePresence>
