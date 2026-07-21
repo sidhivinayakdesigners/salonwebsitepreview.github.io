@@ -25,13 +25,26 @@
 /* Base resets & transitions */
 html {
   scroll-behavior: smooth;
-  background-color: #FAF8F5;
+  background-color: #121610; /* Luxury scroll-bounce background to blend with dark footer */
   color: #1E241B;
+  overflow-x: hidden;
+  max-width: 100vw;
 }
 
 body {
   font-feature-settings: "cv02", "cv03", "cv04", "cv11";
   background-color: #FAF8F5;
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
+/* Hide scrollbars but keep functionality */
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-none {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
 }
 
 /* Premium Scrollbar */
