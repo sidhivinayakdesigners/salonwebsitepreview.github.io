@@ -417,6 +417,11 @@ export default function Home() {
     priority: "",
   });
 
+  // Floating Concierge state
+  const [showConcierge, setShowConcierge] = useState(false);
+  const [bridalEmail, setBridalEmail] = useState("");
+  const [bridalSent, setBridalSent] = useState(false);
+
   // Hero section image slideshow index
   const [heroImageIdx, setHeroImageIdx] = useState(0);
 
@@ -2045,6 +2050,110 @@ export default function Home() {
             </motion.div>
           )}
         </AnimatePresence>
+
+        {/* 12. FLOATING CONCIERGE WIDGET */}
+        <div className="fixed bottom-24 right-6 z-50">
+          <div className="relative">
+
+            {/* The Floating Expandable Widget Button */}
+            <motion.button
+              onClick={() => setShowConcierge(!showConcierge)}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="bg-[#C5A86A] text-white w-14 h-14 rounded-full shadow-lg flex items-center justify-center cursor-pointer border border-white/20 select-none focus:outline-none"
+              aria-label="Toggle concierge assistant"
+            >
+              {showConcierge ? <X size={20} /> : <Sparkles size={20} />}
+            </motion.button>
+
+            {/* Dropdown Menu Modal */}
+            <AnimatePresence>
+              {showConcierge && (
+                <motion.div
+                  initial={{ opacity: 0, y: 15, scale: 0.95 }}
+                  animate={{ opacity: 1, y: 0, scale: 1 }}
+                  exit={{ opacity: 0, y: 15, scale: 0.95 }}
+                  transition={{ duration: 0.3 }}
+                  className="absolute bottom-16 right-0 w-80 bg-white/95 backdrop-blur-md border border-[#EFECE6] rounded-lg shadow-2xl p-6 space-y-6"
+                >
+                  <div className="border-b border-[#EFECE6] pb-3 text-left">
+                    <span className="text-[#C5A86A] text-[8px] tracking-[0.25em] font-bold uppercase block font-sans">
+                      FRONTDESK ASSISTANT
+                    </span>
+                    <h4 className="font-serif text-lg text-[#1E241B] font-light uppercase tracking-wider italic mt-0.5">
+                      Kensington Concierge
+                    </h4>
+                  </div>
+
+                  <div className="space-y-3 font-sans text-[10px] font-bold tracking-widest uppercase text-left">
+                    <a
+                      href="https://www.fresha.com/providers/maison-de-beaute-demo"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center justify-between bg-[#1E241B] text-white py-3.5 px-4 rounded hover:bg-[#5C6B57] transition-all"
+                    >
+                      <span>Book Online (Fresha)</span>
+                      <ArrowRight size={12} />
+                    </a>
+
+                    <a
+                      href="https://wa.me/447000000000"
+                      target="_blank"
+                      className="flex items-center justify-between border border-[#25d366] text-[#25d366] hover:bg-[#25d366] hover:text-white py-3.5 px-4 rounded transition-all"
+                    >
+                      <span>WhatsApp Concierge</span>
+                      <MessageCircle size={12} />
+                    </a>
+
+                    <a
+                      href="tel:02071234567"
+                      className="flex items-center justify-between border border-[#1E241B]/15 text-[#1E241B] hover:border-[#C5A86A] py-3.5 px-4 rounded transition-all"
+                    >
+                      <span>Call Front Desk</span>
+                      <Phone size={12} />
+                    </a>
+                  </div>
+
+                  {/* Brochure signup form */}
+                  <div className="border-t border-[#EFECE6] pt-4 text-left">
+                    <span className="text-[8px] tracking-widest text-[#1E241B]/50 uppercase font-bold block mb-2 font-sans">
+                      Request Bridal Brochure
+                    </span>
+                    {bridalSent ? (
+                      <p className="text-[10px] text-[#5C6B57] font-semibold tracking-wide">
+                        ✓ Brochure link sent to your inbox.
+                      </p>
+                    ) : (
+                      <form
+                        onSubmit={(e) => {
+                          e.preventDefault();
+                          setBridalSent(true);
+                        }}
+                        className="flex items-center gap-2"
+                      >
+                        <input
+                          type="email"
+                          placeholder="Your email address"
+                          value={bridalEmail}
+                          onChange={(e) => setBridalEmail(e.target.value)}
+                          className="flex-grow bg-transparent border-b border-[#1E241B]/15 py-1.5 text-xs text-[#1E241B] focus:outline-none focus:border-[#C5A86A]"
+                          required
+                        />
+                        <button
+                          type="submit"
+                          className="bg-[#C5A86A] hover:bg-[#B49658] text-white text-[8px] tracking-widest uppercase font-bold py-2 px-3 rounded cursor-pointer"
+                        >
+                          Send
+                        </button>
+                      </form>
+                    )}
+                  </div>
+
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
+        </div>
 
       </main>
 
